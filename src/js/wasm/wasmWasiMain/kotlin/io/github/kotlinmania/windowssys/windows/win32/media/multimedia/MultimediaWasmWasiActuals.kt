@@ -39,7 +39,7 @@ public actual fun aVIBuildFilterW(lpszfilter: Pwstr, cbfilter: Int, fsaving: Boo
 private external fun wasiWindowssysWindowsWin32MediaMultimediaAVIClearClipboard(): Int
 
 public actual fun aVIClearClipboard(): Hresult =
-    wasiWindowssysWindowsWin32MediaMultimediaAVIClearClipboard().toInt()
+    wasiWindowssysWindowsWin32MediaMultimediaAVIClearClipboard()
 
 public actual fun aVIFileAddRef(pfile: MutPtr<CVoid>): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaAVIFileAddRef")
@@ -210,7 +210,7 @@ public actual fun drawDibChangePalette(hdd: Long, istart: Int, ilen: Int, lppe: 
 private external fun wasiWindowssysWindowsWin32MediaMultimediaDrawDibClose(hdd: Long): Int
 
 public actual fun drawDibClose(hdd: Long): Bool =
-    wasiWindowssysWindowsWin32MediaMultimediaDrawDibClose(hdd).toInt()
+    wasiWindowssysWindowsWin32MediaMultimediaDrawDibClose(hdd)
 
 public actual fun drawDibDraw(hdd: Long, hdc: Hdc, xdst: Int, ydst: Int, dxdst: Int, dydst: Int, lpbi: ConstPtr<Bitmapinfoheader>, lpbits: ConstPtr<CVoid>, xsrc: Int, ysrc: Int, dxsrc: Int, dysrc: Int, wflags: UInt): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaDrawDibDraw")
@@ -219,7 +219,7 @@ public actual fun drawDibDraw(hdd: Long, hdc: Hdc, xdst: Int, ydst: Int, dxdst: 
 private external fun wasiWindowssysWindowsWin32MediaMultimediaDrawDibEnd(hdd: Long): Int
 
 public actual fun drawDibEnd(hdd: Long): Bool =
-    wasiWindowssysWindowsWin32MediaMultimediaDrawDibEnd(hdd).toInt()
+    wasiWindowssysWindowsWin32MediaMultimediaDrawDibEnd(hdd)
 
 public actual fun drawDibGetBuffer(hdd: Long, lpbi: MutPtr<Bitmapinfoheader>, dwsize: UInt, dwflags: UInt): MutPtr<CVoid> =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaDrawDibGetBuffer")
@@ -231,7 +231,7 @@ public actual fun drawDibGetPalette(hdd: Long): Hpalette =
 private external fun wasiWindowssysWindowsWin32MediaMultimediaDrawDibOpen(): Long
 
 public actual fun drawDibOpen(): Long =
-    wasiWindowssysWindowsWin32MediaMultimediaDrawDibOpen().toLong()
+    wasiWindowssysWindowsWin32MediaMultimediaDrawDibOpen()
 
 public actual fun drawDibProfileDisplay(lpbi: ConstPtr<Bitmapinfoheader>): Lresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaDrawDibProfileDisplay")
@@ -246,13 +246,13 @@ public actual fun drawDibSetPalette(hdd: Long, hpal: Hpalette): Bool =
 private external fun wasiWindowssysWindowsWin32MediaMultimediaDrawDibStart(hdd: Long, rate: Int): Int
 
 public actual fun drawDibStart(hdd: Long, rate: UInt): Bool =
-    wasiWindowssysWindowsWin32MediaMultimediaDrawDibStart(hdd, rate.toInt()).toInt()
+    wasiWindowssysWindowsWin32MediaMultimediaDrawDibStart(hdd, rate.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32MediaMultimediaDrawDibStop")
 private external fun wasiWindowssysWindowsWin32MediaMultimediaDrawDibStop(hdd: Long): Int
 
 public actual fun drawDibStop(hdd: Long): Bool =
-    wasiWindowssysWindowsWin32MediaMultimediaDrawDibStop(hdd).toInt()
+    wasiWindowssysWindowsWin32MediaMultimediaDrawDibStop(hdd)
 
 public actual fun drawDibTime(hdd: Long, lpddtime: MutPtr<Drawdibtime>): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaDrawDibTime")
@@ -353,7 +353,7 @@ public actual fun iCOpenFunction(fcctype: UInt, fcchandler: UInt, wmode: UInt, l
 private external fun wasiWindowssysWindowsWin32MediaMultimediaICRemove(fcctype: Int, fcchandler: Int, wflags: Int): Int
 
 public actual fun iCRemove(fcctype: UInt, fcchandler: UInt, wflags: UInt): Bool =
-    wasiWindowssysWindowsWin32MediaMultimediaICRemove(fcctype.toInt(), fcchandler.toInt(), wflags.toInt()).toInt()
+    wasiWindowssysWindowsWin32MediaMultimediaICRemove(fcctype.toInt(), fcchandler.toInt(), wflags.toInt())
 
 public actual fun iCSendMessage(hic: Hic, msg: UInt, dw1: ULong, dw2: ULong): Lresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaICSendMessage")
@@ -376,7 +376,7 @@ public actual fun mCIWndCreateW(hwndparent: Hwnd, hinstance: Hinstance, dwstyle:
 private external fun wasiWindowssysWindowsWin32MediaMultimediaMCIWndRegisterClass(): Int
 
 public actual fun mCIWndRegisterClass(): Bool =
-    wasiWindowssysWindowsWin32MediaMultimediaMCIWndRegisterClass().toInt()
+    wasiWindowssysWindowsWin32MediaMultimediaMCIWndRegisterClass()
 
 public actual fun openDriver(szdrivername: Pcwstr, szsectionname: Pcwstr, lparam2: Lparam): Hdrvr =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaOpenDriver")
@@ -451,7 +451,7 @@ public actual fun mciDriverYield(wdeviceid: UInt): UInt =
 private external fun wasiWindowssysWindowsWin32MediaMultimediaMciFreeCommandResource(wtable: Int): Int
 
 public actual fun mciFreeCommandResource(wtable: UInt): Bool =
-    wasiWindowssysWindowsWin32MediaMultimediaMciFreeCommandResource(wtable.toInt()).toInt()
+    wasiWindowssysWindowsWin32MediaMultimediaMciFreeCommandResource(wtable.toInt())
 
 public actual fun mciGetCreatorTask(mciid: UInt): Htask =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaMciGetCreatorTask")
@@ -508,7 +508,7 @@ public actual fun mciSendStringW(lpstrcommand: Pcwstr, lpstrreturnstring: Pwstr,
 private external fun wasiWindowssysWindowsWin32MediaMultimediaMciSetDriverData(wdeviceid: Int, dwdata: Long): Int
 
 public actual fun mciSetDriverData(wdeviceid: UInt, dwdata: ULong): Bool =
-    wasiWindowssysWindowsWin32MediaMultimediaMciSetDriverData(wdeviceid.toInt(), dwdata.toLong()).toInt()
+    wasiWindowssysWindowsWin32MediaMultimediaMciSetDriverData(wdeviceid.toInt(), dwdata.toLong())
 
 public actual fun mciSetYieldProc(mciid: UInt, fpyieldproc: Yieldproc, dwyielddata: UInt): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaMciSetYieldProc")
@@ -535,7 +535,7 @@ public actual fun mmTaskCreate(lpfn: Lptaskcallback, lph: MutPtr<Handle>, dwinst
 private external fun wasiWindowssysWindowsWin32MediaMultimediaMmTaskSignal(h: Int): Int
 
 public actual fun mmTaskSignal(h: UInt): Bool =
-    wasiWindowssysWindowsWin32MediaMultimediaMmTaskSignal(h.toInt()).toInt()
+    wasiWindowssysWindowsWin32MediaMultimediaMmTaskSignal(h.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32MediaMultimediaMmTaskYield")
 private external fun wasiWindowssysWindowsWin32MediaMultimediaMmTaskYield(): Unit

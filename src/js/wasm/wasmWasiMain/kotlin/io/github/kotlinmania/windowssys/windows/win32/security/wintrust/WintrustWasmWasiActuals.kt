@@ -71,4 +71,4 @@ public actual fun wintrustSetDefaultIncludePEPageHashes(fincludepepagehashes: Bo
 private external fun wasiWindowssysWindowsWin32SecurityWintrustWintrustSetRegPolicyFlags(dwpolicyflags: Int): Int
 
 public actual fun wintrustSetRegPolicyFlags(dwpolicyflags: WintrustPolicyFlags): Bool =
-    wasiWindowssysWindowsWin32SecurityWintrustWintrustSetRegPolicyFlags(dwpolicyflags.toInt()).toInt()
+    wasiWindowssysWindowsWin32SecurityWintrustWintrustSetRegPolicyFlags(dwpolicyflags.toInt())

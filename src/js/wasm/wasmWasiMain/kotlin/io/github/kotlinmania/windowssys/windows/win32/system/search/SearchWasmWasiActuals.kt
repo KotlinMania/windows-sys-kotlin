@@ -23,7 +23,7 @@ public actual fun oDBCGetTryWaitValue(): UInt =
 private external fun wasiWindowssysWindowsWin32SystemSearchODBCSetTryWaitValue(dwvalue: Int): Int
 
 public actual fun oDBCSetTryWaitValue(dwvalue: UInt): Bool =
-    wasiWindowssysWindowsWin32SystemSearchODBCSetTryWaitValue(dwvalue.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemSearchODBCSetTryWaitValue(dwvalue.toInt())
 
 public actual fun sQLAllocConnect(environmenthandle: MutPtr<CVoid>, connectionhandle: MutPtr<MutPtr<CVoid>>): Short =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSearchSQLAllocConnect")

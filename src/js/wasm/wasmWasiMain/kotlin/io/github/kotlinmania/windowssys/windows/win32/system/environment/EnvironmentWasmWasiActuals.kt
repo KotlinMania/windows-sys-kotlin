@@ -93,7 +93,7 @@ public actual fun initializeEnclave(hprocess: Handle, lpaddress: ConstPtr<CVoid>
 private external fun wasiWindowssysWindowsWin32SystemEnvironmentIsEnclaveTypeSupported(flenclavetype: Int): Int
 
 public actual fun isEnclaveTypeSupported(flenclavetype: UInt): Bool =
-    wasiWindowssysWindowsWin32SystemEnvironmentIsEnclaveTypeSupported(flenclavetype.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemEnvironmentIsEnclaveTypeSupported(flenclavetype.toInt())
 
 public actual fun loadEnclaveData(hprocess: Handle, lpaddress: ConstPtr<CVoid>, lpbuffer: ConstPtr<CVoid>, nsize: ULong, flprotect: UInt, lppageinformation: ConstPtr<CVoid>, dwinfolength: UInt, lpnumberofbyteswritten: MutPtr<ULong>, lpenclaveerror: MutPtr<UInt>): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemEnvironmentLoadEnclaveData")

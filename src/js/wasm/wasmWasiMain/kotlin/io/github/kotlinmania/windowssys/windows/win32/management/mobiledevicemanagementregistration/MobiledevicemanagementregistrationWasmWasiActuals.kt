@@ -51,7 +51,7 @@ public actual fun registerDeviceWithManagementUsingAADCredentials(usertoken: Han
 private external fun wasiWindowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithManagementUsingAADDeviceCredentials(): Int
 
 public actual fun registerDeviceWithManagementUsingAADDeviceCredentials(): Hresult =
-    wasiWindowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithManagementUsingAADDeviceCredentials().toInt()
+    wasiWindowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithManagementUsingAADDeviceCredentials()
 
 public actual fun registerDeviceWithManagementUsingAADDeviceCredentials2(mdmapplicationid: Pcwstr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithManagementUsingAADDeviceCredentials2")
@@ -63,13 +63,13 @@ public actual fun setDeviceManagementConfigInfo(providerid: Pcwstr, configstring
 private external fun wasiWindowssysWindowsWin32ManagementMobiledevicemanagementregistrationSetManagedExternally(ismanagedexternally: Int): Int
 
 public actual fun setManagedExternally(ismanagedexternally: Bool): Hresult =
-    wasiWindowssysWindowsWin32ManagementMobiledevicemanagementregistrationSetManagedExternally(ismanagedexternally).toInt()
+    wasiWindowssysWindowsWin32ManagementMobiledevicemanagementregistrationSetManagedExternally(ismanagedexternally)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32ManagementMobiledevicemanagementregistrationUnregisterDeviceWithLocalManagement")
 private external fun wasiWindowssysWindowsWin32ManagementMobiledevicemanagementregistrationUnregisterDeviceWithLocalManagement(): Int
 
 public actual fun unregisterDeviceWithLocalManagement(): Hresult =
-    wasiWindowssysWindowsWin32ManagementMobiledevicemanagementregistrationUnregisterDeviceWithLocalManagement().toInt()
+    wasiWindowssysWindowsWin32ManagementMobiledevicemanagementregistrationUnregisterDeviceWithLocalManagement()
 
 public actual fun unregisterDeviceWithManagement(enrollmentid: Pcwstr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32ManagementMobiledevicemanagementregistrationUnregisterDeviceWithManagement")

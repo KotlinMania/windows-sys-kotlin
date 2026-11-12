@@ -64,7 +64,7 @@ public actual fun getSystemDpiForProcess(hprocess: Handle): UInt =
 private external fun wasiWindowssysWindowsWin32UiHidpiGetSystemMetricsForDpi(nindex: Int, dpi: Int): Int
 
 public actual fun getSystemMetricsForDpi(nindex: SystemMetricsIndex, dpi: UInt): Int =
-    wasiWindowssysWindowsWin32UiHidpiGetSystemMetricsForDpi(nindex, dpi.toInt()).toInt()
+    wasiWindowssysWindowsWin32UiHidpiGetSystemMetricsForDpi(nindex, dpi.toInt())
 
 public actual fun getThreadDpiAwarenessContext(): DpiAwarenessContext =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiHidpiGetThreadDpiAwarenessContext")
@@ -73,7 +73,7 @@ public actual fun getThreadDpiAwarenessContext(): DpiAwarenessContext =
 private external fun wasiWindowssysWindowsWin32UiHidpiGetThreadDpiHostingBehavior(): Int
 
 public actual fun getThreadDpiHostingBehavior(): DpiHostingBehavior =
-    wasiWindowssysWindowsWin32UiHidpiGetThreadDpiHostingBehavior().toInt()
+    wasiWindowssysWindowsWin32UiHidpiGetThreadDpiHostingBehavior()
 
 public actual fun getWindowDpiAwarenessContext(hwnd: Hwnd): DpiAwarenessContext =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiHidpiGetWindowDpiAwarenessContext")
@@ -103,7 +103,7 @@ public actual fun setDialogDpiChangeBehavior(hdlg: Hwnd, mask: DialogDpiChangeBe
 private external fun wasiWindowssysWindowsWin32UiHidpiSetProcessDpiAwareness(value: Int): Int
 
 public actual fun setProcessDpiAwareness(value: ProcessDpiAwareness): Hresult =
-    wasiWindowssysWindowsWin32UiHidpiSetProcessDpiAwareness(value).toInt()
+    wasiWindowssysWindowsWin32UiHidpiSetProcessDpiAwareness(value)
 
 public actual fun setProcessDpiAwarenessContext(value: DpiAwarenessContext): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiHidpiSetProcessDpiAwarenessContext")
@@ -115,7 +115,7 @@ public actual fun setThreadDpiAwarenessContext(dpicontext: DpiAwarenessContext):
 private external fun wasiWindowssysWindowsWin32UiHidpiSetThreadDpiHostingBehavior(value: Int): Int
 
 public actual fun setThreadDpiHostingBehavior(value: DpiHostingBehavior): DpiHostingBehavior =
-    wasiWindowssysWindowsWin32UiHidpiSetThreadDpiHostingBehavior(value).toInt()
+    wasiWindowssysWindowsWin32UiHidpiSetThreadDpiHostingBehavior(value)
 
 public actual fun systemParametersInfoForDpi(uiaction: UInt, uiparam: UInt, pvparam: MutPtr<CVoid>, fwinini: UInt, dpi: UInt): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiHidpiSystemParametersInfoForDpi")

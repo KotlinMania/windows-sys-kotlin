@@ -22,7 +22,7 @@ public actual fun winHttpAddRequestHeadersEx(hrequest: MutPtr<CVoid>, dwmodifier
 private external fun wasiWindowssysWindowsWin32NetworkingWinhttpWinHttpCheckPlatform(): Int
 
 public actual fun winHttpCheckPlatform(): Bool =
-    wasiWindowssysWindowsWin32NetworkingWinhttpWinHttpCheckPlatform().toInt()
+    wasiWindowssysWindowsWin32NetworkingWinhttpWinHttpCheckPlatform()
 
 public actual fun winHttpCloseHandle(hinternet: MutPtr<CVoid>): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingWinhttpWinHttpCloseHandle")

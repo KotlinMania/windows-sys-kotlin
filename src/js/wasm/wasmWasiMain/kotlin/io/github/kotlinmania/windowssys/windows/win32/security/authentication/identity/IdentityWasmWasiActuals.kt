@@ -205,7 +205,7 @@ public actual fun lsaCallAuthenticationPackage(lsahandle: Handle, authentication
 private external fun wasiWindowssysWindowsWin32SecurityAuthenticationIdentityLsaClose(objecthandle: Long): Int
 
 public actual fun lsaClose(objecthandle: LsaHandle): Ntstatus =
-    wasiWindowssysWindowsWin32SecurityAuthenticationIdentityLsaClose(objecthandle).toInt()
+    wasiWindowssysWindowsWin32SecurityAuthenticationIdentityLsaClose(objecthandle)
 
 public actual fun lsaConnectUntrusted(lsahandle: MutPtr<Handle>): Ntstatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SecurityAuthenticationIdentityLsaConnectUntrusted")
@@ -650,7 +650,7 @@ public actual fun sspiZeroAuthIdentity(authdata: ConstPtr<CVoid>): Unit = throw 
 private external fun wasiWindowssysWindowsWin32SecurityAuthenticationIdentityTokenBindingDeleteAllBindings(): Int
 
 public actual fun tokenBindingDeleteAllBindings(): Hresult =
-    wasiWindowssysWindowsWin32SecurityAuthenticationIdentityTokenBindingDeleteAllBindings().toInt()
+    wasiWindowssysWindowsWin32SecurityAuthenticationIdentityTokenBindingDeleteAllBindings()
 
 public actual fun tokenBindingDeleteBinding(targeturl: Pcwstr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SecurityAuthenticationIdentityTokenBindingDeleteBinding")

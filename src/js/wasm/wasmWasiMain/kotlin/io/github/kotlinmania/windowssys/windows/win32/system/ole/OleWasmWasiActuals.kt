@@ -223,7 +223,7 @@ public actual fun oleCreateStaticFromData(psrcdataobj: MutPtr<CVoid>, iid: Const
 private external fun wasiWindowssysWindowsWin32SystemOleOleDestroyMenuDescriptor(holemenu: Long): Int
 
 public actual fun oleDestroyMenuDescriptor(holemenu: Long): Hresult =
-    wasiWindowssysWindowsWin32SystemOleOleDestroyMenuDescriptor(holemenu).toInt()
+    wasiWindowssysWindowsWin32SystemOleOleDestroyMenuDescriptor(holemenu)
 
 public actual fun oleDoAutoConvert(pstg: MutPtr<CVoid>, pclsidnew: MutPtr<Guid>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemOleOleDoAutoConvert")
@@ -238,7 +238,7 @@ public actual fun oleDuplicateData(hsrc: Handle, cfformat: ClipboardFormat, uifl
 private external fun wasiWindowssysWindowsWin32SystemOleOleFlushClipboard(): Int
 
 public actual fun oleFlushClipboard(): Hresult =
-    wasiWindowssysWindowsWin32SystemOleOleFlushClipboard().toInt()
+    wasiWindowssysWindowsWin32SystemOleOleFlushClipboard()
 
 public actual fun oleGetAutoConvert(clsidold: ConstPtr<Guid>, pclsidnew: MutPtr<Guid>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemOleOleGetAutoConvert")

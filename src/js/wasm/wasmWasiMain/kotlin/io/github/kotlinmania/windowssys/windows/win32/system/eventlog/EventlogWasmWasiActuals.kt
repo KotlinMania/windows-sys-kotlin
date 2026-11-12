@@ -38,7 +38,7 @@ public actual fun evtArchiveExportedLog(session: EvtHandle, logfilepath: Pcwstr,
 private external fun wasiWindowssysWindowsWin32SystemEventlogEvtCancel(obj: Long): Int
 
 public actual fun evtCancel(obj: EvtHandle): Bool =
-    wasiWindowssysWindowsWin32SystemEventlogEvtCancel(obj).toInt()
+    wasiWindowssysWindowsWin32SystemEventlogEvtCancel(obj)
 
 public actual fun evtClearLog(session: EvtHandle, channelpath: Pcwstr, targetfilepath: Pcwstr, flags: UInt): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemEventlogEvtClearLog")
@@ -47,7 +47,7 @@ public actual fun evtClearLog(session: EvtHandle, channelpath: Pcwstr, targetfil
 private external fun wasiWindowssysWindowsWin32SystemEventlogEvtClose(obj: Long): Int
 
 public actual fun evtClose(obj: EvtHandle): Bool =
-    wasiWindowssysWindowsWin32SystemEventlogEvtClose(obj).toInt()
+    wasiWindowssysWindowsWin32SystemEventlogEvtClose(obj)
 
 public actual fun evtCreateBookmark(bookmarkxml: Pcwstr): EvtHandle =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemEventlogEvtCreateBookmark")
@@ -98,7 +98,7 @@ public actual fun evtNextChannelPath(channelenum: EvtHandle, channelpathbuffersi
 private external fun wasiWindowssysWindowsWin32SystemEventlogEvtNextEventMetadata(eventmetadataenum: Long, flags: Int): Long
 
 public actual fun evtNextEventMetadata(eventmetadataenum: EvtHandle, flags: UInt): EvtHandle =
-    wasiWindowssysWindowsWin32SystemEventlogEvtNextEventMetadata(eventmetadataenum, flags.toInt()).toLong()
+    wasiWindowssysWindowsWin32SystemEventlogEvtNextEventMetadata(eventmetadataenum, flags.toInt())
 
 public actual fun evtNextPublisherId(publisherenum: EvtHandle, publisheridbuffersize: UInt, publisheridbuffer: Pwstr, publisheridbufferused: MutPtr<UInt>): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemEventlogEvtNextPublisherId")
@@ -110,13 +110,13 @@ public actual fun evtOpenChannelConfig(session: EvtHandle, channelpath: Pcwstr, 
 private external fun wasiWindowssysWindowsWin32SystemEventlogEvtOpenChannelEnum(session: Long, flags: Int): Long
 
 public actual fun evtOpenChannelEnum(session: EvtHandle, flags: UInt): EvtHandle =
-    wasiWindowssysWindowsWin32SystemEventlogEvtOpenChannelEnum(session, flags.toInt()).toLong()
+    wasiWindowssysWindowsWin32SystemEventlogEvtOpenChannelEnum(session, flags.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemEventlogEvtOpenEventMetadataEnum")
 private external fun wasiWindowssysWindowsWin32SystemEventlogEvtOpenEventMetadataEnum(publishermetadata: Long, flags: Int): Long
 
 public actual fun evtOpenEventMetadataEnum(publishermetadata: EvtHandle, flags: UInt): EvtHandle =
-    wasiWindowssysWindowsWin32SystemEventlogEvtOpenEventMetadataEnum(publishermetadata, flags.toInt()).toLong()
+    wasiWindowssysWindowsWin32SystemEventlogEvtOpenEventMetadataEnum(publishermetadata, flags.toInt())
 
 public actual fun evtOpenLog(session: EvtHandle, path: Pcwstr, flags: UInt): EvtHandle =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemEventlogEvtOpenLog")
@@ -125,7 +125,7 @@ public actual fun evtOpenLog(session: EvtHandle, path: Pcwstr, flags: UInt): Evt
 private external fun wasiWindowssysWindowsWin32SystemEventlogEvtOpenPublisherEnum(session: Long, flags: Int): Long
 
 public actual fun evtOpenPublisherEnum(session: EvtHandle, flags: UInt): EvtHandle =
-    wasiWindowssysWindowsWin32SystemEventlogEvtOpenPublisherEnum(session, flags.toInt()).toLong()
+    wasiWindowssysWindowsWin32SystemEventlogEvtOpenPublisherEnum(session, flags.toInt())
 
 public actual fun evtOpenPublisherMetadata(session: EvtHandle, publisherid: Pcwstr, logfilepath: Pcwstr, locale: UInt, flags: UInt): EvtHandle =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemEventlogEvtOpenPublisherMetadata")
@@ -143,13 +143,13 @@ public actual fun evtRender(context: EvtHandle, fragment: EvtHandle, flags: UInt
 private external fun wasiWindowssysWindowsWin32SystemEventlogEvtSaveChannelConfig(channelconfig: Long, flags: Int): Int
 
 public actual fun evtSaveChannelConfig(channelconfig: EvtHandle, flags: UInt): Bool =
-    wasiWindowssysWindowsWin32SystemEventlogEvtSaveChannelConfig(channelconfig, flags.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemEventlogEvtSaveChannelConfig(channelconfig, flags.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemEventlogEvtSeek")
 private external fun wasiWindowssysWindowsWin32SystemEventlogEvtSeek(resultset: Long, position: Long, bookmark: Long, timeout: Int, flags: Int): Int
 
 public actual fun evtSeek(resultset: EvtHandle, position: Long, bookmark: EvtHandle, timeout: UInt, flags: UInt): Bool =
-    wasiWindowssysWindowsWin32SystemEventlogEvtSeek(resultset, position, bookmark, timeout.toInt(), flags.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemEventlogEvtSeek(resultset, position, bookmark, timeout.toInt(), flags.toInt())
 
 public actual fun evtSetChannelConfigProperty(channelconfig: EvtHandle, propertyid: EvtChannelConfigPropertyId, flags: UInt, propertyvalue: ConstPtr<EvtVariant>): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemEventlogEvtSetChannelConfigProperty")
@@ -161,7 +161,7 @@ public actual fun evtSubscribe(session: EvtHandle, signalevent: Handle, channelp
 private external fun wasiWindowssysWindowsWin32SystemEventlogEvtUpdateBookmark(bookmark: Long, event: Long): Int
 
 public actual fun evtUpdateBookmark(bookmark: EvtHandle, event: EvtHandle): Bool =
-    wasiWindowssysWindowsWin32SystemEventlogEvtUpdateBookmark(bookmark, event).toInt()
+    wasiWindowssysWindowsWin32SystemEventlogEvtUpdateBookmark(bookmark, event)
 
 public actual fun getEventLogInformation(heventlog: Handle, dwinfolevel: UInt, lpbuffer: MutPtr<CVoid>, cbbufsize: UInt, pcbbytesneeded: MutPtr<UInt>): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemEventlogGetEventLogInformation")

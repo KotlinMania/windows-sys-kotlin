@@ -47,7 +47,7 @@ public actual fun authzFreeAuditEvent(hauditevent: AuthzAuditEventHandle): Bool 
 private external fun wasiWindowssysWindowsWin32SecurityAuthorizationAuthzFreeCentralAccessPolicyCache(): Int
 
 public actual fun authzFreeCentralAccessPolicyCache(): Bool =
-    wasiWindowssysWindowsWin32SecurityAuthorizationAuthzFreeCentralAccessPolicyCache().toInt()
+    wasiWindowssysWindowsWin32SecurityAuthorizationAuthzFreeCentralAccessPolicyCache()
 
 public actual fun authzFreeContext(hauthzclientcontext: AuthzClientContextHandle): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SecurityAuthorizationAuthzFreeContext")

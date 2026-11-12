@@ -98,7 +98,7 @@ public actual fun createPatchFileW(oldfilename: Pcwstr, newfilename: Pcwstr, pat
 private external fun wasiWindowssysWindowsWin32SystemApplicationinstallationandservicingDeactivateActCtx(dwflags: Int, ulcookie: Long): Int
 
 public actual fun deactivateActCtx(dwflags: UInt, ulcookie: ULong): Bool =
-    wasiWindowssysWindowsWin32SystemApplicationinstallationandservicingDeactivateActCtx(dwflags.toInt(), ulcookie.toLong()).toInt()
+    wasiWindowssysWindowsWin32SystemApplicationinstallationandservicingDeactivateActCtx(dwflags.toInt(), ulcookie.toLong())
 
 public actual fun deltaFree(lpmemory: ConstPtr<CVoid>): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemApplicationinstallationandservicingDeltaFree")
@@ -446,7 +446,7 @@ public actual fun msiGetComponentStateW(hinstall: Msihandle, szcomponent: Pcwstr
 private external fun wasiWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetDatabaseState(hdatabase: Int): Int
 
 public actual fun msiGetDatabaseState(hdatabase: Msihandle): Msidbstate =
-    wasiWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetDatabaseState(hdatabase.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetDatabaseState(hdatabase.toInt())
 
 public actual fun msiGetFeatureCostA(hinstall: Msihandle, szfeature: Pcstr, icosttree: Msicosttree, istate: Installstate, picost: MutPtr<Int>): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureCostA")
@@ -512,7 +512,7 @@ public actual fun msiGetLastErrorRecord(): Msihandle =
 private external fun wasiWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetMode(hinstall: Int, erunmode: Int): Int
 
 public actual fun msiGetMode(hinstall: Msihandle, erunmode: Msirunmode): Bool =
-    wasiWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetMode(hinstall.toInt(), erunmode).toInt()
+    wasiWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetMode(hinstall.toInt(), erunmode)
 
 public actual fun msiGetPatchFileListA(szproductcode: Pcstr, szpatchpackages: Pcstr, pcfiles: MutPtr<UInt>, pphfilerecords: MutPtr<MutPtr<Msihandle>>): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetPatchFileListA")
@@ -683,7 +683,7 @@ public actual fun msiProcessAdvertiseScriptW(szscriptfile: Pcwstr, sziconfolder:
 private external fun wasiWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiProcessMessage(hinstall: Int, emessagetype: Int, hrecord: Int): Int
 
 public actual fun msiProcessMessage(hinstall: Msihandle, emessagetype: Installmessage, hrecord: Msihandle): Int =
-    wasiWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiProcessMessage(hinstall.toInt(), emessagetype, hrecord.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiProcessMessage(hinstall.toInt(), emessagetype, hrecord.toInt())
 
 public actual fun msiProvideAssemblyA(szassemblyname: Pcstr, szappcontext: Pcstr, dwinstallmode: UInt, dwassemblyinfo: Msiassemblyinfo, lppathbuf: Pstr, pcchpathbuf: MutPtr<UInt>): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemApplicationinstallationandservicingMsiProvideAssemblyA")
@@ -755,7 +755,7 @@ public actual fun msiRecordGetFieldCount(hrecord: Msihandle): UInt =
 private external fun wasiWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiRecordGetInteger(hrecord: Int, ifield: Int): Int
 
 public actual fun msiRecordGetInteger(hrecord: Msihandle, ifield: UInt): Int =
-    wasiWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiRecordGetInteger(hrecord.toInt(), ifield.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiRecordGetInteger(hrecord.toInt(), ifield.toInt())
 
 public actual fun msiRecordGetStringA(hrecord: Msihandle, ifield: UInt, szvaluebuf: Pstr, pcchvaluebuf: MutPtr<UInt>): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemApplicationinstallationandservicingMsiRecordGetStringA")
@@ -767,7 +767,7 @@ public actual fun msiRecordGetStringW(hrecord: Msihandle, ifield: UInt, szvalueb
 private external fun wasiWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiRecordIsNull(hrecord: Int, ifield: Int): Int
 
 public actual fun msiRecordIsNull(hrecord: Msihandle, ifield: UInt): Bool =
-    wasiWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiRecordIsNull(hrecord.toInt(), ifield.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiRecordIsNull(hrecord.toInt(), ifield.toInt())
 
 public actual fun msiRecordReadStream(hrecord: Msihandle, ifield: UInt, szdatabuf: Pstr, pcbdatabuf: MutPtr<UInt>): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemApplicationinstallationandservicingMsiRecordReadStream")

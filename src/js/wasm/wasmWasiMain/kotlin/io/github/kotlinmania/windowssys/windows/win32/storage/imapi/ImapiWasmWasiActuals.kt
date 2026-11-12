@@ -25,7 +25,7 @@ public actual fun getAttribIMsgOnIStg(lpobject: MutPtr<CVoid>, lpproptagarray: M
 private external fun wasiWindowssysWindowsWin32StorageImapiMapStorageSCode(stgscode: Int): Int
 
 public actual fun mapStorageSCode(stgscode: Int): Int =
-    wasiWindowssysWindowsWin32StorageImapiMapStorageSCode(stgscode).toInt()
+    wasiWindowssysWindowsWin32StorageImapiMapStorageSCode(stgscode)
 
 public actual fun openIMsgOnIStg(lpmsgsess: Lpmsgsess, lpallocatebuffer: Lpallocatebuffer, lpallocatemore: Lpallocatemore, lpfreebuffer: Lpfreebuffer, lpmalloc: MutPtr<CVoid>, lpmapisup: MutPtr<CVoid>, lpstg: MutPtr<CVoid>, lpfmsgcallrelease: MutPtr<Msgcallrelease>, ulcallerdata: UInt, ulflags: UInt, lppmsg: MutPtr<MutPtr<CVoid>>): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32StorageImapiOpenIMsgOnIStg")

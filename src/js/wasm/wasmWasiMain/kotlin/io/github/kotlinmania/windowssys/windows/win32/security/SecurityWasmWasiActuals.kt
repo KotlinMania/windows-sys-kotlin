@@ -108,13 +108,13 @@ public actual fun allocateLocallyUniqueId(luid: MutPtr<Luid>): Bool =
 private external fun wasiWindowssysWindowsWin32SecurityAreAllAccessesGranted(grantedaccess: Int, desiredaccess: Int): Int
 
 public actual fun areAllAccessesGranted(grantedaccess: UInt, desiredaccess: UInt): Bool =
-    wasiWindowssysWindowsWin32SecurityAreAllAccessesGranted(grantedaccess.toInt(), desiredaccess.toInt()).toInt()
+    wasiWindowssysWindowsWin32SecurityAreAllAccessesGranted(grantedaccess.toInt(), desiredaccess.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SecurityAreAnyAccessesGranted")
 private external fun wasiWindowssysWindowsWin32SecurityAreAnyAccessesGranted(grantedaccess: Int, desiredaccess: Int): Int
 
 public actual fun areAnyAccessesGranted(grantedaccess: UInt, desiredaccess: UInt): Bool =
-    wasiWindowssysWindowsWin32SecurityAreAnyAccessesGranted(grantedaccess.toInt(), desiredaccess.toInt()).toInt()
+    wasiWindowssysWindowsWin32SecurityAreAnyAccessesGranted(grantedaccess.toInt(), desiredaccess.toInt())
 
 public actual fun checkTokenCapability(tokenhandle: Handle, capabilitysidtocheck: Psid, hascapability: MutPtr<Bool>): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SecurityCheckTokenCapability")
@@ -258,7 +258,7 @@ public actual fun impersonateLoggedOnUser(htoken: Handle): Bool =
 private external fun wasiWindowssysWindowsWin32SecurityImpersonateSelf(impersonationlevel: Int): Int
 
 public actual fun impersonateSelf(impersonationlevel: SecurityImpersonationLevel): Bool =
-    wasiWindowssysWindowsWin32SecurityImpersonateSelf(impersonationlevel).toInt()
+    wasiWindowssysWindowsWin32SecurityImpersonateSelf(impersonationlevel)
 
 public actual fun initializeAcl(pacl: MutPtr<Acl>, nacllength: UInt, dwaclrevision: AceRevision): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SecurityInitializeAcl")
@@ -373,7 +373,7 @@ public actual fun querySecurityAccessMask(securityinformation: ObjectSecurityInf
 private external fun wasiWindowssysWindowsWin32SecurityRevertToSelf(): Int
 
 public actual fun revertToSelf(): Bool =
-    wasiWindowssysWindowsWin32SecurityRevertToSelf().toInt()
+    wasiWindowssysWindowsWin32SecurityRevertToSelf()
 
 public actual fun rtlConvertSidToUnicodeString(unicodestring: MutPtr<UnicodeString>, sid: Psid, allocatedestinationstring: Boolean): Ntstatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SecurityRtlConvertSidToUnicodeString")

@@ -9,4 +9,4 @@ import io.github.kotlinmania.windowssys.core.Bool
 private external fun wasiWindowssysWindowsWin32SystemDiagnosticsCeipCeipIsOptedIn(): Int
 
 public actual fun ceipIsOptedIn(): Bool =
-    wasiWindowssysWindowsWin32SystemDiagnosticsCeipCeipIsOptedIn().toInt()
+    wasiWindowssysWindowsWin32SystemDiagnosticsCeipCeipIsOptedIn()

@@ -39,7 +39,7 @@ public actual fun adjustWindowRectEx(lprect: MutPtr<Rect>, dwstyle: WindowStyle,
 private external fun wasiWindowssysWindowsWin32UiWindowsandmessagingAllowSetForegroundWindow(dwprocessid: Int): Int
 
 public actual fun allowSetForegroundWindow(dwprocessid: UInt): Bool =
-    wasiWindowssysWindowsWin32UiWindowsandmessagingAllowSetForegroundWindow(dwprocessid.toInt()).toInt()
+    wasiWindowssysWindowsWin32UiWindowsandmessagingAllowSetForegroundWindow(dwprocessid.toInt())
 
 public actual fun animateWindow(hwnd: Hwnd, dwtime: UInt, dwflags: AnimateWindowFlags): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiWindowsandmessagingAnimateWindow")
@@ -48,7 +48,7 @@ public actual fun animateWindow(hwnd: Hwnd, dwtime: UInt, dwflags: AnimateWindow
 private external fun wasiWindowssysWindowsWin32UiWindowsandmessagingAnyPopup(): Int
 
 public actual fun anyPopup(): Bool =
-    wasiWindowssysWindowsWin32UiWindowsandmessagingAnyPopup().toInt()
+    wasiWindowssysWindowsWin32UiWindowsandmessagingAnyPopup()
 
 public actual fun appendMenuA(hmenu: Hmenu, uflags: MenuItemFlags, uidnewitem: ULong, lpnewitem: Pcstr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiWindowsandmessagingAppendMenuA")
@@ -87,7 +87,7 @@ public actual fun callWindowProcW(lpprevwndfunc: Wndproc, hwnd: Hwnd, msg: UInt,
 private external fun wasiWindowssysWindowsWin32UiWindowsandmessagingCancelShutdown(): Int
 
 public actual fun cancelShutdown(): Bool =
-    wasiWindowssysWindowsWin32UiWindowsandmessagingCancelShutdown().toInt()
+    wasiWindowssysWindowsWin32UiWindowsandmessagingCancelShutdown()
 
 public actual fun cascadeWindows(hwndparent: Hwnd, whow: CascadeWindowsHow, lprect: ConstPtr<Rect>, ckids: UInt, lpkids: ConstPtr<Hwnd>): UShort =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiWindowsandmessagingCascadeWindows")
@@ -102,7 +102,7 @@ public actual fun changeMenuW(hmenu: Hmenu, cmd: UInt, lpsznewitem: Pcwstr, cmdi
 private external fun wasiWindowssysWindowsWin32UiWindowsandmessagingChangeWindowMessageFilter(message: Int, dwflag: Int): Int
 
 public actual fun changeWindowMessageFilter(message: UInt, dwflag: ChangeWindowMessageFilterFlags): Bool =
-    wasiWindowssysWindowsWin32UiWindowsandmessagingChangeWindowMessageFilter(message.toInt(), dwflag.toInt()).toInt()
+    wasiWindowssysWindowsWin32UiWindowsandmessagingChangeWindowMessageFilter(message.toInt(), dwflag.toInt())
 
 public actual fun changeWindowMessageFilterEx(hwnd: Hwnd, message: UInt, action: WindowMessageFilterAction, pchangefilterstruct: MutPtr<Changefilterstruct>): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiWindowsandmessagingChangeWindowMessageFilterEx")
@@ -288,7 +288,7 @@ public actual fun destroyAcceleratorTable(haccel: Haccel): Bool =
 private external fun wasiWindowssysWindowsWin32UiWindowsandmessagingDestroyCaret(): Int
 
 public actual fun destroyCaret(): Bool =
-    wasiWindowssysWindowsWin32UiWindowsandmessagingDestroyCaret().toInt()
+    wasiWindowssysWindowsWin32UiWindowsandmessagingDestroyCaret()
 
 public actual fun destroyCursor(hcursor: Hcursor): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiWindowsandmessagingDestroyCursor")
@@ -355,7 +355,7 @@ public actual fun endDialog(hdlg: Hwnd, nresult: Long): Bool =
 private external fun wasiWindowssysWindowsWin32UiWindowsandmessagingEndMenu(): Int
 
 public actual fun endMenu(): Bool =
-    wasiWindowssysWindowsWin32UiWindowsandmessagingEndMenu().toInt()
+    wasiWindowssysWindowsWin32UiWindowsandmessagingEndMenu()
 
 public actual fun enumChildWindows(hwndparent: Hwnd, lpenumfunc: Wndenumproc, lparam: Lparam): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiWindowsandmessagingEnumChildWindows")
@@ -469,7 +469,7 @@ public actual fun getDesktopWindow(): Hwnd =
 private external fun wasiWindowssysWindowsWin32UiWindowsandmessagingGetDialogBaseUnits(): Int
 
 public actual fun getDialogBaseUnits(): Int =
-    wasiWindowssysWindowsWin32UiWindowsandmessagingGetDialogBaseUnits().toInt()
+    wasiWindowssysWindowsWin32UiWindowsandmessagingGetDialogBaseUnits()
 
 public actual fun getDlgCtrlID(hwnd: Hwnd): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiWindowsandmessagingGetDlgCtrlID")
@@ -505,7 +505,7 @@ public actual fun getIconInfoExW(hicon: Hicon, piconinfo: MutPtr<Iconinfoexw>): 
 private external fun wasiWindowssysWindowsWin32UiWindowsandmessagingGetInputState(): Int
 
 public actual fun getInputState(): Bool =
-    wasiWindowssysWindowsWin32UiWindowsandmessagingGetInputState().toInt()
+    wasiWindowssysWindowsWin32UiWindowsandmessagingGetInputState()
 
 public actual fun getLastActivePopup(hwnd: Hwnd): Hwnd =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiWindowsandmessagingGetLastActivePopup")
@@ -523,7 +523,7 @@ public actual fun getMenuBarInfo(hwnd: Hwnd, idobject: ObjectIdentifier, iditem:
 private external fun wasiWindowssysWindowsWin32UiWindowsandmessagingGetMenuCheckMarkDimensions(): Int
 
 public actual fun getMenuCheckMarkDimensions(): Int =
-    wasiWindowssysWindowsWin32UiWindowsandmessagingGetMenuCheckMarkDimensions().toInt()
+    wasiWindowssysWindowsWin32UiWindowsandmessagingGetMenuCheckMarkDimensions()
 
 public actual fun getMenuDefaultItem(hmenu: Hmenu, fbypos: UInt, gmdiflags: GetMenuDefaultItemFlags): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiWindowsandmessagingGetMenuDefaultItem")
@@ -562,7 +562,7 @@ public actual fun getMessageA(lpmsg: MutPtr<Msg>, hwnd: Hwnd, wmsgfiltermin: UIn
 private external fun wasiWindowssysWindowsWin32UiWindowsandmessagingGetMessageExtraInfo(): Long
 
 public actual fun getMessageExtraInfo(): Lparam =
-    wasiWindowssysWindowsWin32UiWindowsandmessagingGetMessageExtraInfo().toLong()
+    wasiWindowssysWindowsWin32UiWindowsandmessagingGetMessageExtraInfo()
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiWindowsandmessagingGetMessagePos")
 private external fun wasiWindowssysWindowsWin32UiWindowsandmessagingGetMessagePos(): Int
@@ -574,7 +574,7 @@ public actual fun getMessagePos(): UInt =
 private external fun wasiWindowssysWindowsWin32UiWindowsandmessagingGetMessageTime(): Int
 
 public actual fun getMessageTime(): Int =
-    wasiWindowssysWindowsWin32UiWindowsandmessagingGetMessageTime().toInt()
+    wasiWindowssysWindowsWin32UiWindowsandmessagingGetMessageTime()
 
 public actual fun getMessageW(lpmsg: MutPtr<Msg>, hwnd: Hwnd, wmsgfiltermin: UInt, wmsgfiltermax: UInt): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiWindowsandmessagingGetMessageW")
@@ -631,7 +631,7 @@ public actual fun getSystemMenu(hwnd: Hwnd, brevert: Bool): Hmenu =
 private external fun wasiWindowssysWindowsWin32UiWindowsandmessagingGetSystemMetrics(nindex: Int): Int
 
 public actual fun getSystemMetrics(nindex: SystemMetricsIndex): Int =
-    wasiWindowssysWindowsWin32UiWindowsandmessagingGetSystemMetrics(nindex).toInt()
+    wasiWindowssysWindowsWin32UiWindowsandmessagingGetSystemMetrics(nindex)
 
 public actual fun getTitleBarInfo(hwnd: Hwnd, pti: MutPtr<Titlebarinfo>): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiWindowsandmessagingGetTitleBarInfo")
@@ -700,7 +700,7 @@ public actual fun hiliteMenuItem(hwnd: Hwnd, hmenu: Hmenu, uidhiliteitem: UInt, 
 private external fun wasiWindowssysWindowsWin32UiWindowsandmessagingInSendMessage(): Int
 
 public actual fun inSendMessage(): Bool =
-    wasiWindowssysWindowsWin32UiWindowsandmessagingInSendMessage().toInt()
+    wasiWindowssysWindowsWin32UiWindowsandmessagingInSendMessage()
 
 public actual fun inSendMessageEx(lpreserved: ConstPtr<CVoid>): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiWindowsandmessagingInSendMessageEx")
@@ -730,43 +730,43 @@ public actual fun internalGetWindowText(hwnd: Hwnd, pstring: Pwstr, cchmaxcount:
 private external fun wasiWindowssysWindowsWin32UiWindowsandmessagingIsCharAlphaA(ch: Int): Int
 
 public actual fun isCharAlphaA(ch: Byte): Bool =
-    wasiWindowssysWindowsWin32UiWindowsandmessagingIsCharAlphaA(ch.toInt()).toInt()
+    wasiWindowssysWindowsWin32UiWindowsandmessagingIsCharAlphaA(ch.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiWindowsandmessagingIsCharAlphaNumericA")
 private external fun wasiWindowssysWindowsWin32UiWindowsandmessagingIsCharAlphaNumericA(ch: Int): Int
 
 public actual fun isCharAlphaNumericA(ch: Byte): Bool =
-    wasiWindowssysWindowsWin32UiWindowsandmessagingIsCharAlphaNumericA(ch.toInt()).toInt()
+    wasiWindowssysWindowsWin32UiWindowsandmessagingIsCharAlphaNumericA(ch.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiWindowsandmessagingIsCharAlphaNumericW")
 private external fun wasiWindowssysWindowsWin32UiWindowsandmessagingIsCharAlphaNumericW(ch: Int): Int
 
 public actual fun isCharAlphaNumericW(ch: UShort): Bool =
-    wasiWindowssysWindowsWin32UiWindowsandmessagingIsCharAlphaNumericW(ch.toInt()).toInt()
+    wasiWindowssysWindowsWin32UiWindowsandmessagingIsCharAlphaNumericW(ch.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiWindowsandmessagingIsCharAlphaW")
 private external fun wasiWindowssysWindowsWin32UiWindowsandmessagingIsCharAlphaW(ch: Int): Int
 
 public actual fun isCharAlphaW(ch: UShort): Bool =
-    wasiWindowssysWindowsWin32UiWindowsandmessagingIsCharAlphaW(ch.toInt()).toInt()
+    wasiWindowssysWindowsWin32UiWindowsandmessagingIsCharAlphaW(ch.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiWindowsandmessagingIsCharLowerA")
 private external fun wasiWindowssysWindowsWin32UiWindowsandmessagingIsCharLowerA(ch: Int): Int
 
 public actual fun isCharLowerA(ch: Byte): Bool =
-    wasiWindowssysWindowsWin32UiWindowsandmessagingIsCharLowerA(ch.toInt()).toInt()
+    wasiWindowssysWindowsWin32UiWindowsandmessagingIsCharLowerA(ch.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiWindowsandmessagingIsCharUpperA")
 private external fun wasiWindowssysWindowsWin32UiWindowsandmessagingIsCharUpperA(ch: Int): Int
 
 public actual fun isCharUpperA(ch: Byte): Bool =
-    wasiWindowssysWindowsWin32UiWindowsandmessagingIsCharUpperA(ch.toInt()).toInt()
+    wasiWindowssysWindowsWin32UiWindowsandmessagingIsCharUpperA(ch.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiWindowsandmessagingIsCharUpperW")
 private external fun wasiWindowssysWindowsWin32UiWindowsandmessagingIsCharUpperW(ch: Int): Int
 
 public actual fun isCharUpperW(ch: UShort): Bool =
-    wasiWindowssysWindowsWin32UiWindowsandmessagingIsCharUpperW(ch.toInt()).toInt()
+    wasiWindowssysWindowsWin32UiWindowsandmessagingIsCharUpperW(ch.toInt())
 
 public actual fun isChild(hwndparent: Hwnd, hwnd: Hwnd): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiWindowsandmessagingIsChild")
@@ -781,7 +781,7 @@ public actual fun isDialogMessageW(hdlg: Hwnd, lpmsg: ConstPtr<Msg>): Bool =
 private external fun wasiWindowssysWindowsWin32UiWindowsandmessagingIsGUIThread(bconvert: Int): Int
 
 public actual fun isGUIThread(bconvert: Bool): Bool =
-    wasiWindowssysWindowsWin32UiWindowsandmessagingIsGUIThread(bconvert).toInt()
+    wasiWindowssysWindowsWin32UiWindowsandmessagingIsGUIThread(bconvert)
 
 public actual fun isHungAppWindow(hwnd: Hwnd): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiWindowsandmessagingIsHungAppWindow")
@@ -796,7 +796,7 @@ public actual fun isMenu(hmenu: Hmenu): Bool =
 private external fun wasiWindowssysWindowsWin32UiWindowsandmessagingIsProcessDPIAware(): Int
 
 public actual fun isProcessDPIAware(): Bool =
-    wasiWindowssysWindowsWin32UiWindowsandmessagingIsProcessDPIAware().toInt()
+    wasiWindowssysWindowsWin32UiWindowsandmessagingIsProcessDPIAware()
 
 public actual fun isWindow(hwnd: Hwnd): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiWindowsandmessagingIsWindow")
@@ -814,7 +814,7 @@ public actual fun isWindowVisible(hwnd: Hwnd): Bool =
 private external fun wasiWindowssysWindowsWin32UiWindowsandmessagingIsWow64Message(): Int
 
 public actual fun isWow64Message(): Bool =
-    wasiWindowssysWindowsWin32UiWindowsandmessagingIsWow64Message().toInt()
+    wasiWindowssysWindowsWin32UiWindowsandmessagingIsWow64Message()
 
 public actual fun isZoomed(hwnd: Hwnd): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiWindowsandmessagingIsZoomed")
@@ -874,7 +874,7 @@ public actual fun loadStringW(hinstance: Hinstance, uid: UInt, lpbuffer: Pwstr, 
 private external fun wasiWindowssysWindowsWin32UiWindowsandmessagingLockSetForegroundWindow(ulockcode: Int): Int
 
 public actual fun lockSetForegroundWindow(ulockcode: ForegroundWindowLockCode): Bool =
-    wasiWindowssysWindowsWin32UiWindowsandmessagingLockSetForegroundWindow(ulockcode.toInt()).toInt()
+    wasiWindowssysWindowsWin32UiWindowsandmessagingLockSetForegroundWindow(ulockcode.toInt())
 
 public actual fun logicalToPhysicalPoint(hwnd: Hwnd, lppoint: MutPtr<Point>): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiWindowsandmessagingLogicalToPhysicalPoint")
@@ -1033,13 +1033,13 @@ public actual fun postQuitMessage(nexitcode: Int): Unit =
 private external fun wasiWindowssysWindowsWin32UiWindowsandmessagingPostThreadMessageA(idthread: Int, msg: Int, wparam: Long, lparam: Long): Int
 
 public actual fun postThreadMessageA(idthread: UInt, msg: UInt, wparam: Wparam, lparam: Lparam): Bool =
-    wasiWindowssysWindowsWin32UiWindowsandmessagingPostThreadMessageA(idthread.toInt(), msg.toInt(), wparam.toLong(), lparam).toInt()
+    wasiWindowssysWindowsWin32UiWindowsandmessagingPostThreadMessageA(idthread.toInt(), msg.toInt(), wparam.toLong(), lparam)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiWindowsandmessagingPostThreadMessageW")
 private external fun wasiWindowssysWindowsWin32UiWindowsandmessagingPostThreadMessageW(idthread: Int, msg: Int, wparam: Long, lparam: Long): Int
 
 public actual fun postThreadMessageW(idthread: UInt, msg: UInt, wparam: Wparam, lparam: Lparam): Bool =
-    wasiWindowssysWindowsWin32UiWindowsandmessagingPostThreadMessageW(idthread.toInt(), msg.toInt(), wparam.toLong(), lparam).toInt()
+    wasiWindowssysWindowsWin32UiWindowsandmessagingPostThreadMessageW(idthread.toInt(), msg.toInt(), wparam.toLong(), lparam)
 
 public actual fun privateExtractIconsA(szfilename: Pcstr, niconindex: Int, cxicon: Int, cyicon: Int, phicon: MutPtr<Hicon>, piconid: MutPtr<UInt>, nicons: UInt, flags: UInt): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiWindowsandmessagingPrivateExtractIconsA")
@@ -1099,7 +1099,7 @@ public actual fun removePropW(hwnd: Hwnd, lpstring: Pcwstr): Handle =
 private external fun wasiWindowssysWindowsWin32UiWindowsandmessagingReplyMessage(lresult: Long): Int
 
 public actual fun replyMessage(lresult: Lresult): Bool =
-    wasiWindowssysWindowsWin32UiWindowsandmessagingReplyMessage(lresult).toInt()
+    wasiWindowssysWindowsWin32UiWindowsandmessagingReplyMessage(lresult)
 
 public actual fun scrollDC(hdc: Hdc, dx: Int, dy: Int, lprcscroll: ConstPtr<Rect>, lprcclip: ConstPtr<Rect>, hrgnupdate: Hrgn, lprcupdate: MutPtr<Rect>): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiWindowsandmessagingScrollDC")
@@ -1147,13 +1147,13 @@ public actual fun setAdditionalForegroundBoostProcesses(toplevelwindow: Hwnd, pr
 private external fun wasiWindowssysWindowsWin32UiWindowsandmessagingSetCaretBlinkTime(umseconds: Int): Int
 
 public actual fun setCaretBlinkTime(umseconds: UInt): Bool =
-    wasiWindowssysWindowsWin32UiWindowsandmessagingSetCaretBlinkTime(umseconds.toInt()).toInt()
+    wasiWindowssysWindowsWin32UiWindowsandmessagingSetCaretBlinkTime(umseconds.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiWindowsandmessagingSetCaretPos")
 private external fun wasiWindowssysWindowsWin32UiWindowsandmessagingSetCaretPos(x: Int, y: Int): Int
 
 public actual fun setCaretPos(x: Int, y: Int): Bool =
-    wasiWindowssysWindowsWin32UiWindowsandmessagingSetCaretPos(x, y).toInt()
+    wasiWindowssysWindowsWin32UiWindowsandmessagingSetCaretPos(x, y)
 
 public actual fun setClassLongA(hwnd: Hwnd, nindex: GetClassLongIndex, dwnewlong: Int): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiWindowsandmessagingSetClassLongA")
@@ -1180,7 +1180,7 @@ public actual fun setCursor(hcursor: Hcursor): Hcursor =
 private external fun wasiWindowssysWindowsWin32UiWindowsandmessagingSetCursorPos(x: Int, y: Int): Int
 
 public actual fun setCursorPos(x: Int, y: Int): Bool =
-    wasiWindowssysWindowsWin32UiWindowsandmessagingSetCursorPos(x, y).toInt()
+    wasiWindowssysWindowsWin32UiWindowsandmessagingSetCursorPos(x, y)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiWindowsandmessagingSetDebugErrorLevel")
 private external fun wasiWindowssysWindowsWin32UiWindowsandmessagingSetDebugErrorLevel(dwlevel: Int): Unit
@@ -1225,13 +1225,13 @@ public actual fun setMenuItemInfoW(hmenu: Hmenu, item: UInt, fbypositon: Bool, l
 private external fun wasiWindowssysWindowsWin32UiWindowsandmessagingSetMessageExtraInfo(lparam: Long): Long
 
 public actual fun setMessageExtraInfo(lparam: Lparam): Lparam =
-    wasiWindowssysWindowsWin32UiWindowsandmessagingSetMessageExtraInfo(lparam).toLong()
+    wasiWindowssysWindowsWin32UiWindowsandmessagingSetMessageExtraInfo(lparam)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiWindowsandmessagingSetMessageQueue")
 private external fun wasiWindowssysWindowsWin32UiWindowsandmessagingSetMessageQueue(cmessagesmax: Int): Int
 
 public actual fun setMessageQueue(cmessagesmax: Int): Bool =
-    wasiWindowssysWindowsWin32UiWindowsandmessagingSetMessageQueue(cmessagesmax).toInt()
+    wasiWindowssysWindowsWin32UiWindowsandmessagingSetMessageQueue(cmessagesmax)
 
 public actual fun setParent(hwndchild: Hwnd, hwndnewparent: Hwnd): Hwnd =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiWindowsandmessagingSetParent")
@@ -1240,19 +1240,19 @@ public actual fun setParent(hwndchild: Hwnd, hwndnewparent: Hwnd): Hwnd =
 private external fun wasiWindowssysWindowsWin32UiWindowsandmessagingSetPhysicalCursorPos(x: Int, y: Int): Int
 
 public actual fun setPhysicalCursorPos(x: Int, y: Int): Bool =
-    wasiWindowssysWindowsWin32UiWindowsandmessagingSetPhysicalCursorPos(x, y).toInt()
+    wasiWindowssysWindowsWin32UiWindowsandmessagingSetPhysicalCursorPos(x, y)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiWindowsandmessagingSetProcessDPIAware")
 private external fun wasiWindowssysWindowsWin32UiWindowsandmessagingSetProcessDPIAware(): Int
 
 public actual fun setProcessDPIAware(): Bool =
-    wasiWindowssysWindowsWin32UiWindowsandmessagingSetProcessDPIAware().toInt()
+    wasiWindowssysWindowsWin32UiWindowsandmessagingSetProcessDPIAware()
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiWindowsandmessagingSetProcessDefaultLayout")
 private external fun wasiWindowssysWindowsWin32UiWindowsandmessagingSetProcessDefaultLayout(dwdefaultlayout: Int): Int
 
 public actual fun setProcessDefaultLayout(dwdefaultlayout: UInt): Bool =
-    wasiWindowssysWindowsWin32UiWindowsandmessagingSetProcessDefaultLayout(dwdefaultlayout.toInt()).toInt()
+    wasiWindowssysWindowsWin32UiWindowsandmessagingSetProcessDefaultLayout(dwdefaultlayout.toInt())
 
 public actual fun setPropA(hwnd: Hwnd, lpstring: Pcstr, hdata: Handle): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiWindowsandmessagingSetPropA")
@@ -1315,7 +1315,7 @@ public actual fun showCaret(hwnd: Hwnd): Bool =
 private external fun wasiWindowssysWindowsWin32UiWindowsandmessagingShowCursor(bshow: Int): Int
 
 public actual fun showCursor(bshow: Bool): Int =
-    wasiWindowssysWindowsWin32UiWindowsandmessagingShowCursor(bshow).toInt()
+    wasiWindowssysWindowsWin32UiWindowsandmessagingShowCursor(bshow)
 
 public actual fun showOwnedPopups(hwnd: Hwnd, fshow: Bool): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiWindowsandmessagingShowOwnedPopups")
@@ -1330,7 +1330,7 @@ public actual fun showWindowAsync(hwnd: Hwnd, ncmdshow: ShowWindowCmd): Bool =
 private external fun wasiWindowssysWindowsWin32UiWindowsandmessagingSoundSentry(): Int
 
 public actual fun soundSentry(): Bool =
-    wasiWindowssysWindowsWin32UiWindowsandmessagingSoundSentry().toInt()
+    wasiWindowssysWindowsWin32UiWindowsandmessagingSoundSentry()
 
 public actual fun switchToThisWindow(hwnd: Hwnd, funknown: Bool): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiWindowsandmessagingSwitchToThisWindow")
 
@@ -1386,7 +1386,7 @@ public actual fun updateLayeredWindowIndirect(hwnd: Hwnd, pulwinfo: ConstPtr<Upd
 private external fun wasiWindowssysWindowsWin32UiWindowsandmessagingWaitMessage(): Int
 
 public actual fun waitMessage(): Bool =
-    wasiWindowssysWindowsWin32UiWindowsandmessagingWaitMessage().toInt()
+    wasiWindowssysWindowsWin32UiWindowsandmessagingWaitMessage()
 
 public actual fun windowFromPhysicalPoint(point: Point): Hwnd =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiWindowsandmessagingWindowFromPhysicalPoint")

@@ -93,13 +93,13 @@ public actual fun cidldataCreateFromIdarray(pidlfolder: ConstPtr<Itemidlist>, ci
 private external fun wasiWindowssysWindowsWin32UiShellChrCmpIA(w1: Int, w2: Int): Int
 
 public actual fun chrCmpIA(w1: UShort, w2: UShort): Bool =
-    wasiWindowssysWindowsWin32UiShellChrCmpIA(w1.toInt(), w2.toInt()).toInt()
+    wasiWindowssysWindowsWin32UiShellChrCmpIA(w1.toInt(), w2.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiShellChrCmpIW")
 private external fun wasiWindowssysWindowsWin32UiShellChrCmpIW(w1: Int, w2: Int): Int
 
 public actual fun chrCmpIW(w1: UShort, w2: UShort): Bool =
-    wasiWindowssysWindowsWin32UiShellChrCmpIW(w1.toInt(), w2.toInt()).toInt()
+    wasiWindowssysWindowsWin32UiShellChrCmpIW(w1.toInt(), w2.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiShellColorAdjustLuma")
 private external fun wasiWindowssysWindowsWin32UiShellColorAdjustLuma(clrrgb: Int, n: Int, fscale: Int): Int
@@ -137,7 +137,7 @@ public actual fun dadDragEnterEx2(hwndtarget: Hwnd, ptstart: Point, pdtobject: M
 private external fun wasiWindowssysWindowsWin32UiShellDadDragLeave(): Int
 
 public actual fun dadDragLeave(): Bool =
-    wasiWindowssysWindowsWin32UiShellDadDragLeave().toInt()
+    wasiWindowssysWindowsWin32UiShellDadDragLeave()
 
 public actual fun dadDragMove(pt: Point): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiShellDadDragMove")
@@ -149,7 +149,7 @@ public actual fun dadSetDragImage(him: Himagelist, pptoffset: MutPtr<Point>): Bo
 private external fun wasiWindowssysWindowsWin32UiShellDadShowDragImage(fshow: Int): Int
 
 public actual fun dadShowDragImage(fshow: Bool): Bool =
-    wasiWindowssysWindowsWin32UiShellDadShowDragImage(fshow).toInt()
+    wasiWindowssysWindowsWin32UiShellDadShowDragImage(fshow)
 
 public actual fun defSubclassProc(hwnd: Hwnd, umsg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiShellDefSubclassProc")
@@ -183,7 +183,7 @@ public actual fun dragQueryPoint(hdrop: Hdrop, ppt: MutPtr<Point>): Bool =
 private external fun wasiWindowssysWindowsWin32UiShellDriveType(idrive: Int): Int
 
 public actual fun driveType(idrive: Int): Int =
-    wasiWindowssysWindowsWin32UiShellDriveType(idrive).toInt()
+    wasiWindowssysWindowsWin32UiShellDriveType(idrive)
 
 public actual fun duplicateIcon(hinst: Hinstance, hicon: Hicon): Hicon =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiShellDuplicateIcon")
@@ -267,7 +267,7 @@ public actual fun getProfilesDirectoryW(lpprofiledir: Pwstr, lpcchsize: MutPtr<U
 private external fun wasiWindowssysWindowsWin32UiShellGetScaleFactorForDevice(devicetype: Int): Int
 
 public actual fun getScaleFactorForDevice(devicetype: DisplayDeviceType): DeviceScaleFactor =
-    wasiWindowssysWindowsWin32UiShellGetScaleFactorForDevice(devicetype).toInt()
+    wasiWindowssysWindowsWin32UiShellGetScaleFactorForDevice(devicetype)
 
 public actual fun getScaleFactorForMonitor(hmon: Hmonitor, pscale: MutPtr<DeviceScaleFactor>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiShellGetScaleFactorForMonitor")
@@ -487,7 +487,7 @@ public actual fun importPrivacySettings(pszfilename: Pcwstr, pfparseprivacyprefe
 private external fun wasiWindowssysWindowsWin32UiShellInitNetworkAddressControl(): Int
 
 public actual fun initNetworkAddressControl(): Bool =
-    wasiWindowssysWindowsWin32UiShellInitNetworkAddressControl().toInt()
+    wasiWindowssysWindowsWin32UiShellInitNetworkAddressControl()
 
 public actual fun initPropVariantFromStrRet(pstrret: MutPtr<Strret>, pidl: ConstPtr<Itemidlist>, ppropvar: MutPtr<Propvariant>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiShellInitPropVariantFromStrRet")
@@ -505,19 +505,19 @@ public actual fun intlStrEqWorkerW(fcasesens: Bool, lpstring1: Pcwstr, lpstring2
 private external fun wasiWindowssysWindowsWin32UiShellIsCharSpaceA(wch: Int): Int
 
 public actual fun isCharSpaceA(wch: Byte): Bool =
-    wasiWindowssysWindowsWin32UiShellIsCharSpaceA(wch.toInt()).toInt()
+    wasiWindowssysWindowsWin32UiShellIsCharSpaceA(wch.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiShellIsCharSpaceW")
 private external fun wasiWindowssysWindowsWin32UiShellIsCharSpaceW(wch: Int): Int
 
 public actual fun isCharSpaceW(wch: UShort): Bool =
-    wasiWindowssysWindowsWin32UiShellIsCharSpaceW(wch.toInt()).toInt()
+    wasiWindowssysWindowsWin32UiShellIsCharSpaceW(wch.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiShellIsInternetESCEnabled")
 private external fun wasiWindowssysWindowsWin32UiShellIsInternetESCEnabled(): Int
 
 public actual fun isInternetESCEnabled(): Bool =
-    wasiWindowssysWindowsWin32UiShellIsInternetESCEnabled().toInt()
+    wasiWindowssysWindowsWin32UiShellIsInternetESCEnabled()
 
 public actual fun isLFNDriveA(pszpath: Pcstr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiShellIsLFNDriveA")
@@ -529,19 +529,19 @@ public actual fun isLFNDriveW(pszpath: Pcwstr): Bool =
 private external fun wasiWindowssysWindowsWin32UiShellIsNetDrive(idrive: Int): Int
 
 public actual fun isNetDrive(idrive: Int): Int =
-    wasiWindowssysWindowsWin32UiShellIsNetDrive(idrive).toInt()
+    wasiWindowssysWindowsWin32UiShellIsNetDrive(idrive)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiShellIsOS")
 private external fun wasiWindowssysWindowsWin32UiShellIsOS(dwos: Int): Int
 
 public actual fun isOS(dwos: OS): Bool =
-    wasiWindowssysWindowsWin32UiShellIsOS(dwos.toInt()).toInt()
+    wasiWindowssysWindowsWin32UiShellIsOS(dwos.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiShellIsUserAnAdmin")
 private external fun wasiWindowssysWindowsWin32UiShellIsUserAnAdmin(): Int
 
 public actual fun isUserAnAdmin(): Bool =
-    wasiWindowssysWindowsWin32UiShellIsUserAnAdmin().toInt()
+    wasiWindowssysWindowsWin32UiShellIsUserAnAdmin()
 
 public actual fun loadUserProfileA(htoken: Handle, lpprofileinfo: MutPtr<Profileinfoa>): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiShellLoadUserProfileA")
@@ -1001,7 +1001,7 @@ public actual fun readCabinetState(pcs: MutPtr<Cabinetstate>, clength: Int): Boo
 private external fun wasiWindowssysWindowsWin32UiShellRealDriveType(idrive: Int, foktohitnet: Int): Int
 
 public actual fun realDriveType(idrive: Int, foktohitnet: Bool): Int =
-    wasiWindowssysWindowsWin32UiShellRealDriveType(idrive, foktohitnet).toInt()
+    wasiWindowssysWindowsWin32UiShellRealDriveType(idrive, foktohitnet)
 
 public actual fun registerAppConstrainedChangeNotification(routine: PappconstrainChangeRoutine, context: ConstPtr<CVoid>, registration: MutPtr<PappconstrainRegistration>): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiShellRegisterAppConstrainedChangeNotification")
@@ -1028,7 +1028,7 @@ public actual fun restartDialogEx(hwnd: Hwnd, pszprompt: Pcwstr, dwreturn: UInt,
 private external fun wasiWindowssysWindowsWin32UiShellRevokeScaleChangeNotifications(displaydevice: Int, dwcookie: Int): Int
 
 public actual fun revokeScaleChangeNotifications(displaydevice: DisplayDeviceType, dwcookie: UInt): Hresult =
-    wasiWindowssysWindowsWin32UiShellRevokeScaleChangeNotifications(displaydevice, dwcookie.toInt()).toInt()
+    wasiWindowssysWindowsWin32UiShellRevokeScaleChangeNotifications(displaydevice, dwcookie.toInt())
 
 public actual fun sHAddFromPropSheetExtArray(hpsxa: Hpsxa, lpfnaddpage: Lpfnsvaddpropsheetpage, lparam: Lparam): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiShellSHAddFromPropSheetExtArray")
@@ -1092,7 +1092,7 @@ public actual fun sHChangeNotify(weventid: Int, uflags: ShcnfFlags, dwitem1: Con
 private external fun wasiWindowssysWindowsWin32UiShellSHChangeNotifyDeregister(ulid: Int): Int
 
 public actual fun sHChangeNotifyDeregister(ulid: UInt): Bool =
-    wasiWindowssysWindowsWin32UiShellSHChangeNotifyDeregister(ulid.toInt()).toInt()
+    wasiWindowssysWindowsWin32UiShellSHChangeNotifyDeregister(ulid.toInt())
 
 public actual fun sHChangeNotifyRegister(hwnd: Hwnd, fsources: ShcnrfSource, fevents: Int, wmsg: UInt, centries: Int, pshcne: ConstPtr<SHChangeNotifyEntry>): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiShellSHChangeNotifyRegister")
@@ -1444,19 +1444,19 @@ public actual fun sHGetViewStatePropertyBag(pidl: ConstPtr<Itemidlist>, pszbagna
 private external fun wasiWindowssysWindowsWin32UiShellSHGlobalCounterDecrement(id: Int): Int
 
 public actual fun sHGlobalCounterDecrement(id: Shglobalcounter): Int =
-    wasiWindowssysWindowsWin32UiShellSHGlobalCounterDecrement(id).toInt()
+    wasiWindowssysWindowsWin32UiShellSHGlobalCounterDecrement(id)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiShellSHGlobalCounterGetValue")
 private external fun wasiWindowssysWindowsWin32UiShellSHGlobalCounterGetValue(id: Int): Int
 
 public actual fun sHGlobalCounterGetValue(id: Shglobalcounter): Int =
-    wasiWindowssysWindowsWin32UiShellSHGlobalCounterGetValue(id).toInt()
+    wasiWindowssysWindowsWin32UiShellSHGlobalCounterGetValue(id)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiShellSHGlobalCounterIncrement")
 private external fun wasiWindowssysWindowsWin32UiShellSHGlobalCounterIncrement(id: Int): Int
 
 public actual fun sHGlobalCounterIncrement(id: Shglobalcounter): Int =
-    wasiWindowssysWindowsWin32UiShellSHGlobalCounterIncrement(id).toInt()
+    wasiWindowssysWindowsWin32UiShellSHGlobalCounterIncrement(id)
 
 public actual fun sHHandleUpdateImage(pidlextra: ConstPtr<Itemidlist>): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiShellSHHandleUpdateImage")
@@ -1477,7 +1477,7 @@ public actual fun sHIsFileAvailableOffline(pwszpath: Pcwstr, pdwstatus: MutPtr<U
 private external fun wasiWindowssysWindowsWin32UiShellSHIsLowMemoryMachine(dwtype: Int): Int
 
 public actual fun sHIsLowMemoryMachine(dwtype: UInt): Bool =
-    wasiWindowssysWindowsWin32UiShellSHIsLowMemoryMachine(dwtype.toInt()).toInt()
+    wasiWindowssysWindowsWin32UiShellSHIsLowMemoryMachine(dwtype.toInt())
 
 public actual fun sHLimitInputEdit(hwndedit: Hwnd, psf: MutPtr<CVoid>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiShellSHLimitInputEdit")
@@ -1492,7 +1492,7 @@ public actual fun sHLoadIndirectString(pszsource: Pcwstr, pszoutbuf: Pwstr, ccho
 private external fun wasiWindowssysWindowsWin32UiShellSHLoadNonloadedIconOverlayIdentifiers(): Int
 
 public actual fun sHLoadNonloadedIconOverlayIdentifiers(): Hresult =
-    wasiWindowssysWindowsWin32UiShellSHLoadNonloadedIconOverlayIdentifiers().toInt()
+    wasiWindowssysWindowsWin32UiShellSHLoadNonloadedIconOverlayIdentifiers()
 
 public actual fun sHLockShared(hdata: Handle, dwprocessid: UInt): MutPtr<CVoid> =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiShellSHLockShared")
@@ -1672,7 +1672,7 @@ public actual fun sHRegWriteUSValueW(huskey: Long, pwzvalue: Pcwstr, dwtype: UIn
 private external fun wasiWindowssysWindowsWin32UiShellSHReleaseThreadRef(): Int
 
 public actual fun sHReleaseThreadRef(): Hresult =
-    wasiWindowssysWindowsWin32UiShellSHReleaseThreadRef().toInt()
+    wasiWindowssysWindowsWin32UiShellSHReleaseThreadRef()
 
 public actual fun sHRemoveLocalizedName(pszpath: Pcwstr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiShellSHRemoveLocalizedName")
@@ -1693,13 +1693,13 @@ public actual fun sHRestricted(rest: Restrictions): UInt =
 private external fun wasiWindowssysWindowsWin32UiShellSHSendMessageBroadcastA(umsg: Int, wparam: Long, lparam: Long): Long
 
 public actual fun sHSendMessageBroadcastA(umsg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
-    wasiWindowssysWindowsWin32UiShellSHSendMessageBroadcastA(umsg.toInt(), wparam.toLong(), lparam).toLong()
+    wasiWindowssysWindowsWin32UiShellSHSendMessageBroadcastA(umsg.toInt(), wparam.toLong(), lparam)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiShellSHSendMessageBroadcastW")
 private external fun wasiWindowssysWindowsWin32UiShellSHSendMessageBroadcastW(umsg: Int, wparam: Long, lparam: Long): Long
 
 public actual fun sHSendMessageBroadcastW(umsg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
-    wasiWindowssysWindowsWin32UiShellSHSendMessageBroadcastW(umsg.toInt(), wparam.toLong(), lparam).toLong()
+    wasiWindowssysWindowsWin32UiShellSHSendMessageBroadcastW(umsg.toInt(), wparam.toLong(), lparam)
 
 public actual fun sHSetDefaultProperties(hwnd: Hwnd, psi: MutPtr<CVoid>, dwfileopflags: UInt, pfops: MutPtr<CVoid>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiShellSHSetDefaultProperties")
@@ -2089,7 +2089,7 @@ public actual fun unregisterAppStateChangeNotification(registration: PappstateRe
 private external fun wasiWindowssysWindowsWin32UiShellUnregisterScaleChangeEvent(dwcookie: Long): Int
 
 public actual fun unregisterScaleChangeEvent(dwcookie: ULong): Hresult =
-    wasiWindowssysWindowsWin32UiShellUnregisterScaleChangeEvent(dwcookie.toLong()).toInt()
+    wasiWindowssysWindowsWin32UiShellUnregisterScaleChangeEvent(dwcookie.toLong())
 
 public actual fun urlApplySchemeA(pszin: Pcstr, pszout: Pstr, pcchout: MutPtr<UInt>, dwflags: UInt): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiShellUrlApplySchemeA")

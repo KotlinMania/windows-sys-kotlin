@@ -533,13 +533,13 @@ public actual fun cmIsDockStationPresentEx(pbpresent: MutPtr<Bool>, hmachine: Lo
 private external fun wasiWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmIsVersionAvailable(wversion: Int): Int
 
 public actual fun cmIsVersionAvailable(wversion: UShort): Bool =
-    wasiWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmIsVersionAvailable(wversion.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmIsVersionAvailable(wversion.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesDeviceanddriverinstallationCmIsVersionAvailableEx")
 private external fun wasiWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmIsVersionAvailableEx(wversion: Int, hmachine: Long): Int
 
 public actual fun cmIsVersionAvailableEx(wversion: UShort, hmachine: Long): Bool =
-    wasiWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmIsVersionAvailableEx(wversion.toInt(), hmachine).toInt()
+    wasiWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmIsVersionAvailableEx(wversion.toInt(), hmachine)
 
 public actual fun cmLocateDevNodeA(pdndevinst: MutPtr<UInt>, pdeviceid: Pcstr, ulflags: CmLocateDevnodeFlags): Configret =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesDeviceanddriverinstallationCmLocateDevNodeA")
@@ -930,7 +930,7 @@ public actual fun setupBackupErrorW(hwndparent: Hwnd, dialogtitle: Pcwstr, sourc
 private external fun wasiWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCancelTemporarySourceList(): Int
 
 public actual fun setupCancelTemporarySourceList(): Bool =
-    wasiWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCancelTemporarySourceList().toInt()
+    wasiWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCancelTemporarySourceList()
 
 public actual fun setupCloseFileQueue(queuehandle: ConstPtr<CVoid>): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCloseFileQueue")
@@ -1016,7 +1016,7 @@ public actual fun setupDiCallClassInstaller(installfunction: DiFunction, devicei
 private external fun wasiWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCancelDriverInfoSearch(deviceinfoset: Long): Int
 
 public actual fun setupDiCancelDriverInfoSearch(deviceinfoset: Hdevinfo): Bool =
-    wasiWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCancelDriverInfoSearch(deviceinfoset).toInt()
+    wasiWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCancelDriverInfoSearch(deviceinfoset)
 
 public actual fun setupDiChangeState(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr<SpDevinfoData>): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiChangeState")
@@ -1097,7 +1097,7 @@ public actual fun setupDiDestroyClassImageList(classimagelistdata: ConstPtr<SpCl
 private external fun wasiWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiDestroyDeviceInfoList(deviceinfoset: Long): Int
 
 public actual fun setupDiDestroyDeviceInfoList(deviceinfoset: Hdevinfo): Bool =
-    wasiWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiDestroyDeviceInfoList(deviceinfoset).toInt()
+    wasiWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiDestroyDeviceInfoList(deviceinfoset)
 
 public actual fun setupDiDestroyDriverInfoList(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, drivertype: SetupDiDriverType): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiDestroyDriverInfoList")
@@ -1562,7 +1562,7 @@ public actual fun setupGetMultiSzFieldW(context: ConstPtr<Infcontext>, fieldinde
 private external fun wasiWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetNonInteractiveMode(): Int
 
 public actual fun setupGetNonInteractiveMode(): Bool =
-    wasiWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetNonInteractiveMode().toInt()
+    wasiWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetNonInteractiveMode()
 
 public actual fun setupGetSourceFileLocationA(infhandle: ConstPtr<CVoid>, infcontext: ConstPtr<Infcontext>, filename: Pcstr, sourceid: MutPtr<UInt>, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetSourceFileLocationA")
@@ -1685,7 +1685,7 @@ public actual fun setupOpenInfFileW(filename: Pcwstr, infclass: Pcwstr, infstyle
 private external fun wasiWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupOpenLog(erase: Int): Int
 
 public actual fun setupOpenLog(erase: Bool): Bool =
-    wasiWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupOpenLog(erase).toInt()
+    wasiWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupOpenLog(erase)
 
 public actual fun setupOpenMasterInf(): MutPtr<CVoid> =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupOpenMasterInf")
@@ -1862,7 +1862,7 @@ public actual fun setupSetFileQueueFlags(filequeue: ConstPtr<CVoid>, flagmask: U
 private external fun wasiWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetNonInteractiveMode(noninteractiveflag: Int): Int
 
 public actual fun setupSetNonInteractiveMode(noninteractiveflag: Bool): Bool =
-    wasiWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetNonInteractiveMode(noninteractiveflag).toInt()
+    wasiWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetNonInteractiveMode(noninteractiveflag)
 
 public actual fun setupSetPlatformPathOverrideA(override: Pcstr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetPlatformPathOverrideA")

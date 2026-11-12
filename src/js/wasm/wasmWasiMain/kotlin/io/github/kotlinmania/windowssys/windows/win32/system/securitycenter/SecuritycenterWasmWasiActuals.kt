@@ -20,7 +20,7 @@ public actual fun wscGetSecurityProviderHealth(providers: UInt, phealth: MutPtr<
 private external fun wasiWindowssysWindowsWin32SystemSecuritycenterWscQueryAntiMalwareUri(): Int
 
 public actual fun wscQueryAntiMalwareUri(): Hresult =
-    wasiWindowssysWindowsWin32SystemSecuritycenterWscQueryAntiMalwareUri().toInt()
+    wasiWindowssysWindowsWin32SystemSecuritycenterWscQueryAntiMalwareUri()
 
 public actual fun wscRegisterForChanges(reserved: MutPtr<CVoid>, phcallbackregistration: MutPtr<Handle>, lpcallbackaddress: LpthreadStartRoutine, pcontext: MutPtr<CVoid>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSecuritycenterWscRegisterForChanges")
@@ -29,7 +29,7 @@ public actual fun wscRegisterForChanges(reserved: MutPtr<CVoid>, phcallbackregis
 private external fun wasiWindowssysWindowsWin32SystemSecuritycenterWscRegisterForUserNotifications(): Int
 
 public actual fun wscRegisterForUserNotifications(): Hresult =
-    wasiWindowssysWindowsWin32SystemSecuritycenterWscRegisterForUserNotifications().toInt()
+    wasiWindowssysWindowsWin32SystemSecuritycenterWscRegisterForUserNotifications()
 
 public actual fun wscUnRegisterChanges(hregistrationhandle: Handle): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSecuritycenterWscUnRegisterChanges")

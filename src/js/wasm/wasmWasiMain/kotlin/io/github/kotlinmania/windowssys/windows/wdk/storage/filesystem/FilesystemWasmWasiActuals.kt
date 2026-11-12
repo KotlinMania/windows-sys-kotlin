@@ -217,7 +217,7 @@ public actual fun ccUnpinRepinnedBcb(bcb: ConstPtr<CVoid>, writethrough: Boolean
 private external fun wasiWindowssysWindowsWdkStorageFilesystemCcWaitForCurrentLazyWriterActivity(): Int
 
 public actual fun ccWaitForCurrentLazyWriterActivity(): Ntstatus =
-    wasiWindowssysWindowsWdkStorageFilesystemCcWaitForCurrentLazyWriterActivity().toInt()
+    wasiWindowssysWindowsWdkStorageFilesystemCcWaitForCurrentLazyWriterActivity()
 
 public actual fun ccZeroData(fileobject: ConstPtr<FileObject>, startoffset: ConstPtr<Long>, endoffset: ConstPtr<Long>, wait: Boolean): Boolean =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWdkStorageFilesystemCcZeroData")
@@ -610,7 +610,7 @@ public actual fun fsRtlMupGetProviderInfoFromFileObject(pfileobject: ConstPtr<Fi
 private external fun wasiWindowssysWindowsWdkStorageFilesystemFsRtlNormalizeNtstatus(exception: Int, genericexception: Int): Int
 
 public actual fun fsRtlNormalizeNtstatus(exception: Ntstatus, genericexception: Ntstatus): Ntstatus =
-    wasiWindowssysWindowsWdkStorageFilesystemFsRtlNormalizeNtstatus(exception, genericexception).toInt()
+    wasiWindowssysWindowsWdkStorageFilesystemFsRtlNormalizeNtstatus(exception, genericexception)
 
 public actual fun fsRtlNotifyCleanup(notifysync: PnotifySync, notifylist: ConstPtr<ListEntry>, fscontext: ConstPtr<CVoid>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWdkStorageFilesystemFsRtlNotifyCleanup")
 
@@ -817,13 +817,13 @@ public actual fun ioCheckFunctionAccess(grantedaccess: UInt, majorfunction: UByt
 private external fun wasiWindowssysWindowsWdkStorageFilesystemIoCheckQuerySetFileInformation(fileinformationclass: Int, length: Int, setoperation: Int): Int
 
 public actual fun ioCheckQuerySetFileInformation(fileinformationclass: FileInformationClass, length: UInt, setoperation: Boolean): Ntstatus =
-    wasiWindowssysWindowsWdkStorageFilesystemIoCheckQuerySetFileInformation(fileinformationclass, length.toInt(), if (setoperation) 1 else 0).toInt()
+    wasiWindowssysWindowsWdkStorageFilesystemIoCheckQuerySetFileInformation(fileinformationclass, length.toInt(), if (setoperation) 1 else 0)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWdkStorageFilesystemIoCheckQuerySetVolumeInformation")
 private external fun wasiWindowssysWindowsWdkStorageFilesystemIoCheckQuerySetVolumeInformation(fsinformationclass: Int, length: Int, setoperation: Int): Int
 
 public actual fun ioCheckQuerySetVolumeInformation(fsinformationclass: FsInformationClass, length: UInt, setoperation: Boolean): Ntstatus =
-    wasiWindowssysWindowsWdkStorageFilesystemIoCheckQuerySetVolumeInformation(fsinformationclass, length.toInt(), if (setoperation) 1 else 0).toInt()
+    wasiWindowssysWindowsWdkStorageFilesystemIoCheckQuerySetVolumeInformation(fsinformationclass, length.toInt(), if (setoperation) 1 else 0)
 
 public actual fun ioCheckQuotaBufferValidity(quotabuffer: ConstPtr<FileQuotaInformation>, quotalength: UInt, erroroffset: MutPtr<UInt>): Ntstatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWdkStorageFilesystemIoCheckQuotaBufferValidity")
@@ -955,7 +955,7 @@ public actual fun ioSynchronousPageWrite(fileobject: ConstPtr<FileObject>, memor
 private external fun wasiWindowssysWindowsWdkStorageFilesystemIoThreadToProcess(thread: Long): Long
 
 public actual fun ioThreadToProcess(thread: Pethread): Peprocess =
-    wasiWindowssysWindowsWdkStorageFilesystemIoThreadToProcess(thread).toLong()
+    wasiWindowssysWindowsWdkStorageFilesystemIoThreadToProcess(thread)
 
 public actual fun ioUnregisterFileSystem(deviceobject: ConstPtr<DeviceObject>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWdkStorageFilesystemIoUnregisterFileSystem")
 
@@ -1045,7 +1045,7 @@ public actual fun makeSignature(phcontext: ConstPtr<SecHandle>, fqop: UInt, pmes
 private external fun wasiWindowssysWindowsWdkStorageFilesystemMapSecurityError(secstatus: Int): Int
 
 public actual fun mapSecurityError(secstatus: Hresult): Ntstatus =
-    wasiWindowssysWindowsWdkStorageFilesystemMapSecurityError(secstatus).toInt()
+    wasiWindowssysWindowsWdkStorageFilesystemMapSecurityError(secstatus)
 
 public actual fun mmCanFileBeTruncated(sectionpointer: ConstPtr<SectionObjectPointers>, newfilesize: ConstPtr<Long>): Boolean =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWdkStorageFilesystemMmCanFileBeTruncated")
@@ -1321,7 +1321,7 @@ public actual fun psChargePoolQuota(process: Peprocess, pooltype: PoolType, amou
 private external fun wasiWindowssysWindowsWdkStorageFilesystemPsChargeProcessPoolQuota(process: Long, pooltype: Int, amount: Long): Int
 
 public actual fun psChargeProcessPoolQuota(process: Peprocess, pooltype: PoolType, amount: ULong): Ntstatus =
-    wasiWindowssysWindowsWdkStorageFilesystemPsChargeProcessPoolQuota(process, pooltype, amount.toLong()).toInt()
+    wasiWindowssysWindowsWdkStorageFilesystemPsChargeProcessPoolQuota(process, pooltype, amount.toLong())
 
 public actual fun psDereferenceImpersonationToken(impersonationtoken: ConstPtr<CVoid>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWdkStorageFilesystemPsDereferenceImpersonationToken")
 
@@ -1334,13 +1334,13 @@ public actual fun psDisableImpersonation(thread: Pethread, impersonationstate: M
 private external fun wasiWindowssysWindowsWdkStorageFilesystemPsGetProcessExitTime(): Long
 
 public actual fun psGetProcessExitTime(): Long =
-    wasiWindowssysWindowsWdkStorageFilesystemPsGetProcessExitTime().toLong()
+    wasiWindowssysWindowsWdkStorageFilesystemPsGetProcessExitTime()
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWdkStorageFilesystemPsGetThreadProcess")
 private external fun wasiWindowssysWindowsWdkStorageFilesystemPsGetThreadProcess(thread: Long): Long
 
 public actual fun psGetThreadProcess(thread: Pethread): Peprocess =
-    wasiWindowssysWindowsWdkStorageFilesystemPsGetThreadProcess(thread).toLong()
+    wasiWindowssysWindowsWdkStorageFilesystemPsGetThreadProcess(thread)
 
 public actual fun psImpersonateClient(thread: Pethread, token: ConstPtr<CVoid>, copyonopen: Boolean, effectiveonly: Boolean, impersonationlevel: SecurityImpersonationLevel): Ntstatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWdkStorageFilesystemPsImpersonateClient")

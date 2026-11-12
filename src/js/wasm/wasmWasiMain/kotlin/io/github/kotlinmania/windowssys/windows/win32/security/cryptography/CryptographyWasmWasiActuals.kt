@@ -578,7 +578,7 @@ public actual fun cryptBinaryToStringW(pbbinary: ConstPtr<UByte>, cbbinary: UInt
 private external fun wasiWindowssysWindowsWin32SecurityCryptographyCryptCloseAsyncHandle(hasync: Long): Int
 
 public actual fun cryptCloseAsyncHandle(hasync: Hcryptasync): Bool =
-    wasiWindowssysWindowsWin32SecurityCryptographyCryptCloseAsyncHandle(hasync).toInt()
+    wasiWindowssysWindowsWin32SecurityCryptographyCryptCloseAsyncHandle(hasync)
 
 public actual fun cryptContextAddRef(hprov: ULong, pdwreserved: ConstPtr<UInt>, dwflags: UInt): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SecurityCryptographyCryptContextAddRef")
@@ -617,13 +617,13 @@ public actual fun cryptDeriveKey(hprov: ULong, algid: AlgId, hbasedata: ULong, d
 private external fun wasiWindowssysWindowsWin32SecurityCryptographyCryptDestroyHash(hhash: Long): Int
 
 public actual fun cryptDestroyHash(hhash: ULong): Bool =
-    wasiWindowssysWindowsWin32SecurityCryptographyCryptDestroyHash(hhash.toLong()).toInt()
+    wasiWindowssysWindowsWin32SecurityCryptographyCryptDestroyHash(hhash.toLong())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SecurityCryptographyCryptDestroyKey")
 private external fun wasiWindowssysWindowsWin32SecurityCryptographyCryptDestroyKey(hkey: Long): Int
 
 public actual fun cryptDestroyKey(hkey: ULong): Bool =
-    wasiWindowssysWindowsWin32SecurityCryptographyCryptDestroyKey(hkey.toLong()).toInt()
+    wasiWindowssysWindowsWin32SecurityCryptographyCryptDestroyKey(hkey.toLong())
 
 public actual fun cryptDuplicateHash(hhash: ULong, pdwreserved: ConstPtr<UInt>, dwflags: UInt, phhash: MutPtr<ULong>): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SecurityCryptographyCryptDuplicateHash")
@@ -764,7 +764,7 @@ public actual fun cryptHashPublicKeyInfo(hcryptprov: HcryptprovLegacy, algid: Al
 private external fun wasiWindowssysWindowsWin32SecurityCryptographyCryptHashSessionKey(hhash: Long, hkey: Long, dwflags: Int): Int
 
 public actual fun cryptHashSessionKey(hhash: ULong, hkey: ULong, dwflags: UInt): Bool =
-    wasiWindowssysWindowsWin32SecurityCryptographyCryptHashSessionKey(hhash.toLong(), hkey.toLong(), dwflags.toInt()).toInt()
+    wasiWindowssysWindowsWin32SecurityCryptographyCryptHashSessionKey(hhash.toLong(), hkey.toLong(), dwflags.toInt())
 
 public actual fun cryptHashToBeSigned(hcryptprov: HcryptprovLegacy, dwcertencodingtype: CertQueryEncodingType, pbencoded: ConstPtr<UByte>, cbencoded: UInt, pbcomputedhash: MutPtr<UByte>, pcbcomputedhash: MutPtr<UInt>): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SecurityCryptographyCryptHashToBeSigned")
@@ -871,7 +871,7 @@ public actual fun cryptRegisterOIDInfo(pinfo: ConstPtr<CryptOidInfo>, dwflags: U
 private external fun wasiWindowssysWindowsWin32SecurityCryptographyCryptReleaseContext(hprov: Long, dwflags: Int): Int
 
 public actual fun cryptReleaseContext(hprov: ULong, dwflags: UInt): Bool =
-    wasiWindowssysWindowsWin32SecurityCryptographyCryptReleaseContext(hprov.toLong(), dwflags.toInt()).toInt()
+    wasiWindowssysWindowsWin32SecurityCryptographyCryptReleaseContext(hprov.toLong(), dwflags.toInt())
 
 public actual fun cryptRetrieveObjectByUrlA(pszurl: Pcstr, pszobjectoid: Pcstr, dwretrievalflags: UInt, dwtimeout: UInt, ppvobject: MutPtr<MutPtr<CVoid>>, hasyncretrieve: Hcryptasync, pcredentials: ConstPtr<CryptCredentials>, pvverify: ConstPtr<CVoid>, pauxinfo: MutPtr<CryptRetrieveAuxInfo>): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SecurityCryptographyCryptRetrieveObjectByUrlA")
@@ -1117,7 +1117,7 @@ public actual fun importInformationCard(filename: Pcwstr): Hresult =
 private external fun wasiWindowssysWindowsWin32SecurityCryptographyManageCardSpace(): Int
 
 public actual fun manageCardSpace(): Hresult =
-    wasiWindowssysWindowsWin32SecurityCryptographyManageCardSpace().toInt()
+    wasiWindowssysWindowsWin32SecurityCryptographyManageCardSpace()
 
 public actual fun nCryptCloseProtectionDescriptor(hdescriptor: NcryptDescriptorHandle): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SecurityCryptographyNCryptCloseProtectionDescriptor")
@@ -1138,7 +1138,7 @@ public actual fun nCryptDecrypt(hkey: NcryptKeyHandle, pbinput: ConstPtr<UByte>,
 private external fun wasiWindowssysWindowsWin32SecurityCryptographyNCryptDeleteKey(hkey: Long, dwflags: Int): Int
 
 public actual fun nCryptDeleteKey(hkey: NcryptKeyHandle, dwflags: UInt): Hresult =
-    wasiWindowssysWindowsWin32SecurityCryptographyNCryptDeleteKey(hkey.toLong(), dwflags.toInt()).toInt()
+    wasiWindowssysWindowsWin32SecurityCryptographyNCryptDeleteKey(hkey.toLong(), dwflags.toInt())
 
 public actual fun nCryptDeriveKey(hsharedsecret: NcryptSecretHandle, pwszkdf: Pcwstr, pparameterlist: ConstPtr<BCryptBufferDesc>, pbderivedkey: MutPtr<UByte>, cbderivedkey: UInt, pcbresult: MutPtr<UInt>, dwflags: UInt): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SecurityCryptographyNCryptDeriveKey")
@@ -1162,7 +1162,7 @@ public actual fun nCryptExportKey(hkey: NcryptKeyHandle, hexportkey: NcryptKeyHa
 private external fun wasiWindowssysWindowsWin32SecurityCryptographyNCryptFinalizeKey(hkey: Long, dwflags: Int): Int
 
 public actual fun nCryptFinalizeKey(hkey: NcryptKeyHandle, dwflags: NcryptFlags): Hresult =
-    wasiWindowssysWindowsWin32SecurityCryptographyNCryptFinalizeKey(hkey.toLong(), dwflags.toInt()).toInt()
+    wasiWindowssysWindowsWin32SecurityCryptographyNCryptFinalizeKey(hkey.toLong(), dwflags.toInt())
 
 public actual fun nCryptFreeBuffer(pvinput: MutPtr<CVoid>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SecurityCryptographyNCryptFreeBuffer")
@@ -1171,7 +1171,7 @@ public actual fun nCryptFreeBuffer(pvinput: MutPtr<CVoid>): Hresult =
 private external fun wasiWindowssysWindowsWin32SecurityCryptographyNCryptFreeObject(hobject: Long): Int
 
 public actual fun nCryptFreeObject(hobject: NcryptHandle): Hresult =
-    wasiWindowssysWindowsWin32SecurityCryptographyNCryptFreeObject(hobject.toLong()).toInt()
+    wasiWindowssysWindowsWin32SecurityCryptographyNCryptFreeObject(hobject.toLong())
 
 public actual fun nCryptGetProperty(hobject: NcryptHandle, pszproperty: Pcwstr, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, dwflags: ObjectSecurityInformation): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SecurityCryptographyNCryptGetProperty")
@@ -1189,7 +1189,7 @@ public actual fun nCryptIsAlgSupported(hprovider: NcryptProvHandle, pszalgid: Pc
 private external fun wasiWindowssysWindowsWin32SecurityCryptographyNCryptIsKeyHandle(hkey: Long): Int
 
 public actual fun nCryptIsKeyHandle(hkey: NcryptKeyHandle): Bool =
-    wasiWindowssysWindowsWin32SecurityCryptographyNCryptIsKeyHandle(hkey.toLong()).toInt()
+    wasiWindowssysWindowsWin32SecurityCryptographyNCryptIsKeyHandle(hkey.toLong())
 
 public actual fun nCryptKeyDerivation(hkey: NcryptKeyHandle, pparameterlist: ConstPtr<BCryptBufferDesc>, pbderivedkey: MutPtr<UByte>, cbderivedkey: UInt, pcbresult: MutPtr<UInt>, dwflags: UInt): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SecurityCryptographyNCryptKeyDerivation")
@@ -1270,7 +1270,7 @@ public actual fun processPrng(pbdata: MutPtr<UByte>, cbdata: ULong): Bool =
 private external fun wasiWindowssysWindowsWin32SecurityCryptographySignError(): Int
 
 public actual fun signError(): Hresult =
-    wasiWindowssysWindowsWin32SecurityCryptographySignError().toInt()
+    wasiWindowssysWindowsWin32SecurityCryptographySignError()
 
 public actual fun signHash(hcrypto: ConstPtr<InformationcardCryptoHandle>, cbhash: UInt, phash: ConstPtr<UByte>, hashalgoid: Pcwstr, pcbsig: MutPtr<UInt>, ppsig: MutPtr<MutPtr<UByte>>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SecurityCryptographySignHash")
@@ -1330,7 +1330,7 @@ public actual fun sslCreateHandshakeHash(hsslprovider: NcryptProvHandle, phhands
 private external fun wasiWindowssysWindowsWin32SecurityCryptographySslDecrementProviderReferenceCount(hsslprovider: Long): Int
 
 public actual fun sslDecrementProviderReferenceCount(hsslprovider: NcryptProvHandle): Hresult =
-    wasiWindowssysWindowsWin32SecurityCryptographySslDecrementProviderReferenceCount(hsslprovider.toLong()).toInt()
+    wasiWindowssysWindowsWin32SecurityCryptographySslDecrementProviderReferenceCount(hsslprovider.toLong())
 
 public actual fun sslDecryptPacket(hsslprovider: NcryptProvHandle, hkey: NcryptKeyHandle, pbinput: ConstPtr<UByte>, cbinput: UInt, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, sequencenumber: ULong, dwflags: UInt): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SecurityCryptographySslDecryptPacket")
@@ -1393,7 +1393,7 @@ public actual fun sslFreeBuffer(pvinput: MutPtr<CVoid>): Hresult =
 private external fun wasiWindowssysWindowsWin32SecurityCryptographySslFreeObject(hobject: Long, dwflags: Int): Int
 
 public actual fun sslFreeObject(hobject: NcryptHandle, dwflags: UInt): Hresult =
-    wasiWindowssysWindowsWin32SecurityCryptographySslFreeObject(hobject.toLong(), dwflags.toInt()).toInt()
+    wasiWindowssysWindowsWin32SecurityCryptographySslFreeObject(hobject.toLong(), dwflags.toInt())
 
 public actual fun sslGenerateMasterKey(hsslprovider: NcryptProvHandle, hprivatekey: NcryptKeyHandle, hpublickey: NcryptKeyHandle, phmasterkey: MutPtr<NcryptKeyHandle>, dwprotocol: UInt, dwciphersuite: UInt, pparameterlist: ConstPtr<BCryptBufferDesc>, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, dwflags: UInt): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SecurityCryptographySslGenerateMasterKey")
@@ -1426,7 +1426,7 @@ public actual fun sslImportMasterKey(hsslprovider: NcryptProvHandle, hprivatekey
 private external fun wasiWindowssysWindowsWin32SecurityCryptographySslIncrementProviderReferenceCount(hsslprovider: Long): Int
 
 public actual fun sslIncrementProviderReferenceCount(hsslprovider: NcryptProvHandle): Hresult =
-    wasiWindowssysWindowsWin32SecurityCryptographySslIncrementProviderReferenceCount(hsslprovider.toLong()).toInt()
+    wasiWindowssysWindowsWin32SecurityCryptographySslIncrementProviderReferenceCount(hsslprovider.toLong())
 
 public actual fun sslLookupCipherLengths(hsslprovider: NcryptProvHandle, dwprotocol: UInt, dwciphersuite: UInt, dwkeytype: UInt, pcipherlengths: MutPtr<NcryptSslCipherLengths>, cbcipherlengths: UInt, dwflags: UInt): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SecurityCryptographySslLookupCipherLengths")

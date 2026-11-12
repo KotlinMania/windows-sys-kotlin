@@ -92,13 +92,13 @@ public actual fun processGroupPolicyCompletedEx(extensionid: ConstPtr<Guid>, pas
 private external fun wasiWindowssysWindowsWin32SystemGrouppolicyRefreshPolicy(bmachine: Int): Int
 
 public actual fun refreshPolicy(bmachine: Bool): Bool =
-    wasiWindowssysWindowsWin32SystemGrouppolicyRefreshPolicy(bmachine).toInt()
+    wasiWindowssysWindowsWin32SystemGrouppolicyRefreshPolicy(bmachine)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemGrouppolicyRefreshPolicyEx")
 private external fun wasiWindowssysWindowsWin32SystemGrouppolicyRefreshPolicyEx(bmachine: Int, dwoptions: Int): Int
 
 public actual fun refreshPolicyEx(bmachine: Bool, dwoptions: UInt): Bool =
-    wasiWindowssysWindowsWin32SystemGrouppolicyRefreshPolicyEx(bmachine, dwoptions.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemGrouppolicyRefreshPolicyEx(bmachine, dwoptions.toInt())
 
 public actual fun registerGPNotification(hevent: Handle, bmachine: Bool): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemGrouppolicyRegisterGPNotification")

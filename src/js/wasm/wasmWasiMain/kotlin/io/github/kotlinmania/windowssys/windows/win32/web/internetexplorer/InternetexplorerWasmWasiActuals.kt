@@ -44,7 +44,7 @@ public actual fun getMaxMIMEIDBytes(pnmaxbytes: MutPtr<UInt>): Hresult =
 private external fun wasiWindowssysWindowsWin32WebInternetexplorerIEAssociateThreadWithTab(dwtabthreadid: Int, dwassociatedthreadid: Int): Int
 
 public actual fun iEAssociateThreadWithTab(dwtabthreadid: UInt, dwassociatedthreadid: UInt): Hresult =
-    wasiWindowssysWindowsWin32WebInternetexplorerIEAssociateThreadWithTab(dwtabthreadid.toInt(), dwassociatedthreadid.toInt()).toInt()
+    wasiWindowssysWindowsWin32WebInternetexplorerIEAssociateThreadWithTab(dwtabthreadid.toInt(), dwassociatedthreadid.toInt())
 
 public actual fun iECancelSaveFile(hstate: Handle): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32WebInternetexplorerIECancelSaveFile")
@@ -62,7 +62,7 @@ public actual fun iEDeleteFile(lpfilename: Pcwstr): Bool =
 private external fun wasiWindowssysWindowsWin32WebInternetexplorerIEDisassociateThreadWithTab(dwtabthreadid: Int, dwassociatedthreadid: Int): Int
 
 public actual fun iEDisassociateThreadWithTab(dwtabthreadid: UInt, dwassociatedthreadid: UInt): Hresult =
-    wasiWindowssysWindowsWin32WebInternetexplorerIEDisassociateThreadWithTab(dwtabthreadid.toInt(), dwassociatedthreadid.toInt()).toInt()
+    wasiWindowssysWindowsWin32WebInternetexplorerIEDisassociateThreadWithTab(dwtabthreadid.toInt(), dwassociatedthreadid.toInt())
 
 public actual fun iEFindFirstFile(lpfilename: Pcwstr, lpfindfiledata: ConstPtr<Win32FindDataa>): Handle =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32WebInternetexplorerIEFindFirstFile")
@@ -83,13 +83,13 @@ public actual fun iEGetWriteableLowHKCU(phkey: MutPtr<Hkey>): Hresult =
 private external fun wasiWindowssysWindowsWin32WebInternetexplorerIEInPrivateFilteringEnabled(): Int
 
 public actual fun iEInPrivateFilteringEnabled(): Bool =
-    wasiWindowssysWindowsWin32WebInternetexplorerIEInPrivateFilteringEnabled().toInt()
+    wasiWindowssysWindowsWin32WebInternetexplorerIEInPrivateFilteringEnabled()
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32WebInternetexplorerIEIsInPrivateBrowsing")
 private external fun wasiWindowssysWindowsWin32WebInternetexplorerIEIsInPrivateBrowsing(): Int
 
 public actual fun iEIsInPrivateBrowsing(): Bool =
-    wasiWindowssysWindowsWin32WebInternetexplorerIEIsInPrivateBrowsing().toInt()
+    wasiWindowssysWindowsWin32WebInternetexplorerIEIsInPrivateBrowsing()
 
 public actual fun iEIsProtectedModeProcess(pbresult: MutPtr<Bool>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32WebInternetexplorerIEIsProtectedModeProcess")
@@ -107,7 +107,7 @@ public actual fun iEMoveFileEx(lpexistingfilename: Pcwstr, lpnewfilename: Pcwstr
 private external fun wasiWindowssysWindowsWin32WebInternetexplorerIERefreshElevationPolicy(): Int
 
 public actual fun iERefreshElevationPolicy(): Hresult =
-    wasiWindowssysWindowsWin32WebInternetexplorerIERefreshElevationPolicy().toInt()
+    wasiWindowssysWindowsWin32WebInternetexplorerIERefreshElevationPolicy()
 
 public actual fun iERegCreateKeyEx(lpsubkey: Pcwstr, reserved: UInt, lpclass: Pcwstr, dwoptions: UInt, samdesired: UInt, lpsecurityattributes: ConstPtr<SecurityAttributes>, phkresult: MutPtr<Hkey>, lpdwdisposition: MutPtr<UInt>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32WebInternetexplorerIERegCreateKeyEx")
@@ -140,7 +140,7 @@ public actual fun iEShowSaveFileDialog(hwnd: Hwnd, lpwstrinitialfilename: Pcwstr
 private external fun wasiWindowssysWindowsWin32WebInternetexplorerIETrackingProtectionEnabled(): Int
 
 public actual fun iETrackingProtectionEnabled(): Bool =
-    wasiWindowssysWindowsWin32WebInternetexplorerIETrackingProtectionEnabled().toInt()
+    wasiWindowssysWindowsWin32WebInternetexplorerIETrackingProtectionEnabled()
 
 public actual fun iEUnregisterWritableRegistry(guid: Guid): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32WebInternetexplorerIEUnregisterWritableRegistry")
@@ -185,7 +185,7 @@ public actual fun ratingEnableW(hwndparent: Hwnd, pszusername: Pcwstr, fenable: 
 private external fun wasiWindowssysWindowsWin32WebInternetexplorerRatingEnabledQuery(): Int
 
 public actual fun ratingEnabledQuery(): Hresult =
-    wasiWindowssysWindowsWin32WebInternetexplorerRatingEnabledQuery().toInt()
+    wasiWindowssysWindowsWin32WebInternetexplorerRatingEnabledQuery()
 
 public actual fun ratingFreeDetails(pratingdetails: ConstPtr<CVoid>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32WebInternetexplorerRatingFreeDetails")
@@ -194,7 +194,7 @@ public actual fun ratingFreeDetails(pratingdetails: ConstPtr<CVoid>): Hresult =
 private external fun wasiWindowssysWindowsWin32WebInternetexplorerRatingInit(): Int
 
 public actual fun ratingInit(): Hresult =
-    wasiWindowssysWindowsWin32WebInternetexplorerRatingInit().toInt()
+    wasiWindowssysWindowsWin32WebInternetexplorerRatingInit()
 
 public actual fun ratingObtainCancel(hratingobtainquery: Handle): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32WebInternetexplorerRatingObtainCancel")

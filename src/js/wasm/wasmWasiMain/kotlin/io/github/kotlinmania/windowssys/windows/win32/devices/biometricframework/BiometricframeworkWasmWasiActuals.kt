@@ -15,31 +15,31 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 private external fun wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioAcquireFocus(): Int
 
 public actual fun winBioAcquireFocus(): Hresult =
-    wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioAcquireFocus().toInt()
+    wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioAcquireFocus()
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesBiometricframeworkWinBioAsyncEnumBiometricUnits")
 private external fun wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioAsyncEnumBiometricUnits(frameworkhandle: Int, factor: Int): Int
 
 public actual fun winBioAsyncEnumBiometricUnits(frameworkhandle: UInt, factor: UInt): Hresult =
-    wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioAsyncEnumBiometricUnits(frameworkhandle.toInt(), factor.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioAsyncEnumBiometricUnits(frameworkhandle.toInt(), factor.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesBiometricframeworkWinBioAsyncEnumDatabases")
 private external fun wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioAsyncEnumDatabases(frameworkhandle: Int, factor: Int): Int
 
 public actual fun winBioAsyncEnumDatabases(frameworkhandle: UInt, factor: UInt): Hresult =
-    wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioAsyncEnumDatabases(frameworkhandle.toInt(), factor.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioAsyncEnumDatabases(frameworkhandle.toInt(), factor.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesBiometricframeworkWinBioAsyncEnumServiceProviders")
 private external fun wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioAsyncEnumServiceProviders(frameworkhandle: Int, factor: Int): Int
 
 public actual fun winBioAsyncEnumServiceProviders(frameworkhandle: UInt, factor: UInt): Hresult =
-    wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioAsyncEnumServiceProviders(frameworkhandle.toInt(), factor.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioAsyncEnumServiceProviders(frameworkhandle.toInt(), factor.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesBiometricframeworkWinBioAsyncMonitorFrameworkChanges")
 private external fun wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioAsyncMonitorFrameworkChanges(frameworkhandle: Int, changetypes: Int): Int
 
 public actual fun winBioAsyncMonitorFrameworkChanges(frameworkhandle: UInt, changetypes: UInt): Hresult =
-    wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioAsyncMonitorFrameworkChanges(frameworkhandle.toInt(), changetypes.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioAsyncMonitorFrameworkChanges(frameworkhandle.toInt(), changetypes.toInt())
 
 public actual fun winBioAsyncOpenFramework(notificationmethod: WinbioAsyncNotificationMethod, targetwindow: Hwnd, messagecode: UInt, callbackroutine: PwinbioAsyncCompletionCallback, userdata: ConstPtr<CVoid>, asynchronousopen: Bool, frameworkhandle: MutPtr<UInt>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesBiometricframeworkWinBioAsyncOpenFramework")
@@ -51,7 +51,7 @@ public actual fun winBioAsyncOpenSession(factor: UInt, pooltype: WinbioPool, fla
 private external fun wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioCancel(sessionhandle: Int): Int
 
 public actual fun winBioCancel(sessionhandle: UInt): Hresult =
-    wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioCancel(sessionhandle.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioCancel(sessionhandle.toInt())
 
 public actual fun winBioCaptureSample(sessionhandle: UInt, purpose: UByte, flags: UByte, unitid: MutPtr<UInt>, sample: MutPtr<MutPtr<WinbioBir>>, samplesize: MutPtr<ULong>, rejectdetail: MutPtr<UInt>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesBiometricframeworkWinBioCaptureSample")
@@ -63,13 +63,13 @@ public actual fun winBioCaptureSampleWithCallback(sessionhandle: UInt, purpose: 
 private external fun wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioCloseFramework(frameworkhandle: Int): Int
 
 public actual fun winBioCloseFramework(frameworkhandle: UInt): Hresult =
-    wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioCloseFramework(frameworkhandle.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioCloseFramework(frameworkhandle.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesBiometricframeworkWinBioCloseSession")
 private external fun wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioCloseSession(sessionhandle: Int): Int
 
 public actual fun winBioCloseSession(sessionhandle: UInt): Hresult =
-    wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioCloseSession(sessionhandle.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioCloseSession(sessionhandle.toInt())
 
 public actual fun winBioControlUnit(sessionhandle: UInt, unitid: UInt, component: WinbioComponent, controlcode: UInt, sendbuffer: ConstPtr<UByte>, sendbuffersize: ULong, receivebuffer: MutPtr<UByte>, receivebuffersize: ULong, receivedatasize: MutPtr<ULong>, operationstatus: MutPtr<UInt>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesBiometricframeworkWinBioControlUnit")
@@ -84,7 +84,7 @@ public actual fun winBioDeleteTemplate(sessionhandle: UInt, unitid: UInt, identi
 private external fun wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioEnrollBegin(sessionhandle: Int, subfactor: Int, unitid: Int): Int
 
 public actual fun winBioEnrollBegin(sessionhandle: UInt, subfactor: UByte, unitid: UInt): Hresult =
-    wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioEnrollBegin(sessionhandle.toInt(), subfactor.toInt(), unitid.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioEnrollBegin(sessionhandle.toInt(), subfactor.toInt(), unitid.toInt())
 
 public actual fun winBioEnrollCapture(sessionhandle: UInt, rejectdetail: MutPtr<UInt>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesBiometricframeworkWinBioEnrollCapture")
@@ -99,13 +99,13 @@ public actual fun winBioEnrollCommit(sessionhandle: UInt, identity: MutPtr<Winbi
 private external fun wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioEnrollDiscard(sessionhandle: Int): Int
 
 public actual fun winBioEnrollDiscard(sessionhandle: UInt): Hresult =
-    wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioEnrollDiscard(sessionhandle.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioEnrollDiscard(sessionhandle.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesBiometricframeworkWinBioEnrollSelect")
 private external fun wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioEnrollSelect(sessionhandle: Int, selectorvalue: Long): Int
 
 public actual fun winBioEnrollSelect(sessionhandle: UInt, selectorvalue: ULong): Hresult =
-    wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioEnrollSelect(sessionhandle.toInt(), selectorvalue.toLong()).toInt()
+    wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioEnrollSelect(sessionhandle.toInt(), selectorvalue.toLong())
 
 public actual fun winBioEnumBiometricUnits(factor: UInt, unitschemaarray: MutPtr<MutPtr<WinbioUnitSchema>>, unitcount: MutPtr<ULong>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesBiometricframeworkWinBioEnumBiometricUnits")
@@ -147,13 +147,13 @@ public actual fun winBioIdentifyWithCallback(sessionhandle: UInt, identifycallba
 private external fun wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioImproveBegin(sessionhandle: Int, unitid: Int): Int
 
 public actual fun winBioImproveBegin(sessionhandle: UInt, unitid: UInt): Hresult =
-    wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioImproveBegin(sessionhandle.toInt(), unitid.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioImproveBegin(sessionhandle.toInt(), unitid.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesBiometricframeworkWinBioImproveEnd")
 private external fun wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioImproveEnd(sessionhandle: Int): Int
 
 public actual fun winBioImproveEnd(sessionhandle: UInt): Hresult =
-    wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioImproveEnd(sessionhandle.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioImproveEnd(sessionhandle.toInt())
 
 public actual fun winBioLocateSensor(sessionhandle: UInt, unitid: MutPtr<UInt>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesBiometricframeworkWinBioLocateSensor")
@@ -165,19 +165,19 @@ public actual fun winBioLocateSensorWithCallback(sessionhandle: UInt, locatecall
 private external fun wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioLockUnit(sessionhandle: Int, unitid: Int): Int
 
 public actual fun winBioLockUnit(sessionhandle: UInt, unitid: UInt): Hresult =
-    wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioLockUnit(sessionhandle.toInt(), unitid.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioLockUnit(sessionhandle.toInt(), unitid.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesBiometricframeworkWinBioLogonIdentifiedUser")
 private external fun wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioLogonIdentifiedUser(sessionhandle: Int): Int
 
 public actual fun winBioLogonIdentifiedUser(sessionhandle: UInt): Hresult =
-    wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioLogonIdentifiedUser(sessionhandle.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioLogonIdentifiedUser(sessionhandle.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesBiometricframeworkWinBioMonitorPresence")
 private external fun wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioMonitorPresence(sessionhandle: Int, unitid: Int): Int
 
 public actual fun winBioMonitorPresence(sessionhandle: UInt, unitid: UInt): Hresult =
-    wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioMonitorPresence(sessionhandle.toInt(), unitid.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioMonitorPresence(sessionhandle.toInt(), unitid.toInt())
 
 public actual fun winBioOpenSession(factor: UInt, pooltype: WinbioPool, flags: UInt, unitarray: ConstPtr<UInt>, unitcount: ULong, databaseid: ConstPtr<Guid>, sessionhandle: MutPtr<UInt>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesBiometricframeworkWinBioOpenSession")
@@ -189,19 +189,19 @@ public actual fun winBioRegisterEventMonitor(sessionhandle: UInt, eventmask: UIn
 private external fun wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioReleaseFocus(): Int
 
 public actual fun winBioReleaseFocus(): Hresult =
-    wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioReleaseFocus().toInt()
+    wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioReleaseFocus()
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesBiometricframeworkWinBioRemoveAllCredentials")
 private external fun wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioRemoveAllCredentials(): Int
 
 public actual fun winBioRemoveAllCredentials(): Hresult =
-    wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioRemoveAllCredentials().toInt()
+    wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioRemoveAllCredentials()
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesBiometricframeworkWinBioRemoveAllDomainCredentials")
 private external fun wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioRemoveAllDomainCredentials(): Int
 
 public actual fun winBioRemoveAllDomainCredentials(): Hresult =
-    wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioRemoveAllDomainCredentials().toInt()
+    wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioRemoveAllDomainCredentials()
 
 public actual fun winBioRemoveCredential(identity: WinbioIdentity, type: WinbioCredentialType): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesBiometricframeworkWinBioRemoveCredential")
@@ -216,13 +216,13 @@ public actual fun winBioSetProperty(sessionhandle: UInt, propertytype: UInt, pro
 private external fun wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioUnlockUnit(sessionhandle: Int, unitid: Int): Int
 
 public actual fun winBioUnlockUnit(sessionhandle: UInt, unitid: UInt): Hresult =
-    wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioUnlockUnit(sessionhandle.toInt(), unitid.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioUnlockUnit(sessionhandle.toInt(), unitid.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesBiometricframeworkWinBioUnregisterEventMonitor")
 private external fun wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioUnregisterEventMonitor(sessionhandle: Int): Int
 
 public actual fun winBioUnregisterEventMonitor(sessionhandle: UInt): Hresult =
-    wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioUnregisterEventMonitor(sessionhandle.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioUnregisterEventMonitor(sessionhandle.toInt())
 
 public actual fun winBioVerify(sessionhandle: UInt, identity: ConstPtr<WinbioIdentity>, subfactor: UByte, unitid: MutPtr<UInt>, match: MutPtr<UByte>, rejectdetail: MutPtr<UInt>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesBiometricframeworkWinBioVerify")
@@ -234,4 +234,4 @@ public actual fun winBioVerifyWithCallback(sessionhandle: UInt, identity: ConstP
 private external fun wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioWait(sessionhandle: Int): Int
 
 public actual fun winBioWait(sessionhandle: UInt): Hresult =
-    wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioWait(sessionhandle.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesBiometricframeworkWinBioWait(sessionhandle.toInt())

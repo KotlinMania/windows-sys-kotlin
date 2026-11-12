@@ -314,7 +314,7 @@ public actual fun saveCurrentSettings(hmonitor: Handle): Int =
 private external fun wasiWindowssysWindowsWin32DevicesDisplaySetDisplayAutoRotationPreferences(orientation: Int): Int
 
 public actual fun setDisplayAutoRotationPreferences(orientation: OrientationPreference): Bool =
-    wasiWindowssysWindowsWin32DevicesDisplaySetDisplayAutoRotationPreferences(orientation).toInt()
+    wasiWindowssysWindowsWin32DevicesDisplaySetDisplayAutoRotationPreferences(orientation)
 
 public actual fun setDisplayConfig(numpatharrayelements: UInt, patharray: ConstPtr<DisplayconfigPathInfo>, nummodeinfoarrayelements: UInt, modeinfoarray: ConstPtr<DisplayconfigModeInfo>, flags: SetDisplayConfigFlags): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesDisplaySetDisplayConfig")

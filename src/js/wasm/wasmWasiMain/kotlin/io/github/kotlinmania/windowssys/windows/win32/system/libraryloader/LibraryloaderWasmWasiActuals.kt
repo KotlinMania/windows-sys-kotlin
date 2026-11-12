@@ -150,7 +150,7 @@ public actual fun removeDllDirectory(cookie: ConstPtr<CVoid>): Bool =
 private external fun wasiWindowssysWindowsWin32SystemLibraryloaderSetDefaultDllDirectories(directoryflags: Int): Int
 
 public actual fun setDefaultDllDirectories(directoryflags: LoadLibraryFlags): Bool =
-    wasiWindowssysWindowsWin32SystemLibraryloaderSetDefaultDllDirectories(directoryflags.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemLibraryloaderSetDefaultDllDirectories(directoryflags.toInt())
 
 public actual fun setDllDirectoryA(lppathname: Pcstr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemLibraryloaderSetDllDirectoryA")

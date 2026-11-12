@@ -90,7 +90,7 @@ public actual fun backupClusterDatabase(hcluster: Hcluster, lpszpathname: Pcwstr
 private external fun wasiWindowssysWindowsWin32NetworkingClusteringCanResourceBeDependent(hresource: Long, hresourcedependent: Long): Int
 
 public actual fun canResourceBeDependent(hresource: Hresource, hresourcedependent: Hresource): Bool =
-    wasiWindowssysWindowsWin32NetworkingClusteringCanResourceBeDependent(hresource, hresourcedependent).toInt()
+    wasiWindowssysWindowsWin32NetworkingClusteringCanResourceBeDependent(hresource, hresourcedependent)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringCancelClusterGroupOperation")
 private external fun wasiWindowssysWindowsWin32NetworkingClusteringCancelClusterGroupOperation(hgroup: Long, dwcancelflagsReserved: Int): Int
@@ -117,7 +117,7 @@ public actual fun changeClusterResourceGroupEx2(hresource: Hresource, hgroup: Hg
 private external fun wasiWindowssysWindowsWin32NetworkingClusteringCloseCluster(hcluster: Long): Int
 
 public actual fun closeCluster(hcluster: Hcluster): Bool =
-    wasiWindowssysWindowsWin32NetworkingClusteringCloseCluster(hcluster).toInt()
+    wasiWindowssysWindowsWin32NetworkingClusteringCloseCluster(hcluster)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringCloseClusterCryptProvider")
 private external fun wasiWindowssysWindowsWin32NetworkingClusteringCloseClusterCryptProvider(hcluscryptprovider: Long): Int
@@ -129,43 +129,43 @@ public actual fun closeClusterCryptProvider(hcluscryptprovider: Hcluscryptprovid
 private external fun wasiWindowssysWindowsWin32NetworkingClusteringCloseClusterGroup(hgroup: Long): Int
 
 public actual fun closeClusterGroup(hgroup: Hgroup): Bool =
-    wasiWindowssysWindowsWin32NetworkingClusteringCloseClusterGroup(hgroup).toInt()
+    wasiWindowssysWindowsWin32NetworkingClusteringCloseClusterGroup(hgroup)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringCloseClusterGroupSet")
 private external fun wasiWindowssysWindowsWin32NetworkingClusteringCloseClusterGroupSet(hgroupset: Long): Int
 
 public actual fun closeClusterGroupSet(hgroupset: Hgroupset): Bool =
-    wasiWindowssysWindowsWin32NetworkingClusteringCloseClusterGroupSet(hgroupset).toInt()
+    wasiWindowssysWindowsWin32NetworkingClusteringCloseClusterGroupSet(hgroupset)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringCloseClusterNetInterface")
 private external fun wasiWindowssysWindowsWin32NetworkingClusteringCloseClusterNetInterface(hnetinterface: Long): Int
 
 public actual fun closeClusterNetInterface(hnetinterface: Hnetinterface): Bool =
-    wasiWindowssysWindowsWin32NetworkingClusteringCloseClusterNetInterface(hnetinterface).toInt()
+    wasiWindowssysWindowsWin32NetworkingClusteringCloseClusterNetInterface(hnetinterface)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringCloseClusterNetwork")
 private external fun wasiWindowssysWindowsWin32NetworkingClusteringCloseClusterNetwork(hnetwork: Long): Int
 
 public actual fun closeClusterNetwork(hnetwork: Hnetwork): Bool =
-    wasiWindowssysWindowsWin32NetworkingClusteringCloseClusterNetwork(hnetwork).toInt()
+    wasiWindowssysWindowsWin32NetworkingClusteringCloseClusterNetwork(hnetwork)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringCloseClusterNode")
 private external fun wasiWindowssysWindowsWin32NetworkingClusteringCloseClusterNode(hnode: Long): Int
 
 public actual fun closeClusterNode(hnode: Hnode): Bool =
-    wasiWindowssysWindowsWin32NetworkingClusteringCloseClusterNode(hnode).toInt()
+    wasiWindowssysWindowsWin32NetworkingClusteringCloseClusterNode(hnode)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringCloseClusterNotifyPort")
 private external fun wasiWindowssysWindowsWin32NetworkingClusteringCloseClusterNotifyPort(hchange: Long): Int
 
 public actual fun closeClusterNotifyPort(hchange: Hchange): Bool =
-    wasiWindowssysWindowsWin32NetworkingClusteringCloseClusterNotifyPort(hchange).toInt()
+    wasiWindowssysWindowsWin32NetworkingClusteringCloseClusterNotifyPort(hchange)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringCloseClusterResource")
 private external fun wasiWindowssysWindowsWin32NetworkingClusteringCloseClusterResource(hresource: Long): Int
 
 public actual fun closeClusterResource(hresource: Hresource): Bool =
-    wasiWindowssysWindowsWin32NetworkingClusteringCloseClusterResource(hresource).toInt()
+    wasiWindowssysWindowsWin32NetworkingClusteringCloseClusterResource(hresource)
 
 public actual fun clusAddClusterHealthFault(hcluster: Hcluster, failure: ConstPtr<ClusterHealthFault>, param2: UInt): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusAddClusterHealthFault")
@@ -308,7 +308,7 @@ public actual fun clusterGroupGetEnumCountEx(hgroupenumex: Hgroupenumex): UInt =
 private external fun wasiWindowssysWindowsWin32NetworkingClusteringClusterGroupOpenEnum(hgroup: Long, dwtype: Int): Long
 
 public actual fun clusterGroupOpenEnum(hgroup: Hgroup, dwtype: UInt): Hgroupenum =
-    wasiWindowssysWindowsWin32NetworkingClusteringClusterGroupOpenEnum(hgroup, dwtype.toInt()).toLong()
+    wasiWindowssysWindowsWin32NetworkingClusteringClusterGroupOpenEnum(hgroup, dwtype.toInt())
 
 public actual fun clusterGroupOpenEnumEx(hcluster: Hcluster, lpszproperties: Pcwstr, cbproperties: UInt, lpszroproperties: Pcwstr, cbroproperties: UInt, dwflags: UInt): Hgroupenumex =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterGroupOpenEnumEx")
@@ -338,7 +338,7 @@ public actual fun clusterGroupSetGetEnumCount(hgroupsetenum: Hgroupsetenum): UIn
 private external fun wasiWindowssysWindowsWin32NetworkingClusteringClusterGroupSetOpenEnum(hcluster: Long): Long
 
 public actual fun clusterGroupSetOpenEnum(hcluster: Hcluster): Hgroupsetenum =
-    wasiWindowssysWindowsWin32NetworkingClusteringClusterGroupSetOpenEnum(hcluster).toLong()
+    wasiWindowssysWindowsWin32NetworkingClusteringClusterGroupSetOpenEnum(hcluster)
 
 public actual fun clusterIsPathOnSharedVolume(lpszpathname: Pcwstr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterIsPathOnSharedVolume")
@@ -386,7 +386,7 @@ public actual fun clusterNetworkGetEnumCount(hnetworkenum: Hnetworkenum): UInt =
 private external fun wasiWindowssysWindowsWin32NetworkingClusteringClusterNetworkOpenEnum(hnetwork: Long, dwtype: Int): Long
 
 public actual fun clusterNetworkOpenEnum(hnetwork: Hnetwork, dwtype: UInt): Hnetworkenum =
-    wasiWindowssysWindowsWin32NetworkingClusteringClusterNetworkOpenEnum(hnetwork, dwtype.toInt()).toLong()
+    wasiWindowssysWindowsWin32NetworkingClusteringClusterNetworkOpenEnum(hnetwork, dwtype.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringClusterNodeCloseEnum")
 private external fun wasiWindowssysWindowsWin32NetworkingClusteringClusterNodeCloseEnum(hnodeenum: Long): Int
@@ -428,7 +428,7 @@ public actual fun clusterNodeGetEnumCountEx(hnodeenum: Hnodeenumex): UInt =
 private external fun wasiWindowssysWindowsWin32NetworkingClusteringClusterNodeOpenEnum(hnode: Long, dwtype: Int): Long
 
 public actual fun clusterNodeOpenEnum(hnode: Hnode, dwtype: UInt): Hnodeenum =
-    wasiWindowssysWindowsWin32NetworkingClusteringClusterNodeOpenEnum(hnode, dwtype.toInt()).toLong()
+    wasiWindowssysWindowsWin32NetworkingClusteringClusterNodeOpenEnum(hnode, dwtype.toInt())
 
 public actual fun clusterNodeOpenEnumEx(hnode: Hnode, dwtype: UInt, poptions: ConstPtr<CVoid>): Hnodeenumex =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterNodeOpenEnumEx")
@@ -440,7 +440,7 @@ public actual fun clusterNodeReplacement(hcluster: Hcluster, lpsznodenamecurrent
 private external fun wasiWindowssysWindowsWin32NetworkingClusteringClusterOpenEnum(hcluster: Long, dwtype: Int): Long
 
 public actual fun clusterOpenEnum(hcluster: Hcluster, dwtype: UInt): Hclusenum =
-    wasiWindowssysWindowsWin32NetworkingClusteringClusterOpenEnum(hcluster, dwtype.toInt()).toLong()
+    wasiWindowssysWindowsWin32NetworkingClusteringClusterOpenEnum(hcluster, dwtype.toInt())
 
 public actual fun clusterOpenEnumEx(hcluster: Hcluster, dwtype: UInt, poptions: ConstPtr<CVoid>): Hclusenumex =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterOpenEnumEx")
@@ -455,7 +455,7 @@ public actual fun clusterRegBatchAddCommand(hregbatch: Hregbatch, dwcommand: Clu
 private external fun wasiWindowssysWindowsWin32NetworkingClusteringClusterRegBatchCloseNotification(hbatchnotification: Long): Int
 
 public actual fun clusterRegBatchCloseNotification(hbatchnotification: Hregbatchnotification): Int =
-    wasiWindowssysWindowsWin32NetworkingClusteringClusterRegBatchCloseNotification(hbatchnotification).toInt()
+    wasiWindowssysWindowsWin32NetworkingClusteringClusterRegBatchCloseNotification(hbatchnotification)
 
 public actual fun clusterRegBatchReadCommand(hbatchnotification: Hregbatchnotification, pbatchcommand: MutPtr<ClusterBatchCommand>): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterRegBatchReadCommand")
@@ -470,7 +470,7 @@ public actual fun clusterRegCloseBatchEx(hregbatch: Hregbatch, flags: UInt, fail
 private external fun wasiWindowssysWindowsWin32NetworkingClusteringClusterRegCloseBatchNotifyPort(hbatchnotifyport: Long): Int
 
 public actual fun clusterRegCloseBatchNotifyPort(hbatchnotifyport: Hregbatchport): Int =
-    wasiWindowssysWindowsWin32NetworkingClusteringClusterRegCloseBatchNotifyPort(hbatchnotifyport).toInt()
+    wasiWindowssysWindowsWin32NetworkingClusteringClusterRegCloseBatchNotifyPort(hbatchnotifyport)
 
 public actual fun clusterRegCloseKey(hkey: Hkey): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterRegCloseKey")
@@ -485,7 +485,7 @@ public actual fun clusterRegCloseReadBatchEx(hregreadbatch: Hregreadbatch, flags
 private external fun wasiWindowssysWindowsWin32NetworkingClusteringClusterRegCloseReadBatchReply(hregreadbatchreply: Long): Int
 
 public actual fun clusterRegCloseReadBatchReply(hregreadbatchreply: Hregreadbatchreply): Int =
-    wasiWindowssysWindowsWin32NetworkingClusteringClusterRegCloseReadBatchReply(hregreadbatchreply).toInt()
+    wasiWindowssysWindowsWin32NetworkingClusteringClusterRegCloseReadBatchReply(hregreadbatchreply)
 
 public actual fun clusterRegCreateBatch(hkey: Hkey, phregbatch: MutPtr<Hregbatch>): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterRegCreateBatch")
@@ -557,7 +557,7 @@ public actual fun clusterRegSetValueEx(hkey: Hkey, lpszvaluename: Pcwstr, dwtype
 private external fun wasiWindowssysWindowsWin32NetworkingClusteringClusterRegSyncDatabase(hcluster: Long, flags: Int): Int
 
 public actual fun clusterRegSyncDatabase(hcluster: Hcluster, flags: UInt): Int =
-    wasiWindowssysWindowsWin32NetworkingClusteringClusterRegSyncDatabase(hcluster, flags.toInt()).toInt()
+    wasiWindowssysWindowsWin32NetworkingClusteringClusterRegSyncDatabase(hcluster, flags.toInt())
 
 public actual fun clusterRemoveAffinityRule(hcluster: Hcluster, rulename: Pcwstr): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterRemoveAffinityRule")
@@ -620,7 +620,7 @@ public actual fun clusterResourceGetEnumCountEx(hresourceenumex: Hresenumex): UI
 private external fun wasiWindowssysWindowsWin32NetworkingClusteringClusterResourceOpenEnum(hresource: Long, dwtype: Int): Long
 
 public actual fun clusterResourceOpenEnum(hresource: Hresource, dwtype: UInt): Hresenum =
-    wasiWindowssysWindowsWin32NetworkingClusteringClusterResourceOpenEnum(hresource, dwtype.toInt()).toLong()
+    wasiWindowssysWindowsWin32NetworkingClusteringClusterResourceOpenEnum(hresource, dwtype.toInt())
 
 public actual fun clusterResourceOpenEnumEx(hcluster: Hcluster, lpszproperties: Pcwstr, cbproperties: UInt, lpszroproperties: Pcwstr, cbroproperties: UInt, dwflags: UInt): Hresenumex =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringClusterResourceOpenEnumEx")
@@ -686,7 +686,7 @@ public actual fun createClusterNameAccount(hcluster: Hcluster, pconfig: ConstPtr
 private external fun wasiWindowssysWindowsWin32NetworkingClusteringCreateClusterNotifyPort(hchange: Long, hcluster: Long, dwfilter: Int, dwnotifykey: Long): Long
 
 public actual fun createClusterNotifyPort(hchange: Hchange, hcluster: Hcluster, dwfilter: UInt, dwnotifykey: ULong): Hchange =
-    wasiWindowssysWindowsWin32NetworkingClusteringCreateClusterNotifyPort(hchange, hcluster, dwfilter.toInt(), dwnotifykey.toLong()).toLong()
+    wasiWindowssysWindowsWin32NetworkingClusteringCreateClusterNotifyPort(hchange, hcluster, dwfilter.toInt(), dwnotifykey.toLong())
 
 public actual fun createClusterNotifyPortV2(hchange: Hchange, hcluster: Hcluster, filters: ConstPtr<NotifyFilterAndType>, dwfiltercount: UInt, dwnotifykey: ULong): Hchange =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringCreateClusterNotifyPortV2")
@@ -794,31 +794,31 @@ public actual fun freeClusterHealthFaultArray(clusterhealthfaultarray: MutPtr<Cl
 private external fun wasiWindowssysWindowsWin32NetworkingClusteringGetClusterFromGroup(hgroup: Long): Long
 
 public actual fun getClusterFromGroup(hgroup: Hgroup): Hcluster =
-    wasiWindowssysWindowsWin32NetworkingClusteringGetClusterFromGroup(hgroup).toLong()
+    wasiWindowssysWindowsWin32NetworkingClusteringGetClusterFromGroup(hgroup)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringGetClusterFromNetInterface")
 private external fun wasiWindowssysWindowsWin32NetworkingClusteringGetClusterFromNetInterface(hnetinterface: Long): Long
 
 public actual fun getClusterFromNetInterface(hnetinterface: Hnetinterface): Hcluster =
-    wasiWindowssysWindowsWin32NetworkingClusteringGetClusterFromNetInterface(hnetinterface).toLong()
+    wasiWindowssysWindowsWin32NetworkingClusteringGetClusterFromNetInterface(hnetinterface)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringGetClusterFromNetwork")
 private external fun wasiWindowssysWindowsWin32NetworkingClusteringGetClusterFromNetwork(hnetwork: Long): Long
 
 public actual fun getClusterFromNetwork(hnetwork: Hnetwork): Hcluster =
-    wasiWindowssysWindowsWin32NetworkingClusteringGetClusterFromNetwork(hnetwork).toLong()
+    wasiWindowssysWindowsWin32NetworkingClusteringGetClusterFromNetwork(hnetwork)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringGetClusterFromNode")
 private external fun wasiWindowssysWindowsWin32NetworkingClusteringGetClusterFromNode(hnode: Long): Long
 
 public actual fun getClusterFromNode(hnode: Hnode): Hcluster =
-    wasiWindowssysWindowsWin32NetworkingClusteringGetClusterFromNode(hnode).toLong()
+    wasiWindowssysWindowsWin32NetworkingClusteringGetClusterFromNode(hnode)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingClusteringGetClusterFromResource")
 private external fun wasiWindowssysWindowsWin32NetworkingClusteringGetClusterFromResource(hresource: Long): Long
 
 public actual fun getClusterFromResource(hresource: Hresource): Hcluster =
-    wasiWindowssysWindowsWin32NetworkingClusteringGetClusterFromResource(hresource).toLong()
+    wasiWindowssysWindowsWin32NetworkingClusteringGetClusterFromResource(hresource)
 
 public actual fun getClusterGroupKey(hgroup: Hgroup, samdesired: UInt): Hkey =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringGetClusterGroupKey")
@@ -842,7 +842,7 @@ public actual fun getClusterNetInterfaceKey(hnetinterface: Hnetinterface, samdes
 private external fun wasiWindowssysWindowsWin32NetworkingClusteringGetClusterNetInterfaceState(hnetinterface: Long): Int
 
 public actual fun getClusterNetInterfaceState(hnetinterface: Hnetinterface): ClusterNetinterfaceState =
-    wasiWindowssysWindowsWin32NetworkingClusteringGetClusterNetInterfaceState(hnetinterface).toInt()
+    wasiWindowssysWindowsWin32NetworkingClusteringGetClusterNetInterfaceState(hnetinterface)
 
 public actual fun getClusterNetworkId(hnetwork: Hnetwork, lpsznetworkid: Pwstr, lpcchname: MutPtr<UInt>): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringGetClusterNetworkId")
@@ -854,7 +854,7 @@ public actual fun getClusterNetworkKey(hnetwork: Hnetwork, samdesired: UInt): Hk
 private external fun wasiWindowssysWindowsWin32NetworkingClusteringGetClusterNetworkState(hnetwork: Long): Int
 
 public actual fun getClusterNetworkState(hnetwork: Hnetwork): ClusterNetworkState =
-    wasiWindowssysWindowsWin32NetworkingClusteringGetClusterNetworkState(hnetwork).toInt()
+    wasiWindowssysWindowsWin32NetworkingClusteringGetClusterNetworkState(hnetwork)
 
 public actual fun getClusterNodeId(hnode: Hnode, lpsznodeid: Pwstr, lpcchname: MutPtr<UInt>): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringGetClusterNodeId")
@@ -866,7 +866,7 @@ public actual fun getClusterNodeKey(hnode: Hnode, samdesired: UInt): Hkey =
 private external fun wasiWindowssysWindowsWin32NetworkingClusteringGetClusterNodeState(hnode: Long): Int
 
 public actual fun getClusterNodeState(hnode: Hnode): ClusterNodeState =
-    wasiWindowssysWindowsWin32NetworkingClusteringGetClusterNodeState(hnode).toInt()
+    wasiWindowssysWindowsWin32NetworkingClusteringGetClusterNodeState(hnode)
 
 public actual fun getClusterNotify(hchange: Hchange, lpdwnotifykey: MutPtr<ULong>, lpdwfiltertype: MutPtr<UInt>, lpszname: Pwstr, lpcchname: MutPtr<UInt>, dwmilliseconds: UInt): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringGetClusterNotify")
@@ -1010,7 +1010,7 @@ public actual fun openClusterNode(hcluster: Hcluster, lpsznodename: Pcwstr): Hno
 private external fun wasiWindowssysWindowsWin32NetworkingClusteringOpenClusterNodeById(hcluster: Long, nodeid: Int): Long
 
 public actual fun openClusterNodeById(hcluster: Hcluster, nodeid: UInt): Hnode =
-    wasiWindowssysWindowsWin32NetworkingClusteringOpenClusterNodeById(hcluster, nodeid.toInt()).toLong()
+    wasiWindowssysWindowsWin32NetworkingClusteringOpenClusterNodeById(hcluster, nodeid.toInt())
 
 public actual fun openClusterNodeEx(hcluster: Hcluster, lpsznodename: Pcwstr, dwdesiredaccess: UInt, lpdwgrantedaccess: MutPtr<UInt>): Hnode =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringOpenClusterNodeEx")
@@ -1213,7 +1213,7 @@ public actual fun resUtilGetClusterId(hcluster: Hcluster, guid: MutPtr<Guid>): U
 private external fun wasiWindowssysWindowsWin32NetworkingClusteringResUtilGetClusterRoleState(hcluster: Long, eclusterrole: Int): Int
 
 public actual fun resUtilGetClusterRoleState(hcluster: Hcluster, eclusterrole: ClusterRole): ClusterRoleState =
-    wasiWindowssysWindowsWin32NetworkingClusteringResUtilGetClusterRoleState(hcluster, eclusterrole).toInt()
+    wasiWindowssysWindowsWin32NetworkingClusteringResUtilGetClusterRoleState(hcluster, eclusterrole)
 
 public actual fun resUtilGetCoreClusterResources(hcluster: Hcluster, phclusternameresource: MutPtr<Hresource>, phclusteripaddressresource: MutPtr<Hresource>, phclusterquorumresource: MutPtr<Hresource>): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilGetCoreClusterResources")
@@ -1225,7 +1225,7 @@ public actual fun resUtilGetCoreClusterResourcesEx(hclusterin: Hcluster, phclust
 private external fun wasiWindowssysWindowsWin32NetworkingClusteringResUtilGetCoreGroup(hcluster: Long): Long
 
 public actual fun resUtilGetCoreGroup(hcluster: Hcluster): Hgroup =
-    wasiWindowssysWindowsWin32NetworkingClusteringResUtilGetCoreGroup(hcluster).toLong()
+    wasiWindowssysWindowsWin32NetworkingClusteringResUtilGetCoreGroup(hcluster)
 
 public actual fun resUtilGetDwordProperty(pdwoutvalue: MutPtr<UInt>, pvaluestruct: ConstPtr<CluspropDword>, dwoldvalue: UInt, dwminimum: UInt, dwmaximum: UInt, pppropertylist: MutPtr<MutPtr<UByte>>, pcbpropertylistsize: MutPtr<UInt>): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilGetDwordProperty")
@@ -1336,7 +1336,7 @@ public actual fun resUtilResourceTypesEqual(lpszresourcetypename: Pcwstr, hresou
 private external fun wasiWindowssysWindowsWin32NetworkingClusteringResUtilResourcesEqual(hself: Long, hresource: Long): Int
 
 public actual fun resUtilResourcesEqual(hself: Hresource, hresource: Hresource): Bool =
-    wasiWindowssysWindowsWin32NetworkingClusteringResUtilResourcesEqual(hself, hresource).toInt()
+    wasiWindowssysWindowsWin32NetworkingClusteringResUtilResourcesEqual(hself, hresource)
 
 public actual fun resUtilSetBinaryValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, pbnewvalue: ConstPtr<UByte>, cbnewvaluesize: UInt, ppboutvalue: MutPtr<MutPtr<UByte>>, pcboutvaluesize: MutPtr<UInt>): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingClusteringResUtilSetBinaryValue")

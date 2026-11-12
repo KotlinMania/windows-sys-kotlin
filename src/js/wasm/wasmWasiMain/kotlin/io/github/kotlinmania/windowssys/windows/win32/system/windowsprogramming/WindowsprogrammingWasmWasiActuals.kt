@@ -114,7 +114,7 @@ public actual fun dosDateTimeToFileTime(wfatdate: UShort, wfattime: UShort, lpfi
 private external fun wasiWindowssysWindowsWin32SystemWindowsprogrammingEnableProcessOptionalXStateFeatures(features: Long): Int
 
 public actual fun enableProcessOptionalXStateFeatures(features: ULong): Bool =
-    wasiWindowssysWindowsWin32SystemWindowsprogrammingEnableProcessOptionalXStateFeatures(features.toLong()).toInt()
+    wasiWindowssysWindowsWin32SystemWindowsprogrammingEnableProcessOptionalXStateFeatures(features.toLong())
 
 public actual fun executeCabA(hwnd: Hwnd, pcab: MutPtr<Cabinfoa>, preserved: MutPtr<CVoid>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemWindowsprogrammingExecuteCabA")
@@ -171,7 +171,7 @@ public actual fun getDCRegionData(hdc: Hdc, size: UInt, prd: MutPtr<Rgndata>): U
 private external fun wasiWindowssysWindowsWin32SystemWindowsprogrammingGetFeatureEnabledState(featureid: Int, changetime: Int): Int
 
 public actual fun getFeatureEnabledState(featureid: UInt, changetime: FeatureChangeTime): FeatureEnabledState =
-    wasiWindowssysWindowsWin32SystemWindowsprogrammingGetFeatureEnabledState(featureid.toInt(), changetime).toInt()
+    wasiWindowssysWindowsWin32SystemWindowsprogrammingGetFeatureEnabledState(featureid.toInt(), changetime)
 
 public actual fun getFeatureVariant(featureid: UInt, changetime: FeatureChangeTime, payloadid: MutPtr<UInt>, hasnotification: MutPtr<Bool>): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemWindowsprogrammingGetFeatureVariant")
@@ -337,13 +337,13 @@ public actual fun localShrink(hmem: Hlocal, cbnewsize: UInt): ULong =
 private external fun wasiWindowssysWindowsWin32SystemWindowsprogrammingMulDiv(nnumber: Int, nnumerator: Int, ndenominator: Int): Int
 
 public actual fun mulDiv(nnumber: Int, nnumerator: Int, ndenominator: Int): Int =
-    wasiWindowssysWindowsWin32SystemWindowsprogrammingMulDiv(nnumber, nnumerator, ndenominator).toInt()
+    wasiWindowssysWindowsWin32SystemWindowsprogrammingMulDiv(nnumber, nnumerator, ndenominator)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemWindowsprogrammingNeedReboot")
 private external fun wasiWindowssysWindowsWin32SystemWindowsprogrammingNeedReboot(dwrebootcheck: Int): Int
 
 public actual fun needReboot(dwrebootcheck: UInt): Bool =
-    wasiWindowssysWindowsWin32SystemWindowsprogrammingNeedReboot(dwrebootcheck.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemWindowsprogrammingNeedReboot(dwrebootcheck.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemWindowsprogrammingNeedRebootInit")
 private external fun wasiWindowssysWindowsWin32SystemWindowsprogrammingNeedRebootInit(): Int
@@ -644,7 +644,7 @@ public actual fun hwrite(hfile: Int, lpbuffer: Pcstr, lbytes: Int): Int =
 private external fun wasiWindowssysWindowsWin32SystemWindowsprogrammingLclose(hfile: Int): Int
 
 public actual fun lclose(hfile: Int): Int =
-    wasiWindowssysWindowsWin32SystemWindowsprogrammingLclose(hfile).toInt()
+    wasiWindowssysWindowsWin32SystemWindowsprogrammingLclose(hfile)
 
 public actual fun lcreat(lppathname: Pcstr, iattribute: Int): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemWindowsprogrammingLcreat")
@@ -653,7 +653,7 @@ public actual fun lcreat(lppathname: Pcstr, iattribute: Int): Int =
 private external fun wasiWindowssysWindowsWin32SystemWindowsprogrammingLlseek(hfile: Int, loffset: Int, iorigin: Int): Int
 
 public actual fun llseek(hfile: Int, loffset: Int, iorigin: Int): Int =
-    wasiWindowssysWindowsWin32SystemWindowsprogrammingLlseek(hfile, loffset, iorigin).toInt()
+    wasiWindowssysWindowsWin32SystemWindowsprogrammingLlseek(hfile, loffset, iorigin)
 
 public actual fun lopen(lppathname: Pcstr, ireadwrite: Int): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemWindowsprogrammingLopen")

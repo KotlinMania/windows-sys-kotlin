@@ -34,13 +34,13 @@ public actual fun dwmEnableBlurBehindWindow(hwnd: Hwnd, pblurbehind: ConstPtr<Dw
 private external fun wasiWindowssysWindowsWin32GraphicsDwmDwmEnableComposition(ucompositionaction: Int): Int
 
 public actual fun dwmEnableComposition(ucompositionaction: UInt): Hresult =
-    wasiWindowssysWindowsWin32GraphicsDwmDwmEnableComposition(ucompositionaction.toInt()).toInt()
+    wasiWindowssysWindowsWin32GraphicsDwmDwmEnableComposition(ucompositionaction.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32GraphicsDwmDwmEnableMMCSS")
 private external fun wasiWindowssysWindowsWin32GraphicsDwmDwmEnableMMCSS(fenablemmcss: Int): Int
 
 public actual fun dwmEnableMMCSS(fenablemmcss: Bool): Hresult =
-    wasiWindowssysWindowsWin32GraphicsDwmDwmEnableMMCSS(fenablemmcss).toInt()
+    wasiWindowssysWindowsWin32GraphicsDwmDwmEnableMMCSS(fenablemmcss)
 
 public actual fun dwmExtendFrameIntoClientArea(hwnd: Hwnd, pmarinset: ConstPtr<Margins>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32GraphicsDwmDwmExtendFrameIntoClientArea")
@@ -49,7 +49,7 @@ public actual fun dwmExtendFrameIntoClientArea(hwnd: Hwnd, pmarinset: ConstPtr<M
 private external fun wasiWindowssysWindowsWin32GraphicsDwmDwmFlush(): Int
 
 public actual fun dwmFlush(): Hresult =
-    wasiWindowssysWindowsWin32GraphicsDwmDwmFlush().toInt()
+    wasiWindowssysWindowsWin32GraphicsDwmDwmFlush()
 
 public actual fun dwmGetColorizationColor(pcrcolorization: MutPtr<UInt>, pfopaqueblend: MutPtr<Bool>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32GraphicsDwmDwmGetColorizationColor")
@@ -109,7 +109,7 @@ public actual fun dwmSetWindowAttribute(hwnd: Hwnd, dwattribute: UInt, pvattribu
 private external fun wasiWindowssysWindowsWin32GraphicsDwmDwmShowContact(dwpointerid: Int, eshowcontact: Int): Int
 
 public actual fun dwmShowContact(dwpointerid: UInt, eshowcontact: DwmShowcontact): Hresult =
-    wasiWindowssysWindowsWin32GraphicsDwmDwmShowContact(dwpointerid.toInt(), eshowcontact.toInt()).toInt()
+    wasiWindowssysWindowsWin32GraphicsDwmDwmShowContact(dwpointerid.toInt(), eshowcontact.toInt())
 
 public actual fun dwmTetherContact(dwpointerid: UInt, fenable: Bool, pttether: Point): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32GraphicsDwmDwmTetherContact")
@@ -121,7 +121,7 @@ public actual fun dwmTransitionOwnedWindow(hwnd: Hwnd, target: DwmtransitionOwne
 private external fun wasiWindowssysWindowsWin32GraphicsDwmDwmUnregisterThumbnail(hthumbnailid: Long): Int
 
 public actual fun dwmUnregisterThumbnail(hthumbnailid: Long): Hresult =
-    wasiWindowssysWindowsWin32GraphicsDwmDwmUnregisterThumbnail(hthumbnailid).toInt()
+    wasiWindowssysWindowsWin32GraphicsDwmDwmUnregisterThumbnail(hthumbnailid)
 
 public actual fun dwmUpdateThumbnailProperties(hthumbnailid: Long, ptnproperties: ConstPtr<DwmThumbnailProperties>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32GraphicsDwmDwmUpdateThumbnailProperties")

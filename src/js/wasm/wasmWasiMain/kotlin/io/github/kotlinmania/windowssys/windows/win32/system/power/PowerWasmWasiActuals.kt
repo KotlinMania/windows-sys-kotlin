@@ -98,7 +98,7 @@ public actual fun isPwrSuspendAllowed(): Boolean =
 private external fun wasiWindowssysWindowsWin32SystemPowerIsSystemResumeAutomatic(): Int
 
 public actual fun isSystemResumeAutomatic(): Bool =
-    wasiWindowssysWindowsWin32SystemPowerIsSystemResumeAutomatic().toInt()
+    wasiWindowssysWindowsWin32SystemPowerIsSystemResumeAutomatic()
 
 public actual fun powerCanRestoreIndividualDefaultPowerScheme(schemeguid: ConstPtr<Guid>): Win32Error =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemPowerPowerCanRestoreIndividualDefaultPowerScheme")
@@ -122,13 +122,13 @@ public actual fun powerDeleteScheme(rootpowerkey: Hkey, schemeguid: ConstPtr<Gui
 private external fun wasiWindowssysWindowsWin32SystemPowerPowerDeterminePlatformRole(): Int
 
 public actual fun powerDeterminePlatformRole(): PowerPlatformRole =
-    wasiWindowssysWindowsWin32SystemPowerPowerDeterminePlatformRole().toInt()
+    wasiWindowssysWindowsWin32SystemPowerPowerDeterminePlatformRole()
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemPowerPowerDeterminePlatformRoleEx")
 private external fun wasiWindowssysWindowsWin32SystemPowerPowerDeterminePlatformRoleEx(version: Int): Int
 
 public actual fun powerDeterminePlatformRoleEx(version: PowerPlatformRoleVersion): PowerPlatformRole =
-    wasiWindowssysWindowsWin32SystemPowerPowerDeterminePlatformRoleEx(version.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemPowerPowerDeterminePlatformRoleEx(version.toInt())
 
 public actual fun powerDuplicateScheme(rootpowerkey: Hkey, sourceschemeguid: ConstPtr<Guid>, destinationschemeguid: MutPtr<MutPtr<Guid>>): Win32Error =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemPowerPowerDuplicateScheme")
@@ -323,7 +323,7 @@ public actual fun registerSuspendResumeNotification(hrecipient: Handle, flags: R
 private external fun wasiWindowssysWindowsWin32SystemPowerRequestWakeupLatency(latency: Int): Int
 
 public actual fun requestWakeupLatency(latency: LatencyTime): Bool =
-    wasiWindowssysWindowsWin32SystemPowerRequestWakeupLatency(latency).toInt()
+    wasiWindowssysWindowsWin32SystemPowerRequestWakeupLatency(latency)
 
 public actual fun setActivePwrScheme(uiid: UInt, pglobalpowerpolicy: ConstPtr<GlobalPowerPolicy>, ppowerpolicy: ConstPtr<PowerPolicy>): Boolean =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemPowerSetActivePwrScheme")
@@ -338,7 +338,7 @@ public actual fun setSuspendState(bhibernate: Boolean, bforce: Boolean, bwakeupe
 private external fun wasiWindowssysWindowsWin32SystemPowerSetSystemPowerState(fsuspend: Int, fforce: Int): Int
 
 public actual fun setSystemPowerState(fsuspend: Bool, fforce: Bool): Bool =
-    wasiWindowssysWindowsWin32SystemPowerSetSystemPowerState(fsuspend, fforce).toInt()
+    wasiWindowssysWindowsWin32SystemPowerSetSystemPowerState(fsuspend, fforce)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemPowerSetThreadExecutionState")
 private external fun wasiWindowssysWindowsWin32SystemPowerSetThreadExecutionState(esflags: Int): Int
@@ -350,13 +350,13 @@ public actual fun setThreadExecutionState(esflags: ExecutionState): ExecutionSta
 private external fun wasiWindowssysWindowsWin32SystemPowerUnregisterPowerSettingNotification(handle: Long): Int
 
 public actual fun unregisterPowerSettingNotification(handle: Hpowernotify): Bool =
-    wasiWindowssysWindowsWin32SystemPowerUnregisterPowerSettingNotification(handle).toInt()
+    wasiWindowssysWindowsWin32SystemPowerUnregisterPowerSettingNotification(handle)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemPowerUnregisterSuspendResumeNotification")
 private external fun wasiWindowssysWindowsWin32SystemPowerUnregisterSuspendResumeNotification(handle: Long): Int
 
 public actual fun unregisterSuspendResumeNotification(handle: Hpowernotify): Bool =
-    wasiWindowssysWindowsWin32SystemPowerUnregisterSuspendResumeNotification(handle).toInt()
+    wasiWindowssysWindowsWin32SystemPowerUnregisterSuspendResumeNotification(handle)
 
 public actual fun validatePowerPolicies(pglobalpowerpolicy: MutPtr<GlobalPowerPolicy>, ppowerpolicy: MutPtr<PowerPolicy>): Boolean =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemPowerValidatePowerPolicies")

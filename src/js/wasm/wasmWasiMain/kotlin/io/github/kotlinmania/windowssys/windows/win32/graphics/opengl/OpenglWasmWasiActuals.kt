@@ -1070,7 +1070,7 @@ public actual fun glRectsv(v1: ConstPtr<Short>, v2: ConstPtr<Short>): Unit = thr
 private external fun wasiWindowssysWindowsWin32GraphicsOpenglGlRenderMode(mode: Int): Int
 
 public actual fun glRenderMode(mode: UInt): Int =
-    wasiWindowssysWindowsWin32GraphicsOpenglGlRenderMode(mode.toInt()).toInt()
+    wasiWindowssysWindowsWin32GraphicsOpenglGlRenderMode(mode.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32GraphicsOpenglGlRotated")
 private external fun wasiWindowssysWindowsWin32GraphicsOpenglGlRotated(angle: Double, x: Double, y: Double, z: Double): Unit

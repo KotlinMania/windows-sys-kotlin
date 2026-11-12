@@ -83,7 +83,7 @@ public actual fun fltAllocateContext(filter: PfltFilter, contexttype: UShort, co
 private external fun wasiWindowssysWindowsWdkStorageFilesystemMinifiltersFltAllocateDeferredIoWorkItem(): Long
 
 public actual fun fltAllocateDeferredIoWorkItem(): PfltDeferredIoWorkitem =
-    wasiWindowssysWindowsWdkStorageFilesystemMinifiltersFltAllocateDeferredIoWorkItem().toLong()
+    wasiWindowssysWindowsWdkStorageFilesystemMinifiltersFltAllocateDeferredIoWorkItem()
 
 public actual fun fltAllocateExtraCreateParameter(filter: PfltFilter, ecptype: ConstPtr<Guid>, sizeofcontext: UInt, flags: UInt, cleanupcallback: PfsrtlExtraCreateParameterCleanupCallback, pooltag: UInt, ecpcontext: MutPtr<MutPtr<CVoid>>): Ntstatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWdkStorageFilesystemMinifiltersFltAllocateExtraCreateParameter")
@@ -101,7 +101,7 @@ public actual fun fltAllocateFileLock(completelockcallbackdataroutine: PfltCompl
 private external fun wasiWindowssysWindowsWdkStorageFilesystemMinifiltersFltAllocateGenericWorkItem(): Long
 
 public actual fun fltAllocateGenericWorkItem(): PfltGenericWorkitem =
-    wasiWindowssysWindowsWdkStorageFilesystemMinifiltersFltAllocateGenericWorkItem().toLong()
+    wasiWindowssysWindowsWdkStorageFilesystemMinifiltersFltAllocateGenericWorkItem()
 
 public actual fun fltAllocatePoolAlignedWithTag(instance: PfltInstance, pooltype: PoolType, numberofbytes: ULong, tag: UInt): MutPtr<CVoid> =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWdkStorageFilesystemMinifiltersFltAllocatePoolAlignedWithTag")
@@ -189,7 +189,7 @@ public actual fun fltCommitFinalizeComplete(instance: PfltInstance, transaction:
 private external fun wasiWindowssysWindowsWdkStorageFilesystemMinifiltersFltCompareInstanceAltitudes(instance1: Long, instance2: Long): Int
 
 public actual fun fltCompareInstanceAltitudes(instance1: PfltInstance, instance2: PfltInstance): Int =
-    wasiWindowssysWindowsWdkStorageFilesystemMinifiltersFltCompareInstanceAltitudes(instance1, instance2).toInt()
+    wasiWindowssysWindowsWdkStorageFilesystemMinifiltersFltCompareInstanceAltitudes(instance1, instance2)
 
 public actual fun fltCompletePendedPostOperation(callbackdata: ConstPtr<FltCallbackData>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWdkStorageFilesystemMinifiltersFltCompletePendedPostOperation")
 
@@ -223,7 +223,7 @@ public actual fun fltCreateSectionForDataScan(instance: PfltInstance, fileobject
 private external fun wasiWindowssysWindowsWdkStorageFilesystemMinifiltersFltCreateSystemVolumeInformationFolder(instance: Long): Int
 
 public actual fun fltCreateSystemVolumeInformationFolder(instance: PfltInstance): Ntstatus =
-    wasiWindowssysWindowsWdkStorageFilesystemMinifiltersFltCreateSystemVolumeInformationFolder(instance).toInt()
+    wasiWindowssysWindowsWdkStorageFilesystemMinifiltersFltCreateSystemVolumeInformationFolder(instance)
 
 public actual fun fltCurrentBatchOplock(oplock: ConstPtr<ConstPtr<CVoid>>): Boolean =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWdkStorageFilesystemMinifiltersFltCurrentBatchOplock")
@@ -419,7 +419,7 @@ public actual fun fltGetIoPriorityHintFromFileObject(fileobject: ConstPtr<FileOb
 private external fun wasiWindowssysWindowsWdkStorageFilesystemMinifiltersFltGetIoPriorityHintFromThread(thread: Long): Int
 
 public actual fun fltGetIoPriorityHintFromThread(thread: Pethread): IoPriorityHint =
-    wasiWindowssysWindowsWdkStorageFilesystemMinifiltersFltGetIoPriorityHintFromThread(thread).toInt()
+    wasiWindowssysWindowsWdkStorageFilesystemMinifiltersFltGetIoPriorityHintFromThread(thread)
 
 public actual fun fltGetIrpName(irpmajorcode: UByte): Pstr =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWdkStorageFilesystemMinifiltersFltGetIrpName")
@@ -670,7 +670,7 @@ public actual fun fltRegisterFilter(driver: ConstPtr<DriverObject>, registration
 private external fun wasiWindowssysWindowsWdkStorageFilesystemMinifiltersFltRegisterForDataScan(instance: Long): Int
 
 public actual fun fltRegisterForDataScan(instance: PfltInstance): Ntstatus =
-    wasiWindowssysWindowsWdkStorageFilesystemMinifiltersFltRegisterForDataScan(instance).toInt()
+    wasiWindowssysWindowsWdkStorageFilesystemMinifiltersFltRegisterForDataScan(instance)
 
 public actual fun fltReissueSynchronousIo(initiatinginstance: PfltInstance, callbackdata: ConstPtr<FltCallbackData>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWdkStorageFilesystemMinifiltersFltReissueSynchronousIo")
 
@@ -760,7 +760,7 @@ public actual fun fltSetIoPriorityHintIntoFileObject(fileobject: ConstPtr<FileOb
 private external fun wasiWindowssysWindowsWdkStorageFilesystemMinifiltersFltSetIoPriorityHintIntoThread(thread: Long, priorityhint: Int): Int
 
 public actual fun fltSetIoPriorityHintIntoThread(thread: Pethread, priorityhint: IoPriorityHint): Ntstatus =
-    wasiWindowssysWindowsWdkStorageFilesystemMinifiltersFltSetIoPriorityHintIntoThread(thread, priorityhint).toInt()
+    wasiWindowssysWindowsWdkStorageFilesystemMinifiltersFltSetIoPriorityHintIntoThread(thread, priorityhint)
 
 public actual fun fltSetQuotaInformationFile(instance: PfltInstance, fileobject: ConstPtr<FileObject>, buffer: ConstPtr<CVoid>, length: UInt): Ntstatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWdkStorageFilesystemMinifiltersFltSetQuotaInformationFile")
@@ -787,7 +787,7 @@ public actual fun fltSetVolumeInformation(instance: PfltInstance, iosb: MutPtr<I
 private external fun wasiWindowssysWindowsWdkStorageFilesystemMinifiltersFltStartFiltering(filter: Long): Int
 
 public actual fun fltStartFiltering(filter: PfltFilter): Ntstatus =
-    wasiWindowssysWindowsWdkStorageFilesystemMinifiltersFltStartFiltering(filter).toInt()
+    wasiWindowssysWindowsWdkStorageFilesystemMinifiltersFltStartFiltering(filter)
 
 public actual fun fltSupportsFileContexts(fileobject: ConstPtr<FileObject>): Boolean =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWdkStorageFilesystemMinifiltersFltSupportsFileContexts")

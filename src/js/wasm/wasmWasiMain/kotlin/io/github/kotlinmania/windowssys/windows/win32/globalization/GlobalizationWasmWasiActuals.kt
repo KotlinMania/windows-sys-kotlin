@@ -346,7 +346,7 @@ public actual fun getUserDefaultUILanguage(): UShort =
 private external fun wasiWindowssysWindowsWin32GlobalizationGetUserGeoID(geoclass: Int): Int
 
 public actual fun getUserGeoID(geoclass: Sysgeoclass): Int =
-    wasiWindowssysWindowsWin32GlobalizationGetUserGeoID(geoclass).toInt()
+    wasiWindowssysWindowsWin32GlobalizationGetUserGeoID(geoclass)
 
 public actual fun getUserPreferredUILanguages(dwflags: UInt, pulnumlanguages: MutPtr<UInt>, pwszlanguagesbuffer: Pwstr, pcchlanguagesbuffer: MutPtr<UInt>): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32GlobalizationGetUserPreferredUILanguages")
@@ -364,19 +364,19 @@ public actual fun idnToUnicode(dwflags: UInt, lpasciicharstr: Pcwstr, cchasciich
 private external fun wasiWindowssysWindowsWin32GlobalizationIsCalendarLeapYear(calid: Int, year: Int, era: Int): Int
 
 public actual fun isCalendarLeapYear(calid: UInt, year: UInt, era: UInt): Bool =
-    wasiWindowssysWindowsWin32GlobalizationIsCalendarLeapYear(calid.toInt(), year.toInt(), era.toInt()).toInt()
+    wasiWindowssysWindowsWin32GlobalizationIsCalendarLeapYear(calid.toInt(), year.toInt(), era.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32GlobalizationIsDBCSLeadByte")
 private external fun wasiWindowssysWindowsWin32GlobalizationIsDBCSLeadByte(testchar: Int): Int
 
 public actual fun isDBCSLeadByte(testchar: UByte): Bool =
-    wasiWindowssysWindowsWin32GlobalizationIsDBCSLeadByte(testchar.toInt()).toInt()
+    wasiWindowssysWindowsWin32GlobalizationIsDBCSLeadByte(testchar.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32GlobalizationIsDBCSLeadByteEx")
 private external fun wasiWindowssysWindowsWin32GlobalizationIsDBCSLeadByteEx(codepage: Int, testchar: Int): Int
 
 public actual fun isDBCSLeadByteEx(codepage: UInt, testchar: UByte): Bool =
-    wasiWindowssysWindowsWin32GlobalizationIsDBCSLeadByteEx(codepage.toInt(), testchar.toInt()).toInt()
+    wasiWindowssysWindowsWin32GlobalizationIsDBCSLeadByteEx(codepage.toInt(), testchar.toInt())
 
 public actual fun isNLSDefinedString(function: UInt, dwflags: UInt, lpversioninformation: ConstPtr<Nlsversioninfo>, lpstring: Pcwstr, cchstr: Int): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32GlobalizationIsNLSDefinedString")
@@ -391,19 +391,19 @@ public actual fun isTextUnicode(lpv: ConstPtr<CVoid>, isize: Int, lpiresult: Mut
 private external fun wasiWindowssysWindowsWin32GlobalizationIsValidCodePage(codepage: Int): Int
 
 public actual fun isValidCodePage(codepage: UInt): Bool =
-    wasiWindowssysWindowsWin32GlobalizationIsValidCodePage(codepage.toInt()).toInt()
+    wasiWindowssysWindowsWin32GlobalizationIsValidCodePage(codepage.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32GlobalizationIsValidLanguageGroup")
 private external fun wasiWindowssysWindowsWin32GlobalizationIsValidLanguageGroup(languagegroup: Int, dwflags: Int): Int
 
 public actual fun isValidLanguageGroup(languagegroup: UInt, dwflags: EnumSystemLanguageGroupsFlags): Bool =
-    wasiWindowssysWindowsWin32GlobalizationIsValidLanguageGroup(languagegroup.toInt(), dwflags.toInt()).toInt()
+    wasiWindowssysWindowsWin32GlobalizationIsValidLanguageGroup(languagegroup.toInt(), dwflags.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32GlobalizationIsValidLocale")
 private external fun wasiWindowssysWindowsWin32GlobalizationIsValidLocale(locale: Int, dwflags: Int): Int
 
 public actual fun isValidLocale(locale: UInt, dwflags: IsValidLocaleFlags): Bool =
-    wasiWindowssysWindowsWin32GlobalizationIsValidLocale(locale.toInt(), dwflags.toInt()).toInt()
+    wasiWindowssysWindowsWin32GlobalizationIsValidLocale(locale.toInt(), dwflags.toInt())
 
 public actual fun isValidLocaleName(lplocalename: Pcwstr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32GlobalizationIsValidLocaleName")
@@ -597,7 +597,7 @@ public actual fun setProcessPreferredUILanguages(dwflags: UInt, pwszlanguagesbuf
 private external fun wasiWindowssysWindowsWin32GlobalizationSetThreadLocale(locale: Int): Int
 
 public actual fun setThreadLocale(locale: UInt): Bool =
-    wasiWindowssysWindowsWin32GlobalizationSetThreadLocale(locale.toInt()).toInt()
+    wasiWindowssysWindowsWin32GlobalizationSetThreadLocale(locale.toInt())
 
 public actual fun setThreadPreferredUILanguages(dwflags: UInt, pwszlanguagesbuffer: Pcwstr, pulnumlanguages: MutPtr<UInt>): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32GlobalizationSetThreadPreferredUILanguages")
@@ -615,7 +615,7 @@ public actual fun setThreadUILanguage(langid: UShort): UShort =
 private external fun wasiWindowssysWindowsWin32GlobalizationSetUserGeoID(geoid: Int): Int
 
 public actual fun setUserGeoID(geoid: Int): Bool =
-    wasiWindowssysWindowsWin32GlobalizationSetUserGeoID(geoid).toInt()
+    wasiWindowssysWindowsWin32GlobalizationSetUserGeoID(geoid)
 
 public actual fun setUserGeoName(geoname: Pcwstr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32GlobalizationSetUserGeoName")
@@ -706,13 +706,13 @@ public actual fun uCharAge(c: Int, versionarray: MutPtr<UByte>): Unit = throw Un
 private external fun wasiWindowssysWindowsWin32GlobalizationUCharDigitValue(c: Int): Int
 
 public actual fun uCharDigitValue(c: Int): Int =
-    wasiWindowssysWindowsWin32GlobalizationUCharDigitValue(c).toInt()
+    wasiWindowssysWindowsWin32GlobalizationUCharDigitValue(c)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32GlobalizationUCharDirection")
 private external fun wasiWindowssysWindowsWin32GlobalizationUCharDirection(c: Int): Int
 
 public actual fun uCharDirection(c: Int): UCharDirection =
-    wasiWindowssysWindowsWin32GlobalizationUCharDirection(c).toInt()
+    wasiWindowssysWindowsWin32GlobalizationUCharDirection(c)
 
 public actual fun uCharFromName(namechoice: UCharNameChoice, name: Pcstr, perrorcode: MutPtr<UErrorCode>): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32GlobalizationUCharFromName")
@@ -721,7 +721,7 @@ public actual fun uCharFromName(namechoice: UCharNameChoice, name: Pcstr, perror
 private external fun wasiWindowssysWindowsWin32GlobalizationUCharMirror(c: Int): Int
 
 public actual fun uCharMirror(c: Int): Int =
-    wasiWindowssysWindowsWin32GlobalizationUCharMirror(c).toInt()
+    wasiWindowssysWindowsWin32GlobalizationUCharMirror(c)
 
 public actual fun uCharName(code: Int, namechoice: UCharNameChoice, buffer: Pcstr, bufferlength: Int, perrorcode: MutPtr<UErrorCode>): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32GlobalizationUCharName")
@@ -747,7 +747,7 @@ public actual fun uCountChar32(s: ConstPtr<UShort>, length: Int): Int =
 private external fun wasiWindowssysWindowsWin32GlobalizationUDigit(ch: Int, radix: Int): Int
 
 public actual fun uDigit(ch: Int, radix: Byte): Int =
-    wasiWindowssysWindowsWin32GlobalizationUDigit(ch, radix.toInt()).toInt()
+    wasiWindowssysWindowsWin32GlobalizationUDigit(ch, radix.toInt())
 
 public actual fun uEnumCharNames(start: Int, limit: Int, fn: MutPtr<UEnumCharNamesFn>, context: MutPtr<CVoid>, namechoice: UCharNameChoice, perrorcode: MutPtr<UErrorCode>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32GlobalizationUEnumCharNames")
 
@@ -760,13 +760,13 @@ public actual fun uErrorName(code: UErrorCode): Pcstr =
 private external fun wasiWindowssysWindowsWin32GlobalizationUFoldCase(c: Int, options: Int): Int
 
 public actual fun uFoldCase(c: Int, options: UInt): Int =
-    wasiWindowssysWindowsWin32GlobalizationUFoldCase(c, options.toInt()).toInt()
+    wasiWindowssysWindowsWin32GlobalizationUFoldCase(c, options.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32GlobalizationUForDigit")
 private external fun wasiWindowssysWindowsWin32GlobalizationUForDigit(digit: Int, radix: Int): Int
 
 public actual fun uForDigit(digit: Int, radix: Byte): Int =
-    wasiWindowssysWindowsWin32GlobalizationUForDigit(digit, radix.toInt()).toInt()
+    wasiWindowssysWindowsWin32GlobalizationUForDigit(digit, radix.toInt())
 
 public actual fun uFormatMessage(locale: Pcstr, pattern: ConstPtr<UShort>, patternlength: Int, result: MutPtr<UShort>, resultlength: Int, status: MutPtr<UErrorCode>, vararg variadicArgs: Long): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32GlobalizationUFormatMessage")
@@ -778,7 +778,7 @@ public actual fun uFormatMessageWithError(locale: Pcstr, pattern: ConstPtr<UShor
 private external fun wasiWindowssysWindowsWin32GlobalizationUGetBidiPairedBracket(c: Int): Int
 
 public actual fun uGetBidiPairedBracket(c: Int): Int =
-    wasiWindowssysWindowsWin32GlobalizationUGetBidiPairedBracket(c).toInt()
+    wasiWindowssysWindowsWin32GlobalizationUGetBidiPairedBracket(c)
 
 public actual fun uGetBinaryPropertySet(property: UProperty, perrorcode: MutPtr<UErrorCode>): MutPtr<USet> =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32GlobalizationUGetBinaryPropertySet")
@@ -801,25 +801,25 @@ public actual fun uGetIntPropertyMap(property: UProperty, perrorcode: MutPtr<UEr
 private external fun wasiWindowssysWindowsWin32GlobalizationUGetIntPropertyMaxValue(which: Int): Int
 
 public actual fun uGetIntPropertyMaxValue(which: UProperty): Int =
-    wasiWindowssysWindowsWin32GlobalizationUGetIntPropertyMaxValue(which).toInt()
+    wasiWindowssysWindowsWin32GlobalizationUGetIntPropertyMaxValue(which)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32GlobalizationUGetIntPropertyMinValue")
 private external fun wasiWindowssysWindowsWin32GlobalizationUGetIntPropertyMinValue(which: Int): Int
 
 public actual fun uGetIntPropertyMinValue(which: UProperty): Int =
-    wasiWindowssysWindowsWin32GlobalizationUGetIntPropertyMinValue(which).toInt()
+    wasiWindowssysWindowsWin32GlobalizationUGetIntPropertyMinValue(which)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32GlobalizationUGetIntPropertyValue")
 private external fun wasiWindowssysWindowsWin32GlobalizationUGetIntPropertyValue(c: Int, which: Int): Int
 
 public actual fun uGetIntPropertyValue(c: Int, which: UProperty): Int =
-    wasiWindowssysWindowsWin32GlobalizationUGetIntPropertyValue(c, which).toInt()
+    wasiWindowssysWindowsWin32GlobalizationUGetIntPropertyValue(c, which)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32GlobalizationUGetNumericValue")
 private external fun wasiWindowssysWindowsWin32GlobalizationUGetNumericValue(c: Int): Double
 
 public actual fun uGetNumericValue(c: Int): Double =
-    wasiWindowssysWindowsWin32GlobalizationUGetNumericValue(c).toDouble()
+    wasiWindowssysWindowsWin32GlobalizationUGetNumericValue(c)
 
 public actual fun uGetPropertyEnum(alias: Pcstr): UProperty =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32GlobalizationUGetPropertyEnum")
@@ -1188,19 +1188,19 @@ public actual fun uStrtokR(src: MutPtr<UShort>, delim: ConstPtr<UShort>, savesta
 private external fun wasiWindowssysWindowsWin32GlobalizationUTolower(c: Int): Int
 
 public actual fun uTolower(c: Int): Int =
-    wasiWindowssysWindowsWin32GlobalizationUTolower(c).toInt()
+    wasiWindowssysWindowsWin32GlobalizationUTolower(c)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32GlobalizationUTotitle")
 private external fun wasiWindowssysWindowsWin32GlobalizationUTotitle(c: Int): Int
 
 public actual fun uTotitle(c: Int): Int =
-    wasiWindowssysWindowsWin32GlobalizationUTotitle(c).toInt()
+    wasiWindowssysWindowsWin32GlobalizationUTotitle(c)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32GlobalizationUToupper")
 private external fun wasiWindowssysWindowsWin32GlobalizationUToupper(c: Int): Int
 
 public actual fun uToupper(c: Int): Int =
-    wasiWindowssysWindowsWin32GlobalizationUToupper(c).toInt()
+    wasiWindowssysWindowsWin32GlobalizationUToupper(c)
 
 public actual fun uUastrcpy(dst: MutPtr<UShort>, src: Pcstr): MutPtr<UShort> =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32GlobalizationUUastrcpy")
@@ -1348,7 +1348,7 @@ public actual fun ubiditransformTransform(pbiditransform: MutPtr<UBiDiTransform>
 private external fun wasiWindowssysWindowsWin32GlobalizationUblockGetCode(c: Int): Int
 
 public actual fun ublockGetCode(c: Int): UBlockCode =
-    wasiWindowssysWindowsWin32GlobalizationUblockGetCode(c).toInt()
+    wasiWindowssysWindowsWin32GlobalizationUblockGetCode(c)
 
 public actual fun ubrkClose(bi: MutPtr<UBreakIterator>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32GlobalizationUbrkClose")
 
@@ -1356,7 +1356,7 @@ public actual fun ubrkClose(bi: MutPtr<UBreakIterator>): Unit = throw Unsupporte
 private external fun wasiWindowssysWindowsWin32GlobalizationUbrkCountAvailable(): Int
 
 public actual fun ubrkCountAvailable(): Int =
-    wasiWindowssysWindowsWin32GlobalizationUbrkCountAvailable().toInt()
+    wasiWindowssysWindowsWin32GlobalizationUbrkCountAvailable()
 
 public actual fun ubrkCurrent(bi: ConstPtr<UBreakIterator>): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32GlobalizationUbrkCurrent")
@@ -1430,7 +1430,7 @@ public actual fun ucalClose(cal: MutPtr<MutPtr<CVoid>>): Unit = throw Unsupporte
 private external fun wasiWindowssysWindowsWin32GlobalizationUcalCountAvailable(): Int
 
 public actual fun ucalCountAvailable(): Int =
-    wasiWindowssysWindowsWin32GlobalizationUcalCountAvailable().toInt()
+    wasiWindowssysWindowsWin32GlobalizationUcalCountAvailable()
 
 public actual fun ucalEquivalentTo(cal1: ConstPtr<ConstPtr<CVoid>>, cal2: ConstPtr<ConstPtr<CVoid>>): Byte =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32GlobalizationUcalEquivalentTo")
@@ -1481,7 +1481,7 @@ public actual fun ucalGetMillis(cal: ConstPtr<ConstPtr<CVoid>>, status: MutPtr<U
 private external fun wasiWindowssysWindowsWin32GlobalizationUcalGetNow(): Double
 
 public actual fun ucalGetNow(): Double =
-    wasiWindowssysWindowsWin32GlobalizationUcalGetNow().toDouble()
+    wasiWindowssysWindowsWin32GlobalizationUcalGetNow()
 
 public actual fun ucalGetTzdataVersion(status: MutPtr<UErrorCode>): Pcstr =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32GlobalizationUcalGetTzdataVersion")
@@ -1637,7 +1637,7 @@ public actual fun ucnvCountAliases(alias: Pcstr, perrorcode: MutPtr<UErrorCode>)
 private external fun wasiWindowssysWindowsWin32GlobalizationUcnvCountAvailable(): Int
 
 public actual fun ucnvCountAvailable(): Int =
-    wasiWindowssysWindowsWin32GlobalizationUcnvCountAvailable().toInt()
+    wasiWindowssysWindowsWin32GlobalizationUcnvCountAvailable()
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32GlobalizationUcnvCountStandards")
 private external fun wasiWindowssysWindowsWin32GlobalizationUcnvCountStandards(): Int
@@ -1654,7 +1654,7 @@ public actual fun ucnvFixFileSeparator(cnv: ConstPtr<UConverter>, source: MutPtr
 private external fun wasiWindowssysWindowsWin32GlobalizationUcnvFlushCache(): Int
 
 public actual fun ucnvFlushCache(): Int =
-    wasiWindowssysWindowsWin32GlobalizationUcnvFlushCache().toInt()
+    wasiWindowssysWindowsWin32GlobalizationUcnvFlushCache()
 
 public actual fun ucnvFromAlgorithmic(cnv: MutPtr<UConverter>, algorithmictype: UConverterType, target: Pcstr, targetcapacity: Int, source: Pcstr, sourcelength: Int, perrorcode: MutPtr<UErrorCode>): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32GlobalizationUcnvFromAlgorithmic")
@@ -1812,7 +1812,7 @@ public actual fun ucolCloseElements(elems: MutPtr<UCollationElements>): Unit = t
 private external fun wasiWindowssysWindowsWin32GlobalizationUcolCountAvailable(): Int
 
 public actual fun ucolCountAvailable(): Int =
-    wasiWindowssysWindowsWin32GlobalizationUcolCountAvailable().toInt()
+    wasiWindowssysWindowsWin32GlobalizationUcolCountAvailable()
 
 public actual fun ucolEqual(coll: ConstPtr<UCollator>, source: ConstPtr<UShort>, sourcelength: Int, target: ConstPtr<UShort>, targetlength: Int): Byte =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32GlobalizationUcolEqual")
@@ -1923,7 +1923,7 @@ public actual fun ucolPrevious(elems: MutPtr<UCollationElements>, status: MutPtr
 private external fun wasiWindowssysWindowsWin32GlobalizationUcolPrimaryOrder(order: Int): Int
 
 public actual fun ucolPrimaryOrder(order: Int): Int =
-    wasiWindowssysWindowsWin32GlobalizationUcolPrimaryOrder(order).toInt()
+    wasiWindowssysWindowsWin32GlobalizationUcolPrimaryOrder(order)
 
 public actual fun ucolReset(elems: MutPtr<UCollationElements>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32GlobalizationUcolReset")
 
@@ -1934,7 +1934,7 @@ public actual fun ucolSafeClone(coll: ConstPtr<UCollator>, stackbuffer: MutPtr<C
 private external fun wasiWindowssysWindowsWin32GlobalizationUcolSecondaryOrder(order: Int): Int
 
 public actual fun ucolSecondaryOrder(order: Int): Int =
-    wasiWindowssysWindowsWin32GlobalizationUcolSecondaryOrder(order).toInt()
+    wasiWindowssysWindowsWin32GlobalizationUcolSecondaryOrder(order)
 
 public actual fun ucolSetAttribute(coll: MutPtr<UCollator>, attr: UColAttribute, value: UColAttributeValue, status: MutPtr<UErrorCode>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32GlobalizationUcolSetAttribute")
 
@@ -1961,7 +1961,7 @@ public actual fun ucolStrcollUtf8(coll: ConstPtr<UCollator>, source: Pcstr, sour
 private external fun wasiWindowssysWindowsWin32GlobalizationUcolTertiaryOrder(order: Int): Int
 
 public actual fun ucolTertiaryOrder(order: Int): Int =
-    wasiWindowssysWindowsWin32GlobalizationUcolTertiaryOrder(order).toInt()
+    wasiWindowssysWindowsWin32GlobalizationUcolTertiaryOrder(order)
 
 public actual fun ucpmapGet(map: ConstPtr<UCPMap>, c: Int): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32GlobalizationUcpmapGet")
@@ -2094,7 +2094,7 @@ public actual fun udatClose(format: MutPtr<MutPtr<CVoid>>): Unit = throw Unsuppo
 private external fun wasiWindowssysWindowsWin32GlobalizationUdatCountAvailable(): Int
 
 public actual fun udatCountAvailable(): Int =
-    wasiWindowssysWindowsWin32GlobalizationUdatCountAvailable().toInt()
+    wasiWindowssysWindowsWin32GlobalizationUdatCountAvailable()
 
 public actual fun udatCountSymbols(fmt: ConstPtr<ConstPtr<CVoid>>, type: UDateFormatSymbolType): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32GlobalizationUdatCountSymbols")
@@ -2167,7 +2167,7 @@ public actual fun udatSetSymbols(format: MutPtr<MutPtr<CVoid>>, type: UDateForma
 private external fun wasiWindowssysWindowsWin32GlobalizationUdatToCalendarDateField(field: Int): Int
 
 public actual fun udatToCalendarDateField(field: UDateFormatField): UCalendarDateFields =
-    wasiWindowssysWindowsWin32GlobalizationUdatToCalendarDateField(field).toInt()
+    wasiWindowssysWindowsWin32GlobalizationUdatToCalendarDateField(field)
 
 public actual fun udatToPattern(fmt: ConstPtr<ConstPtr<CVoid>>, localized: Byte, result: MutPtr<UShort>, resultlength: Int, status: MutPtr<UErrorCode>): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32GlobalizationUdatToPattern")
@@ -2456,7 +2456,7 @@ public actual fun ulocCanonicalize(localeid: Pcstr, name: Pcstr, namecapacity: I
 private external fun wasiWindowssysWindowsWin32GlobalizationUlocCountAvailable(): Int
 
 public actual fun ulocCountAvailable(): Int =
-    wasiWindowssysWindowsWin32GlobalizationUlocCountAvailable().toInt()
+    wasiWindowssysWindowsWin32GlobalizationUlocCountAvailable()
 
 public actual fun ulocForLanguageTag(langtag: Pcstr, localeid: Pcstr, localeidcapacity: Int, parsedlength: MutPtr<Int>, err: MutPtr<UErrorCode>): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32GlobalizationUlocForLanguageTag")
@@ -2731,7 +2731,7 @@ public actual fun unumClose(fmt: MutPtr<MutPtr<CVoid>>): Unit = throw Unsupporte
 private external fun wasiWindowssysWindowsWin32GlobalizationUnumCountAvailable(): Int
 
 public actual fun unumCountAvailable(): Int =
-    wasiWindowssysWindowsWin32GlobalizationUnumCountAvailable().toInt()
+    wasiWindowssysWindowsWin32GlobalizationUnumCountAvailable()
 
 public actual fun unumFormat(fmt: ConstPtr<ConstPtr<CVoid>>, number: Int, result: MutPtr<UShort>, resultlength: Int, pos: MutPtr<UFieldPosition>, status: MutPtr<UErrorCode>): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32GlobalizationUnumFormat")
@@ -3215,7 +3215,7 @@ public actual fun uscriptGetShortName(scriptcode: UScriptCode): Pcstr =
 private external fun wasiWindowssysWindowsWin32GlobalizationUscriptGetUsage(script: Int): Int
 
 public actual fun uscriptGetUsage(script: UScriptCode): UScriptUsage =
-    wasiWindowssysWindowsWin32GlobalizationUscriptGetUsage(script).toInt()
+    wasiWindowssysWindowsWin32GlobalizationUscriptGetUsage(script)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32GlobalizationUscriptHasScript")
 private external fun wasiWindowssysWindowsWin32GlobalizationUscriptHasScript(c: Int, sc: Int): Int
@@ -3641,7 +3641,7 @@ public actual fun utraceGetFunctions(context: ConstPtr<ConstPtr<CVoid>>, e: MutP
 private external fun wasiWindowssysWindowsWin32GlobalizationUtraceGetLevel(): Int
 
 public actual fun utraceGetLevel(): Int =
-    wasiWindowssysWindowsWin32GlobalizationUtraceGetLevel().toInt()
+    wasiWindowssysWindowsWin32GlobalizationUtraceGetLevel()
 
 public actual fun utraceSetFunctions(context: ConstPtr<CVoid>, e: UTraceEntry, x: UTraceExit, d: UTraceData): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32GlobalizationUtraceSetFunctions")
 
@@ -3663,7 +3663,7 @@ public actual fun utransClose(trans: MutPtr<MutPtr<CVoid>>): Unit = throw Unsupp
 private external fun wasiWindowssysWindowsWin32GlobalizationUtransCountAvailableIds(): Int
 
 public actual fun utransCountAvailableIds(): Int =
-    wasiWindowssysWindowsWin32GlobalizationUtransCountAvailableIds().toInt()
+    wasiWindowssysWindowsWin32GlobalizationUtransCountAvailableIds()
 
 public actual fun utransGetSourceSet(trans: ConstPtr<ConstPtr<CVoid>>, ignorefilter: Byte, fillin: MutPtr<USet>, status: MutPtr<UErrorCode>): MutPtr<USet> =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32GlobalizationUtransGetSourceSet")

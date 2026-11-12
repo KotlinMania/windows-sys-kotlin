@@ -27,13 +27,13 @@ public actual fun addConsoleAliasW(source: Pcwstr, target: Pcwstr, exename: Pcws
 private external fun wasiWindowssysWindowsWin32SystemConsoleAllocConsole(): Int
 
 public actual fun allocConsole(): Bool =
-    wasiWindowssysWindowsWin32SystemConsoleAllocConsole().toInt()
+    wasiWindowssysWindowsWin32SystemConsoleAllocConsole()
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemConsoleAttachConsole")
 private external fun wasiWindowssysWindowsWin32SystemConsoleAttachConsole(dwprocessid: Int): Int
 
 public actual fun attachConsole(dwprocessid: UInt): Bool =
-    wasiWindowssysWindowsWin32SystemConsoleAttachConsole(dwprocessid.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemConsoleAttachConsole(dwprocessid.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemConsoleClosePseudoConsole")
 private external fun wasiWindowssysWindowsWin32SystemConsoleClosePseudoConsole(hpc: Long): Unit
@@ -70,13 +70,13 @@ public actual fun flushConsoleInputBuffer(hconsoleinput: Handle): Bool =
 private external fun wasiWindowssysWindowsWin32SystemConsoleFreeConsole(): Int
 
 public actual fun freeConsole(): Bool =
-    wasiWindowssysWindowsWin32SystemConsoleFreeConsole().toInt()
+    wasiWindowssysWindowsWin32SystemConsoleFreeConsole()
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemConsoleGenerateConsoleCtrlEvent")
 private external fun wasiWindowssysWindowsWin32SystemConsoleGenerateConsoleCtrlEvent(dwctrlevent: Int, dwprocessgroupid: Int): Int
 
 public actual fun generateConsoleCtrlEvent(dwctrlevent: UInt, dwprocessgroupid: UInt): Bool =
-    wasiWindowssysWindowsWin32SystemConsoleGenerateConsoleCtrlEvent(dwctrlevent.toInt(), dwprocessgroupid.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemConsoleGenerateConsoleCtrlEvent(dwctrlevent.toInt(), dwprocessgroupid.toInt())
 
 public actual fun getConsoleAliasA(source: Pcstr, targetbuffer: Pstr, targetbufferlength: UInt, exename: Pcstr): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemConsoleGetConsoleAliasA")
@@ -247,7 +247,7 @@ public actual fun setConsoleActiveScreenBuffer(hconsoleoutput: Handle): Bool =
 private external fun wasiWindowssysWindowsWin32SystemConsoleSetConsoleCP(wcodepageid: Int): Int
 
 public actual fun setConsoleCP(wcodepageid: UInt): Bool =
-    wasiWindowssysWindowsWin32SystemConsoleSetConsoleCP(wcodepageid.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemConsoleSetConsoleCP(wcodepageid.toInt())
 
 public actual fun setConsoleCtrlHandler(handlerroutine: PhandlerRoutine, add: Bool): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemConsoleSetConsoleCtrlHandler")
@@ -277,7 +277,7 @@ public actual fun setConsoleNumberOfCommandsW(number: UInt, exename: Pcwstr): Bo
 private external fun wasiWindowssysWindowsWin32SystemConsoleSetConsoleOutputCP(wcodepageid: Int): Int
 
 public actual fun setConsoleOutputCP(wcodepageid: UInt): Bool =
-    wasiWindowssysWindowsWin32SystemConsoleSetConsoleOutputCP(wcodepageid.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemConsoleSetConsoleOutputCP(wcodepageid.toInt())
 
 public actual fun setConsoleScreenBufferInfoEx(hconsoleoutput: Handle, lpconsolescreenbufferinfoex: ConstPtr<ConsoleScreenBufferInfoex>): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemConsoleSetConsoleScreenBufferInfoEx")

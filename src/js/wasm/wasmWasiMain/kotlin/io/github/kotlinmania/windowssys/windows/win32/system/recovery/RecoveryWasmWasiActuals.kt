@@ -38,10 +38,10 @@ public actual fun registerApplicationRestart(pwzcommandline: Pcwstr, dwflags: Re
 private external fun wasiWindowssysWindowsWin32SystemRecoveryUnregisterApplicationRecoveryCallback(): Int
 
 public actual fun unregisterApplicationRecoveryCallback(): Hresult =
-    wasiWindowssysWindowsWin32SystemRecoveryUnregisterApplicationRecoveryCallback().toInt()
+    wasiWindowssysWindowsWin32SystemRecoveryUnregisterApplicationRecoveryCallback()
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemRecoveryUnregisterApplicationRestart")
 private external fun wasiWindowssysWindowsWin32SystemRecoveryUnregisterApplicationRestart(): Int
 
 public actual fun unregisterApplicationRestart(): Hresult =
-    wasiWindowssysWindowsWin32SystemRecoveryUnregisterApplicationRestart().toInt()
+    wasiWindowssysWindowsWin32SystemRecoveryUnregisterApplicationRestart()

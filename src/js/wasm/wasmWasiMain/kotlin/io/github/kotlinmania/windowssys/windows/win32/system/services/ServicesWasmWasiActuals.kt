@@ -98,7 +98,7 @@ public actual fun lockServiceDatabase(hscmanager: ScHandle): MutPtr<CVoid> =
 private external fun wasiWindowssysWindowsWin32SystemServicesNotifyBootConfigStatus(bootacceptable: Int): Int
 
 public actual fun notifyBootConfigStatus(bootacceptable: Bool): Bool =
-    wasiWindowssysWindowsWin32SystemServicesNotifyBootConfigStatus(bootacceptable).toInt()
+    wasiWindowssysWindowsWin32SystemServicesNotifyBootConfigStatus(bootacceptable)
 
 public actual fun notifyServiceStatusChangeA(hservice: ScHandle, dwnotifymask: ServiceNotify, pnotifybuffer: ConstPtr<ServiceNotify2a>): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemServicesNotifyServiceStatusChangeA")

@@ -208,7 +208,7 @@ public actual fun pSPropertyKeyFromString(pszstring: Pcwstr, pkey: MutPtr<Proper
 private external fun wasiWindowssysWindowsWin32UiShellPropertiessystemPSRefreshPropertySchema(): Int
 
 public actual fun pSRefreshPropertySchema(): Hresult =
-    wasiWindowssysWindowsWin32UiShellPropertiessystemPSRefreshPropertySchema().toInt()
+    wasiWindowssysWindowsWin32UiShellPropertiessystemPSRefreshPropertySchema()
 
 public actual fun pSRegisterPropertySchema(pszpath: Pcwstr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiShellPropertiessystemPSRegisterPropertySchema")

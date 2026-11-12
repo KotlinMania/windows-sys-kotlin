@@ -32,7 +32,7 @@ public actual fun addVectoredExceptionHandler(first: UInt, handler: PvectoredExc
 private external fun wasiWindowssysWindowsWin32SystemDiagnosticsDebugBeep(dwfreq: Int, dwduration: Int): Int
 
 public actual fun beep(dwfreq: UInt, dwduration: UInt): Bool =
-    wasiWindowssysWindowsWin32SystemDiagnosticsDebugBeep(dwfreq.toInt(), dwduration.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemDiagnosticsDebugBeep(dwfreq.toInt(), dwduration.toInt())
 
 public actual fun bindImage(imagename: Pcstr, dllpath: Pcstr, symbolpath: Pcstr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemDiagnosticsDebugBindImage")
@@ -52,7 +52,7 @@ public actual fun closeThreadWaitChainSession(wcthandle: ConstPtr<CVoid>): Unit 
 private external fun wasiWindowssysWindowsWin32SystemDiagnosticsDebugContinueDebugEvent(dwprocessid: Int, dwthreadid: Int, dwcontinuestatus: Int): Int
 
 public actual fun continueDebugEvent(dwprocessid: UInt, dwthreadid: UInt, dwcontinuestatus: Ntstatus): Bool =
-    wasiWindowssysWindowsWin32SystemDiagnosticsDebugContinueDebugEvent(dwprocessid.toInt(), dwthreadid.toInt(), dwcontinuestatus).toInt()
+    wasiWindowssysWindowsWin32SystemDiagnosticsDebugContinueDebugEvent(dwprocessid.toInt(), dwthreadid.toInt(), dwcontinuestatus)
 
 public actual fun copyContext(destination: MutPtr<Context>, contextflags: ContextFlags, source: ConstPtr<Context>): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemDiagnosticsDebugCopyContext")
@@ -67,13 +67,13 @@ public actual fun dbgHelpCreateUserDumpW(filename: Pcwstr, callback: PdbghelpCre
 private external fun wasiWindowssysWindowsWin32SystemDiagnosticsDebugDebugActiveProcess(dwprocessid: Int): Int
 
 public actual fun debugActiveProcess(dwprocessid: UInt): Bool =
-    wasiWindowssysWindowsWin32SystemDiagnosticsDebugDebugActiveProcess(dwprocessid.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemDiagnosticsDebugDebugActiveProcess(dwprocessid.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemDiagnosticsDebugDebugActiveProcessStop")
 private external fun wasiWindowssysWindowsWin32SystemDiagnosticsDebugDebugActiveProcessStop(dwprocessid: Int): Int
 
 public actual fun debugActiveProcessStop(dwprocessid: UInt): Bool =
-    wasiWindowssysWindowsWin32SystemDiagnosticsDebugDebugActiveProcessStop(dwprocessid.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemDiagnosticsDebugDebugActiveProcessStop(dwprocessid.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemDiagnosticsDebugDebugBreak")
 private external fun wasiWindowssysWindowsWin32SystemDiagnosticsDebugDebugBreak(): Unit
@@ -88,7 +88,7 @@ public actual fun debugBreakProcess(process: Handle): Bool =
 private external fun wasiWindowssysWindowsWin32SystemDiagnosticsDebugDebugSetProcessKillOnExit(killonexit: Int): Int
 
 public actual fun debugSetProcessKillOnExit(killonexit: Bool): Bool =
-    wasiWindowssysWindowsWin32SystemDiagnosticsDebugDebugSetProcessKillOnExit(killonexit).toInt()
+    wasiWindowssysWindowsWin32SystemDiagnosticsDebugDebugSetProcessKillOnExit(killonexit)
 
 public actual fun decodePointer(ptr: ConstPtr<CVoid>): MutPtr<CVoid> =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemDiagnosticsDebugDecodePointer")
@@ -271,7 +271,7 @@ public actual fun initializeContext2(buffer: MutPtr<CVoid>, contextflags: Contex
 private external fun wasiWindowssysWindowsWin32SystemDiagnosticsDebugIsDebuggerPresent(): Int
 
 public actual fun isDebuggerPresent(): Bool =
-    wasiWindowssysWindowsWin32SystemDiagnosticsDebugIsDebuggerPresent().toInt()
+    wasiWindowssysWindowsWin32SystemDiagnosticsDebugIsDebuggerPresent()
 
 public actual fun locateXStateFeature(context: ConstPtr<Context>, featureid: UInt, length: MutPtr<UInt>): MutPtr<CVoid> =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemDiagnosticsDebugLocateXStateFeature")
@@ -292,7 +292,7 @@ public actual fun mapFileAndCheckSumW(filename: Pcwstr, headersum: MutPtr<UInt>,
 private external fun wasiWindowssysWindowsWin32SystemDiagnosticsDebugMessageBeep(utype: Int): Int
 
 public actual fun messageBeep(utype: MessageboxStyle): Bool =
-    wasiWindowssysWindowsWin32SystemDiagnosticsDebugMessageBeep(utype.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemDiagnosticsDebugMessageBeep(utype.toInt())
 
 public actual fun miniDumpReadDumpStream(baseofdump: ConstPtr<CVoid>, streamnumber: UInt, dir: MutPtr<MutPtr<MinidumpDirectory>>, streampointer: MutPtr<MutPtr<CVoid>>, streamsize: MutPtr<UInt>): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemDiagnosticsDebugMiniDumpReadDumpStream")
@@ -591,7 +591,7 @@ public actual fun symFunctionTableAccess64AccessRoutines(hprocess: Handle, addrb
 private external fun wasiWindowssysWindowsWin32SystemDiagnosticsDebugSymGetExtendedOption(option: Int): Int
 
 public actual fun symGetExtendedOption(option: ImagehlpExtendedOptions): Bool =
-    wasiWindowssysWindowsWin32SystemDiagnosticsDebugSymGetExtendedOption(option).toInt()
+    wasiWindowssysWindowsWin32SystemDiagnosticsDebugSymGetExtendedOption(option)
 
 public actual fun symGetFileLineOffsets64(hprocess: Handle, modulename: Pcstr, filename: Pcstr, buffer: MutPtr<ULong>, bufferlines: UInt): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemDiagnosticsDebugSymGetFileLineOffsets64")
@@ -807,7 +807,7 @@ public actual fun symSetContext(hprocess: Handle, stackframe: ConstPtr<ImagehlpS
 private external fun wasiWindowssysWindowsWin32SystemDiagnosticsDebugSymSetExtendedOption(option: Int, value: Int): Int
 
 public actual fun symSetExtendedOption(option: ImagehlpExtendedOptions, value: Bool): Bool =
-    wasiWindowssysWindowsWin32SystemDiagnosticsDebugSymSetExtendedOption(option, value).toInt()
+    wasiWindowssysWindowsWin32SystemDiagnosticsDebugSymSetExtendedOption(option, value)
 
 public actual fun symSetHomeDirectory(hprocess: Handle, dir: Pcstr): Pstr =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemDiagnosticsDebugSymSetHomeDirectory")

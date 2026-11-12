@@ -35,13 +35,13 @@ public actual fun hasExpandedResources(hasexpandedresources: MutPtr<Bool>): Hres
 private external fun wasiWindowssysWindowsWin32GamingProcessPendingGameUI(waitforcompletion: Int): Int
 
 public actual fun processPendingGameUI(waitforcompletion: Bool): Hresult =
-    wasiWindowssysWindowsWin32GamingProcessPendingGameUI(waitforcompletion).toInt()
+    wasiWindowssysWindowsWin32GamingProcessPendingGameUI(waitforcompletion)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32GamingReleaseExclusiveCpuSets")
 private external fun wasiWindowssysWindowsWin32GamingReleaseExclusiveCpuSets(): Int
 
 public actual fun releaseExclusiveCpuSets(): Hresult =
-    wasiWindowssysWindowsWin32GamingReleaseExclusiveCpuSets().toInt()
+    wasiWindowssysWindowsWin32GamingReleaseExclusiveCpuSets()
 
 public actual fun showChangeFriendRelationshipUI(targetuserxuid: Hstring, completionroutine: GameUICompletionRoutine, context: ConstPtr<CVoid>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32GamingShowChangeFriendRelationshipUI")
@@ -107,4 +107,4 @@ public actual fun showUserSettingsUIForUser(user: MutPtr<CVoid>, completionrouti
 private external fun wasiWindowssysWindowsWin32GamingTryCancelPendingGameUI(): Int
 
 public actual fun tryCancelPendingGameUI(): Bool =
-    wasiWindowssysWindowsWin32GamingTryCancelPendingGameUI().toInt()
+    wasiWindowssysWindowsWin32GamingTryCancelPendingGameUI()

@@ -54,19 +54,19 @@ public actual fun immDestroySoftKeyboard(param0: Hwnd): Bool =
 private external fun wasiWindowssysWindowsWin32UiInputImeImmDisableIME(param0: Int): Int
 
 public actual fun immDisableIME(param0: UInt): Bool =
-    wasiWindowssysWindowsWin32UiInputImeImmDisableIME(param0.toInt()).toInt()
+    wasiWindowssysWindowsWin32UiInputImeImmDisableIME(param0.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiInputImeImmDisableLegacyIME")
 private external fun wasiWindowssysWindowsWin32UiInputImeImmDisableLegacyIME(): Int
 
 public actual fun immDisableLegacyIME(): Bool =
-    wasiWindowssysWindowsWin32UiInputImeImmDisableLegacyIME().toInt()
+    wasiWindowssysWindowsWin32UiInputImeImmDisableLegacyIME()
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiInputImeImmDisableTextFrameService")
 private external fun wasiWindowssysWindowsWin32UiInputImeImmDisableTextFrameService(idthread: Int): Int
 
 public actual fun immDisableTextFrameService(idthread: UInt): Bool =
-    wasiWindowssysWindowsWin32UiInputImeImmDisableTextFrameService(idthread.toInt()).toInt()
+    wasiWindowssysWindowsWin32UiInputImeImmDisableTextFrameService(idthread.toInt())
 
 public actual fun immEnumInputContext(idthread: UInt, lpfn: Imcenumproc, lparam: Lparam): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiInputImeImmEnumInputContext")

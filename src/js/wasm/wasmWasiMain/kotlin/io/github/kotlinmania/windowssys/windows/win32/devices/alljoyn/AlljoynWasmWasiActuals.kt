@@ -46,7 +46,7 @@ public actual fun alljoynAboutdataCreate(defaultlanguage: Pcstr): AlljoynAboutda
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataCreateEmpty(): Long
 
 public actual fun alljoynAboutdataCreateEmpty(): AlljoynAboutdata =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataCreateEmpty().toLong()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataCreateEmpty()
 
 public actual fun alljoynAboutdataCreateFull(arg: AlljoynMsgarg, language: Pcstr): AlljoynAboutdata =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataCreateFull")
@@ -73,7 +73,7 @@ public actual fun alljoynAboutdataGetajsoftwareversion(data: AlljoynAboutdata, a
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetannouncedaboutdata(data: Long, msgarg: Long): Int
 
 public actual fun alljoynAboutdataGetannouncedaboutdata(data: AlljoynAboutdata, msgarg: AlljoynMsgarg): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetannouncedaboutdata(data, msgarg).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetannouncedaboutdata(data, msgarg)
 
 public actual fun alljoynAboutdataGetappid(data: AlljoynAboutdata, appid: MutPtr<MutPtr<UByte>>, num: MutPtr<ULong>): QStatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetappid")
@@ -199,7 +199,7 @@ public actual fun alljoynAbouticonClear(icon: AlljoynAbouticon): Unit =
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonCreate(): Long
 
 public actual fun alljoynAbouticonCreate(): AlljoynAbouticon =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonCreate().toLong()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonCreate()
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynAbouticonDestroy")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonDestroy(icon: Long): Unit
@@ -218,7 +218,7 @@ public actual fun alljoynAbouticonSetcontent(icon: AlljoynAbouticon, type: Pcstr
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonSetcontentFrommsgarg(icon: Long, arg: Long): Int
 
 public actual fun alljoynAbouticonSetcontentFrommsgarg(icon: AlljoynAbouticon, arg: AlljoynMsgarg): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonSetcontentFrommsgarg(icon, arg).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonSetcontentFrommsgarg(icon, arg)
 
 public actual fun alljoynAbouticonSeturl(icon: AlljoynAbouticon, type: Pcstr, url: Pcstr): QStatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAbouticonSeturl")
@@ -227,7 +227,7 @@ public actual fun alljoynAbouticonSeturl(icon: AlljoynAbouticon, type: Pcstr, ur
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonobjCreate(bus: Long, icon: Long): Long
 
 public actual fun alljoynAbouticonobjCreate(bus: AlljoynBusattachment, icon: AlljoynAbouticon): AlljoynAbouticonobj =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonobjCreate(bus, icon).toLong()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonobjCreate(bus, icon)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynAbouticonobjDestroy")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonobjDestroy(icon: Long): Unit
@@ -248,7 +248,7 @@ public actual fun alljoynAbouticonproxyDestroy(proxy: AlljoynAbouticonproxy): Un
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonproxyGeticon(proxy: Long, icon: Long): Int
 
 public actual fun alljoynAbouticonproxyGeticon(proxy: AlljoynAbouticonproxy, icon: AlljoynAbouticon): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonproxyGeticon(proxy, icon).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAbouticonproxyGeticon(proxy, icon)
 
 public actual fun alljoynAbouticonproxyGetversion(proxy: AlljoynAbouticonproxy, version: MutPtr<UShort>): QStatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAbouticonproxyGetversion")
@@ -266,19 +266,19 @@ public actual fun alljoynAboutlistenerDestroy(listener: AlljoynAboutlistener): U
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjAnnounce(obj: Long, sessionport: Int, aboutdata: Long): Int
 
 public actual fun alljoynAboutobjAnnounce(obj: AlljoynAboutobj, sessionport: UShort, aboutdata: AlljoynAboutdata): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjAnnounce(obj, sessionport.toInt(), aboutdata).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjAnnounce(obj, sessionport.toInt(), aboutdata)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjAnnounceUsingDatalistener")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjAnnounceUsingDatalistener(obj: Long, sessionport: Int, aboutlistener: Long): Int
 
 public actual fun alljoynAboutobjAnnounceUsingDatalistener(obj: AlljoynAboutobj, sessionport: UShort, aboutlistener: AlljoynAboutdatalistener): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjAnnounceUsingDatalistener(obj, sessionport.toInt(), aboutlistener).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjAnnounceUsingDatalistener(obj, sessionport.toInt(), aboutlistener)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjCreate")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjCreate(bus: Long, isannounced: Int): Long
 
 public actual fun alljoynAboutobjCreate(bus: AlljoynBusattachment, isannounced: AlljoynAboutAnnounceflag): AlljoynAboutobj =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjCreate(bus, isannounced).toLong()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjCreate(bus, isannounced)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjDestroy")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjDestroy(obj: Long): Unit
@@ -290,7 +290,7 @@ public actual fun alljoynAboutobjDestroy(obj: AlljoynAboutobj): Unit =
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjUnannounce(obj: Long): Int
 
 public actual fun alljoynAboutobjUnannounce(obj: AlljoynAboutobj): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjUnannounce(obj).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjUnannounce(obj)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionClear")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionClear(description: Long): Unit
@@ -302,19 +302,19 @@ public actual fun alljoynAboutobjectdescriptionClear(description: AlljoynAboutob
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionCreate(): Long
 
 public actual fun alljoynAboutobjectdescriptionCreate(): AlljoynAboutobjectdescription =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionCreate().toLong()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionCreate()
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionCreateFull")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionCreateFull(arg: Long): Long
 
 public actual fun alljoynAboutobjectdescriptionCreateFull(arg: AlljoynMsgarg): AlljoynAboutobjectdescription =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionCreateFull(arg).toLong()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionCreateFull(arg)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionCreatefrommsgarg")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionCreatefrommsgarg(description: Long, arg: Long): Int
 
 public actual fun alljoynAboutobjectdescriptionCreatefrommsgarg(description: AlljoynAboutobjectdescription, arg: AlljoynMsgarg): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionCreatefrommsgarg(description, arg).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionCreatefrommsgarg(description, arg)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionDestroy")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionDestroy(description: Long): Unit
@@ -332,7 +332,7 @@ public actual fun alljoynAboutobjectdescriptionGetinterfaces(description: Alljoy
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionGetmsgarg(description: Long, msgarg: Long): Int
 
 public actual fun alljoynAboutobjectdescriptionGetmsgarg(description: AlljoynAboutobjectdescription, msgarg: AlljoynMsgarg): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionGetmsgarg(description, msgarg).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionGetmsgarg(description, msgarg)
 
 public actual fun alljoynAboutobjectdescriptionGetpaths(description: AlljoynAboutobjectdescription, paths: ConstPtr<ConstPtr<Byte>>, numpaths: ULong): ULong =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionGetpaths")
@@ -362,7 +362,7 @@ public actual fun alljoynAboutproxyGetaboutdata(proxy: AlljoynAboutproxy, langua
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutproxyGetobjectdescription(proxy: Long, objectdesc: Long): Int
 
 public actual fun alljoynAboutproxyGetobjectdescription(proxy: AlljoynAboutproxy, objectdesc: AlljoynMsgarg): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutproxyGetobjectdescription(proxy, objectdesc).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAboutproxyGetobjectdescription(proxy, objectdesc)
 
 public actual fun alljoynAboutproxyGetversion(proxy: AlljoynAboutproxy, version: MutPtr<UShort>): QStatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynAboutproxyGetversion")
@@ -412,7 +412,7 @@ public actual fun alljoynAutopingerAddpinggroup(autopinger: AlljoynAutopinger, g
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAutopingerCreate(bus: Long): Long
 
 public actual fun alljoynAutopingerCreate(bus: AlljoynBusattachment): AlljoynAutopinger =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAutopingerCreate(bus).toLong()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAutopingerCreate(bus)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynAutopingerDestroy")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynAutopingerDestroy(autopinger: Long): Unit
@@ -501,7 +501,7 @@ public actual fun alljoynBusattachmentDeletedefaultkeystore(applicationname: Pcs
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentDeleteinterface(bus: Long, iface: Long): Int
 
 public actual fun alljoynBusattachmentDeleteinterface(bus: AlljoynBusattachment, iface: AlljoynInterfacedescription): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentDeleteinterface(bus, iface).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentDeleteinterface(bus, iface)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentDestroy")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentDestroy(bus: Long): Unit
@@ -534,13 +534,13 @@ public actual fun alljoynBusattachmentFindadvertisednamebytransport(bus: Alljoyn
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetalljoyndebugobj(bus: Long): Long
 
 public actual fun alljoynBusattachmentGetalljoyndebugobj(bus: AlljoynBusattachment): AlljoynProxybusobject =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetalljoyndebugobj(bus).toLong()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetalljoyndebugobj(bus)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetalljoynproxyobj")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetalljoynproxyobj(bus: Long): Long
 
 public actual fun alljoynBusattachmentGetalljoynproxyobj(bus: AlljoynBusattachment): AlljoynProxybusobject =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetalljoynproxyobj(bus).toLong()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetalljoynproxyobj(bus)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetconcurrency")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetconcurrency(bus: Long): Int
@@ -555,7 +555,7 @@ public actual fun alljoynBusattachmentGetconnectspec(bus: AlljoynBusattachment):
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetdbusproxyobj(bus: Long): Long
 
 public actual fun alljoynBusattachmentGetdbusproxyobj(bus: AlljoynBusattachment): AlljoynProxybusobject =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetdbusproxyobj(bus).toLong()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetdbusproxyobj(bus)
 
 public actual fun alljoynBusattachmentGetglobalguidstring(bus: AlljoynBusattachment): Pcstr =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetglobalguidstring")
@@ -576,7 +576,7 @@ public actual fun alljoynBusattachmentGetpeerguid(bus: AlljoynBusattachment, nam
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetpermissionconfigurator(bus: Long): Long
 
 public actual fun alljoynBusattachmentGetpermissionconfigurator(bus: AlljoynBusattachment): AlljoynPermissionconfigurator =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetpermissionconfigurator(bus).toLong()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetpermissionconfigurator(bus)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGettimestamp")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGettimestamp(): Int
@@ -591,31 +591,31 @@ public actual fun alljoynBusattachmentGetuniquename(bus: AlljoynBusattachment): 
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentIsconnected(bus: Long): Int
 
 public actual fun alljoynBusattachmentIsconnected(bus: AlljoynBusattachment): Int =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentIsconnected(bus).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentIsconnected(bus)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentIspeersecurityenabled")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentIspeersecurityenabled(bus: Long): Int
 
 public actual fun alljoynBusattachmentIspeersecurityenabled(bus: AlljoynBusattachment): Int =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentIspeersecurityenabled(bus).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentIspeersecurityenabled(bus)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentIsstarted")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentIsstarted(bus: Long): Int
 
 public actual fun alljoynBusattachmentIsstarted(bus: AlljoynBusattachment): Int =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentIsstarted(bus).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentIsstarted(bus)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentIsstopping")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentIsstopping(bus: Long): Int
 
 public actual fun alljoynBusattachmentIsstopping(bus: AlljoynBusattachment): Int =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentIsstopping(bus).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentIsstopping(bus)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentJoin")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentJoin(bus: Long): Int
 
 public actual fun alljoynBusattachmentJoin(bus: AlljoynBusattachment): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentJoin(bus).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentJoin(bus)
 
 public actual fun alljoynBusattachmentJoinsession(bus: AlljoynBusattachment, sessionhost: Pcstr, sessionport: UShort, listener: AlljoynSessionlistener, sessionid: MutPtr<UInt>, opts: AlljoynSessionopts): QStatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentJoinsession")
@@ -627,7 +627,7 @@ public actual fun alljoynBusattachmentJoinsessionasync(bus: AlljoynBusattachment
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentLeavesession(bus: Long, sessionid: Int): Int
 
 public actual fun alljoynBusattachmentLeavesession(bus: AlljoynBusattachment, sessionid: UInt): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentLeavesession(bus, sessionid.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentLeavesession(bus, sessionid.toInt())
 
 public actual fun alljoynBusattachmentNamehasowner(bus: AlljoynBusattachment, name: Pcstr, hasowner: MutPtr<Int>): QStatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentNamehasowner")
@@ -645,7 +645,7 @@ public actual fun alljoynBusattachmentRegisteraboutlistener(bus: AlljoynBusattac
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterapplicationstatelistener(bus: Long, listener: Long): Int
 
 public actual fun alljoynBusattachmentRegisterapplicationstatelistener(bus: AlljoynBusattachment, listener: AlljoynApplicationstatelistener): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterapplicationstatelistener(bus, listener).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterapplicationstatelistener(bus, listener)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterbuslistener")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterbuslistener(bus: Long, listener: Long): Unit
@@ -657,19 +657,19 @@ public actual fun alljoynBusattachmentRegisterbuslistener(bus: AlljoynBusattachm
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterbusobject(bus: Long, obj: Long): Int
 
 public actual fun alljoynBusattachmentRegisterbusobject(bus: AlljoynBusattachment, obj: AlljoynBusobject): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterbusobject(bus, obj).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterbusobject(bus, obj)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterbusobjectSecure")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterbusobjectSecure(bus: Long, obj: Long): Int
 
 public actual fun alljoynBusattachmentRegisterbusobjectSecure(bus: AlljoynBusattachment, obj: AlljoynBusobject): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterbusobjectSecure(bus, obj).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterbusobjectSecure(bus, obj)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterkeystorelistener")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterkeystorelistener(bus: Long, listener: Long): Int
 
 public actual fun alljoynBusattachmentRegisterkeystorelistener(bus: AlljoynBusattachment, listener: AlljoynKeystorelistener): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterkeystorelistener(bus, listener).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterkeystorelistener(bus, listener)
 
 public actual fun alljoynBusattachmentRegistersignalhandler(bus: AlljoynBusattachment, signalHandler: AlljoynMessagereceiverSignalhandlerPtr, member: AlljoynInterfacedescriptionMember, srcpath: Pcstr): QStatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegistersignalhandler")
@@ -684,7 +684,7 @@ public actual fun alljoynBusattachmentReleasename(bus: AlljoynBusattachment, nam
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentReloadkeystore(bus: Long): Int
 
 public actual fun alljoynBusattachmentReloadkeystore(bus: AlljoynBusattachment): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentReloadkeystore(bus).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentReloadkeystore(bus)
 
 public actual fun alljoynBusattachmentRemovematch(bus: AlljoynBusattachment, rule: Pcstr): QStatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRemovematch")
@@ -717,25 +717,25 @@ public actual fun alljoynBusattachmentSetlinktimeoutasync(bus: AlljoynBusattachm
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentSetsessionlistener(bus: Long, sessionid: Int, listener: Long): Int
 
 public actual fun alljoynBusattachmentSetsessionlistener(bus: AlljoynBusattachment, sessionid: UInt, listener: AlljoynSessionlistener): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentSetsessionlistener(bus, sessionid.toInt(), listener).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentSetsessionlistener(bus, sessionid.toInt(), listener)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentStart")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentStart(bus: Long): Int
 
 public actual fun alljoynBusattachmentStart(bus: AlljoynBusattachment): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentStart(bus).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentStart(bus)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentStop")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentStop(bus: Long): Int
 
 public actual fun alljoynBusattachmentStop(bus: AlljoynBusattachment): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentStop(bus).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentStop(bus)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnbindsessionport")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnbindsessionport(bus: Long, sessionport: Int): Int
 
 public actual fun alljoynBusattachmentUnbindsessionport(bus: AlljoynBusattachment, sessionport: UShort): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnbindsessionport(bus, sessionport.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnbindsessionport(bus, sessionport.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisteraboutlistener")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisteraboutlistener(bus: Long, aboutlistener: Long): Unit
@@ -753,13 +753,13 @@ public actual fun alljoynBusattachmentUnregisterallaboutlisteners(bus: AlljoynBu
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisterallhandlers(bus: Long): Int
 
 public actual fun alljoynBusattachmentUnregisterallhandlers(bus: AlljoynBusattachment): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisterallhandlers(bus).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisterallhandlers(bus)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisterapplicationstatelistener")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisterapplicationstatelistener(bus: Long, listener: Long): Int
 
 public actual fun alljoynBusattachmentUnregisterapplicationstatelistener(bus: AlljoynBusattachment, listener: AlljoynApplicationstatelistener): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisterapplicationstatelistener(bus, listener).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisterapplicationstatelistener(bus, listener)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisterbuslistener")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisterbuslistener(bus: Long, listener: Long): Unit
@@ -798,13 +798,13 @@ public actual fun alljoynBuslistenerDestroy(listener: AlljoynBuslistener): Unit 
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectAddinterface(bus: Long, iface: Long): Int
 
 public actual fun alljoynBusobjectAddinterface(bus: AlljoynBusobject, iface: AlljoynInterfacedescription): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectAddinterface(bus, iface).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectAddinterface(bus, iface)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectAddinterfaceAnnounced")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectAddinterfaceAnnounced(bus: Long, iface: Long): Int
 
 public actual fun alljoynBusobjectAddinterfaceAnnounced(bus: AlljoynBusobject, iface: AlljoynInterfacedescription): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectAddinterfaceAnnounced(bus, iface).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectAddinterfaceAnnounced(bus, iface)
 
 public actual fun alljoynBusobjectAddmethodhandler(bus: AlljoynBusobject, member: AlljoynInterfacedescriptionMember, handler: AlljoynMessagereceiverMethodhandlerPtr, context: MutPtr<CVoid>): QStatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectAddmethodhandler")
@@ -816,13 +816,13 @@ public actual fun alljoynBusobjectAddmethodhandlers(bus: AlljoynBusobject, entri
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectCancelsessionlessmessage(bus: Long, msg: Long): Int
 
 public actual fun alljoynBusobjectCancelsessionlessmessage(bus: AlljoynBusobject, msg: AlljoynMessage): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectCancelsessionlessmessage(bus, msg).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectCancelsessionlessmessage(bus, msg)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectCancelsessionlessmessageSerial")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectCancelsessionlessmessageSerial(bus: Long, serialnumber: Int): Int
 
 public actual fun alljoynBusobjectCancelsessionlessmessageSerial(bus: AlljoynBusobject, serialnumber: UInt): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectCancelsessionlessmessageSerial(bus, serialnumber.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectCancelsessionlessmessageSerial(bus, serialnumber.toInt())
 
 public actual fun alljoynBusobjectCreate(path: Pcstr, isplaceholder: Int, callbacksIn: ConstPtr<AlljoynBusobjectCallbacks>, contextIn: ConstPtr<CVoid>): AlljoynBusobject =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectCreate")
@@ -844,7 +844,7 @@ public actual fun alljoynBusobjectGetannouncedinterfacenames(bus: AlljoynBusobje
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectGetbusattachment(bus: Long): Long
 
 public actual fun alljoynBusobjectGetbusattachment(bus: AlljoynBusobject): AlljoynBusattachment =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectGetbusattachment(bus).toLong()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectGetbusattachment(bus)
 
 public actual fun alljoynBusobjectGetname(bus: AlljoynBusobject, buffer: Pcstr, buffersz: ULong): ULong =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectGetname")
@@ -856,13 +856,13 @@ public actual fun alljoynBusobjectGetpath(bus: AlljoynBusobject): Pcstr =
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectIssecure(bus: Long): Int
 
 public actual fun alljoynBusobjectIssecure(bus: AlljoynBusobject): Int =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectIssecure(bus).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectIssecure(bus)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectMethodreplyArgs")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectMethodreplyArgs(bus: Long, msg: Long, args: Long, numargs: Long): Int
 
 public actual fun alljoynBusobjectMethodreplyArgs(bus: AlljoynBusobject, msg: AlljoynMessage, args: AlljoynMsgarg, numargs: ULong): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectMethodreplyArgs(bus, msg, args, numargs.toLong()).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectMethodreplyArgs(bus, msg, args, numargs.toLong())
 
 public actual fun alljoynBusobjectMethodreplyErr(bus: AlljoynBusobject, msg: AlljoynMessage, error: Pcstr, errormessage: Pcstr): QStatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectMethodreplyErr")
@@ -871,13 +871,13 @@ public actual fun alljoynBusobjectMethodreplyErr(bus: AlljoynBusobject, msg: All
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectMethodreplyStatus(bus: Long, msg: Long, status: Int): Int
 
 public actual fun alljoynBusobjectMethodreplyStatus(bus: AlljoynBusobject, msg: AlljoynMessage, status: QStatus): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectMethodreplyStatus(bus, msg, status).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectMethodreplyStatus(bus, msg, status)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectSetannounceflag")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectSetannounceflag(bus: Long, iface: Long, isannounced: Int): Int
 
 public actual fun alljoynBusobjectSetannounceflag(bus: AlljoynBusobject, iface: AlljoynInterfacedescription, isannounced: AlljoynAboutAnnounceflag): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectSetannounceflag(bus, iface, isannounced).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynBusobjectSetannounceflag(bus, iface, isannounced)
 
 public actual fun alljoynBusobjectSignal(bus: AlljoynBusobject, destination: Pcstr, sessionid: UInt, signal: AlljoynInterfacedescriptionMember, args: AlljoynMsgarg, numargs: ULong, timetolive: UShort, flags: UByte, msg: AlljoynMessage): QStatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectSignal")
@@ -892,7 +892,7 @@ public actual fun alljoynCredentialsClear(cred: AlljoynCredentials): Unit =
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsCreate(): Long
 
 public actual fun alljoynCredentialsCreate(): AlljoynCredentials =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsCreate().toLong()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsCreate()
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsDestroy")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsDestroy(cred: Long): Unit
@@ -925,7 +925,7 @@ public actual fun alljoynCredentialsGetusername(cred: AlljoynCredentials): Pcstr
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsIsset(cred: Long, creds: Int): Int
 
 public actual fun alljoynCredentialsIsset(cred: AlljoynCredentials, creds: UShort): Int =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsIsset(cred, creds.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynCredentialsIsset(cred, creds.toInt())
 
 public actual fun alljoynCredentialsSetcertchain(cred: AlljoynCredentials, certchain: Pcstr): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsSetcertchain")
 
@@ -959,7 +959,7 @@ public actual fun alljoynGetversion(): Pcstr =
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynInit(): Int
 
 public actual fun alljoynInit(): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynInit().toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynInit()
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionActivate")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionActivate(iface: Long): Unit
@@ -995,7 +995,7 @@ public actual fun alljoynInterfacedescriptionAddsignal(iface: AlljoynInterfacede
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionEql(one: Long, other: Long): Int
 
 public actual fun alljoynInterfacedescriptionEql(one: AlljoynInterfacedescription, other: AlljoynInterfacedescription): Int =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionEql(one, other).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionEql(one, other)
 
 public actual fun alljoynInterfacedescriptionGetannotation(iface: AlljoynInterfacedescription, name: Pcstr, value: Pcstr, valueSize: MutPtr<ULong>): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetannotation")
@@ -1060,7 +1060,7 @@ public actual fun alljoynInterfacedescriptionGetpropertydescriptionforlanguage(i
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetsecuritypolicy(iface: Long): Int
 
 public actual fun alljoynInterfacedescriptionGetsecuritypolicy(iface: AlljoynInterfacedescription): AlljoynInterfacedescriptionSecuritypolicy =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetsecuritypolicy(iface).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetsecuritypolicy(iface)
 
 public actual fun alljoynInterfacedescriptionGetsignal(iface: AlljoynInterfacedescription, name: Pcstr, member: MutPtr<AlljoynInterfacedescriptionMember>): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetsignal")
@@ -1069,7 +1069,7 @@ public actual fun alljoynInterfacedescriptionGetsignal(iface: AlljoynInterfacede
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionHasdescription(iface: Long): Int
 
 public actual fun alljoynInterfacedescriptionHasdescription(iface: AlljoynInterfacedescription): Int =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionHasdescription(iface).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionHasdescription(iface)
 
 public actual fun alljoynInterfacedescriptionHasmember(iface: AlljoynInterfacedescription, name: Pcstr, insig: Pcstr, outsig: Pcstr): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionHasmember")
@@ -1078,7 +1078,7 @@ public actual fun alljoynInterfacedescriptionHasmember(iface: AlljoynInterfacede
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionHasproperties(iface: Long): Int
 
 public actual fun alljoynInterfacedescriptionHasproperties(iface: AlljoynInterfacedescription): Int =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionHasproperties(iface).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionHasproperties(iface)
 
 public actual fun alljoynInterfacedescriptionHasproperty(iface: AlljoynInterfacedescription, name: Pcstr): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionHasproperty")
@@ -1090,7 +1090,7 @@ public actual fun alljoynInterfacedescriptionIntrospect(iface: AlljoynInterfaced
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionIssecure(iface: Long): Int
 
 public actual fun alljoynInterfacedescriptionIssecure(iface: AlljoynInterfacedescription): Int =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionIssecure(iface).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionIssecure(iface)
 
 public actual fun alljoynInterfacedescriptionMemberEql(one: AlljoynInterfacedescriptionMember, other: AlljoynInterfacedescriptionMember): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionMemberEql")
@@ -1171,7 +1171,7 @@ public actual fun alljoynKeystorelistenerWithSynchronizationCreate(callbacks: Co
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageCreate(bus: Long): Long
 
 public actual fun alljoynMessageCreate(bus: AlljoynBusattachment): AlljoynMessage =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageCreate(bus).toLong()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageCreate(bus)
 
 public actual fun alljoynMessageDescription(msg: AlljoynMessage, str: Pcstr, buf: ULong): ULong =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMessageDescription")
@@ -1186,13 +1186,13 @@ public actual fun alljoynMessageDestroy(msg: AlljoynMessage): Unit =
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageEql(one: Long, other: Long): Int
 
 public actual fun alljoynMessageEql(one: AlljoynMessage, other: AlljoynMessage): Int =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageEql(one, other).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageEql(one, other)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMessageGetarg")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGetarg(msg: Long, argn: Long): Long
 
 public actual fun alljoynMessageGetarg(msg: AlljoynMessage, argn: ULong): AlljoynMsgarg =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGetarg(msg, argn.toLong()).toLong()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGetarg(msg, argn.toLong())
 
 public actual fun alljoynMessageGetargs(msg: AlljoynMessage, numargs: MutPtr<ULong>, args: MutPtr<AlljoynMsgarg>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMessageGetargs")
 
@@ -1263,19 +1263,19 @@ public actual fun alljoynMessageGettimestamp(msg: AlljoynMessage): UInt =
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGettype(msg: Long): Int
 
 public actual fun alljoynMessageGettype(msg: AlljoynMessage): AlljoynMessagetype =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGettype(msg).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageGettype(msg)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMessageIsbroadcastsignal")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageIsbroadcastsignal(msg: Long): Int
 
 public actual fun alljoynMessageIsbroadcastsignal(msg: AlljoynMessage): Int =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageIsbroadcastsignal(msg).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageIsbroadcastsignal(msg)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMessageIsencrypted")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageIsencrypted(msg: Long): Int
 
 public actual fun alljoynMessageIsencrypted(msg: AlljoynMessage): Int =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageIsencrypted(msg).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageIsencrypted(msg)
 
 public actual fun alljoynMessageIsexpired(msg: AlljoynMessage, tillexpirems: MutPtr<UInt>): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMessageIsexpired")
@@ -1284,19 +1284,19 @@ public actual fun alljoynMessageIsexpired(msg: AlljoynMessage, tillexpirems: Mut
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageIsglobalbroadcast(msg: Long): Int
 
 public actual fun alljoynMessageIsglobalbroadcast(msg: AlljoynMessage): Int =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageIsglobalbroadcast(msg).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageIsglobalbroadcast(msg)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMessageIssessionless")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageIssessionless(msg: Long): Int
 
 public actual fun alljoynMessageIssessionless(msg: AlljoynMessage): Int =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageIssessionless(msg).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageIssessionless(msg)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMessageIsunreliable")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageIsunreliable(msg: Long): Int
 
 public actual fun alljoynMessageIsunreliable(msg: AlljoynMessage): Int =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageIsunreliable(msg).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMessageIsunreliable(msg)
 
 public actual fun alljoynMessageParseargs(msg: AlljoynMessage, signature: Pcstr, vararg variadicArgs: Long): QStatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMessageParseargs")
@@ -1314,13 +1314,13 @@ public actual fun alljoynMessageTostring(msg: AlljoynMessage, str: Pcstr, buf: U
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargArrayCreate(size: Long): Long
 
 public actual fun alljoynMsgargArrayCreate(size: ULong): AlljoynMsgarg =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargArrayCreate(size.toLong()).toLong()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargArrayCreate(size.toLong())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMsgargArrayElement")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargArrayElement(arg: Long, index: Long): Long
 
 public actual fun alljoynMsgargArrayElement(arg: AlljoynMsgarg, index: ULong): AlljoynMsgarg =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargArrayElement(arg, index.toLong()).toLong()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargArrayElement(arg, index.toLong())
 
 public actual fun alljoynMsgargArrayGet(args: AlljoynMsgarg, numargs: ULong, signature: Pcstr, vararg variadicArgs: Long): QStatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargArrayGet")
@@ -1353,13 +1353,13 @@ public actual fun alljoynMsgargClone(destination: AlljoynMsgarg, source: Alljoyn
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargCopy(source: Long): Long
 
 public actual fun alljoynMsgargCopy(source: AlljoynMsgarg): AlljoynMsgarg =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargCopy(source).toLong()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargCopy(source)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMsgargCreate")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargCreate(): Long
 
 public actual fun alljoynMsgargCreate(): AlljoynMsgarg =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargCreate().toLong()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargCreate()
 
 public actual fun alljoynMsgargCreateAndSet(signature: Pcstr, vararg variadicArgs: Long): AlljoynMsgarg =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargCreateAndSet")
@@ -1374,7 +1374,7 @@ public actual fun alljoynMsgargDestroy(arg: AlljoynMsgarg): Unit =
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargEqual(lhv: Long, rhv: Long): Int
 
 public actual fun alljoynMsgargEqual(lhv: AlljoynMsgarg, rhv: AlljoynMsgarg): Int =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargEqual(lhv, rhv).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargEqual(lhv, rhv)
 
 public actual fun alljoynMsgargGet(arg: AlljoynMsgarg, signature: Pcstr, vararg variadicArgs: Long): QStatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGet")
@@ -1457,7 +1457,7 @@ public actual fun alljoynMsgargGetUint8Array(arg: AlljoynMsgarg, length: MutPtr<
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetVariant(arg: Long, v: Long): Int
 
 public actual fun alljoynMsgargGetVariant(arg: AlljoynMsgarg, v: AlljoynMsgarg): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetVariant(arg, v).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetVariant(arg, v)
 
 public actual fun alljoynMsgargGetVariantArray(arg: AlljoynMsgarg, signature: Pcstr, length: MutPtr<ULong>, av: MutPtr<AlljoynMsgarg>): QStatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetVariantArray")
@@ -1469,13 +1469,13 @@ public actual fun alljoynMsgargGetdictelement(arg: AlljoynMsgarg, elemsig: Pcstr
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetkey(arg: Long): Long
 
 public actual fun alljoynMsgargGetkey(arg: AlljoynMsgarg): AlljoynMsgarg =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetkey(arg).toLong()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetkey(arg)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetmember")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetmember(arg: Long, index: Long): Long
 
 public actual fun alljoynMsgargGetmember(arg: AlljoynMsgarg, index: ULong): AlljoynMsgarg =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetmember(arg, index.toLong()).toLong()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetmember(arg, index.toLong())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetnummembers")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetnummembers(arg: Long): Long
@@ -1487,13 +1487,13 @@ public actual fun alljoynMsgargGetnummembers(arg: AlljoynMsgarg): ULong =
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGettype(arg: Long): Int
 
 public actual fun alljoynMsgargGettype(arg: AlljoynMsgarg): AlljoynTypeid =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGettype(arg).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGettype(arg)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetvalue")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetvalue(arg: Long): Long
 
 public actual fun alljoynMsgargGetvalue(arg: AlljoynMsgarg): AlljoynMsgarg =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetvalue(arg).toLong()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetvalue(arg)
 
 public actual fun alljoynMsgargHassignature(arg: AlljoynMsgarg, signature: Pcstr): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargHassignature")
@@ -1508,7 +1508,7 @@ public actual fun alljoynMsgargSetAndStabilize(arg: AlljoynMsgarg, signature: Pc
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetBool(arg: Long, b: Int): Int
 
 public actual fun alljoynMsgargSetBool(arg: AlljoynMsgarg, b: Int): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetBool(arg, b).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetBool(arg, b)
 
 public actual fun alljoynMsgargSetBoolArray(arg: AlljoynMsgarg, length: ULong, ab: MutPtr<Int>): QStatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetBoolArray")
@@ -1517,7 +1517,7 @@ public actual fun alljoynMsgargSetBoolArray(arg: AlljoynMsgarg, length: ULong, a
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetDouble(arg: Long, d: Double): Int
 
 public actual fun alljoynMsgargSetDouble(arg: AlljoynMsgarg, d: Double): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetDouble(arg, d).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetDouble(arg, d)
 
 public actual fun alljoynMsgargSetDoubleArray(arg: AlljoynMsgarg, length: ULong, ad: MutPtr<Double>): QStatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetDoubleArray")
@@ -1526,7 +1526,7 @@ public actual fun alljoynMsgargSetDoubleArray(arg: AlljoynMsgarg, length: ULong,
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetInt16(arg: Long, n: Int): Int
 
 public actual fun alljoynMsgargSetInt16(arg: AlljoynMsgarg, n: Short): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetInt16(arg, n.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetInt16(arg, n.toInt())
 
 public actual fun alljoynMsgargSetInt16Array(arg: AlljoynMsgarg, length: ULong, an: MutPtr<Short>): QStatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetInt16Array")
@@ -1535,7 +1535,7 @@ public actual fun alljoynMsgargSetInt16Array(arg: AlljoynMsgarg, length: ULong, 
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetInt32(arg: Long, i: Int): Int
 
 public actual fun alljoynMsgargSetInt32(arg: AlljoynMsgarg, i: Int): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetInt32(arg, i).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetInt32(arg, i)
 
 public actual fun alljoynMsgargSetInt32Array(arg: AlljoynMsgarg, length: ULong, ai: MutPtr<Int>): QStatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetInt32Array")
@@ -1544,7 +1544,7 @@ public actual fun alljoynMsgargSetInt32Array(arg: AlljoynMsgarg, length: ULong, 
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetInt64(arg: Long, x: Long): Int
 
 public actual fun alljoynMsgargSetInt64(arg: AlljoynMsgarg, x: Long): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetInt64(arg, x).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetInt64(arg, x)
 
 public actual fun alljoynMsgargSetInt64Array(arg: AlljoynMsgarg, length: ULong, ax: MutPtr<Long>): QStatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetInt64Array")
@@ -1571,7 +1571,7 @@ public actual fun alljoynMsgargSetStringArray(arg: AlljoynMsgarg, length: ULong,
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint16(arg: Long, q: Int): Int
 
 public actual fun alljoynMsgargSetUint16(arg: AlljoynMsgarg, q: UShort): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint16(arg, q.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint16(arg, q.toInt())
 
 public actual fun alljoynMsgargSetUint16Array(arg: AlljoynMsgarg, length: ULong, aq: MutPtr<UShort>): QStatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint16Array")
@@ -1580,7 +1580,7 @@ public actual fun alljoynMsgargSetUint16Array(arg: AlljoynMsgarg, length: ULong,
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint32(arg: Long, u: Int): Int
 
 public actual fun alljoynMsgargSetUint32(arg: AlljoynMsgarg, u: UInt): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint32(arg, u.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint32(arg, u.toInt())
 
 public actual fun alljoynMsgargSetUint32Array(arg: AlljoynMsgarg, length: ULong, au: MutPtr<UInt>): QStatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint32Array")
@@ -1589,7 +1589,7 @@ public actual fun alljoynMsgargSetUint32Array(arg: AlljoynMsgarg, length: ULong,
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint64(arg: Long, t: Long): Int
 
 public actual fun alljoynMsgargSetUint64(arg: AlljoynMsgarg, t: ULong): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint64(arg, t.toLong()).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint64(arg, t.toLong())
 
 public actual fun alljoynMsgargSetUint64Array(arg: AlljoynMsgarg, length: ULong, at: MutPtr<ULong>): QStatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint64Array")
@@ -1598,7 +1598,7 @@ public actual fun alljoynMsgargSetUint64Array(arg: AlljoynMsgarg, length: ULong,
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint8(arg: Long, y: Int): Int
 
 public actual fun alljoynMsgargSetUint8(arg: AlljoynMsgarg, y: UByte): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint8(arg, y.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint8(arg, y.toInt())
 
 public actual fun alljoynMsgargSetUint8Array(arg: AlljoynMsgarg, length: ULong, ay: MutPtr<UByte>): QStatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint8Array")
@@ -1607,13 +1607,13 @@ public actual fun alljoynMsgargSetUint8Array(arg: AlljoynMsgarg, length: ULong, 
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetdictentry(arg: Long, key: Long, value: Long): Int
 
 public actual fun alljoynMsgargSetdictentry(arg: AlljoynMsgarg, key: AlljoynMsgarg, value: AlljoynMsgarg): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetdictentry(arg, key, value).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetdictentry(arg, key, value)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetstruct")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetstruct(arg: Long, structMembers: Long, numMembers: Long): Int
 
 public actual fun alljoynMsgargSetstruct(arg: AlljoynMsgarg, structMembers: AlljoynMsgarg, numMembers: ULong): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetstruct(arg, structMembers, numMembers.toLong()).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetstruct(arg, structMembers, numMembers.toLong())
 
 public actual fun alljoynMsgargSignature(arg: AlljoynMsgarg, str: Pcstr, buf: ULong): ULong =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSignature")
@@ -1643,13 +1643,13 @@ public actual fun alljoynObserverGet(observer: AlljoynObserver, uniquebusname: P
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynObserverGetfirst(observer: Long): Long
 
 public actual fun alljoynObserverGetfirst(observer: AlljoynObserver): AlljoynProxybusobjectRef =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynObserverGetfirst(observer).toLong()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynObserverGetfirst(observer)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynObserverGetnext")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynObserverGetnext(observer: Long, proxyref: Long): Long
 
 public actual fun alljoynObserverGetnext(observer: AlljoynObserver, proxyref: AlljoynProxybusobjectRef): AlljoynProxybusobjectRef =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynObserverGetnext(observer, proxyref).toLong()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynObserverGetnext(observer, proxyref)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynObserverRegisterlistener")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynObserverRegisterlistener(observer: Long, listener: Long, triggeronexisting: Int): Unit
@@ -1703,7 +1703,7 @@ public actual fun alljoynPermissionconfiguratorClaim(configurator: AlljoynPermis
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorEndmanagement(configurator: Long): Int
 
 public actual fun alljoynPermissionconfiguratorEndmanagement(configurator: AlljoynPermissionconfigurator): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorEndmanagement(configurator).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorEndmanagement(configurator)
 
 public actual fun alljoynPermissionconfiguratorGetapplicationstate(configurator: AlljoynPermissionconfigurator, state: MutPtr<AlljoynApplicationstate>): QStatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetapplicationstate")
@@ -1765,31 +1765,31 @@ public actual fun alljoynPermissionconfiguratorRemovemembership(configurator: Al
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorReset(configurator: Long): Int
 
 public actual fun alljoynPermissionconfiguratorReset(configurator: AlljoynPermissionconfigurator): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorReset(configurator).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorReset(configurator)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorResetpolicy")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorResetpolicy(configurator: Long): Int
 
 public actual fun alljoynPermissionconfiguratorResetpolicy(configurator: AlljoynPermissionconfigurator): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorResetpolicy(configurator).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorResetpolicy(configurator)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorSetapplicationstate")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorSetapplicationstate(configurator: Long, state: Int): Int
 
 public actual fun alljoynPermissionconfiguratorSetapplicationstate(configurator: AlljoynPermissionconfigurator, state: AlljoynApplicationstate): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorSetapplicationstate(configurator, state).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorSetapplicationstate(configurator, state)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorSetclaimcapabilities")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorSetclaimcapabilities(configurator: Long, claimcapabilities: Int): Int
 
 public actual fun alljoynPermissionconfiguratorSetclaimcapabilities(configurator: AlljoynPermissionconfigurator, claimcapabilities: UShort): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorSetclaimcapabilities(configurator, claimcapabilities.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorSetclaimcapabilities(configurator, claimcapabilities.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorSetclaimcapabilitiesadditionalinfo")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorSetclaimcapabilitiesadditionalinfo(configurator: Long, additionalinfo: Int): Int
 
 public actual fun alljoynPermissionconfiguratorSetclaimcapabilitiesadditionalinfo(configurator: AlljoynPermissionconfigurator, additionalinfo: UShort): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorSetclaimcapabilitiesadditionalinfo(configurator, additionalinfo.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorSetclaimcapabilitiesadditionalinfo(configurator, additionalinfo.toInt())
 
 public actual fun alljoynPermissionconfiguratorSetmanifesttemplatefromxml(configurator: AlljoynPermissionconfigurator, manifesttemplatexml: MutPtr<Byte>): QStatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorSetmanifesttemplatefromxml")
@@ -1798,7 +1798,7 @@ public actual fun alljoynPermissionconfiguratorSetmanifesttemplatefromxml(config
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorStartmanagement(configurator: Long): Int
 
 public actual fun alljoynPermissionconfiguratorStartmanagement(configurator: AlljoynPermissionconfigurator): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorStartmanagement(configurator).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorStartmanagement(configurator)
 
 public actual fun alljoynPermissionconfiguratorUpdateidentity(configurator: AlljoynPermissionconfigurator, identitycertificatechain: MutPtr<Byte>, manifestsxmls: MutPtr<MutPtr<Byte>>, manifestscount: ULong): QStatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorUpdateidentity")
@@ -1819,13 +1819,13 @@ public actual fun alljoynPinglistenerDestroy(listener: AlljoynPinglistener): Uni
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectAddchild(proxyobj: Long, child: Long): Int
 
 public actual fun alljoynProxybusobjectAddchild(proxyobj: AlljoynProxybusobject, child: AlljoynProxybusobject): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectAddchild(proxyobj, child).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectAddchild(proxyobj, child)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectAddinterface")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectAddinterface(proxyobj: Long, iface: Long): Int
 
 public actual fun alljoynProxybusobjectAddinterface(proxyobj: AlljoynProxybusobject, iface: AlljoynInterfacedescription): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectAddinterface(proxyobj, iface).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectAddinterface(proxyobj, iface)
 
 public actual fun alljoynProxybusobjectAddinterfaceByName(proxyobj: AlljoynProxybusobject, name: Pcstr): QStatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectAddinterfaceByName")
@@ -1834,7 +1834,7 @@ public actual fun alljoynProxybusobjectAddinterfaceByName(proxyobj: AlljoynProxy
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectCopy(source: Long): Long
 
 public actual fun alljoynProxybusobjectCopy(source: AlljoynProxybusobject): AlljoynProxybusobject =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectCopy(source).toLong()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectCopy(source)
 
 public actual fun alljoynProxybusobjectCreate(bus: AlljoynBusattachment, service: Pcstr, path: Pcstr, sessionid: UInt): AlljoynProxybusobject =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectCreate")
@@ -1900,7 +1900,7 @@ public actual fun alljoynProxybusobjectImplementsinterface(proxyobj: AlljoynProx
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectIntrospectremoteobject(proxyobj: Long): Int
 
 public actual fun alljoynProxybusobjectIntrospectremoteobject(proxyobj: AlljoynProxybusobject): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectIntrospectremoteobject(proxyobj).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectIntrospectremoteobject(proxyobj)
 
 public actual fun alljoynProxybusobjectIntrospectremoteobjectasync(proxyobj: AlljoynProxybusobject, callback: AlljoynProxybusobjectListenerIntrospectcbPtr, context: MutPtr<CVoid>): QStatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectIntrospectremoteobjectasync")
@@ -1909,13 +1909,13 @@ public actual fun alljoynProxybusobjectIntrospectremoteobjectasync(proxyobj: All
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectIssecure(proxyobj: Long): Int
 
 public actual fun alljoynProxybusobjectIssecure(proxyobj: AlljoynProxybusobject): Int =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectIssecure(proxyobj).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectIssecure(proxyobj)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectIsvalid")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectIsvalid(proxyobj: Long): Int
 
 public actual fun alljoynProxybusobjectIsvalid(proxyobj: AlljoynProxybusobject): Int =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectIsvalid(proxyobj).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectIsvalid(proxyobj)
 
 public actual fun alljoynProxybusobjectMethodcall(proxyobj: AlljoynProxybusobject, ifacename: Pcstr, methodname: Pcstr, args: AlljoynMsgarg, numargs: ULong, replymsg: AlljoynMessage, timeout: UInt, flags: UByte): QStatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectMethodcall")
@@ -1942,7 +1942,7 @@ public actual fun alljoynProxybusobjectParsexml(proxyobj: AlljoynProxybusobject,
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectRefCreate(proxy: Long): Long
 
 public actual fun alljoynProxybusobjectRefCreate(proxy: AlljoynProxybusobject): AlljoynProxybusobjectRef =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectRefCreate(proxy).toLong()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectRefCreate(proxy)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectRefDecref")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectRefDecref(ref: Long): Unit
@@ -1954,7 +1954,7 @@ public actual fun alljoynProxybusobjectRefDecref(ref: AlljoynProxybusobjectRef):
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectRefGet(ref: Long): Long
 
 public actual fun alljoynProxybusobjectRefGet(ref: AlljoynProxybusobjectRef): AlljoynProxybusobject =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectRefGet(ref).toLong()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectRefGet(ref)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectRefIncref")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectRefIncref(ref: Long): Unit
@@ -1972,13 +1972,13 @@ public actual fun alljoynProxybusobjectRemovechild(proxyobj: AlljoynProxybusobje
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectSecureconnection(proxyobj: Long, forceauth: Int): Int
 
 public actual fun alljoynProxybusobjectSecureconnection(proxyobj: AlljoynProxybusobject, forceauth: Int): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectSecureconnection(proxyobj, forceauth).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectSecureconnection(proxyobj, forceauth)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectSecureconnectionasync")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectSecureconnectionasync(proxyobj: Long, forceauth: Int): Int
 
 public actual fun alljoynProxybusobjectSecureconnectionasync(proxyobj: AlljoynProxybusobject, forceauth: Int): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectSecureconnectionasync(proxyobj, forceauth).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectSecureconnectionasync(proxyobj, forceauth)
 
 public actual fun alljoynProxybusobjectSetproperty(proxyobj: AlljoynProxybusobject, iface: Pcstr, property: Pcstr, value: AlljoynMsgarg): QStatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectSetproperty")
@@ -1993,7 +1993,7 @@ public actual fun alljoynProxybusobjectUnregisterpropertieschangedlistener(proxy
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynRouterinit(): Int
 
 public actual fun alljoynRouterinit(): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynRouterinit().toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynRouterinit()
 
 public actual fun alljoynRouterinitwithconfig(configxml: MutPtr<Byte>): QStatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynRouterinitwithconfig")
@@ -2002,7 +2002,7 @@ public actual fun alljoynRouterinitwithconfig(configxml: MutPtr<Byte>): QStatus 
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynRoutershutdown(): Int
 
 public actual fun alljoynRoutershutdown(): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynRoutershutdown().toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynRoutershutdown()
 
 public actual fun alljoynSecurityapplicationproxyClaim(proxy: AlljoynSecurityapplicationproxy, cakey: MutPtr<Byte>, identitycertificatechain: MutPtr<Byte>, groupid: ConstPtr<UByte>, groupsize: ULong, groupauthority: MutPtr<Byte>, manifestsxmls: MutPtr<MutPtr<Byte>>, manifestscount: ULong): QStatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyClaim")
@@ -2027,7 +2027,7 @@ public actual fun alljoynSecurityapplicationproxyEccpublickeyDestroy(eccpublicke
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyEndmanagement(proxy: Long): Int
 
 public actual fun alljoynSecurityapplicationproxyEndmanagement(proxy: AlljoynSecurityapplicationproxy): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyEndmanagement(proxy).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyEndmanagement(proxy)
 
 public actual fun alljoynSecurityapplicationproxyGetapplicationstate(proxy: AlljoynSecurityapplicationproxy, applicationstate: MutPtr<AlljoynApplicationstate>): QStatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyGetapplicationstate")
@@ -2069,13 +2069,13 @@ public actual fun alljoynSecurityapplicationproxyPolicyDestroy(policyxml: MutPtr
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyReset(proxy: Long): Int
 
 public actual fun alljoynSecurityapplicationproxyReset(proxy: AlljoynSecurityapplicationproxy): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyReset(proxy).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyReset(proxy)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyResetpolicy")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyResetpolicy(proxy: Long): Int
 
 public actual fun alljoynSecurityapplicationproxyResetpolicy(proxy: AlljoynSecurityapplicationproxy): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyResetpolicy(proxy).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyResetpolicy(proxy)
 
 public actual fun alljoynSecurityapplicationproxySetmanifestsignature(unsignedmanifestxml: MutPtr<Byte>, identitycertificatepem: MutPtr<Byte>, signature: ConstPtr<UByte>, signaturesize: ULong, signedmanifestxml: MutPtr<MutPtr<Byte>>): QStatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxySetmanifestsignature")
@@ -2087,7 +2087,7 @@ public actual fun alljoynSecurityapplicationproxySignmanifest(unsignedmanifestxm
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyStartmanagement(proxy: Long): Int
 
 public actual fun alljoynSecurityapplicationproxyStartmanagement(proxy: AlljoynSecurityapplicationproxy): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyStartmanagement(proxy).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyStartmanagement(proxy)
 
 public actual fun alljoynSecurityapplicationproxyUpdateidentity(proxy: AlljoynSecurityapplicationproxy, identitycertificatechain: MutPtr<Byte>, manifestsxmls: MutPtr<MutPtr<Byte>>, manifestscount: ULong): QStatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyUpdateidentity")
@@ -2108,13 +2108,13 @@ public actual fun alljoynSessionlistenerDestroy(listener: AlljoynSessionlistener
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsCmp(one: Long, other: Long): Int
 
 public actual fun alljoynSessionoptsCmp(one: AlljoynSessionopts, other: AlljoynSessionopts): Int =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsCmp(one, other).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsCmp(one, other)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsCreate")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsCreate(traffic: Int, ismultipoint: Int, proximity: Int, transports: Int): Long
 
 public actual fun alljoynSessionoptsCreate(traffic: UByte, ismultipoint: Int, proximity: UByte, transports: UShort): AlljoynSessionopts =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsCreate(traffic.toInt(), ismultipoint, proximity.toInt(), transports.toInt()).toLong()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsCreate(traffic.toInt(), ismultipoint, proximity.toInt(), transports.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsDestroy")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsDestroy(opts: Long): Unit
@@ -2126,7 +2126,7 @@ public actual fun alljoynSessionoptsDestroy(opts: AlljoynSessionopts): Unit =
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsGetMultipoint(opts: Long): Int
 
 public actual fun alljoynSessionoptsGetMultipoint(opts: AlljoynSessionopts): Int =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsGetMultipoint(opts).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsGetMultipoint(opts)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsGetProximity")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsGetProximity(opts: Long): Int
@@ -2150,7 +2150,7 @@ public actual fun alljoynSessionoptsGetTransports(opts: AlljoynSessionopts): USh
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsIscompatible(one: Long, other: Long): Int
 
 public actual fun alljoynSessionoptsIscompatible(one: AlljoynSessionopts, other: AlljoynSessionopts): Int =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsIscompatible(one, other).toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsIscompatible(one, other)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsSetMultipoint")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsSetMultipoint(opts: Long, ismultipoint: Int): Unit
@@ -2189,13 +2189,13 @@ public actual fun alljoynSessionportlistenerDestroy(listener: AlljoynSessionport
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynShutdown(): Int
 
 public actual fun alljoynShutdown(): QStatus =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynShutdown().toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynShutdown()
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynUnityDeferredCallbacksProcess")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynUnityDeferredCallbacksProcess(): Int
 
 public actual fun alljoynUnityDeferredCallbacksProcess(): Int =
-    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynUnityDeferredCallbacksProcess().toInt()
+    wasiWindowssysWindowsWin32DevicesAlljoynAlljoynUnityDeferredCallbacksProcess()
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesAlljoynAlljoynUnitySetDeferredCallbackMainthreadOnly")
 private external fun wasiWindowssysWindowsWin32DevicesAlljoynAlljoynUnitySetDeferredCallbackMainthreadOnly(mainthreadOnly: Int): Unit

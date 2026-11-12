@@ -35,7 +35,7 @@ public actual fun werGetFlags(hprocess: Handle, pdwflags: MutPtr<WerFaultReporti
 private external fun wasiWindowssysWindowsWin32SystemErrorreportingWerRegisterAdditionalProcess(processid: Int, captureextrainfoforthreadid: Int): Int
 
 public actual fun werRegisterAdditionalProcess(processid: UInt, captureextrainfoforthreadid: UInt): Hresult =
-    wasiWindowssysWindowsWin32SystemErrorreportingWerRegisterAdditionalProcess(processid.toInt(), captureextrainfoforthreadid.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemErrorreportingWerRegisterAdditionalProcess(processid.toInt(), captureextrainfoforthreadid.toInt())
 
 public actual fun werRegisterAppLocalDump(localappdatarelativepath: Pcwstr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemErrorreportingWerRegisterAppLocalDump")
@@ -86,7 +86,7 @@ public actual fun werReportSubmit(hreporthandle: Hreport, consent: WerConsent, d
 private external fun wasiWindowssysWindowsWin32SystemErrorreportingWerSetFlags(dwflags: Int): Int
 
 public actual fun werSetFlags(dwflags: WerFaultReporting): Hresult =
-    wasiWindowssysWindowsWin32SystemErrorreportingWerSetFlags(dwflags.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemErrorreportingWerSetFlags(dwflags.toInt())
 
 public actual fun werStoreClose(hreportstore: Hreportstore): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemErrorreportingWerStoreClose")
 
@@ -109,7 +109,7 @@ public actual fun werStoreOpen(repstoretype: ReportStoreTypes, phreportstore: Mu
 private external fun wasiWindowssysWindowsWin32SystemErrorreportingWerStorePurge(): Int
 
 public actual fun werStorePurge(): Hresult =
-    wasiWindowssysWindowsWin32SystemErrorreportingWerStorePurge().toInt()
+    wasiWindowssysWindowsWin32SystemErrorreportingWerStorePurge()
 
 public actual fun werStoreQueryReportMetadataV1(hreportstore: Hreportstore, pszreportkey: Pcwstr, preportmetadata: MutPtr<WerReportMetadataV1>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemErrorreportingWerStoreQueryReportMetadataV1")
@@ -127,13 +127,13 @@ public actual fun werStoreUploadReport(hreportstore: Hreportstore, pszreportkey:
 private external fun wasiWindowssysWindowsWin32SystemErrorreportingWerUnregisterAdditionalProcess(processid: Int): Int
 
 public actual fun werUnregisterAdditionalProcess(processid: UInt): Hresult =
-    wasiWindowssysWindowsWin32SystemErrorreportingWerUnregisterAdditionalProcess(processid.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemErrorreportingWerUnregisterAdditionalProcess(processid.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemErrorreportingWerUnregisterAppLocalDump")
 private external fun wasiWindowssysWindowsWin32SystemErrorreportingWerUnregisterAppLocalDump(): Int
 
 public actual fun werUnregisterAppLocalDump(): Hresult =
-    wasiWindowssysWindowsWin32SystemErrorreportingWerUnregisterAppLocalDump().toInt()
+    wasiWindowssysWindowsWin32SystemErrorreportingWerUnregisterAppLocalDump()
 
 public actual fun werUnregisterCustomMetadata(key: Pcwstr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemErrorreportingWerUnregisterCustomMetadata")

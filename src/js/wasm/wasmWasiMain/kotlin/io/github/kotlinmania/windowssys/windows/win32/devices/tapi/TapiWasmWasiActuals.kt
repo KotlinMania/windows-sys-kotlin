@@ -42,7 +42,7 @@ public actual fun lineAddProviderW(lpszproviderfilename: Pcwstr, hwndowner: Hwnd
 private external fun wasiWindowssysWindowsWin32DevicesTapiLineAddToConference(hconfcall: Int, hconsultcall: Int): Int
 
 public actual fun lineAddToConference(hconfcall: UInt, hconsultcall: UInt): Int =
-    wasiWindowssysWindowsWin32DevicesTapiLineAddToConference(hconfcall.toInt(), hconsultcall.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesTapiLineAddToConference(hconfcall.toInt(), hconsultcall.toInt())
 
 public actual fun lineAgentSpecific(hline: UInt, dwaddressid: UInt, dwagentextensionidindex: UInt, lpparams: MutPtr<CVoid>, dwsize: UInt): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesTapiLineAgentSpecific")
@@ -63,7 +63,7 @@ public actual fun lineBlindTransferW(hcall: UInt, lpszdestaddressw: Pcwstr, dwco
 private external fun wasiWindowssysWindowsWin32DevicesTapiLineClose(hline: Int): Int
 
 public actual fun lineClose(hline: UInt): Int =
-    wasiWindowssysWindowsWin32DevicesTapiLineClose(hline.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesTapiLineClose(hline.toInt())
 
 public actual fun lineCompleteCall(hcall: UInt, lpdwcompletionid: MutPtr<UInt>, dwcompletionmode: UInt, dwmessageid: UInt): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesTapiLineCompleteCall")
@@ -108,7 +108,7 @@ public actual fun lineCreateAgentW(hline: UInt, lpszagentid: Pcwstr, lpszagentpi
 private external fun wasiWindowssysWindowsWin32DevicesTapiLineDeallocateCall(hcall: Int): Int
 
 public actual fun lineDeallocateCall(hcall: UInt): Int =
-    wasiWindowssysWindowsWin32DevicesTapiLineDeallocateCall(hcall.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesTapiLineDeallocateCall(hcall.toInt())
 
 public actual fun lineDevSpecific(hline: UInt, dwaddressid: UInt, hcall: UInt, lpparams: MutPtr<CVoid>, dwsize: UInt): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesTapiLineDevSpecific")
@@ -366,7 +366,7 @@ public actual fun lineHandoffW(hcall: UInt, lpszfilename: Pcwstr, dwmediamode: U
 private external fun wasiWindowssysWindowsWin32DevicesTapiLineHold(hcall: Int): Int
 
 public actual fun lineHold(hcall: UInt): Int =
-    wasiWindowssysWindowsWin32DevicesTapiLineHold(hcall.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesTapiLineHold(hcall.toInt())
 
 public actual fun lineInitialize(lphlineapp: MutPtr<UInt>, hinstance: Hinstance, lpfncallback: Linecallback, lpszappname: Pcstr, lpdwnumdevs: MutPtr<UInt>): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesTapiLineInitialize")
@@ -390,13 +390,13 @@ public actual fun lineMakeCallW(hline: UInt, lphcall: MutPtr<UInt>, lpszdestaddr
 private external fun wasiWindowssysWindowsWin32DevicesTapiLineMonitorDigits(hcall: Int, dwdigitmodes: Int): Int
 
 public actual fun lineMonitorDigits(hcall: UInt, dwdigitmodes: UInt): Int =
-    wasiWindowssysWindowsWin32DevicesTapiLineMonitorDigits(hcall.toInt(), dwdigitmodes.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesTapiLineMonitorDigits(hcall.toInt(), dwdigitmodes.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesTapiLineMonitorMedia")
 private external fun wasiWindowssysWindowsWin32DevicesTapiLineMonitorMedia(hcall: Int, dwmediamodes: Int): Int
 
 public actual fun lineMonitorMedia(hcall: UInt, dwmediamodes: UInt): Int =
-    wasiWindowssysWindowsWin32DevicesTapiLineMonitorMedia(hcall.toInt(), dwmediamodes.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesTapiLineMonitorMedia(hcall.toInt(), dwmediamodes.toInt())
 
 public actual fun lineMonitorTones(hcall: UInt, lptonelist: ConstPtr<Linemonitortone>, dwnumentries: UInt): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesTapiLineMonitorTones")
@@ -447,7 +447,7 @@ public actual fun linePrepareAddToConferenceW(hconfcall: UInt, lphconsultcall: M
 private external fun wasiWindowssysWindowsWin32DevicesTapiLineProxyMessage(hline: Int, hcall: Int, dwmsg: Int, dwparam1: Int, dwparam2: Int, dwparam3: Int): Int
 
 public actual fun lineProxyMessage(hline: UInt, hcall: UInt, dwmsg: UInt, dwparam1: UInt, dwparam2: UInt, dwparam3: UInt): Int =
-    wasiWindowssysWindowsWin32DevicesTapiLineProxyMessage(hline.toInt(), hcall.toInt(), dwmsg.toInt(), dwparam1.toInt(), dwparam2.toInt(), dwparam3.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesTapiLineProxyMessage(hline.toInt(), hcall.toInt(), dwmsg.toInt(), dwparam1.toInt(), dwparam2.toInt(), dwparam3.toInt())
 
 public actual fun lineProxyResponse(hline: UInt, lpproxyrequest: MutPtr<Lineproxyrequest>, dwresult: UInt): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesTapiLineProxyResponse")
@@ -465,19 +465,19 @@ public actual fun lineRedirectW(hcall: UInt, lpszdestaddress: Pcwstr, dwcountryc
 private external fun wasiWindowssysWindowsWin32DevicesTapiLineRegisterRequestRecipient(hlineapp: Int, dwregistrationinstance: Int, dwrequestmode: Int, benable: Int): Int
 
 public actual fun lineRegisterRequestRecipient(hlineapp: UInt, dwregistrationinstance: UInt, dwrequestmode: UInt, benable: UInt): Int =
-    wasiWindowssysWindowsWin32DevicesTapiLineRegisterRequestRecipient(hlineapp.toInt(), dwregistrationinstance.toInt(), dwrequestmode.toInt(), benable.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesTapiLineRegisterRequestRecipient(hlineapp.toInt(), dwregistrationinstance.toInt(), dwrequestmode.toInt(), benable.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesTapiLineReleaseUserUserInfo")
 private external fun wasiWindowssysWindowsWin32DevicesTapiLineReleaseUserUserInfo(hcall: Int): Int
 
 public actual fun lineReleaseUserUserInfo(hcall: UInt): Int =
-    wasiWindowssysWindowsWin32DevicesTapiLineReleaseUserUserInfo(hcall.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesTapiLineReleaseUserUserInfo(hcall.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesTapiLineRemoveFromConference")
 private external fun wasiWindowssysWindowsWin32DevicesTapiLineRemoveFromConference(hcall: Int): Int
 
 public actual fun lineRemoveFromConference(hcall: UInt): Int =
-    wasiWindowssysWindowsWin32DevicesTapiLineRemoveFromConference(hcall.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesTapiLineRemoveFromConference(hcall.toInt())
 
 public actual fun lineRemoveProvider(dwpermanentproviderid: UInt, hwndowner: Hwnd): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesTapiLineRemoveProvider")
@@ -486,7 +486,7 @@ public actual fun lineRemoveProvider(dwpermanentproviderid: UInt, hwndowner: Hwn
 private external fun wasiWindowssysWindowsWin32DevicesTapiLineSecureCall(hcall: Int): Int
 
 public actual fun lineSecureCall(hcall: UInt): Int =
-    wasiWindowssysWindowsWin32DevicesTapiLineSecureCall(hcall.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesTapiLineSecureCall(hcall.toInt())
 
 public actual fun lineSendUserUserInfo(hcall: UInt, lpsuseruserinfo: Pcstr, dwsize: UInt): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesTapiLineSendUserUserInfo")
@@ -495,7 +495,7 @@ public actual fun lineSendUserUserInfo(hcall: UInt, lpsuseruserinfo: Pcstr, dwsi
 private external fun wasiWindowssysWindowsWin32DevicesTapiLineSetAgentActivity(hline: Int, dwaddressid: Int, dwactivityid: Int): Int
 
 public actual fun lineSetAgentActivity(hline: UInt, dwaddressid: UInt, dwactivityid: UInt): Int =
-    wasiWindowssysWindowsWin32DevicesTapiLineSetAgentActivity(hline.toInt(), dwaddressid.toInt(), dwactivityid.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesTapiLineSetAgentActivity(hline.toInt(), dwaddressid.toInt(), dwactivityid.toInt())
 
 public actual fun lineSetAgentGroup(hline: UInt, dwaddressid: UInt, lpagentgrouplist: MutPtr<Lineagentgrouplist>): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesTapiLineSetAgentGroup")
@@ -504,25 +504,25 @@ public actual fun lineSetAgentGroup(hline: UInt, dwaddressid: UInt, lpagentgroup
 private external fun wasiWindowssysWindowsWin32DevicesTapiLineSetAgentMeasurementPeriod(hline: Int, hagent: Int, dwmeasurementperiod: Int): Int
 
 public actual fun lineSetAgentMeasurementPeriod(hline: UInt, hagent: UInt, dwmeasurementperiod: UInt): Int =
-    wasiWindowssysWindowsWin32DevicesTapiLineSetAgentMeasurementPeriod(hline.toInt(), hagent.toInt(), dwmeasurementperiod.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesTapiLineSetAgentMeasurementPeriod(hline.toInt(), hagent.toInt(), dwmeasurementperiod.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesTapiLineSetAgentSessionState")
 private external fun wasiWindowssysWindowsWin32DevicesTapiLineSetAgentSessionState(hline: Int, hagentsession: Int, dwagentsessionstate: Int, dwnextagentsessionstate: Int): Int
 
 public actual fun lineSetAgentSessionState(hline: UInt, hagentsession: UInt, dwagentsessionstate: UInt, dwnextagentsessionstate: UInt): Int =
-    wasiWindowssysWindowsWin32DevicesTapiLineSetAgentSessionState(hline.toInt(), hagentsession.toInt(), dwagentsessionstate.toInt(), dwnextagentsessionstate.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesTapiLineSetAgentSessionState(hline.toInt(), hagentsession.toInt(), dwagentsessionstate.toInt(), dwnextagentsessionstate.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesTapiLineSetAgentState")
 private external fun wasiWindowssysWindowsWin32DevicesTapiLineSetAgentState(hline: Int, dwaddressid: Int, dwagentstate: Int, dwnextagentstate: Int): Int
 
 public actual fun lineSetAgentState(hline: UInt, dwaddressid: UInt, dwagentstate: UInt, dwnextagentstate: UInt): Int =
-    wasiWindowssysWindowsWin32DevicesTapiLineSetAgentState(hline.toInt(), dwaddressid.toInt(), dwagentstate.toInt(), dwnextagentstate.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesTapiLineSetAgentState(hline.toInt(), dwaddressid.toInt(), dwagentstate.toInt(), dwnextagentstate.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesTapiLineSetAgentStateEx")
 private external fun wasiWindowssysWindowsWin32DevicesTapiLineSetAgentStateEx(hline: Int, hagent: Int, dwagentstate: Int, dwnextagentstate: Int): Int
 
 public actual fun lineSetAgentStateEx(hline: UInt, hagent: UInt, dwagentstate: UInt, dwnextagentstate: UInt): Int =
-    wasiWindowssysWindowsWin32DevicesTapiLineSetAgentStateEx(hline.toInt(), hagent.toInt(), dwagentstate.toInt(), dwnextagentstate.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesTapiLineSetAgentStateEx(hline.toInt(), hagent.toInt(), dwagentstate.toInt(), dwnextagentstate.toInt())
 
 public actual fun lineSetAppPriority(lpszappfilename: Pcstr, dwmediamode: UInt, lpextensionid: MutPtr<Lineextensionid>, dwrequestmode: UInt, lpszextensionname: Pcstr, dwpriority: UInt): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesTapiLineSetAppPriority")
@@ -537,7 +537,7 @@ public actual fun lineSetAppPriorityW(lpszappfilename: Pcwstr, dwmediamode: UInt
 private external fun wasiWindowssysWindowsWin32DevicesTapiLineSetAppSpecific(hcall: Int, dwappspecific: Int): Int
 
 public actual fun lineSetAppSpecific(hcall: UInt, dwappspecific: UInt): Int =
-    wasiWindowssysWindowsWin32DevicesTapiLineSetAppSpecific(hcall.toInt(), dwappspecific.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesTapiLineSetAppSpecific(hcall.toInt(), dwappspecific.toInt())
 
 public actual fun lineSetCallData(hcall: UInt, lpcalldata: MutPtr<CVoid>, dwsize: UInt): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesTapiLineSetCallData")
@@ -549,7 +549,7 @@ public actual fun lineSetCallParams(hcall: UInt, dwbearermode: UInt, dwminrate: 
 private external fun wasiWindowssysWindowsWin32DevicesTapiLineSetCallPrivilege(hcall: Int, dwcallprivilege: Int): Int
 
 public actual fun lineSetCallPrivilege(hcall: UInt, dwcallprivilege: UInt): Int =
-    wasiWindowssysWindowsWin32DevicesTapiLineSetCallPrivilege(hcall.toInt(), dwcallprivilege.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesTapiLineSetCallPrivilege(hcall.toInt(), dwcallprivilege.toInt())
 
 public actual fun lineSetCallQualityOfService(hcall: UInt, lpsendingflowspec: MutPtr<CVoid>, dwsendingflowspecsize: UInt, lpreceivingflowspec: MutPtr<CVoid>, dwreceivingflowspecsize: UInt): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesTapiLineSetCallQualityOfService")
@@ -558,13 +558,13 @@ public actual fun lineSetCallQualityOfService(hcall: UInt, lpsendingflowspec: Mu
 private external fun wasiWindowssysWindowsWin32DevicesTapiLineSetCallTreatment(hcall: Int, dwtreatment: Int): Int
 
 public actual fun lineSetCallTreatment(hcall: UInt, dwtreatment: UInt): Int =
-    wasiWindowssysWindowsWin32DevicesTapiLineSetCallTreatment(hcall.toInt(), dwtreatment.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesTapiLineSetCallTreatment(hcall.toInt(), dwtreatment.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesTapiLineSetCurrentLocation")
 private external fun wasiWindowssysWindowsWin32DevicesTapiLineSetCurrentLocation(hlineapp: Int, dwlocation: Int): Int
 
 public actual fun lineSetCurrentLocation(hlineapp: UInt, dwlocation: UInt): Int =
-    wasiWindowssysWindowsWin32DevicesTapiLineSetCurrentLocation(hlineapp.toInt(), dwlocation.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesTapiLineSetCurrentLocation(hlineapp.toInt(), dwlocation.toInt())
 
 public actual fun lineSetDevConfig(dwdeviceid: UInt, lpdeviceconfig: ConstPtr<CVoid>, dwsize: UInt, lpszdeviceclass: Pcstr): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesTapiLineSetDevConfig")
@@ -579,7 +579,7 @@ public actual fun lineSetDevConfigW(dwdeviceid: UInt, lpdeviceconfig: ConstPtr<C
 private external fun wasiWindowssysWindowsWin32DevicesTapiLineSetLineDevStatus(hline: Int, dwstatustochange: Int, fstatus: Int): Int
 
 public actual fun lineSetLineDevStatus(hline: UInt, dwstatustochange: UInt, fstatus: UInt): Int =
-    wasiWindowssysWindowsWin32DevicesTapiLineSetLineDevStatus(hline.toInt(), dwstatustochange.toInt(), fstatus.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesTapiLineSetLineDevStatus(hline.toInt(), dwstatustochange.toInt(), fstatus.toInt())
 
 public actual fun lineSetMediaControl(hline: UInt, dwaddressid: UInt, hcall: UInt, dwselect: UInt, lpdigitlist: ConstPtr<Linemediacontroldigit>, dwdigitnumentries: UInt, lpmedialist: ConstPtr<Linemediacontrolmedia>, dwmedianumentries: UInt, lptonelist: ConstPtr<Linemediacontroltone>, dwtonenumentries: UInt, lpcallstatelist: ConstPtr<Linemediacontrolcallstate>, dwcallstatenumentries: UInt): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesTapiLineSetMediaControl")
@@ -588,31 +588,31 @@ public actual fun lineSetMediaControl(hline: UInt, dwaddressid: UInt, hcall: UIn
 private external fun wasiWindowssysWindowsWin32DevicesTapiLineSetMediaMode(hcall: Int, dwmediamodes: Int): Int
 
 public actual fun lineSetMediaMode(hcall: UInt, dwmediamodes: UInt): Int =
-    wasiWindowssysWindowsWin32DevicesTapiLineSetMediaMode(hcall.toInt(), dwmediamodes.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesTapiLineSetMediaMode(hcall.toInt(), dwmediamodes.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesTapiLineSetNumRings")
 private external fun wasiWindowssysWindowsWin32DevicesTapiLineSetNumRings(hline: Int, dwaddressid: Int, dwnumrings: Int): Int
 
 public actual fun lineSetNumRings(hline: UInt, dwaddressid: UInt, dwnumrings: UInt): Int =
-    wasiWindowssysWindowsWin32DevicesTapiLineSetNumRings(hline.toInt(), dwaddressid.toInt(), dwnumrings.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesTapiLineSetNumRings(hline.toInt(), dwaddressid.toInt(), dwnumrings.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesTapiLineSetQueueMeasurementPeriod")
 private external fun wasiWindowssysWindowsWin32DevicesTapiLineSetQueueMeasurementPeriod(hline: Int, dwqueueid: Int, dwmeasurementperiod: Int): Int
 
 public actual fun lineSetQueueMeasurementPeriod(hline: UInt, dwqueueid: UInt, dwmeasurementperiod: UInt): Int =
-    wasiWindowssysWindowsWin32DevicesTapiLineSetQueueMeasurementPeriod(hline.toInt(), dwqueueid.toInt(), dwmeasurementperiod.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesTapiLineSetQueueMeasurementPeriod(hline.toInt(), dwqueueid.toInt(), dwmeasurementperiod.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesTapiLineSetStatusMessages")
 private external fun wasiWindowssysWindowsWin32DevicesTapiLineSetStatusMessages(hline: Int, dwlinestates: Int, dwaddressstates: Int): Int
 
 public actual fun lineSetStatusMessages(hline: UInt, dwlinestates: UInt, dwaddressstates: UInt): Int =
-    wasiWindowssysWindowsWin32DevicesTapiLineSetStatusMessages(hline.toInt(), dwlinestates.toInt(), dwaddressstates.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesTapiLineSetStatusMessages(hline.toInt(), dwlinestates.toInt(), dwaddressstates.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesTapiLineSetTerminal")
 private external fun wasiWindowssysWindowsWin32DevicesTapiLineSetTerminal(hline: Int, dwaddressid: Int, hcall: Int, dwselect: Int, dwterminalmodes: Int, dwterminalid: Int, benable: Int): Int
 
 public actual fun lineSetTerminal(hline: UInt, dwaddressid: UInt, hcall: UInt, dwselect: UInt, dwterminalmodes: UInt, dwterminalid: UInt, benable: UInt): Int =
-    wasiWindowssysWindowsWin32DevicesTapiLineSetTerminal(hline.toInt(), dwaddressid.toInt(), hcall.toInt(), dwselect.toInt(), dwterminalmodes.toInt(), dwterminalid.toInt(), benable.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesTapiLineSetTerminal(hline.toInt(), dwaddressid.toInt(), hcall.toInt(), dwselect.toInt(), dwterminalmodes.toInt(), dwterminalid.toInt(), benable.toInt())
 
 public actual fun lineSetTollList(hlineapp: UInt, dwdeviceid: UInt, lpszaddressin: Pcstr, dwtolllistoption: UInt): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesTapiLineSetTollList")
@@ -645,13 +645,13 @@ public actual fun lineSetupTransferW(hcall: UInt, lphconsultcall: MutPtr<UInt>, 
 private external fun wasiWindowssysWindowsWin32DevicesTapiLineShutdown(hlineapp: Int): Int
 
 public actual fun lineShutdown(hlineapp: UInt): Int =
-    wasiWindowssysWindowsWin32DevicesTapiLineShutdown(hlineapp.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesTapiLineShutdown(hlineapp.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesTapiLineSwapHold")
 private external fun wasiWindowssysWindowsWin32DevicesTapiLineSwapHold(hactivecall: Int, hheldcall: Int): Int
 
 public actual fun lineSwapHold(hactivecall: UInt, hheldcall: UInt): Int =
-    wasiWindowssysWindowsWin32DevicesTapiLineSwapHold(hactivecall.toInt(), hheldcall.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesTapiLineSwapHold(hactivecall.toInt(), hheldcall.toInt())
 
 public actual fun lineTranslateAddress(hlineapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, lpszaddressin: Pcstr, dwcard: UInt, dwtranslateoptions: UInt, lptranslateoutput: MutPtr<Linetranslateoutput>): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesTapiLineTranslateAddress")
@@ -675,13 +675,13 @@ public actual fun lineTranslateDialogW(hlineapp: UInt, dwdeviceid: UInt, dwapive
 private external fun wasiWindowssysWindowsWin32DevicesTapiLineUncompleteCall(hline: Int, dwcompletionid: Int): Int
 
 public actual fun lineUncompleteCall(hline: UInt, dwcompletionid: UInt): Int =
-    wasiWindowssysWindowsWin32DevicesTapiLineUncompleteCall(hline.toInt(), dwcompletionid.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesTapiLineUncompleteCall(hline.toInt(), dwcompletionid.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesTapiLineUnhold")
 private external fun wasiWindowssysWindowsWin32DevicesTapiLineUnhold(hcall: Int): Int
 
 public actual fun lineUnhold(hcall: UInt): Int =
-    wasiWindowssysWindowsWin32DevicesTapiLineUnhold(hcall.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesTapiLineUnhold(hcall.toInt())
 
 public actual fun lineUnpark(hline: UInt, dwaddressid: UInt, lphcall: MutPtr<UInt>, lpszdestaddress: Pcstr): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesTapiLineUnpark")
@@ -696,7 +696,7 @@ public actual fun lineUnparkW(hline: UInt, dwaddressid: UInt, lphcall: MutPtr<UI
 private external fun wasiWindowssysWindowsWin32DevicesTapiPhoneClose(hphone: Int): Int
 
 public actual fun phoneClose(hphone: UInt): Int =
-    wasiWindowssysWindowsWin32DevicesTapiPhoneClose(hphone.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesTapiPhoneClose(hphone.toInt())
 
 public actual fun phoneConfigDialog(dwdeviceid: UInt, hwndowner: Hwnd, lpszdeviceclass: Pcstr): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesTapiPhoneConfigDialog")
@@ -819,43 +819,43 @@ public actual fun phoneSetDisplay(hphone: UInt, dwrow: UInt, dwcolumn: UInt, lps
 private external fun wasiWindowssysWindowsWin32DevicesTapiPhoneSetGain(hphone: Int, dwhookswitchdev: Int, dwgain: Int): Int
 
 public actual fun phoneSetGain(hphone: UInt, dwhookswitchdev: UInt, dwgain: UInt): Int =
-    wasiWindowssysWindowsWin32DevicesTapiPhoneSetGain(hphone.toInt(), dwhookswitchdev.toInt(), dwgain.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesTapiPhoneSetGain(hphone.toInt(), dwhookswitchdev.toInt(), dwgain.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesTapiPhoneSetHookSwitch")
 private external fun wasiWindowssysWindowsWin32DevicesTapiPhoneSetHookSwitch(hphone: Int, dwhookswitchdevs: Int, dwhookswitchmode: Int): Int
 
 public actual fun phoneSetHookSwitch(hphone: UInt, dwhookswitchdevs: UInt, dwhookswitchmode: UInt): Int =
-    wasiWindowssysWindowsWin32DevicesTapiPhoneSetHookSwitch(hphone.toInt(), dwhookswitchdevs.toInt(), dwhookswitchmode.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesTapiPhoneSetHookSwitch(hphone.toInt(), dwhookswitchdevs.toInt(), dwhookswitchmode.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesTapiPhoneSetLamp")
 private external fun wasiWindowssysWindowsWin32DevicesTapiPhoneSetLamp(hphone: Int, dwbuttonlampid: Int, dwlampmode: Int): Int
 
 public actual fun phoneSetLamp(hphone: UInt, dwbuttonlampid: UInt, dwlampmode: UInt): Int =
-    wasiWindowssysWindowsWin32DevicesTapiPhoneSetLamp(hphone.toInt(), dwbuttonlampid.toInt(), dwlampmode.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesTapiPhoneSetLamp(hphone.toInt(), dwbuttonlampid.toInt(), dwlampmode.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesTapiPhoneSetRing")
 private external fun wasiWindowssysWindowsWin32DevicesTapiPhoneSetRing(hphone: Int, dwringmode: Int, dwvolume: Int): Int
 
 public actual fun phoneSetRing(hphone: UInt, dwringmode: UInt, dwvolume: UInt): Int =
-    wasiWindowssysWindowsWin32DevicesTapiPhoneSetRing(hphone.toInt(), dwringmode.toInt(), dwvolume.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesTapiPhoneSetRing(hphone.toInt(), dwringmode.toInt(), dwvolume.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesTapiPhoneSetStatusMessages")
 private external fun wasiWindowssysWindowsWin32DevicesTapiPhoneSetStatusMessages(hphone: Int, dwphonestates: Int, dwbuttonmodes: Int, dwbuttonstates: Int): Int
 
 public actual fun phoneSetStatusMessages(hphone: UInt, dwphonestates: UInt, dwbuttonmodes: UInt, dwbuttonstates: UInt): Int =
-    wasiWindowssysWindowsWin32DevicesTapiPhoneSetStatusMessages(hphone.toInt(), dwphonestates.toInt(), dwbuttonmodes.toInt(), dwbuttonstates.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesTapiPhoneSetStatusMessages(hphone.toInt(), dwphonestates.toInt(), dwbuttonmodes.toInt(), dwbuttonstates.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesTapiPhoneSetVolume")
 private external fun wasiWindowssysWindowsWin32DevicesTapiPhoneSetVolume(hphone: Int, dwhookswitchdev: Int, dwvolume: Int): Int
 
 public actual fun phoneSetVolume(hphone: UInt, dwhookswitchdev: UInt, dwvolume: UInt): Int =
-    wasiWindowssysWindowsWin32DevicesTapiPhoneSetVolume(hphone.toInt(), dwhookswitchdev.toInt(), dwvolume.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesTapiPhoneSetVolume(hphone.toInt(), dwhookswitchdev.toInt(), dwvolume.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DevicesTapiPhoneShutdown")
 private external fun wasiWindowssysWindowsWin32DevicesTapiPhoneShutdown(hphoneapp: Int): Int
 
 public actual fun phoneShutdown(hphoneapp: UInt): Int =
-    wasiWindowssysWindowsWin32DevicesTapiPhoneShutdown(hphoneapp.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesTapiPhoneShutdown(hphoneapp.toInt())
 
 public actual fun tapiGetLocationInfo(lpszcountrycode: Pstr, lpszcitycode: Pstr): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesTapiTapiGetLocationInfo")

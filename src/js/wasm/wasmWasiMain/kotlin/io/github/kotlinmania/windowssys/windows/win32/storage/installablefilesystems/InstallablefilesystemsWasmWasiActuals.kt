@@ -23,7 +23,7 @@ public actual fun filterAttachAtAltitude(lpfiltername: Pcwstr, lpvolumename: Pcw
 private external fun wasiWindowssysWindowsWin32StorageInstallablefilesystemsFilterClose(hfilter: Long): Int
 
 public actual fun filterClose(hfilter: Hfilter): Hresult =
-    wasiWindowssysWindowsWin32StorageInstallablefilesystemsFilterClose(hfilter).toInt()
+    wasiWindowssysWindowsWin32StorageInstallablefilesystemsFilterClose(hfilter)
 
 public actual fun filterConnectCommunicationPort(lpportname: Pcwstr, dwoptions: UInt, lpcontext: ConstPtr<CVoid>, wsizeofcontext: UShort, lpsecurityattributes: ConstPtr<SecurityAttributes>, hport: MutPtr<Handle>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32StorageInstallablefilesystemsFilterConnectCommunicationPort")
@@ -56,7 +56,7 @@ public actual fun filterGetMessage(hport: Handle, lpmessagebuffer: MutPtr<Filter
 private external fun wasiWindowssysWindowsWin32StorageInstallablefilesystemsFilterInstanceClose(hinstance: Long): Int
 
 public actual fun filterInstanceClose(hinstance: HfilterInstance): Hresult =
-    wasiWindowssysWindowsWin32StorageInstallablefilesystemsFilterInstanceClose(hinstance).toInt()
+    wasiWindowssysWindowsWin32StorageInstallablefilesystemsFilterInstanceClose(hinstance)
 
 public actual fun filterInstanceCreate(lpfiltername: Pcwstr, lpvolumename: Pcwstr, lpinstancename: Pcwstr, hinstance: MutPtr<HfilterInstance>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32StorageInstallablefilesystemsFilterInstanceCreate")

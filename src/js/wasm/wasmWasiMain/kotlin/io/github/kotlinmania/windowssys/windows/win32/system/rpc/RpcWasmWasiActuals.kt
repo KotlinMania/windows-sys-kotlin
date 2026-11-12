@@ -96,7 +96,7 @@ public actual fun iRpcDeleteMutex(mutex: MutPtr<CVoid>): Unit = throw Unsupporte
 private external fun wasiWindowssysWindowsWin32SystemRpcIRpcExceptionFilter(exceptioncode: Int): Int
 
 public actual fun iRpcExceptionFilter(exceptioncode: UInt): Int =
-    wasiWindowssysWindowsWin32SystemRpcIRpcExceptionFilter(exceptioncode.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemRpcIRpcExceptionFilter(exceptioncode.toInt())
 
 public actual fun iRpcFree(obj: MutPtr<CVoid>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemRpcIRpcFree")
 
@@ -122,7 +122,7 @@ public actual fun iRpcGetDefaultSd(ppsecuritydescriptor: MutPtr<MutPtr<CVoid>>):
 private external fun wasiWindowssysWindowsWin32SystemRpcIRpcGetExtendedError(): Int
 
 public actual fun iRpcGetExtendedError(): RpcStatus =
-    wasiWindowssysWindowsWin32SystemRpcIRpcGetExtendedError().toInt()
+    wasiWindowssysWindowsWin32SystemRpcIRpcGetExtendedError()
 
 public actual fun iRpcIfInqTransferSyntaxes(rpcifhandle: MutPtr<CVoid>, transfersyntaxes: MutPtr<RpcTransferSyntax>, transfersyntaxsize: UInt, transfersyntaxcount: MutPtr<UInt>): RpcStatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemRpcIRpcIfInqTransferSyntaxes")
@@ -131,13 +131,13 @@ public actual fun iRpcIfInqTransferSyntaxes(rpcifhandle: MutPtr<CVoid>, transfer
 private external fun wasiWindowssysWindowsWin32SystemRpcIRpcMapWin32Status(status: Int): Int
 
 public actual fun iRpcMapWin32Status(status: RpcStatus): Int =
-    wasiWindowssysWindowsWin32SystemRpcIRpcMapWin32Status(status).toInt()
+    wasiWindowssysWindowsWin32SystemRpcIRpcMapWin32Status(status)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemRpcIRpcMgmtEnableDedicatedThreadPool")
 private external fun wasiWindowssysWindowsWin32SystemRpcIRpcMgmtEnableDedicatedThreadPool(): Int
 
 public actual fun iRpcMgmtEnableDedicatedThreadPool(): RpcStatus =
-    wasiWindowssysWindowsWin32SystemRpcIRpcMgmtEnableDedicatedThreadPool().toInt()
+    wasiWindowssysWindowsWin32SystemRpcIRpcMgmtEnableDedicatedThreadPool()
 
 public actual fun iRpcNegotiateTransferSyntax(message: MutPtr<RpcMessage>): RpcStatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemRpcIRpcNegotiateTransferSyntax")
@@ -197,7 +197,7 @@ public actual fun iRpcServerCheckClientRestriction(context: MutPtr<CVoid>): RpcS
 private external fun wasiWindowssysWindowsWin32SystemRpcIRpcServerDisableExceptionFilter(): Int
 
 public actual fun iRpcServerDisableExceptionFilter(): Int =
-    wasiWindowssysWindowsWin32SystemRpcIRpcServerDisableExceptionFilter().toInt()
+    wasiWindowssysWindowsWin32SystemRpcIRpcServerDisableExceptionFilter()
 
 public actual fun iRpcServerGetAssociationId(binding: ConstPtr<CVoid>, associationid: MutPtr<UInt>): RpcStatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemRpcIRpcServerGetAssociationId")
@@ -263,7 +263,7 @@ public actual fun iRpcSystemHandleTypeSpecificWork(handle: MutPtr<CVoid>, actual
 private external fun wasiWindowssysWindowsWin32SystemRpcIRpcTurnOnEeinfoPropagation(): Int
 
 public actual fun iRpcTurnOnEeinfoPropagation(): RpcStatus =
-    wasiWindowssysWindowsWin32SystemRpcIRpcTurnOnEeinfoPropagation().toInt()
+    wasiWindowssysWindowsWin32SystemRpcIRpcTurnOnEeinfoPropagation()
 
 public actual fun iUuidCreate(uuid: MutPtr<Guid>): RpcStatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemRpcIUuidCreate")
@@ -926,7 +926,7 @@ public actual fun rpcErrorStartEnumeration(enumhandle: MutPtr<RpcErrorEnumHandle
 private external fun wasiWindowssysWindowsWin32SystemRpcRpcExceptionFilter(exceptioncode: Int): Int
 
 public actual fun rpcExceptionFilter(exceptioncode: UInt): Int =
-    wasiWindowssysWindowsWin32SystemRpcRpcExceptionFilter(exceptioncode.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemRpcRpcExceptionFilter(exceptioncode.toInt())
 
 public actual fun rpcFreeAuthorizationContext(pauthzclientcontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemRpcRpcFreeAuthorizationContext")
@@ -953,7 +953,7 @@ public actual fun rpcImpersonateClientContainer(bindinghandle: ConstPtr<CVoid>):
 private external fun wasiWindowssysWindowsWin32SystemRpcRpcMgmtEnableIdleCleanup(): Int
 
 public actual fun rpcMgmtEnableIdleCleanup(): RpcStatus =
-    wasiWindowssysWindowsWin32SystemRpcRpcMgmtEnableIdleCleanup().toInt()
+    wasiWindowssysWindowsWin32SystemRpcRpcMgmtEnableIdleCleanup()
 
 public actual fun rpcMgmtEpEltInqBegin(epbinding: ConstPtr<CVoid>, inquirytype: UInt, ifid: ConstPtr<RpcIfId>, versoption: UInt, objectuuid: ConstPtr<Guid>, inquirycontext: MutPtr<MutPtr<MutPtr<CVoid>>>): RpcStatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemRpcRpcMgmtEpEltInqBegin")
@@ -998,7 +998,7 @@ public actual fun rpcMgmtSetAuthorizationFn(authorizationfn: RpcMgmtAuthorizatio
 private external fun wasiWindowssysWindowsWin32SystemRpcRpcMgmtSetCancelTimeout(timeout: Int): Int
 
 public actual fun rpcMgmtSetCancelTimeout(timeout: Int): RpcStatus =
-    wasiWindowssysWindowsWin32SystemRpcRpcMgmtSetCancelTimeout(timeout).toInt()
+    wasiWindowssysWindowsWin32SystemRpcRpcMgmtSetCancelTimeout(timeout)
 
 public actual fun rpcMgmtSetComTimeout(binding: ConstPtr<CVoid>, timeout: UInt): RpcStatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemRpcRpcMgmtSetComTimeout")
@@ -1007,7 +1007,7 @@ public actual fun rpcMgmtSetComTimeout(binding: ConstPtr<CVoid>, timeout: UInt):
 private external fun wasiWindowssysWindowsWin32SystemRpcRpcMgmtSetServerStackSize(threadstacksize: Int): Int
 
 public actual fun rpcMgmtSetServerStackSize(threadstacksize: UInt): RpcStatus =
-    wasiWindowssysWindowsWin32SystemRpcRpcMgmtSetServerStackSize(threadstacksize.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemRpcRpcMgmtSetServerStackSize(threadstacksize.toInt())
 
 public actual fun rpcMgmtStatsVectorFree(statsvector: MutPtr<MutPtr<RpcStatsVector>>): RpcStatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemRpcRpcMgmtStatsVectorFree")
@@ -1019,7 +1019,7 @@ public actual fun rpcMgmtStopServerListening(binding: ConstPtr<CVoid>): RpcStatu
 private external fun wasiWindowssysWindowsWin32SystemRpcRpcMgmtWaitServerListen(): Int
 
 public actual fun rpcMgmtWaitServerListen(): RpcStatus =
-    wasiWindowssysWindowsWin32SystemRpcRpcMgmtWaitServerListen().toInt()
+    wasiWindowssysWindowsWin32SystemRpcRpcMgmtWaitServerListen()
 
 public actual fun rpcNetworkInqProtseqsA(protseqvector: MutPtr<MutPtr<RpcProtseqVectora>>): RpcStatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemRpcRpcNetworkInqProtseqsA")
@@ -1175,7 +1175,7 @@ public actual fun rpcNsMgmtInqExpAge(expirationage: MutPtr<UInt>): RpcStatus =
 private external fun wasiWindowssysWindowsWin32SystemRpcRpcNsMgmtSetExpAge(expirationage: Int): Int
 
 public actual fun rpcNsMgmtSetExpAge(expirationage: UInt): RpcStatus =
-    wasiWindowssysWindowsWin32SystemRpcRpcNsMgmtSetExpAge(expirationage.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemRpcRpcNsMgmtSetExpAge(expirationage.toInt())
 
 public actual fun rpcNsProfileDeleteA(profilenamesyntax: UInt, profilename: Pcstr): RpcStatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemRpcRpcNsProfileDeleteA")
@@ -1235,13 +1235,13 @@ public actual fun rpcRaiseException(exception: RpcStatus): Unit =
 private external fun wasiWindowssysWindowsWin32SystemRpcRpcRevertContainerImpersonation(): Int
 
 public actual fun rpcRevertContainerImpersonation(): RpcStatus =
-    wasiWindowssysWindowsWin32SystemRpcRpcRevertContainerImpersonation().toInt()
+    wasiWindowssysWindowsWin32SystemRpcRpcRevertContainerImpersonation()
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemRpcRpcRevertToSelf")
 private external fun wasiWindowssysWindowsWin32SystemRpcRpcRevertToSelf(): Int
 
 public actual fun rpcRevertToSelf(): RpcStatus =
-    wasiWindowssysWindowsWin32SystemRpcRpcRevertToSelf().toInt()
+    wasiWindowssysWindowsWin32SystemRpcRpcRevertToSelf()
 
 public actual fun rpcRevertToSelfEx(bindinghandle: ConstPtr<CVoid>): RpcStatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemRpcRpcRevertToSelfEx")
@@ -1295,7 +1295,7 @@ public actual fun rpcServerInterfaceGroupInqBindings(ifgroup: ConstPtr<CVoid>, b
 private external fun wasiWindowssysWindowsWin32SystemRpcRpcServerListen(minimumcallthreads: Int, maxcalls: Int, dontwait: Int): Int
 
 public actual fun rpcServerListen(minimumcallthreads: UInt, maxcalls: UInt, dontwait: UInt): RpcStatus =
-    wasiWindowssysWindowsWin32SystemRpcRpcServerListen(minimumcallthreads.toInt(), maxcalls.toInt(), dontwait.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemRpcRpcServerListen(minimumcallthreads.toInt(), maxcalls.toInt(), dontwait.toInt())
 
 public actual fun rpcServerRegisterAuthInfoA(serverprincname: Pcstr, authnsvc: UInt, getkeyfn: RpcAuthKeyRetrievalFn, arg: ConstPtr<CVoid>): RpcStatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemRpcRpcServerRegisterAuthInfoA")
@@ -1397,13 +1397,13 @@ public actual fun rpcSmDestroyClientContext(contexthandle: ConstPtr<ConstPtr<CVo
 private external fun wasiWindowssysWindowsWin32SystemRpcRpcSmDisableAllocate(): Int
 
 public actual fun rpcSmDisableAllocate(): RpcStatus =
-    wasiWindowssysWindowsWin32SystemRpcRpcSmDisableAllocate().toInt()
+    wasiWindowssysWindowsWin32SystemRpcRpcSmDisableAllocate()
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemRpcRpcSmEnableAllocate")
 private external fun wasiWindowssysWindowsWin32SystemRpcRpcSmEnableAllocate(): Int
 
 public actual fun rpcSmEnableAllocate(): RpcStatus =
-    wasiWindowssysWindowsWin32SystemRpcRpcSmEnableAllocate().toInt()
+    wasiWindowssysWindowsWin32SystemRpcRpcSmEnableAllocate()
 
 public actual fun rpcSmFree(nodetofree: ConstPtr<CVoid>): RpcStatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemRpcRpcSmFree")
@@ -1485,7 +1485,7 @@ public actual fun rpcStringFreeW(string: MutPtr<Pwstr>): RpcStatus =
 private external fun wasiWindowssysWindowsWin32SystemRpcRpcTestCancel(): Int
 
 public actual fun rpcTestCancel(): RpcStatus =
-    wasiWindowssysWindowsWin32SystemRpcRpcTestCancel().toInt()
+    wasiWindowssysWindowsWin32SystemRpcRpcTestCancel()
 
 public actual fun rpcUserFree(asynchandle: MutPtr<CVoid>, pbuffer: MutPtr<CVoid>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemRpcRpcUserFree")
 

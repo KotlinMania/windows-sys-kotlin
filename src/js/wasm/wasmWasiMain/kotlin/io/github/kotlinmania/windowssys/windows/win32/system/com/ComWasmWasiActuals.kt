@@ -52,7 +52,7 @@ public actual fun coBuildVersion(): UInt =
 private external fun wasiWindowssysWindowsWin32SystemComCoCancelCall(dwthreadid: Int, ultimeout: Int): Int
 
 public actual fun coCancelCall(dwthreadid: UInt, ultimeout: UInt): Hresult =
-    wasiWindowssysWindowsWin32SystemComCoCancelCall(dwthreadid.toInt(), ultimeout.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemComCoCancelCall(dwthreadid.toInt(), ultimeout.toInt())
 
 public actual fun coCopyProxy(pproxy: MutPtr<CVoid>, ppcopy: MutPtr<MutPtr<CVoid>>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemComCoCopyProxy")
@@ -82,7 +82,7 @@ public actual fun coDisableCallCancellation(preserved: ConstPtr<CVoid>): Hresult
 private external fun wasiWindowssysWindowsWin32SystemComCoDisconnectContext(dwtimeout: Int): Int
 
 public actual fun coDisconnectContext(dwtimeout: UInt): Hresult =
-    wasiWindowssysWindowsWin32SystemComCoDisconnectContext(dwtimeout.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemComCoDisconnectContext(dwtimeout.toInt())
 
 public actual fun coDisconnectObject(punk: MutPtr<CVoid>, dwreserved: UInt): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemComCoDisconnectObject")
@@ -168,7 +168,7 @@ public actual fun coGetTreatAsClass(clsidold: ConstPtr<Guid>, pclsidnew: MutPtr<
 private external fun wasiWindowssysWindowsWin32SystemComCoImpersonateClient(): Int
 
 public actual fun coImpersonateClient(): Hresult =
-    wasiWindowssysWindowsWin32SystemComCoImpersonateClient().toInt()
+    wasiWindowssysWindowsWin32SystemComCoImpersonateClient()
 
 public actual fun coIncrementMTAUsage(pcookie: MutPtr<CoMtaUsageCookie>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemComCoIncrementMTAUsage")
@@ -243,19 +243,19 @@ public actual fun coReleaseServerProcess(): UInt =
 private external fun wasiWindowssysWindowsWin32SystemComCoResumeClassObjects(): Int
 
 public actual fun coResumeClassObjects(): Hresult =
-    wasiWindowssysWindowsWin32SystemComCoResumeClassObjects().toInt()
+    wasiWindowssysWindowsWin32SystemComCoResumeClassObjects()
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemComCoRevertToSelf")
 private external fun wasiWindowssysWindowsWin32SystemComCoRevertToSelf(): Int
 
 public actual fun coRevertToSelf(): Hresult =
-    wasiWindowssysWindowsWin32SystemComCoRevertToSelf().toInt()
+    wasiWindowssysWindowsWin32SystemComCoRevertToSelf()
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemComCoRevokeClassObject")
 private external fun wasiWindowssysWindowsWin32SystemComCoRevokeClassObject(dwregister: Int): Int
 
 public actual fun coRevokeClassObject(dwregister: UInt): Hresult =
-    wasiWindowssysWindowsWin32SystemComCoRevokeClassObject(dwregister.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemComCoRevokeClassObject(dwregister.toInt())
 
 public actual fun coRevokeDeviceCatalog(cookie: CoDeviceCatalogCookie): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemComCoRevokeDeviceCatalog")
@@ -264,13 +264,13 @@ public actual fun coRevokeDeviceCatalog(cookie: CoDeviceCatalogCookie): Hresult 
 private external fun wasiWindowssysWindowsWin32SystemComCoRevokeInitializeSpy(ulicookie: Long): Int
 
 public actual fun coRevokeInitializeSpy(ulicookie: ULong): Hresult =
-    wasiWindowssysWindowsWin32SystemComCoRevokeInitializeSpy(ulicookie.toLong()).toInt()
+    wasiWindowssysWindowsWin32SystemComCoRevokeInitializeSpy(ulicookie.toLong())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemComCoRevokeMallocSpy")
 private external fun wasiWindowssysWindowsWin32SystemComCoRevokeMallocSpy(): Int
 
 public actual fun coRevokeMallocSpy(): Hresult =
-    wasiWindowssysWindowsWin32SystemComCoRevokeMallocSpy().toInt()
+    wasiWindowssysWindowsWin32SystemComCoRevokeMallocSpy()
 
 public actual fun coSetCancelObject(punk: MutPtr<CVoid>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemComCoSetCancelObject")
@@ -282,7 +282,7 @@ public actual fun coSetProxyBlanket(pproxy: MutPtr<CVoid>, dwauthnsvc: UInt, dwa
 private external fun wasiWindowssysWindowsWin32SystemComCoSuspendClassObjects(): Int
 
 public actual fun coSuspendClassObjects(): Hresult =
-    wasiWindowssysWindowsWin32SystemComCoSuspendClassObjects().toInt()
+    wasiWindowssysWindowsWin32SystemComCoSuspendClassObjects()
 
 public actual fun coSwitchCallContext(pnewobject: MutPtr<CVoid>, ppoldobject: MutPtr<MutPtr<CVoid>>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemComCoSwitchCallContext")
@@ -299,7 +299,7 @@ public actual fun coTaskMemRealloc(pv: ConstPtr<CVoid>, cb: ULong): MutPtr<CVoid
 private external fun wasiWindowssysWindowsWin32SystemComCoTestCancel(): Int
 
 public actual fun coTestCancel(): Hresult =
-    wasiWindowssysWindowsWin32SystemComCoTestCancel().toInt()
+    wasiWindowssysWindowsWin32SystemComCoTestCancel()
 
 public actual fun coTreatAsClass(clsidold: ConstPtr<Guid>, clsidnew: ConstPtr<Guid>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemComCoTreatAsClass")

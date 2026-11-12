@@ -20,7 +20,7 @@ public actual fun activateKeyboardLayout(hkl: Hkl, flags: ActivateKeyboardLayout
 private external fun wasiWindowssysWindowsWin32UiInputKeyboardandmouseBlockInput(fblockit: Int): Int
 
 public actual fun blockInput(fblockit: Bool): Bool =
-    wasiWindowssysWindowsWin32UiInputKeyboardandmouseBlockInput(fblockit).toInt()
+    wasiWindowssysWindowsWin32UiInputKeyboardandmouseBlockInput(fblockit)
 
 public actual fun dragDetect(hwnd: Hwnd, pt: Point): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiInputKeyboardandmouseDragDetect")
@@ -86,7 +86,7 @@ public actual fun getKeyboardState(lpkeystate: MutPtr<UByte>): Bool =
 private external fun wasiWindowssysWindowsWin32UiInputKeyboardandmouseGetKeyboardType(ntypeflag: Int): Int
 
 public actual fun getKeyboardType(ntypeflag: Int): Int =
-    wasiWindowssysWindowsWin32UiInputKeyboardandmouseGetKeyboardType(ntypeflag).toInt()
+    wasiWindowssysWindowsWin32UiInputKeyboardandmouseGetKeyboardType(ntypeflag)
 
 public actual fun getLastInputInfo(plii: MutPtr<Lastinputinfo>): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiInputKeyboardandmouseGetLastInputInfo")
@@ -134,7 +134,7 @@ public actual fun registerHotKey(hwnd: Hwnd, id: Int, fsmodifiers: HotKeyModifie
 private external fun wasiWindowssysWindowsWin32UiInputKeyboardandmouseReleaseCapture(): Int
 
 public actual fun releaseCapture(): Bool =
-    wasiWindowssysWindowsWin32UiInputKeyboardandmouseReleaseCapture().toInt()
+    wasiWindowssysWindowsWin32UiInputKeyboardandmouseReleaseCapture()
 
 public actual fun sendInput(cinputs: UInt, pinputs: ConstPtr<Input>, cbsize: Int): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiInputKeyboardandmouseSendInput")
@@ -149,7 +149,7 @@ public actual fun setCapture(hwnd: Hwnd): Hwnd =
 private external fun wasiWindowssysWindowsWin32UiInputKeyboardandmouseSetDoubleClickTime(param0: Int): Int
 
 public actual fun setDoubleClickTime(param0: UInt): Bool =
-    wasiWindowssysWindowsWin32UiInputKeyboardandmouseSetDoubleClickTime(param0.toInt()).toInt()
+    wasiWindowssysWindowsWin32UiInputKeyboardandmouseSetDoubleClickTime(param0.toInt())
 
 public actual fun setFocus(hwnd: Hwnd): Hwnd =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiInputKeyboardandmouseSetFocus")
@@ -161,7 +161,7 @@ public actual fun setKeyboardState(lpkeystate: ConstPtr<UByte>): Bool =
 private external fun wasiWindowssysWindowsWin32UiInputKeyboardandmouseSwapMouseButton(fswap: Int): Int
 
 public actual fun swapMouseButton(fswap: Bool): Bool =
-    wasiWindowssysWindowsWin32UiInputKeyboardandmouseSwapMouseButton(fswap).toInt()
+    wasiWindowssysWindowsWin32UiInputKeyboardandmouseSwapMouseButton(fswap)
 
 public actual fun toAscii(uvirtkey: UInt, uscancode: UInt, lpkeystate: ConstPtr<UByte>, lpchar: MutPtr<UShort>, uflags: UInt): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiInputKeyboardandmouseToAscii")

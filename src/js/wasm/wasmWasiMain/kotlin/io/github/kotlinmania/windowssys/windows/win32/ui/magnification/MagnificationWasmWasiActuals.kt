@@ -37,7 +37,7 @@ public actual fun magGetWindowTransform(hwnd: Hwnd, ptransform: MutPtr<Magtransf
 private external fun wasiWindowssysWindowsWin32UiMagnificationMagInitialize(): Int
 
 public actual fun magInitialize(): Bool =
-    wasiWindowssysWindowsWin32UiMagnificationMagInitialize().toInt()
+    wasiWindowssysWindowsWin32UiMagnificationMagInitialize()
 
 public actual fun magSetColorEffect(hwnd: Hwnd, peffect: MutPtr<Magcoloreffect>): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiMagnificationMagSetColorEffect")
@@ -49,7 +49,7 @@ public actual fun magSetFullscreenColorEffect(peffect: ConstPtr<Magcoloreffect>)
 private external fun wasiWindowssysWindowsWin32UiMagnificationMagSetFullscreenTransform(maglevel: Float, xoffset: Int, yoffset: Int): Int
 
 public actual fun magSetFullscreenTransform(maglevel: Float, xoffset: Int, yoffset: Int): Bool =
-    wasiWindowssysWindowsWin32UiMagnificationMagSetFullscreenTransform(maglevel, xoffset, yoffset).toInt()
+    wasiWindowssysWindowsWin32UiMagnificationMagSetFullscreenTransform(maglevel, xoffset, yoffset)
 
 public actual fun magSetImageScalingCallback(hwnd: Hwnd, callback: MagImageScalingCallback): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiMagnificationMagSetImageScalingCallback")
@@ -70,10 +70,10 @@ public actual fun magSetWindowTransform(hwnd: Hwnd, ptransform: MutPtr<Magtransf
 private external fun wasiWindowssysWindowsWin32UiMagnificationMagShowSystemCursor(fshowcursor: Int): Int
 
 public actual fun magShowSystemCursor(fshowcursor: Bool): Bool =
-    wasiWindowssysWindowsWin32UiMagnificationMagShowSystemCursor(fshowcursor).toInt()
+    wasiWindowssysWindowsWin32UiMagnificationMagShowSystemCursor(fshowcursor)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiMagnificationMagUninitialize")
 private external fun wasiWindowssysWindowsWin32UiMagnificationMagUninitialize(): Int
 
 public actual fun magUninitialize(): Bool =
-    wasiWindowssysWindowsWin32UiMagnificationMagUninitialize().toInt()
+    wasiWindowssysWindowsWin32UiMagnificationMagUninitialize()

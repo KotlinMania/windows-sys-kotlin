@@ -41,7 +41,7 @@ public actual fun allocReservedLog(pvmarshal: MutPtr<CVoid>, creservedrecords: U
 private external fun wasiWindowssysWindowsWin32StorageFilesystemAreFileApisANSI(): Int
 
 public actual fun areFileApisANSI(): Bool =
-    wasiWindowssysWindowsWin32StorageFilesystemAreFileApisANSI().toInt()
+    wasiWindowssysWindowsWin32StorageFilesystemAreFileApisANSI()
 
 public actual fun areShortNamesEnabled(handle: Handle, enabled: MutPtr<Bool>): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32StorageFilesystemAreShortNamesEnabled")
@@ -130,7 +130,7 @@ public actual fun copyFileW(lpexistingfilename: Pcwstr, lpnewfilename: Pcwstr, b
 private external fun wasiWindowssysWindowsWin32StorageFilesystemCopyLZFile(hfsource: Int, hfdest: Int): Int
 
 public actual fun copyLZFile(hfsource: Int, hfdest: Int): Int =
-    wasiWindowssysWindowsWin32StorageFilesystemCopyLZFile(hfsource, hfdest).toInt()
+    wasiWindowssysWindowsWin32StorageFilesystemCopyLZFile(hfsource, hfdest)
 
 public actual fun createDirectoryA(lppathname: Pcstr, lpsecurityattributes: ConstPtr<SecurityAttributes>): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32StorageFilesystemCreateDirectoryA")
@@ -680,7 +680,7 @@ public actual fun lZClose(hfile: Int): Unit =
 private external fun wasiWindowssysWindowsWin32StorageFilesystemLZCopy(hfsource: Int, hfdest: Int): Int
 
 public actual fun lZCopy(hfsource: Int, hfdest: Int): Int =
-    wasiWindowssysWindowsWin32StorageFilesystemLZCopy(hfsource, hfdest).toInt()
+    wasiWindowssysWindowsWin32StorageFilesystemLZCopy(hfsource, hfdest)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32StorageFilesystemLZDone")
 private external fun wasiWindowssysWindowsWin32StorageFilesystemLZDone(): Unit
@@ -692,7 +692,7 @@ public actual fun lZDone(): Unit =
 private external fun wasiWindowssysWindowsWin32StorageFilesystemLZInit(hfsource: Int): Int
 
 public actual fun lZInit(hfsource: Int): Int =
-    wasiWindowssysWindowsWin32StorageFilesystemLZInit(hfsource).toInt()
+    wasiWindowssysWindowsWin32StorageFilesystemLZInit(hfsource)
 
 public actual fun lZOpenFileA(lpfilename: Pcstr, lpreopenbuf: MutPtr<Ofstruct>, wstyle: LzopenfileStyle): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32StorageFilesystemLZOpenFileA")
@@ -707,13 +707,13 @@ public actual fun lZRead(hfile: Int, lpbuffer: Pstr, cbread: Int): Int =
 private external fun wasiWindowssysWindowsWin32StorageFilesystemLZSeek(hfile: Int, loffset: Int, iorigin: Int): Int
 
 public actual fun lZSeek(hfile: Int, loffset: Int, iorigin: Int): Int =
-    wasiWindowssysWindowsWin32StorageFilesystemLZSeek(hfile, loffset, iorigin).toInt()
+    wasiWindowssysWindowsWin32StorageFilesystemLZSeek(hfile, loffset, iorigin)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32StorageFilesystemLZStart")
 private external fun wasiWindowssysWindowsWin32StorageFilesystemLZStart(): Int
 
 public actual fun lZStart(): Int =
-    wasiWindowssysWindowsWin32StorageFilesystemLZStart().toInt()
+    wasiWindowssysWindowsWin32StorageFilesystemLZStart()
 
 public actual fun localFileTimeToFileTime(lplocalfiletime: ConstPtr<Filetime>, lpfiletime: MutPtr<Filetime>): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32StorageFilesystemLocalFileTimeToFileTime")
@@ -1124,7 +1124,7 @@ public actual fun setResourceManagerCompletionPort(resourcemanagerhandle: Handle
 private external fun wasiWindowssysWindowsWin32StorageFilesystemSetSearchPathMode(flags: Int): Int
 
 public actual fun setSearchPathMode(flags: UInt): Bool =
-    wasiWindowssysWindowsWin32StorageFilesystemSetSearchPathMode(flags.toInt()).toInt()
+    wasiWindowssysWindowsWin32StorageFilesystemSetSearchPathMode(flags.toInt())
 
 public actual fun setTapeParameters(hdevice: Handle, dwoperation: TapeInformationType, lptapeinformation: ConstPtr<CVoid>): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32StorageFilesystemSetTapeParameters")

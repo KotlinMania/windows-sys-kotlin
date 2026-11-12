@@ -93,7 +93,7 @@ public actual fun bluetoothGATTSetDescriptorValue(hdevice: Handle, descriptor: C
 private external fun wasiWindowssysWindowsWin32DevicesBluetoothBluetoothGATTUnregisterEvent(eventhandle: Long, flags: Int): Int
 
 public actual fun bluetoothGATTUnregisterEvent(eventhandle: Long, flags: UInt): Hresult =
-    wasiWindowssysWindowsWin32DevicesBluetoothBluetoothGATTUnregisterEvent(eventhandle, flags.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesBluetoothBluetoothGATTUnregisterEvent(eventhandle, flags.toInt())
 
 public actual fun bluetoothGetDeviceInfo(hradio: Handle, pbtdi: MutPtr<BluetoothDeviceInfo>): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesBluetoothBluetoothGetDeviceInfo")
@@ -111,7 +111,7 @@ public actual fun bluetoothIsDiscoverable(hradio: Handle): Bool =
 private external fun wasiWindowssysWindowsWin32DevicesBluetoothBluetoothIsVersionAvailable(majorversion: Int, minorversion: Int): Int
 
 public actual fun bluetoothIsVersionAvailable(majorversion: UByte, minorversion: UByte): Bool =
-    wasiWindowssysWindowsWin32DevicesBluetoothBluetoothIsVersionAvailable(majorversion.toInt(), minorversion.toInt()).toInt()
+    wasiWindowssysWindowsWin32DevicesBluetoothBluetoothIsVersionAvailable(majorversion.toInt(), minorversion.toInt())
 
 public actual fun bluetoothRegisterForAuthentication(pbtdi: ConstPtr<BluetoothDeviceInfo>, phreghandle: MutPtr<Long>, pfncallback: PfnAuthenticationCallback, pvparam: ConstPtr<CVoid>): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesBluetoothBluetoothRegisterForAuthentication")
@@ -159,7 +159,7 @@ public actual fun bluetoothSetServiceState(hradio: Handle, pbtdi: ConstPtr<Bluet
 private external fun wasiWindowssysWindowsWin32DevicesBluetoothBluetoothUnregisterAuthentication(hreghandle: Long): Int
 
 public actual fun bluetoothUnregisterAuthentication(hreghandle: Long): Bool =
-    wasiWindowssysWindowsWin32DevicesBluetoothBluetoothUnregisterAuthentication(hreghandle).toInt()
+    wasiWindowssysWindowsWin32DevicesBluetoothBluetoothUnregisterAuthentication(hreghandle)
 
 public actual fun bluetoothUpdateDeviceRecord(pbtdi: ConstPtr<BluetoothDeviceInfo>): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesBluetoothBluetoothUpdateDeviceRecord")

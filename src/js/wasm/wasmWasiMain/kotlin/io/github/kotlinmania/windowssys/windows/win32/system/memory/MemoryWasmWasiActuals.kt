@@ -271,7 +271,7 @@ public actual fun setProcessWorkingSetSizeEx(hprocess: Handle, dwminimumworkings
 private external fun wasiWindowssysWindowsWin32SystemMemorySetSystemFileCacheSize(minimumfilecachesize: Long, maximumfilecachesize: Long, flags: Int): Int
 
 public actual fun setSystemFileCacheSize(minimumfilecachesize: ULong, maximumfilecachesize: ULong, flags: UInt): Bool =
-    wasiWindowssysWindowsWin32SystemMemorySetSystemFileCacheSize(minimumfilecachesize.toLong(), maximumfilecachesize.toLong(), flags.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemMemorySetSystemFileCacheSize(minimumfilecachesize.toLong(), maximumfilecachesize.toLong(), flags.toInt())
 
 public actual fun unmapViewOfFile(lpbaseaddress: MemoryMappedViewAddress): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemMemoryUnmapViewOfFile")

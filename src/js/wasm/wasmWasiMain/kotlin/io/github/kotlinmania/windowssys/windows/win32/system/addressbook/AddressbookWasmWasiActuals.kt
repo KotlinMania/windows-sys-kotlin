@@ -81,7 +81,7 @@ public actual fun hrAllocAdviseSink(lpfncallback: Lpnotifcallback, lpvcontext: M
 private external fun wasiWindowssysWindowsWin32SystemAddressbookHrDispatchNotifications(ulflags: Int): Int
 
 public actual fun hrDispatchNotifications(ulflags: UInt): Hresult =
-    wasiWindowssysWindowsWin32SystemAddressbookHrDispatchNotifications(ulflags.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemAddressbookHrDispatchNotifications(ulflags.toInt())
 
 public actual fun hrGetOneProp(lpmapiprop: MutPtr<CVoid>, ulproptag: UInt, lppprop: MutPtr<MutPtr<SPropValue>>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemAddressbookHrGetOneProp")
@@ -150,7 +150,7 @@ public actual fun scDupPropset(cvalues: Int, lpproparray: MutPtr<SPropValue>, lp
 private external fun wasiWindowssysWindowsWin32SystemAddressbookScInitMapiUtil(ulflags: Int): Int
 
 public actual fun scInitMapiUtil(ulflags: UInt): Int =
-    wasiWindowssysWindowsWin32SystemAddressbookScInitMapiUtil(ulflags.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemAddressbookScInitMapiUtil(ulflags.toInt())
 
 public actual fun scLocalPathFromUNC(lpszunc: Pcstr, lpszlocal: Pcstr, cchlocal: UInt): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemAddressbookScLocalPathFromUNC")

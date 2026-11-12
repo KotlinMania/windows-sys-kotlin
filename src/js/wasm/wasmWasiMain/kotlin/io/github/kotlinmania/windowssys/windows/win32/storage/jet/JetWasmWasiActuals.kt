@@ -46,13 +46,13 @@ public actual fun jetBackupW(szbackuppath: ConstPtr<UShort>, grbit: UInt, pfnsta
 private external fun wasiWindowssysWindowsWin32StorageJetJetBeginExternalBackup(grbit: Int): Int
 
 public actual fun jetBeginExternalBackup(grbit: UInt): Int =
-    wasiWindowssysWindowsWin32StorageJetJetBeginExternalBackup(grbit.toInt()).toInt()
+    wasiWindowssysWindowsWin32StorageJetJetBeginExternalBackup(grbit.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32StorageJetJetBeginExternalBackupInstance")
 private external fun wasiWindowssysWindowsWin32StorageJetJetBeginExternalBackupInstance(instance: Long, grbit: Int): Int
 
 public actual fun jetBeginExternalBackupInstance(instance: JetInstance, grbit: UInt): Int =
-    wasiWindowssysWindowsWin32StorageJetJetBeginExternalBackupInstance(instance.toLong(), grbit.toInt()).toInt()
+    wasiWindowssysWindowsWin32StorageJetJetBeginExternalBackupInstance(instance.toLong(), grbit.toInt())
 
 public actual fun jetBeginSessionA(instance: JetInstance, psesid: MutPtr<JetSesid>, szusername: ConstPtr<Byte>, szpassword: ConstPtr<Byte>): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32StorageJetJetBeginSessionA")
@@ -64,49 +64,49 @@ public actual fun jetBeginSessionW(instance: JetInstance, psesid: MutPtr<JetSesi
 private external fun wasiWindowssysWindowsWin32StorageJetJetBeginTransaction(sesid: Long): Int
 
 public actual fun jetBeginTransaction(sesid: JetSesid): Int =
-    wasiWindowssysWindowsWin32StorageJetJetBeginTransaction(sesid.toLong()).toInt()
+    wasiWindowssysWindowsWin32StorageJetJetBeginTransaction(sesid.toLong())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32StorageJetJetBeginTransaction2")
 private external fun wasiWindowssysWindowsWin32StorageJetJetBeginTransaction2(sesid: Long, grbit: Int): Int
 
 public actual fun jetBeginTransaction2(sesid: JetSesid, grbit: UInt): Int =
-    wasiWindowssysWindowsWin32StorageJetJetBeginTransaction2(sesid.toLong(), grbit.toInt()).toInt()
+    wasiWindowssysWindowsWin32StorageJetJetBeginTransaction2(sesid.toLong(), grbit.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32StorageJetJetBeginTransaction3")
 private external fun wasiWindowssysWindowsWin32StorageJetJetBeginTransaction3(sesid: Long, trxid: Long, grbit: Int): Int
 
 public actual fun jetBeginTransaction3(sesid: JetSesid, trxid: Long, grbit: UInt): Int =
-    wasiWindowssysWindowsWin32StorageJetJetBeginTransaction3(sesid.toLong(), trxid, grbit.toInt()).toInt()
+    wasiWindowssysWindowsWin32StorageJetJetBeginTransaction3(sesid.toLong(), trxid, grbit.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32StorageJetJetCloseDatabase")
 private external fun wasiWindowssysWindowsWin32StorageJetJetCloseDatabase(sesid: Long, dbid: Int, grbit: Int): Int
 
 public actual fun jetCloseDatabase(sesid: JetSesid, dbid: UInt, grbit: UInt): Int =
-    wasiWindowssysWindowsWin32StorageJetJetCloseDatabase(sesid.toLong(), dbid.toInt(), grbit.toInt()).toInt()
+    wasiWindowssysWindowsWin32StorageJetJetCloseDatabase(sesid.toLong(), dbid.toInt(), grbit.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32StorageJetJetCloseFile")
 private external fun wasiWindowssysWindowsWin32StorageJetJetCloseFile(hffile: Long): Int
 
 public actual fun jetCloseFile(hffile: JetHandle): Int =
-    wasiWindowssysWindowsWin32StorageJetJetCloseFile(hffile.toLong()).toInt()
+    wasiWindowssysWindowsWin32StorageJetJetCloseFile(hffile.toLong())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32StorageJetJetCloseFileInstance")
 private external fun wasiWindowssysWindowsWin32StorageJetJetCloseFileInstance(instance: Long, hffile: Long): Int
 
 public actual fun jetCloseFileInstance(instance: JetInstance, hffile: JetHandle): Int =
-    wasiWindowssysWindowsWin32StorageJetJetCloseFileInstance(instance.toLong(), hffile.toLong()).toInt()
+    wasiWindowssysWindowsWin32StorageJetJetCloseFileInstance(instance.toLong(), hffile.toLong())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32StorageJetJetCloseTable")
 private external fun wasiWindowssysWindowsWin32StorageJetJetCloseTable(sesid: Long, tableid: Long): Int
 
 public actual fun jetCloseTable(sesid: JetSesid, tableid: JetTableid): Int =
-    wasiWindowssysWindowsWin32StorageJetJetCloseTable(sesid.toLong(), tableid.toLong()).toInt()
+    wasiWindowssysWindowsWin32StorageJetJetCloseTable(sesid.toLong(), tableid.toLong())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32StorageJetJetCommitTransaction")
 private external fun wasiWindowssysWindowsWin32StorageJetJetCommitTransaction(sesid: Long, grbit: Int): Int
 
 public actual fun jetCommitTransaction(sesid: JetSesid, grbit: UInt): Int =
-    wasiWindowssysWindowsWin32StorageJetJetCommitTransaction(sesid.toLong(), grbit.toInt()).toInt()
+    wasiWindowssysWindowsWin32StorageJetJetCommitTransaction(sesid.toLong(), grbit.toInt())
 
 public actual fun jetCommitTransaction2(sesid: JetSesid, grbit: UInt, cmsecdurablecommit: UInt, pcommitid: MutPtr<JetCommitId>): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32StorageJetJetCommitTransaction2")
@@ -121,13 +121,13 @@ public actual fun jetCompactW(sesid: JetSesid, szdatabasesrc: ConstPtr<UShort>, 
 private external fun wasiWindowssysWindowsWin32StorageJetJetComputeStats(sesid: Long, tableid: Long): Int
 
 public actual fun jetComputeStats(sesid: JetSesid, tableid: JetTableid): Int =
-    wasiWindowssysWindowsWin32StorageJetJetComputeStats(sesid.toLong(), tableid.toLong()).toInt()
+    wasiWindowssysWindowsWin32StorageJetJetComputeStats(sesid.toLong(), tableid.toLong())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32StorageJetJetConfigureProcessForCrashDump")
 private external fun wasiWindowssysWindowsWin32StorageJetJetConfigureProcessForCrashDump(grbit: Int): Int
 
 public actual fun jetConfigureProcessForCrashDump(grbit: UInt): Int =
-    wasiWindowssysWindowsWin32StorageJetJetConfigureProcessForCrashDump(grbit.toInt()).toInt()
+    wasiWindowssysWindowsWin32StorageJetJetConfigureProcessForCrashDump(grbit.toInt())
 
 public actual fun jetCreateDatabase2A(sesid: JetSesid, szfilename: ConstPtr<Byte>, cpgdatabasesizemax: UInt, pdbid: MutPtr<UInt>, grbit: UInt): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32StorageJetJetCreateDatabase2A")
@@ -229,7 +229,7 @@ public actual fun jetDefragmentW(sesid: JetSesid, dbid: UInt, sztablename: Const
 private external fun wasiWindowssysWindowsWin32StorageJetJetDelete(sesid: Long, tableid: Long): Int
 
 public actual fun jetDelete(sesid: JetSesid, tableid: JetTableid): Int =
-    wasiWindowssysWindowsWin32StorageJetJetDelete(sesid.toLong(), tableid.toLong()).toInt()
+    wasiWindowssysWindowsWin32StorageJetJetDelete(sesid.toLong(), tableid.toLong())
 
 public actual fun jetDeleteColumn2A(sesid: JetSesid, tableid: JetTableid, szcolumnname: ConstPtr<Byte>, grbit: UInt): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32StorageJetJetDeleteColumn2A")
@@ -283,25 +283,25 @@ public actual fun jetEnableMultiInstanceW(psetsysparam: ConstPtr<JetSetsysparamW
 private external fun wasiWindowssysWindowsWin32StorageJetJetEndExternalBackup(): Int
 
 public actual fun jetEndExternalBackup(): Int =
-    wasiWindowssysWindowsWin32StorageJetJetEndExternalBackup().toInt()
+    wasiWindowssysWindowsWin32StorageJetJetEndExternalBackup()
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32StorageJetJetEndExternalBackupInstance")
 private external fun wasiWindowssysWindowsWin32StorageJetJetEndExternalBackupInstance(instance: Long): Int
 
 public actual fun jetEndExternalBackupInstance(instance: JetInstance): Int =
-    wasiWindowssysWindowsWin32StorageJetJetEndExternalBackupInstance(instance.toLong()).toInt()
+    wasiWindowssysWindowsWin32StorageJetJetEndExternalBackupInstance(instance.toLong())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32StorageJetJetEndExternalBackupInstance2")
 private external fun wasiWindowssysWindowsWin32StorageJetJetEndExternalBackupInstance2(instance: Long, grbit: Int): Int
 
 public actual fun jetEndExternalBackupInstance2(instance: JetInstance, grbit: UInt): Int =
-    wasiWindowssysWindowsWin32StorageJetJetEndExternalBackupInstance2(instance.toLong(), grbit.toInt()).toInt()
+    wasiWindowssysWindowsWin32StorageJetJetEndExternalBackupInstance2(instance.toLong(), grbit.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32StorageJetJetEndSession")
 private external fun wasiWindowssysWindowsWin32StorageJetJetEndSession(sesid: Long, grbit: Int): Int
 
 public actual fun jetEndSession(sesid: JetSesid, grbit: UInt): Int =
-    wasiWindowssysWindowsWin32StorageJetJetEndSession(sesid.toLong(), grbit.toInt()).toInt()
+    wasiWindowssysWindowsWin32StorageJetJetEndSession(sesid.toLong(), grbit.toInt())
 
 public actual fun jetEnumerateColumns(sesid: JetSesid, tableid: JetTableid, cenumcolumnid: UInt, rgenumcolumnid: ConstPtr<JetEnumcolumnid>, pcenumcolumn: MutPtr<UInt>, prgenumcolumn: MutPtr<MutPtr<JetEnumcolumn>>, pfnrealloc: JetPfnrealloc, pvrealloccontext: ConstPtr<CVoid>, cbdatamost: UInt, grbit: UInt): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32StorageJetJetEnumerateColumns")
@@ -391,7 +391,7 @@ public actual fun jetGetLS(sesid: JetSesid, tableid: JetTableid, pls: MutPtr<Jet
 private external fun wasiWindowssysWindowsWin32StorageJetJetGetLock(sesid: Long, tableid: Long, grbit: Int): Int
 
 public actual fun jetGetLock(sesid: JetSesid, tableid: JetTableid, grbit: UInt): Int =
-    wasiWindowssysWindowsWin32StorageJetJetGetLock(sesid.toLong(), tableid.toLong(), grbit.toInt()).toInt()
+    wasiWindowssysWindowsWin32StorageJetJetGetLock(sesid.toLong(), tableid.toLong(), grbit.toInt())
 
 public actual fun jetGetLogInfoA(szzlogs: MutPtr<Byte>, cbmax: UInt, pcbactual: MutPtr<UInt>): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32StorageJetJetGetLogInfoA")
@@ -484,7 +484,7 @@ public actual fun jetGrowDatabase(sesid: JetSesid, dbid: UInt, cpg: UInt, pcpgre
 private external fun wasiWindowssysWindowsWin32StorageJetJetIdle(sesid: Long, grbit: Int): Int
 
 public actual fun jetIdle(sesid: JetSesid, grbit: UInt): Int =
-    wasiWindowssysWindowsWin32StorageJetJetIdle(sesid.toLong(), grbit.toInt()).toInt()
+    wasiWindowssysWindowsWin32StorageJetJetIdle(sesid.toLong(), grbit.toInt())
 
 public actual fun jetIndexRecordCount(sesid: JetSesid, tableid: JetTableid, pcrec: MutPtr<UInt>, crecmax: UInt): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32StorageJetJetIndexRecordCount")
@@ -511,19 +511,19 @@ public actual fun jetMakeKey(sesid: JetSesid, tableid: JetTableid, pvdata: Const
 private external fun wasiWindowssysWindowsWin32StorageJetJetMove(sesid: Long, tableid: Long, crow: Int, grbit: Int): Int
 
 public actual fun jetMove(sesid: JetSesid, tableid: JetTableid, crow: Int, grbit: UInt): Int =
-    wasiWindowssysWindowsWin32StorageJetJetMove(sesid.toLong(), tableid.toLong(), crow, grbit.toInt()).toInt()
+    wasiWindowssysWindowsWin32StorageJetJetMove(sesid.toLong(), tableid.toLong(), crow, grbit.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32StorageJetJetOSSnapshotAbort")
 private external fun wasiWindowssysWindowsWin32StorageJetJetOSSnapshotAbort(snapid: Long, grbit: Int): Int
 
 public actual fun jetOSSnapshotAbort(snapid: JetOssnapid, grbit: UInt): Int =
-    wasiWindowssysWindowsWin32StorageJetJetOSSnapshotAbort(snapid.toLong(), grbit.toInt()).toInt()
+    wasiWindowssysWindowsWin32StorageJetJetOSSnapshotAbort(snapid.toLong(), grbit.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32StorageJetJetOSSnapshotEnd")
 private external fun wasiWindowssysWindowsWin32StorageJetJetOSSnapshotEnd(snapid: Long, grbit: Int): Int
 
 public actual fun jetOSSnapshotEnd(snapid: JetOssnapid, grbit: UInt): Int =
-    wasiWindowssysWindowsWin32StorageJetJetOSSnapshotEnd(snapid.toLong(), grbit.toInt()).toInt()
+    wasiWindowssysWindowsWin32StorageJetJetOSSnapshotEnd(snapid.toLong(), grbit.toInt())
 
 public actual fun jetOSSnapshotFreezeA(snapid: JetOssnapid, pcinstanceinfo: MutPtr<UInt>, painstanceinfo: MutPtr<MutPtr<JetInstanceInfoA>>, grbit: UInt): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32StorageJetJetOSSnapshotFreezeA")
@@ -544,25 +544,25 @@ public actual fun jetOSSnapshotPrepare(psnapid: MutPtr<JetOssnapid>, grbit: UInt
 private external fun wasiWindowssysWindowsWin32StorageJetJetOSSnapshotPrepareInstance(snapid: Long, instance: Long, grbit: Int): Int
 
 public actual fun jetOSSnapshotPrepareInstance(snapid: JetOssnapid, instance: JetInstance, grbit: UInt): Int =
-    wasiWindowssysWindowsWin32StorageJetJetOSSnapshotPrepareInstance(snapid.toLong(), instance.toLong(), grbit.toInt()).toInt()
+    wasiWindowssysWindowsWin32StorageJetJetOSSnapshotPrepareInstance(snapid.toLong(), instance.toLong(), grbit.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32StorageJetJetOSSnapshotThaw")
 private external fun wasiWindowssysWindowsWin32StorageJetJetOSSnapshotThaw(snapid: Long, grbit: Int): Int
 
 public actual fun jetOSSnapshotThaw(snapid: JetOssnapid, grbit: UInt): Int =
-    wasiWindowssysWindowsWin32StorageJetJetOSSnapshotThaw(snapid.toLong(), grbit.toInt()).toInt()
+    wasiWindowssysWindowsWin32StorageJetJetOSSnapshotThaw(snapid.toLong(), grbit.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32StorageJetJetOSSnapshotTruncateLog")
 private external fun wasiWindowssysWindowsWin32StorageJetJetOSSnapshotTruncateLog(snapid: Long, grbit: Int): Int
 
 public actual fun jetOSSnapshotTruncateLog(snapid: JetOssnapid, grbit: UInt): Int =
-    wasiWindowssysWindowsWin32StorageJetJetOSSnapshotTruncateLog(snapid.toLong(), grbit.toInt()).toInt()
+    wasiWindowssysWindowsWin32StorageJetJetOSSnapshotTruncateLog(snapid.toLong(), grbit.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32StorageJetJetOSSnapshotTruncateLogInstance")
 private external fun wasiWindowssysWindowsWin32StorageJetJetOSSnapshotTruncateLogInstance(snapid: Long, instance: Long, grbit: Int): Int
 
 public actual fun jetOSSnapshotTruncateLogInstance(snapid: JetOssnapid, instance: JetInstance, grbit: UInt): Int =
-    wasiWindowssysWindowsWin32StorageJetJetOSSnapshotTruncateLogInstance(snapid.toLong(), instance.toLong(), grbit.toInt()).toInt()
+    wasiWindowssysWindowsWin32StorageJetJetOSSnapshotTruncateLogInstance(snapid.toLong(), instance.toLong(), grbit.toInt())
 
 public actual fun jetOpenDatabaseA(sesid: JetSesid, szfilename: ConstPtr<Byte>, szconnect: ConstPtr<Byte>, pdbid: MutPtr<UInt>, grbit: UInt): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32StorageJetJetOpenDatabaseA")
@@ -607,7 +607,7 @@ public actual fun jetOpenTemporaryTable2(sesid: JetSesid, popentemporarytable: C
 private external fun wasiWindowssysWindowsWin32StorageJetJetPrepareUpdate(sesid: Long, tableid: Long, prep: Int): Int
 
 public actual fun jetPrepareUpdate(sesid: JetSesid, tableid: JetTableid, prep: UInt): Int =
-    wasiWindowssysWindowsWin32StorageJetJetPrepareUpdate(sesid.toLong(), tableid.toLong(), prep.toInt()).toInt()
+    wasiWindowssysWindowsWin32StorageJetJetPrepareUpdate(sesid.toLong(), tableid.toLong(), prep.toInt())
 
 public actual fun jetPrereadIndexRanges(sesid: JetSesid, tableid: JetTableid, rgindexranges: ConstPtr<JetIndexRange>, cindexranges: UInt, pcrangespreread: MutPtr<UInt>, rgcolumnidpreread: ConstPtr<UInt>, ccolumnidpreread: UInt, grbit: UInt): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32StorageJetJetPrereadIndexRanges")
@@ -640,13 +640,13 @@ public actual fun jetRenameTableW(sesid: JetSesid, dbid: UInt, szname: ConstPtr<
 private external fun wasiWindowssysWindowsWin32StorageJetJetResetSessionContext(sesid: Long): Int
 
 public actual fun jetResetSessionContext(sesid: JetSesid): Int =
-    wasiWindowssysWindowsWin32StorageJetJetResetSessionContext(sesid.toLong()).toInt()
+    wasiWindowssysWindowsWin32StorageJetJetResetSessionContext(sesid.toLong())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32StorageJetJetResetTableSequential")
 private external fun wasiWindowssysWindowsWin32StorageJetJetResetTableSequential(sesid: Long, tableid: Long, grbit: Int): Int
 
 public actual fun jetResetTableSequential(sesid: JetSesid, tableid: JetTableid, grbit: UInt): Int =
-    wasiWindowssysWindowsWin32StorageJetJetResetTableSequential(sesid.toLong(), tableid.toLong(), grbit.toInt()).toInt()
+    wasiWindowssysWindowsWin32StorageJetJetResetTableSequential(sesid.toLong(), tableid.toLong(), grbit.toInt())
 
 public actual fun jetResizeDatabase(sesid: JetSesid, dbid: UInt, cpgtarget: UInt, pcpgactual: MutPtr<UInt>, grbit: UInt): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32StorageJetJetResizeDatabase")
@@ -682,13 +682,13 @@ public actual fun jetRetrieveKey(sesid: JetSesid, tableid: JetTableid, pvkey: Mu
 private external fun wasiWindowssysWindowsWin32StorageJetJetRollback(sesid: Long, grbit: Int): Int
 
 public actual fun jetRollback(sesid: JetSesid, grbit: UInt): Int =
-    wasiWindowssysWindowsWin32StorageJetJetRollback(sesid.toLong(), grbit.toInt()).toInt()
+    wasiWindowssysWindowsWin32StorageJetJetRollback(sesid.toLong(), grbit.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32StorageJetJetSeek")
 private external fun wasiWindowssysWindowsWin32StorageJetJetSeek(sesid: Long, tableid: Long, grbit: Int): Int
 
 public actual fun jetSeek(sesid: JetSesid, tableid: JetTableid, grbit: UInt): Int =
-    wasiWindowssysWindowsWin32StorageJetJetSeek(sesid.toLong(), tableid.toLong(), grbit.toInt()).toInt()
+    wasiWindowssysWindowsWin32StorageJetJetSeek(sesid.toLong(), tableid.toLong(), grbit.toInt())
 
 public actual fun jetSetColumn(sesid: JetSesid, tableid: JetTableid, columnid: UInt, pvdata: ConstPtr<CVoid>, cbdata: UInt, grbit: UInt, psetinfo: ConstPtr<JetSetinfo>): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32StorageJetJetSetColumn")
@@ -739,19 +739,19 @@ public actual fun jetSetDatabaseSizeW(sesid: JetSesid, szdatabasename: ConstPtr<
 private external fun wasiWindowssysWindowsWin32StorageJetJetSetIndexRange(sesid: Long, tableidsrc: Long, grbit: Int): Int
 
 public actual fun jetSetIndexRange(sesid: JetSesid, tableidsrc: JetTableid, grbit: UInt): Int =
-    wasiWindowssysWindowsWin32StorageJetJetSetIndexRange(sesid.toLong(), tableidsrc.toLong(), grbit.toInt()).toInt()
+    wasiWindowssysWindowsWin32StorageJetJetSetIndexRange(sesid.toLong(), tableidsrc.toLong(), grbit.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32StorageJetJetSetLS")
 private external fun wasiWindowssysWindowsWin32StorageJetJetSetLS(sesid: Long, tableid: Long, ls: Long, grbit: Int): Int
 
 public actual fun jetSetLS(sesid: JetSesid, tableid: JetTableid, ls: JetLs, grbit: UInt): Int =
-    wasiWindowssysWindowsWin32StorageJetJetSetLS(sesid.toLong(), tableid.toLong(), ls.toLong(), grbit.toInt()).toInt()
+    wasiWindowssysWindowsWin32StorageJetJetSetLS(sesid.toLong(), tableid.toLong(), ls.toLong(), grbit.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32StorageJetJetSetSessionContext")
 private external fun wasiWindowssysWindowsWin32StorageJetJetSetSessionContext(sesid: Long, ulcontext: Long): Int
 
 public actual fun jetSetSessionContext(sesid: JetSesid, ulcontext: JetApiPtr): Int =
-    wasiWindowssysWindowsWin32StorageJetJetSetSessionContext(sesid.toLong(), ulcontext.toLong()).toInt()
+    wasiWindowssysWindowsWin32StorageJetJetSetSessionContext(sesid.toLong(), ulcontext.toLong())
 
 public actual fun jetSetSessionParameter(sesid: JetSesid, sesparamid: UInt, pvparam: ConstPtr<CVoid>, cbparam: UInt): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32StorageJetJetSetSessionParameter")
@@ -766,67 +766,67 @@ public actual fun jetSetSystemParameterW(pinstance: MutPtr<JetInstance>, sesid: 
 private external fun wasiWindowssysWindowsWin32StorageJetJetSetTableSequential(sesid: Long, tableid: Long, grbit: Int): Int
 
 public actual fun jetSetTableSequential(sesid: JetSesid, tableid: JetTableid, grbit: UInt): Int =
-    wasiWindowssysWindowsWin32StorageJetJetSetTableSequential(sesid.toLong(), tableid.toLong(), grbit.toInt()).toInt()
+    wasiWindowssysWindowsWin32StorageJetJetSetTableSequential(sesid.toLong(), tableid.toLong(), grbit.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32StorageJetJetStopBackup")
 private external fun wasiWindowssysWindowsWin32StorageJetJetStopBackup(): Int
 
 public actual fun jetStopBackup(): Int =
-    wasiWindowssysWindowsWin32StorageJetJetStopBackup().toInt()
+    wasiWindowssysWindowsWin32StorageJetJetStopBackup()
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32StorageJetJetStopBackupInstance")
 private external fun wasiWindowssysWindowsWin32StorageJetJetStopBackupInstance(instance: Long): Int
 
 public actual fun jetStopBackupInstance(instance: JetInstance): Int =
-    wasiWindowssysWindowsWin32StorageJetJetStopBackupInstance(instance.toLong()).toInt()
+    wasiWindowssysWindowsWin32StorageJetJetStopBackupInstance(instance.toLong())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32StorageJetJetStopService")
 private external fun wasiWindowssysWindowsWin32StorageJetJetStopService(): Int
 
 public actual fun jetStopService(): Int =
-    wasiWindowssysWindowsWin32StorageJetJetStopService().toInt()
+    wasiWindowssysWindowsWin32StorageJetJetStopService()
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32StorageJetJetStopServiceInstance")
 private external fun wasiWindowssysWindowsWin32StorageJetJetStopServiceInstance(instance: Long): Int
 
 public actual fun jetStopServiceInstance(instance: JetInstance): Int =
-    wasiWindowssysWindowsWin32StorageJetJetStopServiceInstance(instance.toLong()).toInt()
+    wasiWindowssysWindowsWin32StorageJetJetStopServiceInstance(instance.toLong())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32StorageJetJetStopServiceInstance2")
 private external fun wasiWindowssysWindowsWin32StorageJetJetStopServiceInstance2(instance: Long, grbit: Int): Int
 
 public actual fun jetStopServiceInstance2(instance: JetInstance, grbit: UInt): Int =
-    wasiWindowssysWindowsWin32StorageJetJetStopServiceInstance2(instance.toLong(), grbit.toInt()).toInt()
+    wasiWindowssysWindowsWin32StorageJetJetStopServiceInstance2(instance.toLong(), grbit.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32StorageJetJetTerm")
 private external fun wasiWindowssysWindowsWin32StorageJetJetTerm(instance: Long): Int
 
 public actual fun jetTerm(instance: JetInstance): Int =
-    wasiWindowssysWindowsWin32StorageJetJetTerm(instance.toLong()).toInt()
+    wasiWindowssysWindowsWin32StorageJetJetTerm(instance.toLong())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32StorageJetJetTerm2")
 private external fun wasiWindowssysWindowsWin32StorageJetJetTerm2(instance: Long, grbit: Int): Int
 
 public actual fun jetTerm2(instance: JetInstance, grbit: UInt): Int =
-    wasiWindowssysWindowsWin32StorageJetJetTerm2(instance.toLong(), grbit.toInt()).toInt()
+    wasiWindowssysWindowsWin32StorageJetJetTerm2(instance.toLong(), grbit.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32StorageJetJetTruncateLog")
 private external fun wasiWindowssysWindowsWin32StorageJetJetTruncateLog(): Int
 
 public actual fun jetTruncateLog(): Int =
-    wasiWindowssysWindowsWin32StorageJetJetTruncateLog().toInt()
+    wasiWindowssysWindowsWin32StorageJetJetTruncateLog()
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32StorageJetJetTruncateLogInstance")
 private external fun wasiWindowssysWindowsWin32StorageJetJetTruncateLogInstance(instance: Long): Int
 
 public actual fun jetTruncateLogInstance(instance: JetInstance): Int =
-    wasiWindowssysWindowsWin32StorageJetJetTruncateLogInstance(instance.toLong()).toInt()
+    wasiWindowssysWindowsWin32StorageJetJetTruncateLogInstance(instance.toLong())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32StorageJetJetUnregisterCallback")
 private external fun wasiWindowssysWindowsWin32StorageJetJetUnregisterCallback(sesid: Long, tableid: Long, cbtyp: Int, hcallbackid: Long): Int
 
 public actual fun jetUnregisterCallback(sesid: JetSesid, tableid: JetTableid, cbtyp: UInt, hcallbackid: JetHandle): Int =
-    wasiWindowssysWindowsWin32StorageJetJetUnregisterCallback(sesid.toLong(), tableid.toLong(), cbtyp.toInt(), hcallbackid.toLong()).toInt()
+    wasiWindowssysWindowsWin32StorageJetJetUnregisterCallback(sesid.toLong(), tableid.toLong(), cbtyp.toInt(), hcallbackid.toLong())
 
 public actual fun jetUpdate(sesid: JetSesid, tableid: JetTableid, pvbookmark: MutPtr<CVoid>, cbbookmark: UInt, pcbactual: MutPtr<UInt>): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32StorageJetJetUpdate")

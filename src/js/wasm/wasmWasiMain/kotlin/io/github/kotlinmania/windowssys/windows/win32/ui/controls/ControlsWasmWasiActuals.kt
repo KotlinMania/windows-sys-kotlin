@@ -56,7 +56,7 @@ public actual fun bufferedPaintClear(hbufferedpaint: Long, prc: ConstPtr<Rect>):
 private external fun wasiWindowssysWindowsWin32UiControlsBufferedPaintInit(): Int
 
 public actual fun bufferedPaintInit(): Hresult =
-    wasiWindowssysWindowsWin32UiControlsBufferedPaintInit().toInt()
+    wasiWindowssysWindowsWin32UiControlsBufferedPaintInit()
 
 public actual fun bufferedPaintRenderAnimation(hwnd: Hwnd, hdctarget: Hdc): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiControlsBufferedPaintRenderAnimation")
@@ -71,7 +71,7 @@ public actual fun bufferedPaintStopAllAnimations(hwnd: Hwnd): Hresult =
 private external fun wasiWindowssysWindowsWin32UiControlsBufferedPaintUnInit(): Int
 
 public actual fun bufferedPaintUnInit(): Hresult =
-    wasiWindowssysWindowsWin32UiControlsBufferedPaintUnInit().toInt()
+    wasiWindowssysWindowsWin32UiControlsBufferedPaintUnInit()
 
 public actual fun checkDlgButton(hdlg: Hwnd, nidbutton: Int, ucheck: DlgButtonCheckState): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiControlsCheckDlgButton")
@@ -83,7 +83,7 @@ public actual fun checkRadioButton(hdlg: Hwnd, nidfirstbutton: Int, nidlastbutto
 private external fun wasiWindowssysWindowsWin32UiControlsCloseThemeData(htheme: Long): Int
 
 public actual fun closeThemeData(htheme: Htheme): Hresult =
-    wasiWindowssysWindowsWin32UiControlsCloseThemeData(htheme).toInt()
+    wasiWindowssysWindowsWin32UiControlsCloseThemeData(htheme)
 
 public actual fun createMappedBitmap(hinstance: Hinstance, idbitmap: Long, wflags: UInt, lpcolormap: ConstPtr<Colormap>, inummaps: Int): Hbitmap =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiControlsCreateMappedBitmap")
@@ -113,13 +113,13 @@ public actual fun createUpDownControl(dwstyle: UInt, x: Int, y: Int, cx: Int, cy
 private external fun wasiWindowssysWindowsWin32UiControlsDpaClone(hdpa: Long, hdpanew: Long): Long
 
 public actual fun dpaClone(hdpa: Hdpa, hdpanew: Hdpa): Hdpa =
-    wasiWindowssysWindowsWin32UiControlsDpaClone(hdpa, hdpanew).toLong()
+    wasiWindowssysWindowsWin32UiControlsDpaClone(hdpa, hdpanew)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiControlsDpaCreate")
 private external fun wasiWindowssysWindowsWin32UiControlsDpaCreate(citemgrow: Int): Long
 
 public actual fun dpaCreate(citemgrow: Int): Hdpa =
-    wasiWindowssysWindowsWin32UiControlsDpaCreate(citemgrow).toLong()
+    wasiWindowssysWindowsWin32UiControlsDpaCreate(citemgrow)
 
 public actual fun dpaCreateEx(cpgrow: Int, hheap: Handle): Hdpa =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiControlsDpaCreateEx")
@@ -128,7 +128,7 @@ public actual fun dpaCreateEx(cpgrow: Int, hheap: Handle): Hdpa =
 private external fun wasiWindowssysWindowsWin32UiControlsDpaDeleteAllPtrs(hdpa: Long): Int
 
 public actual fun dpaDeleteAllPtrs(hdpa: Hdpa): Bool =
-    wasiWindowssysWindowsWin32UiControlsDpaDeleteAllPtrs(hdpa).toInt()
+    wasiWindowssysWindowsWin32UiControlsDpaDeleteAllPtrs(hdpa)
 
 public actual fun dpaDeletePtr(hdpa: Hdpa, i: Int): MutPtr<CVoid> =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiControlsDpaDeletePtr")
@@ -137,7 +137,7 @@ public actual fun dpaDeletePtr(hdpa: Hdpa, i: Int): MutPtr<CVoid> =
 private external fun wasiWindowssysWindowsWin32UiControlsDpaDestroy(hdpa: Long): Int
 
 public actual fun dpaDestroy(hdpa: Hdpa): Bool =
-    wasiWindowssysWindowsWin32UiControlsDpaDestroy(hdpa).toInt()
+    wasiWindowssysWindowsWin32UiControlsDpaDestroy(hdpa)
 
 public actual fun dpaDestroyCallback(hdpa: Hdpa, pfncb: Pfndaenumcallback, pdata: ConstPtr<CVoid>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiControlsDpaDestroyCallback")
 
@@ -159,7 +159,7 @@ public actual fun dpaGetSize(hdpa: Hdpa): ULong =
 private external fun wasiWindowssysWindowsWin32UiControlsDpaGrow(pdpa: Long, cp: Int): Int
 
 public actual fun dpaGrow(pdpa: Hdpa, cp: Int): Bool =
-    wasiWindowssysWindowsWin32UiControlsDpaGrow(pdpa, cp).toInt()
+    wasiWindowssysWindowsWin32UiControlsDpaGrow(pdpa, cp)
 
 public actual fun dpaInsertPtr(hdpa: Hdpa, i: Int, p: ConstPtr<CVoid>): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiControlsDpaInsertPtr")
@@ -186,31 +186,31 @@ public actual fun dpaSort(hdpa: Hdpa, pfncompare: Pfndacompare, lparam: Lparam):
 private external fun wasiWindowssysWindowsWin32UiControlsDsaClone(hdsa: Long): Long
 
 public actual fun dsaClone(hdsa: Hdsa): Hdsa =
-    wasiWindowssysWindowsWin32UiControlsDsaClone(hdsa).toLong()
+    wasiWindowssysWindowsWin32UiControlsDsaClone(hdsa)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiControlsDsaCreate")
 private external fun wasiWindowssysWindowsWin32UiControlsDsaCreate(cbitem: Int, citemgrow: Int): Long
 
 public actual fun dsaCreate(cbitem: Int, citemgrow: Int): Hdsa =
-    wasiWindowssysWindowsWin32UiControlsDsaCreate(cbitem, citemgrow).toLong()
+    wasiWindowssysWindowsWin32UiControlsDsaCreate(cbitem, citemgrow)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiControlsDsaDeleteAllItems")
 private external fun wasiWindowssysWindowsWin32UiControlsDsaDeleteAllItems(hdsa: Long): Int
 
 public actual fun dsaDeleteAllItems(hdsa: Hdsa): Bool =
-    wasiWindowssysWindowsWin32UiControlsDsaDeleteAllItems(hdsa).toInt()
+    wasiWindowssysWindowsWin32UiControlsDsaDeleteAllItems(hdsa)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiControlsDsaDeleteItem")
 private external fun wasiWindowssysWindowsWin32UiControlsDsaDeleteItem(hdsa: Long, i: Int): Int
 
 public actual fun dsaDeleteItem(hdsa: Hdsa, i: Int): Bool =
-    wasiWindowssysWindowsWin32UiControlsDsaDeleteItem(hdsa, i).toInt()
+    wasiWindowssysWindowsWin32UiControlsDsaDeleteItem(hdsa, i)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiControlsDsaDestroy")
 private external fun wasiWindowssysWindowsWin32UiControlsDsaDestroy(hdsa: Long): Int
 
 public actual fun dsaDestroy(hdsa: Hdsa): Bool =
-    wasiWindowssysWindowsWin32UiControlsDsaDestroy(hdsa).toInt()
+    wasiWindowssysWindowsWin32UiControlsDsaDestroy(hdsa)
 
 public actual fun dsaDestroyCallback(hdsa: Hdsa, pfncb: Pfndaenumcallback, pdata: ConstPtr<CVoid>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiControlsDsaDestroyCallback")
 
@@ -309,19 +309,19 @@ public actual fun enableThemeDialogTexture(hwnd: Hwnd, dwflags: UInt): Hresult =
 private external fun wasiWindowssysWindowsWin32UiControlsEnableTheming(fenable: Int): Int
 
 public actual fun enableTheming(fenable: Bool): Hresult =
-    wasiWindowssysWindowsWin32UiControlsEnableTheming(fenable).toInt()
+    wasiWindowssysWindowsWin32UiControlsEnableTheming(fenable)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiControlsEndBufferedAnimation")
 private external fun wasiWindowssysWindowsWin32UiControlsEndBufferedAnimation(hbpanimation: Long, fupdatetarget: Int): Int
 
 public actual fun endBufferedAnimation(hbpanimation: Long, fupdatetarget: Bool): Hresult =
-    wasiWindowssysWindowsWin32UiControlsEndBufferedAnimation(hbpanimation, fupdatetarget).toInt()
+    wasiWindowssysWindowsWin32UiControlsEndBufferedAnimation(hbpanimation, fupdatetarget)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiControlsEndBufferedPaint")
 private external fun wasiWindowssysWindowsWin32UiControlsEndBufferedPaint(hbufferedpaint: Long, fupdatetarget: Int): Int
 
 public actual fun endBufferedPaint(hbufferedpaint: Long, fupdatetarget: Bool): Hresult =
-    wasiWindowssysWindowsWin32UiControlsEndBufferedPaint(hbufferedpaint, fupdatetarget).toInt()
+    wasiWindowssysWindowsWin32UiControlsEndBufferedPaint(hbufferedpaint, fupdatetarget)
 
 public actual fun endPanningFeedback(hwnd: Hwnd, fanimateback: Bool): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiControlsEndPanningFeedback")
@@ -467,7 +467,7 @@ public actual fun getThemeString(htheme: Htheme, ipartid: Int, istateid: Int, ip
 private external fun wasiWindowssysWindowsWin32UiControlsGetThemeSysBool(htheme: Long, iboolid: Int): Int
 
 public actual fun getThemeSysBool(htheme: Htheme, iboolid: Int): Bool =
-    wasiWindowssysWindowsWin32UiControlsGetThemeSysBool(htheme, iboolid).toInt()
+    wasiWindowssysWindowsWin32UiControlsGetThemeSysBool(htheme, iboolid)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiControlsGetThemeSysColor")
 private external fun wasiWindowssysWindowsWin32UiControlsGetThemeSysColor(htheme: Long, icolorid: Int): Int
@@ -488,7 +488,7 @@ public actual fun getThemeSysInt(htheme: Htheme, iintid: Int, pivalue: MutPtr<In
 private external fun wasiWindowssysWindowsWin32UiControlsGetThemeSysSize(htheme: Long, isizeid: Int): Int
 
 public actual fun getThemeSysSize(htheme: Htheme, isizeid: Int): Int =
-    wasiWindowssysWindowsWin32UiControlsGetThemeSysSize(htheme, isizeid).toInt()
+    wasiWindowssysWindowsWin32UiControlsGetThemeSysSize(htheme, isizeid)
 
 public actual fun getThemeSysString(htheme: Htheme, istringid: Int, pszstringbuff: Pwstr, cchmaxstringchars: Int): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiControlsGetThemeSysString")
@@ -527,7 +527,7 @@ public actual fun imageListAddMasked(himl: Himagelist, hbmimage: Hbitmap, crmask
 private external fun wasiWindowssysWindowsWin32UiControlsImageListBeginDrag(himltrack: Long, itrack: Int, dxhotspot: Int, dyhotspot: Int): Int
 
 public actual fun imageListBeginDrag(himltrack: Himagelist, itrack: Int, dxhotspot: Int, dyhotspot: Int): Bool =
-    wasiWindowssysWindowsWin32UiControlsImageListBeginDrag(himltrack, itrack, dxhotspot, dyhotspot).toInt()
+    wasiWindowssysWindowsWin32UiControlsImageListBeginDrag(himltrack, itrack, dxhotspot, dyhotspot)
 
 public actual fun imageListCoCreateInstance(rclsid: ConstPtr<Guid>, punkouter: MutPtr<CVoid>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiControlsImageListCoCreateInstance")
@@ -536,19 +536,19 @@ public actual fun imageListCoCreateInstance(rclsid: ConstPtr<Guid>, punkouter: M
 private external fun wasiWindowssysWindowsWin32UiControlsImageListCopy(himldst: Long, idst: Int, himlsrc: Long, isrc: Int, uflags: Int): Int
 
 public actual fun imageListCopy(himldst: Himagelist, idst: Int, himlsrc: Himagelist, isrc: Int, uflags: ImageListCopyFlags): Bool =
-    wasiWindowssysWindowsWin32UiControlsImageListCopy(himldst, idst, himlsrc, isrc, uflags.toInt()).toInt()
+    wasiWindowssysWindowsWin32UiControlsImageListCopy(himldst, idst, himlsrc, isrc, uflags.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiControlsImageListCreate")
 private external fun wasiWindowssysWindowsWin32UiControlsImageListCreate(cx: Int, cy: Int, flags: Int, cinitial: Int, cgrow: Int): Long
 
 public actual fun imageListCreate(cx: Int, cy: Int, flags: ImagelistCreationFlags, cinitial: Int, cgrow: Int): Himagelist =
-    wasiWindowssysWindowsWin32UiControlsImageListCreate(cx, cy, flags.toInt(), cinitial, cgrow).toLong()
+    wasiWindowssysWindowsWin32UiControlsImageListCreate(cx, cy, flags.toInt(), cinitial, cgrow)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiControlsImageListDestroy")
 private external fun wasiWindowssysWindowsWin32UiControlsImageListDestroy(himl: Long): Int
 
 public actual fun imageListDestroy(himl: Himagelist): Bool =
-    wasiWindowssysWindowsWin32UiControlsImageListDestroy(himl).toInt()
+    wasiWindowssysWindowsWin32UiControlsImageListDestroy(himl)
 
 public actual fun imageListDragEnter(hwndlock: Hwnd, x: Int, y: Int): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiControlsImageListDragEnter")
@@ -560,13 +560,13 @@ public actual fun imageListDragLeave(hwndlock: Hwnd): Bool =
 private external fun wasiWindowssysWindowsWin32UiControlsImageListDragMove(x: Int, y: Int): Int
 
 public actual fun imageListDragMove(x: Int, y: Int): Bool =
-    wasiWindowssysWindowsWin32UiControlsImageListDragMove(x, y).toInt()
+    wasiWindowssysWindowsWin32UiControlsImageListDragMove(x, y)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiControlsImageListDragShowNolock")
 private external fun wasiWindowssysWindowsWin32UiControlsImageListDragShowNolock(fshow: Int): Int
 
 public actual fun imageListDragShowNolock(fshow: Bool): Bool =
-    wasiWindowssysWindowsWin32UiControlsImageListDragShowNolock(fshow).toInt()
+    wasiWindowssysWindowsWin32UiControlsImageListDragShowNolock(fshow)
 
 public actual fun imageListDraw(himl: Himagelist, i: Int, hdcdst: Hdc, x: Int, y: Int, fstyle: ImageListDrawStyle): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiControlsImageListDraw")
@@ -581,7 +581,7 @@ public actual fun imageListDrawIndirect(pimldp: ConstPtr<Imagelistdrawparams>): 
 private external fun wasiWindowssysWindowsWin32UiControlsImageListDuplicate(himl: Long): Long
 
 public actual fun imageListDuplicate(himl: Himagelist): Himagelist =
-    wasiWindowssysWindowsWin32UiControlsImageListDuplicate(himl).toLong()
+    wasiWindowssysWindowsWin32UiControlsImageListDuplicate(himl)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiControlsImageListEndDrag")
 private external fun wasiWindowssysWindowsWin32UiControlsImageListEndDrag(): Unit
@@ -608,7 +608,7 @@ public actual fun imageListGetIconSize(himl: Himagelist, cx: MutPtr<Int>, cy: Mu
 private external fun wasiWindowssysWindowsWin32UiControlsImageListGetImageCount(himl: Long): Int
 
 public actual fun imageListGetImageCount(himl: Himagelist): Int =
-    wasiWindowssysWindowsWin32UiControlsImageListGetImageCount(himl).toInt()
+    wasiWindowssysWindowsWin32UiControlsImageListGetImageCount(himl)
 
 public actual fun imageListGetImageInfo(himl: Himagelist, i: Int, pimageinfo: MutPtr<Imageinfo>): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiControlsImageListGetImageInfo")
@@ -623,7 +623,7 @@ public actual fun imageListLoadImageW(hi: Hinstance, lpbmp: Pcwstr, cx: Int, cgr
 private external fun wasiWindowssysWindowsWin32UiControlsImageListMerge(himl1: Long, i1: Int, himl2: Long, i2: Int, dx: Int, dy: Int): Long
 
 public actual fun imageListMerge(himl1: Himagelist, i1: Int, himl2: Himagelist, i2: Int, dx: Int, dy: Int): Himagelist =
-    wasiWindowssysWindowsWin32UiControlsImageListMerge(himl1, i1, himl2, i2, dx, dy).toLong()
+    wasiWindowssysWindowsWin32UiControlsImageListMerge(himl1, i1, himl2, i2, dx, dy)
 
 public actual fun imageListRead(pstm: MutPtr<CVoid>): Himagelist =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiControlsImageListRead")
@@ -635,7 +635,7 @@ public actual fun imageListReadEx(dwflags: UInt, pstm: MutPtr<CVoid>, riid: Cons
 private external fun wasiWindowssysWindowsWin32UiControlsImageListRemove(himl: Long, i: Int): Int
 
 public actual fun imageListRemove(himl: Himagelist, i: Int): Bool =
-    wasiWindowssysWindowsWin32UiControlsImageListRemove(himl, i).toInt()
+    wasiWindowssysWindowsWin32UiControlsImageListRemove(himl, i)
 
 public actual fun imageListReplace(himl: Himagelist, i: Int, hbmimage: Hbitmap, hbmmask: Hbitmap): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiControlsImageListReplace")
@@ -653,25 +653,25 @@ public actual fun imageListSetBkColor(himl: Himagelist, clrbk: Colorref): Colorr
 private external fun wasiWindowssysWindowsWin32UiControlsImageListSetDragCursorImage(himldrag: Long, idrag: Int, dxhotspot: Int, dyhotspot: Int): Int
 
 public actual fun imageListSetDragCursorImage(himldrag: Himagelist, idrag: Int, dxhotspot: Int, dyhotspot: Int): Bool =
-    wasiWindowssysWindowsWin32UiControlsImageListSetDragCursorImage(himldrag, idrag, dxhotspot, dyhotspot).toInt()
+    wasiWindowssysWindowsWin32UiControlsImageListSetDragCursorImage(himldrag, idrag, dxhotspot, dyhotspot)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiControlsImageListSetIconSize")
 private external fun wasiWindowssysWindowsWin32UiControlsImageListSetIconSize(himl: Long, cx: Int, cy: Int): Int
 
 public actual fun imageListSetIconSize(himl: Himagelist, cx: Int, cy: Int): Bool =
-    wasiWindowssysWindowsWin32UiControlsImageListSetIconSize(himl, cx, cy).toInt()
+    wasiWindowssysWindowsWin32UiControlsImageListSetIconSize(himl, cx, cy)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiControlsImageListSetImageCount")
 private external fun wasiWindowssysWindowsWin32UiControlsImageListSetImageCount(himl: Long, unewcount: Int): Int
 
 public actual fun imageListSetImageCount(himl: Himagelist, unewcount: UInt): Bool =
-    wasiWindowssysWindowsWin32UiControlsImageListSetImageCount(himl, unewcount.toInt()).toInt()
+    wasiWindowssysWindowsWin32UiControlsImageListSetImageCount(himl, unewcount.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiControlsImageListSetOverlayImage")
 private external fun wasiWindowssysWindowsWin32UiControlsImageListSetOverlayImage(himl: Long, iimage: Int, ioverlay: Int): Int
 
 public actual fun imageListSetOverlayImage(himl: Himagelist, iimage: Int, ioverlay: Int): Bool =
-    wasiWindowssysWindowsWin32UiControlsImageListSetOverlayImage(himl, iimage, ioverlay).toInt()
+    wasiWindowssysWindowsWin32UiControlsImageListSetOverlayImage(himl, iimage, ioverlay)
 
 public actual fun imageListWrite(himl: Himagelist, pstm: MutPtr<CVoid>): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiControlsImageListWrite")
@@ -701,19 +701,19 @@ public actual fun initializeFlatSB(param0: Hwnd): Bool =
 private external fun wasiWindowssysWindowsWin32UiControlsIsAppThemed(): Int
 
 public actual fun isAppThemed(): Bool =
-    wasiWindowssysWindowsWin32UiControlsIsAppThemed().toInt()
+    wasiWindowssysWindowsWin32UiControlsIsAppThemed()
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiControlsIsCharLowerW")
 private external fun wasiWindowssysWindowsWin32UiControlsIsCharLowerW(ch: Int): Int
 
 public actual fun isCharLowerW(ch: UShort): Bool =
-    wasiWindowssysWindowsWin32UiControlsIsCharLowerW(ch.toInt()).toInt()
+    wasiWindowssysWindowsWin32UiControlsIsCharLowerW(ch.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiControlsIsCompositionActive")
 private external fun wasiWindowssysWindowsWin32UiControlsIsCompositionActive(): Int
 
 public actual fun isCompositionActive(): Bool =
-    wasiWindowssysWindowsWin32UiControlsIsCompositionActive().toInt()
+    wasiWindowssysWindowsWin32UiControlsIsCompositionActive()
 
 public actual fun isDlgButtonChecked(hdlg: Hwnd, nidbutton: Int): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiControlsIsDlgButtonChecked")
@@ -722,13 +722,13 @@ public actual fun isDlgButtonChecked(hdlg: Hwnd, nidbutton: Int): UInt =
 private external fun wasiWindowssysWindowsWin32UiControlsIsThemeActive(): Int
 
 public actual fun isThemeActive(): Bool =
-    wasiWindowssysWindowsWin32UiControlsIsThemeActive().toInt()
+    wasiWindowssysWindowsWin32UiControlsIsThemeActive()
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiControlsIsThemeBackgroundPartiallyTransparent")
 private external fun wasiWindowssysWindowsWin32UiControlsIsThemeBackgroundPartiallyTransparent(htheme: Long, ipartid: Int, istateid: Int): Int
 
 public actual fun isThemeBackgroundPartiallyTransparent(htheme: Htheme, ipartid: Int, istateid: Int): Bool =
-    wasiWindowssysWindowsWin32UiControlsIsThemeBackgroundPartiallyTransparent(htheme, ipartid, istateid).toInt()
+    wasiWindowssysWindowsWin32UiControlsIsThemeBackgroundPartiallyTransparent(htheme, ipartid, istateid)
 
 public actual fun isThemeDialogTextureEnabled(hwnd: Hwnd): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiControlsIsThemeDialogTextureEnabled")
@@ -737,7 +737,7 @@ public actual fun isThemeDialogTextureEnabled(hwnd: Hwnd): Bool =
 private external fun wasiWindowssysWindowsWin32UiControlsIsThemePartDefined(htheme: Long, ipartid: Int, istateid: Int): Int
 
 public actual fun isThemePartDefined(htheme: Htheme, ipartid: Int, istateid: Int): Bool =
-    wasiWindowssysWindowsWin32UiControlsIsThemePartDefined(htheme, ipartid, istateid).toInt()
+    wasiWindowssysWindowsWin32UiControlsIsThemePartDefined(htheme, ipartid, istateid)
 
 public actual fun lBItemFromPt(hlb: Hwnd, pt: Point, bautoscroll: Bool): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiControlsLBItemFromPt")

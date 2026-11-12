@@ -35,19 +35,19 @@ public actual fun cryptCATAdminEnumCatalogFromHash(hcatadmin: Long, pbhash: Cons
 private external fun wasiWindowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminPauseServiceForBackup(dwflags: Int, fresume: Int): Int
 
 public actual fun cryptCATAdminPauseServiceForBackup(dwflags: UInt, fresume: Bool): Bool =
-    wasiWindowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminPauseServiceForBackup(dwflags.toInt(), fresume).toInt()
+    wasiWindowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminPauseServiceForBackup(dwflags.toInt(), fresume)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminReleaseCatalogContext")
 private external fun wasiWindowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminReleaseCatalogContext(hcatadmin: Long, hcatinfo: Long, dwflags: Int): Int
 
 public actual fun cryptCATAdminReleaseCatalogContext(hcatadmin: Long, hcatinfo: Long, dwflags: UInt): Bool =
-    wasiWindowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminReleaseCatalogContext(hcatadmin, hcatinfo, dwflags.toInt()).toInt()
+    wasiWindowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminReleaseCatalogContext(hcatadmin, hcatinfo, dwflags.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminReleaseContext")
 private external fun wasiWindowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminReleaseContext(hcatadmin: Long, dwflags: Int): Int
 
 public actual fun cryptCATAdminReleaseContext(hcatadmin: Long, dwflags: UInt): Bool =
-    wasiWindowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminReleaseContext(hcatadmin, dwflags.toInt()).toInt()
+    wasiWindowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminReleaseContext(hcatadmin, dwflags.toInt())
 
 public actual fun cryptCATAdminRemoveCatalog(hcatadmin: Long, pwszcatalogfile: Pcwstr, dwflags: UInt): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminRemoveCatalog")

@@ -169,7 +169,7 @@ public actual fun setServiceW(dwnamespace: UInt, dwoperation: SetServiceOperatio
 private external fun wasiWindowssysWindowsWin32NetworkingWinsockSetSocketMediaStreamingMode(value: Int): Int
 
 public actual fun setSocketMediaStreamingMode(value: Bool): Hresult =
-    wasiWindowssysWindowsWin32NetworkingWinsockSetSocketMediaStreamingMode(value).toInt()
+    wasiWindowssysWindowsWin32NetworkingWinsockSetSocketMediaStreamingMode(value)
 
 public actual fun transmitFile(hsocket: Socket, hfile: Handle, nnumberofbytestowrite: UInt, nnumberofbytespersend: UInt, lpoverlapped: MutPtr<Overlapped>, lptransmitbuffers: ConstPtr<TransmitFileBuffers>, dwreserved: UInt): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingWinsockTransmitFile")
@@ -217,19 +217,19 @@ public actual fun wSACancelAsyncRequest(hasynctaskhandle: Handle): Int =
 private external fun wasiWindowssysWindowsWin32NetworkingWinsockWSACancelBlockingCall(): Int
 
 public actual fun wSACancelBlockingCall(): Int =
-    wasiWindowssysWindowsWin32NetworkingWinsockWSACancelBlockingCall().toInt()
+    wasiWindowssysWindowsWin32NetworkingWinsockWSACancelBlockingCall()
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingWinsockWSACleanup")
 private external fun wasiWindowssysWindowsWin32NetworkingWinsockWSACleanup(): Int
 
 public actual fun wSACleanup(): Int =
-    wasiWindowssysWindowsWin32NetworkingWinsockWSACleanup().toInt()
+    wasiWindowssysWindowsWin32NetworkingWinsockWSACleanup()
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingWinsockWSACloseEvent")
 private external fun wasiWindowssysWindowsWin32NetworkingWinsockWSACloseEvent(hevent: Long): Int
 
 public actual fun wSACloseEvent(hevent: Wsaevent): Bool =
-    wasiWindowssysWindowsWin32NetworkingWinsockWSACloseEvent(hevent).toInt()
+    wasiWindowssysWindowsWin32NetworkingWinsockWSACloseEvent(hevent)
 
 public actual fun wSAConnect(s: Socket, name: ConstPtr<Sockaddr>, namelen: Int, lpcallerdata: ConstPtr<Wsabuf>, lpcalleedata: MutPtr<Wsabuf>, lpsqos: ConstPtr<Qos>, lpgqos: ConstPtr<Qos>): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingWinsockWSAConnect")
@@ -247,7 +247,7 @@ public actual fun wSAConnectByNameW(s: Socket, nodename: Pcwstr, servicename: Pc
 private external fun wasiWindowssysWindowsWin32NetworkingWinsockWSACreateEvent(): Long
 
 public actual fun wSACreateEvent(): Wsaevent =
-    wasiWindowssysWindowsWin32NetworkingWinsockWSACreateEvent().toLong()
+    wasiWindowssysWindowsWin32NetworkingWinsockWSACreateEvent()
 
 public actual fun wSADeleteSocketPeerTargetName(socket: Socket, peeraddr: ConstPtr<Sockaddr>, peeraddrlen: UInt, overlapped: ConstPtr<Overlapped>, completionroutine: LpwsaoverlappedCompletionRoutine): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingWinsockWSADeleteSocketPeerTargetName")
@@ -283,13 +283,13 @@ public actual fun wSAEnumProtocolsW(lpiprotocols: ConstPtr<Int>, lpprotocolbuffe
 private external fun wasiWindowssysWindowsWin32NetworkingWinsockWSAEventSelect(s: Long, heventobject: Long, lnetworkevents: Int): Int
 
 public actual fun wSAEventSelect(s: Socket, heventobject: Wsaevent, lnetworkevents: Int): Int =
-    wasiWindowssysWindowsWin32NetworkingWinsockWSAEventSelect(s.toLong(), heventobject, lnetworkevents).toInt()
+    wasiWindowssysWindowsWin32NetworkingWinsockWSAEventSelect(s.toLong(), heventobject, lnetworkevents)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingWinsockWSAGetLastError")
 private external fun wasiWindowssysWindowsWin32NetworkingWinsockWSAGetLastError(): Int
 
 public actual fun wSAGetLastError(): WsaError =
-    wasiWindowssysWindowsWin32NetworkingWinsockWSAGetLastError().toInt()
+    wasiWindowssysWindowsWin32NetworkingWinsockWSAGetLastError()
 
 public actual fun wSAGetOverlappedResult(s: Socket, lpoverlapped: ConstPtr<Overlapped>, lpcbtransfer: MutPtr<UInt>, fwait: Bool, lpdwflags: MutPtr<UInt>): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingWinsockWSAGetOverlappedResult")
@@ -331,7 +331,7 @@ public actual fun wSAIoctl(s: Socket, dwiocontrolcode: UInt, lpvinbuffer: ConstP
 private external fun wasiWindowssysWindowsWin32NetworkingWinsockWSAIsBlocking(): Int
 
 public actual fun wSAIsBlocking(): Bool =
-    wasiWindowssysWindowsWin32NetworkingWinsockWSAIsBlocking().toInt()
+    wasiWindowssysWindowsWin32NetworkingWinsockWSAIsBlocking()
 
 public actual fun wSAJoinLeaf(s: Socket, name: ConstPtr<Sockaddr>, namelen: Int, lpcallerdata: ConstPtr<Wsabuf>, lpcalleedata: MutPtr<Wsabuf>, lpsqos: ConstPtr<Qos>, lpgqos: ConstPtr<Qos>, dwflags: UInt): Socket =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingWinsockWSAJoinLeaf")
@@ -391,13 +391,13 @@ public actual fun wSARemoveServiceClass(lpserviceclassid: ConstPtr<Guid>): Int =
 private external fun wasiWindowssysWindowsWin32NetworkingWinsockWSAResetEvent(hevent: Long): Int
 
 public actual fun wSAResetEvent(hevent: Wsaevent): Bool =
-    wasiWindowssysWindowsWin32NetworkingWinsockWSAResetEvent(hevent).toInt()
+    wasiWindowssysWindowsWin32NetworkingWinsockWSAResetEvent(hevent)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingWinsockWSARevertImpersonation")
 private external fun wasiWindowssysWindowsWin32NetworkingWinsockWSARevertImpersonation(): Int
 
 public actual fun wSARevertImpersonation(): Int =
-    wasiWindowssysWindowsWin32NetworkingWinsockWSARevertImpersonation().toInt()
+    wasiWindowssysWindowsWin32NetworkingWinsockWSARevertImpersonation()
 
 public actual fun wSASend(s: Socket, lpbuffers: ConstPtr<Wsabuf>, dwbuffercount: UInt, lpnumberofbytessent: MutPtr<UInt>, dwflags: UInt, lpoverlapped: MutPtr<Overlapped>, lpcompletionroutine: LpwsaoverlappedCompletionRoutine): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingWinsockWSASend")
@@ -418,7 +418,7 @@ public actual fun wSASetBlockingHook(lpblockfunc: Farproc): Farproc =
 private external fun wasiWindowssysWindowsWin32NetworkingWinsockWSASetEvent(hevent: Long): Int
 
 public actual fun wSASetEvent(hevent: Wsaevent): Bool =
-    wasiWindowssysWindowsWin32NetworkingWinsockWSASetEvent(hevent).toInt()
+    wasiWindowssysWindowsWin32NetworkingWinsockWSASetEvent(hevent)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingWinsockWSASetLastError")
 private external fun wasiWindowssysWindowsWin32NetworkingWinsockWSASetLastError(ierror: Int): Unit
@@ -460,7 +460,7 @@ public actual fun wSAUnadvertiseProvider(puuidproviderid: ConstPtr<Guid>): Int =
 private external fun wasiWindowssysWindowsWin32NetworkingWinsockWSAUnhookBlockingHook(): Int
 
 public actual fun wSAUnhookBlockingHook(): Int =
-    wasiWindowssysWindowsWin32NetworkingWinsockWSAUnhookBlockingHook().toInt()
+    wasiWindowssysWindowsWin32NetworkingWinsockWSAUnhookBlockingHook()
 
 public actual fun wSAWaitForMultipleEvents(cevents: UInt, lphevents: ConstPtr<Handle>, fwaitall: Bool, dwtimeout: UInt, falertable: Bool): WaitEvent =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingWinsockWSAWaitForMultipleEvents")
@@ -571,7 +571,7 @@ public actual fun bind(s: Socket, name: ConstPtr<Sockaddr>, namelen: Int): Int =
 private external fun wasiWindowssysWindowsWin32NetworkingWinsockClosesocket(s: Long): Int
 
 public actual fun closesocket(s: Socket): Int =
-    wasiWindowssysWindowsWin32NetworkingWinsockClosesocket(s.toLong()).toInt()
+    wasiWindowssysWindowsWin32NetworkingWinsockClosesocket(s.toLong())
 
 public actual fun connect(s: Socket, name: ConstPtr<Sockaddr>, namelen: Int): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingWinsockConnect")
@@ -645,7 +645,7 @@ public actual fun ioctlsocket(s: Socket, cmd: Int, argp: MutPtr<UInt>): Int =
 private external fun wasiWindowssysWindowsWin32NetworkingWinsockListen(s: Long, backlog: Int): Int
 
 public actual fun listen(s: Socket, backlog: Int): Int =
-    wasiWindowssysWindowsWin32NetworkingWinsockListen(s.toLong(), backlog).toInt()
+    wasiWindowssysWindowsWin32NetworkingWinsockListen(s.toLong(), backlog)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingWinsockNtohl")
 private external fun wasiWindowssysWindowsWin32NetworkingWinsockNtohl(netlong: Int): Int
@@ -681,7 +681,7 @@ public actual fun setsockopt(s: Socket, level: Int, optname: Int, optval: Pcstr,
 private external fun wasiWindowssysWindowsWin32NetworkingWinsockShutdown(s: Long, how: Int): Int
 
 public actual fun shutdown(s: Socket, how: WinsockShutdownHow): Int =
-    wasiWindowssysWindowsWin32NetworkingWinsockShutdown(s.toLong(), how).toInt()
+    wasiWindowssysWindowsWin32NetworkingWinsockShutdown(s.toLong(), how)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkingWinsockSocket")
 private external fun wasiWindowssysWindowsWin32NetworkingWinsockSocket(af: Int, type: Int, protocol: Int): Long

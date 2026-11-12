@@ -49,7 +49,7 @@ public actual fun snmpCountVbl(vbl: Long): UInt =
 private external fun wasiWindowssysWindowsWin32NetworkmanagementSnmpSnmpCreatePdu(session: Long, pduType: Int, requestId: Int, errorStatus: Int, errorIndex: Int, varbindlist: Long): Long
 
 public actual fun snmpCreatePdu(session: Long, pduType: SnmpPduType, requestId: Int, errorStatus: Int, errorIndex: Int, varbindlist: Long): Long =
-    wasiWindowssysWindowsWin32NetworkmanagementSnmpSnmpCreatePdu(session, pduType.toInt(), requestId, errorStatus, errorIndex, varbindlist).toLong()
+    wasiWindowssysWindowsWin32NetworkmanagementSnmpSnmpCreatePdu(session, pduType.toInt(), requestId, errorStatus, errorIndex, varbindlist)
 
 public actual fun snmpCreateSession(hwnd: Hwnd, wmsg: UInt, fcallback: SnmpapiCallback, lpclientdata: MutPtr<CVoid>): Long =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkmanagementSnmpSnmpCreateSession")
@@ -70,13 +70,13 @@ public actual fun snmpDeleteVb(vbl: Long, index: UInt): UInt =
 private external fun wasiWindowssysWindowsWin32NetworkmanagementSnmpSnmpDuplicatePdu(session: Long, pdu: Long): Long
 
 public actual fun snmpDuplicatePdu(session: Long, pdu: Long): Long =
-    wasiWindowssysWindowsWin32NetworkmanagementSnmpSnmpDuplicatePdu(session, pdu).toLong()
+    wasiWindowssysWindowsWin32NetworkmanagementSnmpSnmpDuplicatePdu(session, pdu)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkmanagementSnmpSnmpDuplicateVbl")
 private external fun wasiWindowssysWindowsWin32NetworkmanagementSnmpSnmpDuplicateVbl(session: Long, vbl: Long): Long
 
 public actual fun snmpDuplicateVbl(session: Long, vbl: Long): Long =
-    wasiWindowssysWindowsWin32NetworkmanagementSnmpSnmpDuplicateVbl(session, vbl).toLong()
+    wasiWindowssysWindowsWin32NetworkmanagementSnmpSnmpDuplicateVbl(session, vbl)
 
 public actual fun snmpEncodeMsg(session: Long, srcentity: Long, dstentity: Long, context: Long, pdu: Long, msgbufdesc: MutPtr<SmiOctets>): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkmanagementSnmpSnmpEncodeMsg")

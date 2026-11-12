@@ -74,7 +74,7 @@ import io.github.kotlinmania.windowssys.windows.win32.system.rpc.SecWinntAuthIde
 private external fun wasiWindowssysWindowsWdkNetworkmanagementWindowsfilteringplatformFwpmBfeStateGet0(): Int
 
 public actual fun fwpmBfeStateGet0(): FwpmServiceState =
-    wasiWindowssysWindowsWdkNetworkmanagementWindowsfilteringplatformFwpmBfeStateGet0().toInt()
+    wasiWindowssysWindowsWdkNetworkmanagementWindowsfilteringplatformFwpmBfeStateGet0()
 
 public actual fun fwpmBfeStateSubscribeChanges0(deviceobject: MutPtr<CVoid>, callback: FwpmServiceStateChangeCallback0, context: ConstPtr<CVoid>, changehandle: MutPtr<Handle>): Ntstatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWdkNetworkmanagementWindowsfilteringplatformFwpmBfeStateSubscribeChanges0")

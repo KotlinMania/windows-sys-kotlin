@@ -18,7 +18,7 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 private external fun wasiWindowssysWindowsWin32DevicesFaxCanSendToFaxRecipient(): Int
 
 public actual fun canSendToFaxRecipient(): Bool =
-    wasiWindowssysWindowsWin32DevicesFaxCanSendToFaxRecipient().toInt()
+    wasiWindowssysWindowsWin32DevicesFaxCanSendToFaxRecipient()
 
 public actual fun faxAbort(faxhandle: Handle, jobid: UInt): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DevicesFaxFaxAbort")

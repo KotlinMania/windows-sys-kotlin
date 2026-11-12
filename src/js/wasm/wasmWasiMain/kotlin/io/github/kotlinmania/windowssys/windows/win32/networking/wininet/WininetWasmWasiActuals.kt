@@ -129,7 +129,7 @@ public actual fun deleteUrlCacheGroup(groupid: Long, dwflags: UInt, lpreserved: 
 private external fun wasiWindowssysWindowsWin32NetworkingWininetDeleteWpadCacheForNetworks(param0: Int): Int
 
 public actual fun deleteWpadCacheForNetworks(param0: WpadCacheDelete): Bool =
-    wasiWindowssysWindowsWin32NetworkingWininetDeleteWpadCacheForNetworks(param0).toInt()
+    wasiWindowssysWindowsWin32NetworkingWininetDeleteWpadCacheForNetworks(param0)
 
 public actual fun detectAutoProxyUrl(pszautoproxyurl: Pstr, cchautoproxyurl: UInt, dwdetectflags: ProxyAutoDetectType): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingWininetDetectAutoProxyUrl")
@@ -138,7 +138,7 @@ public actual fun detectAutoProxyUrl(pszautoproxyurl: Pstr, cchautoproxyurl: UIn
 private external fun wasiWindowssysWindowsWin32NetworkingWininetDoConnectoidsExist(): Int
 
 public actual fun doConnectoidsExist(): Bool =
-    wasiWindowssysWindowsWin32NetworkingWininetDoConnectoidsExist().toInt()
+    wasiWindowssysWindowsWin32NetworkingWininetDoConnectoidsExist()
 
 public actual fun exportCookieFileA(szfilename: Pcstr, fappend: Bool): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingWininetExportCookieFileA")
@@ -454,7 +454,7 @@ public actual fun internetAutodial(dwflags: InternetAutodial, hwndparent: Hwnd):
 private external fun wasiWindowssysWindowsWin32NetworkingWininetInternetAutodialHangup(dwreserved: Int): Int
 
 public actual fun internetAutodialHangup(dwreserved: UInt): Bool =
-    wasiWindowssysWindowsWin32NetworkingWininetInternetAutodialHangup(dwreserved.toInt()).toInt()
+    wasiWindowssysWindowsWin32NetworkingWininetInternetAutodialHangup(dwreserved.toInt())
 
 public actual fun internetCanonicalizeUrlA(lpszurl: Pcstr, lpszbuffer: Pstr, lpdwbufferlength: MutPtr<UInt>, dwflags: UInt): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingWininetInternetCanonicalizeUrlA")
@@ -472,7 +472,7 @@ public actual fun internetCheckConnectionW(lpszurl: Pcwstr, dwflags: UInt, dwres
 private external fun wasiWindowssysWindowsWin32NetworkingWininetInternetClearAllPerSiteCookieDecisions(): Int
 
 public actual fun internetClearAllPerSiteCookieDecisions(): Bool =
-    wasiWindowssysWindowsWin32NetworkingWininetInternetClearAllPerSiteCookieDecisions().toInt()
+    wasiWindowssysWindowsWin32NetworkingWininetInternetClearAllPerSiteCookieDecisions()
 
 public actual fun internetCloseHandle(hinternet: ConstPtr<CVoid>): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingWininetInternetCloseHandle")
@@ -614,7 +614,7 @@ public actual fun internetHangUp(dwconnection: ULong, dwreserved: UInt): UInt =
 private external fun wasiWindowssysWindowsWin32NetworkingWininetInternetInitializeAutoProxyDll(dwreserved: Int): Int
 
 public actual fun internetInitializeAutoProxyDll(dwreserved: UInt): Bool =
-    wasiWindowssysWindowsWin32NetworkingWininetInternetInitializeAutoProxyDll(dwreserved.toInt()).toInt()
+    wasiWindowssysWindowsWin32NetworkingWininetInternetInitializeAutoProxyDll(dwreserved.toInt())
 
 public actual fun internetLockRequestFile(hinternet: ConstPtr<CVoid>, lphlockrequestinfo: MutPtr<Handle>): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingWininetInternetLockRequestFile")
@@ -764,7 +764,7 @@ public actual fun isHostInProxyBypassList(tscheme: InternetScheme, lpszhost: Pcs
 private external fun wasiWindowssysWindowsWin32NetworkingWininetIsProfilesEnabled(): Int
 
 public actual fun isProfilesEnabled(): Bool =
-    wasiWindowssysWindowsWin32NetworkingWininetIsProfilesEnabled().toInt()
+    wasiWindowssysWindowsWin32NetworkingWininetIsProfilesEnabled()
 
 public actual fun isUrlCacheEntryExpiredA(lpszurlname: Pcstr, dwflags: UInt, pftlastmodified: MutPtr<Filetime>): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingWininetIsUrlCacheEntryExpiredA")
@@ -776,7 +776,7 @@ public actual fun isUrlCacheEntryExpiredW(lpszurlname: Pcwstr, dwflags: UInt, pf
 private external fun wasiWindowssysWindowsWin32NetworkingWininetLoadUrlCacheContent(): Int
 
 public actual fun loadUrlCacheContent(): Bool =
-    wasiWindowssysWindowsWin32NetworkingWininetLoadUrlCacheContent().toInt()
+    wasiWindowssysWindowsWin32NetworkingWininetLoadUrlCacheContent()
 
 public actual fun parseX509EncodedCertificateForListBoxEntry(lpcert: ConstPtr<UByte>, cbcert: UInt, lpszlistboxentry: Pstr, lpdwlistboxentry: MutPtr<UInt>): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingWininetParseX509EncodedCertificateForListBoxEntry")
@@ -851,7 +851,7 @@ public actual fun setUrlCacheGroupAttributeW(gid: Long, dwflags: UInt, dwattribu
 private external fun wasiWindowssysWindowsWin32NetworkingWininetSetUrlCacheHeaderData(nidx: Int, dwdata: Int): Int
 
 public actual fun setUrlCacheHeaderData(nidx: UInt, dwdata: UInt): Bool =
-    wasiWindowssysWindowsWin32NetworkingWininetSetUrlCacheHeaderData(nidx.toInt(), dwdata.toInt()).toInt()
+    wasiWindowssysWindowsWin32NetworkingWininetSetUrlCacheHeaderData(nidx.toInt(), dwdata.toInt())
 
 public actual fun showClientAuthCerts(hwndparent: Hwnd): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingWininetShowClientAuthCerts")

@@ -190,19 +190,19 @@ public actual fun sCardAddReaderToGroupW(hcontext: ULong, szreadername: Pcwstr, 
 private external fun wasiWindowssysWindowsWin32SecurityCredentialsSCardAudit(hcontext: Long, dwevent: Int): Int
 
 public actual fun sCardAudit(hcontext: ULong, dwevent: UInt): Int =
-    wasiWindowssysWindowsWin32SecurityCredentialsSCardAudit(hcontext.toLong(), dwevent.toInt()).toInt()
+    wasiWindowssysWindowsWin32SecurityCredentialsSCardAudit(hcontext.toLong(), dwevent.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SecurityCredentialsSCardBeginTransaction")
 private external fun wasiWindowssysWindowsWin32SecurityCredentialsSCardBeginTransaction(hcard: Long): Int
 
 public actual fun sCardBeginTransaction(hcard: ULong): Int =
-    wasiWindowssysWindowsWin32SecurityCredentialsSCardBeginTransaction(hcard.toLong()).toInt()
+    wasiWindowssysWindowsWin32SecurityCredentialsSCardBeginTransaction(hcard.toLong())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SecurityCredentialsSCardCancel")
 private external fun wasiWindowssysWindowsWin32SecurityCredentialsSCardCancel(hcontext: Long): Int
 
 public actual fun sCardCancel(hcontext: ULong): Int =
-    wasiWindowssysWindowsWin32SecurityCredentialsSCardCancel(hcontext.toLong()).toInt()
+    wasiWindowssysWindowsWin32SecurityCredentialsSCardCancel(hcontext.toLong())
 
 public actual fun sCardConnectA(hcontext: ULong, szreader: Pcstr, dwsharemode: UInt, dwpreferredprotocols: UInt, phcard: MutPtr<ULong>, pdwactiveprotocol: MutPtr<UInt>): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SecurityCredentialsSCardConnectA")
@@ -217,19 +217,19 @@ public actual fun sCardControl(hcard: ULong, dwcontrolcode: UInt, lpinbuffer: Co
 private external fun wasiWindowssysWindowsWin32SecurityCredentialsSCardDisconnect(hcard: Long, dwdisposition: Int): Int
 
 public actual fun sCardDisconnect(hcard: ULong, dwdisposition: UInt): Int =
-    wasiWindowssysWindowsWin32SecurityCredentialsSCardDisconnect(hcard.toLong(), dwdisposition.toInt()).toInt()
+    wasiWindowssysWindowsWin32SecurityCredentialsSCardDisconnect(hcard.toLong(), dwdisposition.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SecurityCredentialsSCardDlgExtendedError")
 private external fun wasiWindowssysWindowsWin32SecurityCredentialsSCardDlgExtendedError(): Int
 
 public actual fun sCardDlgExtendedError(): Int =
-    wasiWindowssysWindowsWin32SecurityCredentialsSCardDlgExtendedError().toInt()
+    wasiWindowssysWindowsWin32SecurityCredentialsSCardDlgExtendedError()
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SecurityCredentialsSCardEndTransaction")
 private external fun wasiWindowssysWindowsWin32SecurityCredentialsSCardEndTransaction(hcard: Long, dwdisposition: Int): Int
 
 public actual fun sCardEndTransaction(hcard: ULong, dwdisposition: UInt): Int =
-    wasiWindowssysWindowsWin32SecurityCredentialsSCardEndTransaction(hcard.toLong(), dwdisposition.toInt()).toInt()
+    wasiWindowssysWindowsWin32SecurityCredentialsSCardEndTransaction(hcard.toLong(), dwdisposition.toInt())
 
 public actual fun sCardEstablishContext(dwscope: ScardScope, pvreserved1: ConstPtr<CVoid>, pvreserved2: ConstPtr<CVoid>, phcontext: MutPtr<ULong>): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SecurityCredentialsSCardEstablishContext")
@@ -319,7 +319,7 @@ public actual fun sCardIntroduceReaderW(hcontext: ULong, szreadername: Pcwstr, s
 private external fun wasiWindowssysWindowsWin32SecurityCredentialsSCardIsValidContext(hcontext: Long): Int
 
 public actual fun sCardIsValidContext(hcontext: ULong): Int =
-    wasiWindowssysWindowsWin32SecurityCredentialsSCardIsValidContext(hcontext.toLong()).toInt()
+    wasiWindowssysWindowsWin32SecurityCredentialsSCardIsValidContext(hcontext.toLong())
 
 public actual fun sCardListCardsA(hcontext: ULong, pbatr: ConstPtr<UByte>, rgquidinterfaces: ConstPtr<Guid>, cguidinterfacecount: UInt, mszcards: Pstr, pcchcards: MutPtr<UInt>): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SecurityCredentialsSCardListCardsA")
@@ -376,7 +376,7 @@ public actual fun sCardReconnect(hcard: ULong, dwsharemode: UInt, dwpreferredpro
 private external fun wasiWindowssysWindowsWin32SecurityCredentialsSCardReleaseContext(hcontext: Long): Int
 
 public actual fun sCardReleaseContext(hcontext: ULong): Int =
-    wasiWindowssysWindowsWin32SecurityCredentialsSCardReleaseContext(hcontext.toLong()).toInt()
+    wasiWindowssysWindowsWin32SecurityCredentialsSCardReleaseContext(hcontext.toLong())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SecurityCredentialsSCardReleaseStartedEvent")
 private external fun wasiWindowssysWindowsWin32SecurityCredentialsSCardReleaseStartedEvent(): Unit

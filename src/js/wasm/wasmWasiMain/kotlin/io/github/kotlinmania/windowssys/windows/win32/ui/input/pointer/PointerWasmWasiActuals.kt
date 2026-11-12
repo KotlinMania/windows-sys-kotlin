@@ -19,7 +19,7 @@ import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Poi
 private external fun wasiWindowssysWindowsWin32UiInputPointerEnableMouseInPointer(fenable: Int): Int
 
 public actual fun enableMouseInPointer(fenable: Bool): Bool =
-    wasiWindowssysWindowsWin32UiInputPointerEnableMouseInPointer(fenable).toInt()
+    wasiWindowssysWindowsWin32UiInputPointerEnableMouseInPointer(fenable)
 
 public actual fun getPointerCursorId(pointerid: UInt, cursorid: MutPtr<UInt>): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiInputPointerGetPointerCursorId")
@@ -94,7 +94,7 @@ public actual fun getUnpredictedMessagePos(): UInt =
 private external fun wasiWindowssysWindowsWin32UiInputPointerInitializeTouchInjection(maxcount: Int, dwmode: Int): Int
 
 public actual fun initializeTouchInjection(maxcount: UInt, dwmode: TouchFeedbackMode): Bool =
-    wasiWindowssysWindowsWin32UiInputPointerInitializeTouchInjection(maxcount.toInt(), dwmode.toInt()).toInt()
+    wasiWindowssysWindowsWin32UiInputPointerInitializeTouchInjection(maxcount.toInt(), dwmode.toInt())
 
 public actual fun injectSyntheticPointerInput(device: Hsyntheticpointerdevice, pointerinfo: ConstPtr<PointerTypeInfo>, count: UInt): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiInputPointerInjectSyntheticPointerInput")
@@ -106,10 +106,10 @@ public actual fun injectTouchInput(count: UInt, contacts: ConstPtr<PointerTouchI
 private external fun wasiWindowssysWindowsWin32UiInputPointerIsMouseInPointerEnabled(): Int
 
 public actual fun isMouseInPointerEnabled(): Bool =
-    wasiWindowssysWindowsWin32UiInputPointerIsMouseInPointerEnabled().toInt()
+    wasiWindowssysWindowsWin32UiInputPointerIsMouseInPointerEnabled()
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiInputPointerSkipPointerFrameMessages")
 private external fun wasiWindowssysWindowsWin32UiInputPointerSkipPointerFrameMessages(pointerid: Int): Int
 
 public actual fun skipPointerFrameMessages(pointerid: UInt): Bool =
-    wasiWindowssysWindowsWin32UiInputPointerSkipPointerFrameMessages(pointerid.toInt()).toInt()
+    wasiWindowssysWindowsWin32UiInputPointerSkipPointerFrameMessages(pointerid.toInt())

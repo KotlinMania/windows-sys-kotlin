@@ -23,7 +23,7 @@ public actual fun checkForHiberboot(phiberboot: MutPtr<Boolean>, bclearflag: Boo
 private external fun wasiWindowssysWindowsWin32SystemShutdownExitWindowsEx(uflags: Int, dwreason: Int): Int
 
 public actual fun exitWindowsEx(uflags: ExitWindowsFlags, dwreason: ShutdownReason): Bool =
-    wasiWindowssysWindowsWin32SystemShutdownExitWindowsEx(uflags.toInt(), dwreason.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemShutdownExitWindowsEx(uflags.toInt(), dwreason.toInt())
 
 public actual fun initiateShutdownA(lpmachinename: Pcstr, lpmessage: Pcstr, dwgraceperiod: UInt, dwshutdownflags: ShutdownFlags, dwreason: ShutdownReason): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemShutdownInitiateShutdownA")
@@ -47,7 +47,7 @@ public actual fun initiateSystemShutdownW(lpmachinename: Pcwstr, lpmessage: Pcws
 private external fun wasiWindowssysWindowsWin32SystemShutdownLockWorkStation(): Int
 
 public actual fun lockWorkStation(): Bool =
-    wasiWindowssysWindowsWin32SystemShutdownLockWorkStation().toInt()
+    wasiWindowssysWindowsWin32SystemShutdownLockWorkStation()
 
 public actual fun shutdownBlockReasonCreate(hwnd: Hwnd, pwszreason: Pcwstr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemShutdownShutdownBlockReasonCreate")

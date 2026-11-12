@@ -14,10 +14,10 @@ public actual fun doMsCtfMonitor(dwflags: UInt, heventforservicestop: Handle): B
 private external fun wasiWindowssysWindowsWin32UiTextservicesInitLocalMsCtfMonitor(dwflags: Int): Int
 
 public actual fun initLocalMsCtfMonitor(dwflags: UInt): Hresult =
-    wasiWindowssysWindowsWin32UiTextservicesInitLocalMsCtfMonitor(dwflags.toInt()).toInt()
+    wasiWindowssysWindowsWin32UiTextservicesInitLocalMsCtfMonitor(dwflags.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiTextservicesUninitLocalMsCtfMonitor")
 private external fun wasiWindowssysWindowsWin32UiTextservicesUninitLocalMsCtfMonitor(): Int
 
 public actual fun uninitLocalMsCtfMonitor(): Hresult =
-    wasiWindowssysWindowsWin32UiTextservicesUninitLocalMsCtfMonitor().toInt()
+    wasiWindowssysWindowsWin32UiTextservicesUninitLocalMsCtfMonitor()

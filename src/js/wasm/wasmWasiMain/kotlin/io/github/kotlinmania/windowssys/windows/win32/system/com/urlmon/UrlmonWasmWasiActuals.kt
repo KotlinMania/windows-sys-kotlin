@@ -59,7 +59,7 @@ public actual fun coInternetGetSession(dwsessionmode: UInt, ppiinternetsession: 
 private external fun wasiWindowssysWindowsWin32SystemComUrlmonCoInternetIsFeatureEnabled(featureentry: Int, dwflags: Int): Int
 
 public actual fun coInternetIsFeatureEnabled(featureentry: Internetfeaturelist, dwflags: UInt): Hresult =
-    wasiWindowssysWindowsWin32SystemComUrlmonCoInternetIsFeatureEnabled(featureentry, dwflags.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemComUrlmonCoInternetIsFeatureEnabled(featureentry, dwflags.toInt())
 
 public actual fun coInternetIsFeatureEnabledForIUri(featureentry: Internetfeaturelist, dwflags: UInt, piuri: MutPtr<CVoid>, psecmgr: MutPtr<CVoid>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemComUrlmonCoInternetIsFeatureEnabledForIUri")
@@ -83,7 +83,7 @@ public actual fun coInternetQueryInfo(pwzurl: Pcwstr, queryoptions: Queryoption,
 private external fun wasiWindowssysWindowsWin32SystemComUrlmonCoInternetSetFeatureEnabled(featureentry: Int, dwflags: Int, fenable: Int): Int
 
 public actual fun coInternetSetFeatureEnabled(featureentry: Internetfeaturelist, dwflags: UInt, fenable: Bool): Hresult =
-    wasiWindowssysWindowsWin32SystemComUrlmonCoInternetSetFeatureEnabled(featureentry, dwflags.toInt(), fenable).toInt()
+    wasiWindowssysWindowsWin32SystemComUrlmonCoInternetSetFeatureEnabled(featureentry, dwflags.toInt(), fenable)
 
 public actual fun compareSecurityIds(pbsecurityid1: ConstPtr<UByte>, dwlen1: UInt, pbsecurityid2: ConstPtr<UByte>, dwlen2: UInt, dwreserved: UInt): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemComUrlmonCompareSecurityIds")

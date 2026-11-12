@@ -43,7 +43,7 @@ public actual fun wTSDisconnectSession(hserver: Handle, sessionid: UInt, bwait: 
 private external fun wasiWindowssysWindowsWin32SystemRemotedesktopWTSEnableChildSessions(benable: Int): Int
 
 public actual fun wTSEnableChildSessions(benable: Bool): Bool =
-    wasiWindowssysWindowsWin32SystemRemotedesktopWTSEnableChildSessions(benable).toInt()
+    wasiWindowssysWindowsWin32SystemRemotedesktopWTSEnableChildSessions(benable)
 
 public actual fun wTSEnumerateListenersA(hserver: Handle, preserved: ConstPtr<CVoid>, reserved: UInt, plisteners: MutPtr<MutPtr<Byte>>, pcount: MutPtr<UInt>): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemRemotedesktopWTSEnumerateListenersA")
@@ -183,7 +183,7 @@ public actual fun wTSStartRemoteControlSessionW(ptargetservername: Pcwstr, targe
 private external fun wasiWindowssysWindowsWin32SystemRemotedesktopWTSStopRemoteControlSession(logonid: Int): Int
 
 public actual fun wTSStopRemoteControlSession(logonid: UInt): Bool =
-    wasiWindowssysWindowsWin32SystemRemotedesktopWTSStopRemoteControlSession(logonid.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemRemotedesktopWTSStopRemoteControlSession(logonid.toInt())
 
 public actual fun wTSTerminateProcess(hserver: Handle, processid: UInt, exitcode: UInt): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemRemotedesktopWTSTerminateProcess")

@@ -42,7 +42,7 @@ public actual fun addSIDToBoundaryDescriptor(boundarydescriptor: MutPtr<Handle>,
 private external fun wasiWindowssysWindowsWin32SystemThreadingAttachThreadInput(idattach: Int, idattachto: Int, fattach: Int): Int
 
 public actual fun attachThreadInput(idattach: UInt, idattachto: UInt, fattach: Bool): Bool =
-    wasiWindowssysWindowsWin32SystemThreadingAttachThreadInput(idattach.toInt(), idattachto.toInt(), fattach).toInt()
+    wasiWindowssysWindowsWin32SystemThreadingAttachThreadInput(idattach.toInt(), idattachto.toInt(), fattach)
 
 public actual fun avQuerySystemResponsiveness(avrthandle: Handle, systemresponsivenessvalue: MutPtr<UInt>): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemThreadingAvQuerySystemResponsiveness")
@@ -90,7 +90,7 @@ public actual fun avSetMmThreadPriority(avrthandle: Handle, priority: AvrtPriori
 private external fun wasiWindowssysWindowsWin32SystemThreadingCallbackMayRunLong(pci: Long): Int
 
 public actual fun callbackMayRunLong(pci: PtpCallbackInstance): Bool =
-    wasiWindowssysWindowsWin32SystemThreadingCallbackMayRunLong(pci).toInt()
+    wasiWindowssysWindowsWin32SystemThreadingCallbackMayRunLong(pci)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemThreadingCancelThreadpoolIo")
 private external fun wasiWindowssysWindowsWin32SystemThreadingCancelThreadpoolIo(pio: Long): Unit
@@ -152,7 +152,7 @@ public actual fun closeThreadpoolWork(pwk: PtpWork): Unit =
 private external fun wasiWindowssysWindowsWin32SystemThreadingConvertFiberToThread(): Int
 
 public actual fun convertFiberToThread(): Bool =
-    wasiWindowssysWindowsWin32SystemThreadingConvertFiberToThread().toInt()
+    wasiWindowssysWindowsWin32SystemThreadingConvertFiberToThread()
 
 public actual fun convertThreadToFiber(lpparameter: ConstPtr<CVoid>): MutPtr<CVoid> =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemThreadingConvertThreadToFiber")
@@ -248,7 +248,7 @@ public actual fun createThreadpool(reserved: ConstPtr<CVoid>): PtpPool =
 private external fun wasiWindowssysWindowsWin32SystemThreadingCreateThreadpoolCleanupGroup(): Long
 
 public actual fun createThreadpoolCleanupGroup(): PtpCleanupGroup =
-    wasiWindowssysWindowsWin32SystemThreadingCreateThreadpoolCleanupGroup().toLong()
+    wasiWindowssysWindowsWin32SystemThreadingCreateThreadpoolCleanupGroup()
 
 public actual fun createThreadpoolIo(fl: Handle, pfnio: PtpWin32IoCallback, pv: MutPtr<CVoid>, pcbe: ConstPtr<TpCallbackEnvironV3>): PtpIo =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemThreadingCreateThreadpoolIo")
@@ -355,7 +355,7 @@ public actual fun flsAlloc(lpcallback: PflsCallbackFunction): UInt =
 private external fun wasiWindowssysWindowsWin32SystemThreadingFlsFree(dwflsindex: Int): Int
 
 public actual fun flsFree(dwflsindex: UInt): Bool =
-    wasiWindowssysWindowsWin32SystemThreadingFlsFree(dwflsindex.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemThreadingFlsFree(dwflsindex.toInt())
 
 public actual fun flsGetValue(dwflsindex: UInt): MutPtr<CVoid> =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemThreadingFlsGetValue")
@@ -630,19 +630,19 @@ public actual fun isProcessCritical(hprocess: Handle, critical: MutPtr<Bool>): B
 private external fun wasiWindowssysWindowsWin32SystemThreadingIsProcessorFeaturePresent(processorfeature: Int): Int
 
 public actual fun isProcessorFeaturePresent(processorfeature: ProcessorFeatureId): Bool =
-    wasiWindowssysWindowsWin32SystemThreadingIsProcessorFeaturePresent(processorfeature.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemThreadingIsProcessorFeaturePresent(processorfeature.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemThreadingIsThreadAFiber")
 private external fun wasiWindowssysWindowsWin32SystemThreadingIsThreadAFiber(): Int
 
 public actual fun isThreadAFiber(): Bool =
-    wasiWindowssysWindowsWin32SystemThreadingIsThreadAFiber().toInt()
+    wasiWindowssysWindowsWin32SystemThreadingIsThreadAFiber()
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemThreadingIsThreadpoolTimerSet")
 private external fun wasiWindowssysWindowsWin32SystemThreadingIsThreadpoolTimerSet(pti: Long): Int
 
 public actual fun isThreadpoolTimerSet(pti: PtpTimer): Bool =
-    wasiWindowssysWindowsWin32SystemThreadingIsThreadpoolTimerSet(pti).toInt()
+    wasiWindowssysWindowsWin32SystemThreadingIsThreadpoolTimerSet(pti)
 
 public actual fun isWow64Process(hprocess: Handle, wow64process: MutPtr<Bool>): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemThreadingIsWow64Process")
@@ -768,7 +768,7 @@ public actual fun rtwqCancelDeadline(prequest: Handle): Hresult =
 private external fun wasiWindowssysWindowsWin32SystemThreadingRtwqCancelWorkItem(key: Long): Int
 
 public actual fun rtwqCancelWorkItem(key: ULong): Hresult =
-    wasiWindowssysWindowsWin32SystemThreadingRtwqCancelWorkItem(key.toLong()).toInt()
+    wasiWindowssysWindowsWin32SystemThreadingRtwqCancelWorkItem(key.toLong())
 
 public actual fun rtwqCreateAsyncResult(appobject: MutPtr<CVoid>, callback: MutPtr<CVoid>, appstate: MutPtr<CVoid>, asyncresult: MutPtr<MutPtr<CVoid>>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemThreadingRtwqCreateAsyncResult")
@@ -795,7 +795,7 @@ public actual fun rtwqJoinWorkQueue(workqueueid: UInt, hfile: Handle, out: MutPt
 private external fun wasiWindowssysWindowsWin32SystemThreadingRtwqLockPlatform(): Int
 
 public actual fun rtwqLockPlatform(): Hresult =
-    wasiWindowssysWindowsWin32SystemThreadingRtwqLockPlatform().toInt()
+    wasiWindowssysWindowsWin32SystemThreadingRtwqLockPlatform()
 
 public actual fun rtwqLockSharedWorkQueue(usageclass: Pcwstr, basepriority: Int, taskid: MutPtr<UInt>, id: MutPtr<UInt>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemThreadingRtwqLockSharedWorkQueue")
@@ -804,7 +804,7 @@ public actual fun rtwqLockSharedWorkQueue(usageclass: Pcwstr, basepriority: Int,
 private external fun wasiWindowssysWindowsWin32SystemThreadingRtwqLockWorkQueue(workqueueid: Int): Int
 
 public actual fun rtwqLockWorkQueue(workqueueid: UInt): Hresult =
-    wasiWindowssysWindowsWin32SystemThreadingRtwqLockWorkQueue(workqueueid.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemThreadingRtwqLockWorkQueue(workqueueid.toInt())
 
 public actual fun rtwqPutWaitingWorkItem(hevent: Handle, lpriority: Int, result: MutPtr<CVoid>, key: MutPtr<ULong>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemThreadingRtwqPutWaitingWorkItem")
@@ -822,7 +822,7 @@ public actual fun rtwqRegisterPlatformWithMMCSS(usageclass: Pcwstr, taskid: MutP
 private external fun wasiWindowssysWindowsWin32SystemThreadingRtwqRemovePeriodicCallback(dwkey: Int): Int
 
 public actual fun rtwqRemovePeriodicCallback(dwkey: UInt): Hresult =
-    wasiWindowssysWindowsWin32SystemThreadingRtwqRemovePeriodicCallback(dwkey.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemThreadingRtwqRemovePeriodicCallback(dwkey.toInt())
 
 public actual fun rtwqScheduleWorkItem(result: MutPtr<CVoid>, timeout: Long, key: MutPtr<ULong>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemThreadingRtwqScheduleWorkItem")
@@ -837,19 +837,19 @@ public actual fun rtwqSetDeadline2(workqueueid: UInt, deadlineinhns: Long, prede
 private external fun wasiWindowssysWindowsWin32SystemThreadingRtwqSetLongRunning(workqueueid: Int, enable: Int): Int
 
 public actual fun rtwqSetLongRunning(workqueueid: UInt, enable: Bool): Hresult =
-    wasiWindowssysWindowsWin32SystemThreadingRtwqSetLongRunning(workqueueid.toInt(), enable).toInt()
+    wasiWindowssysWindowsWin32SystemThreadingRtwqSetLongRunning(workqueueid.toInt(), enable)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemThreadingRtwqShutdown")
 private external fun wasiWindowssysWindowsWin32SystemThreadingRtwqShutdown(): Int
 
 public actual fun rtwqShutdown(): Hresult =
-    wasiWindowssysWindowsWin32SystemThreadingRtwqShutdown().toInt()
+    wasiWindowssysWindowsWin32SystemThreadingRtwqShutdown()
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemThreadingRtwqStartup")
 private external fun wasiWindowssysWindowsWin32SystemThreadingRtwqStartup(): Int
 
 public actual fun rtwqStartup(): Hresult =
-    wasiWindowssysWindowsWin32SystemThreadingRtwqStartup().toInt()
+    wasiWindowssysWindowsWin32SystemThreadingRtwqStartup()
 
 public actual fun rtwqUnjoinWorkQueue(workqueueid: UInt, hfile: Handle): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemThreadingRtwqUnjoinWorkQueue")
@@ -858,13 +858,13 @@ public actual fun rtwqUnjoinWorkQueue(workqueueid: UInt, hfile: Handle): Hresult
 private external fun wasiWindowssysWindowsWin32SystemThreadingRtwqUnlockPlatform(): Int
 
 public actual fun rtwqUnlockPlatform(): Hresult =
-    wasiWindowssysWindowsWin32SystemThreadingRtwqUnlockPlatform().toInt()
+    wasiWindowssysWindowsWin32SystemThreadingRtwqUnlockPlatform()
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemThreadingRtwqUnlockWorkQueue")
 private external fun wasiWindowssysWindowsWin32SystemThreadingRtwqUnlockWorkQueue(workqueueid: Int): Int
 
 public actual fun rtwqUnlockWorkQueue(workqueueid: UInt): Hresult =
-    wasiWindowssysWindowsWin32SystemThreadingRtwqUnlockWorkQueue(workqueueid.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemThreadingRtwqUnlockWorkQueue(workqueueid.toInt())
 
 public actual fun rtwqUnregisterPlatformEvents(platformevents: MutPtr<CVoid>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemThreadingRtwqUnregisterPlatformEvents")
@@ -873,7 +873,7 @@ public actual fun rtwqUnregisterPlatformEvents(platformevents: MutPtr<CVoid>): H
 private external fun wasiWindowssysWindowsWin32SystemThreadingRtwqUnregisterPlatformFromMMCSS(): Int
 
 public actual fun rtwqUnregisterPlatformFromMMCSS(): Hresult =
-    wasiWindowssysWindowsWin32SystemThreadingRtwqUnregisterPlatformFromMMCSS().toInt()
+    wasiWindowssysWindowsWin32SystemThreadingRtwqUnregisterPlatformFromMMCSS()
 
 public actual fun setCriticalSectionSpinCount(lpcriticalsection: MutPtr<CriticalSection>, dwspincount: UInt): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemThreadingSetCriticalSectionSpinCount")
@@ -896,7 +896,7 @@ public actual fun setProcessAffinityUpdateMode(hprocess: Handle, dwflags: Proces
 private external fun wasiWindowssysWindowsWin32SystemThreadingSetProcessDEPPolicy(dwflags: Int): Int
 
 public actual fun setProcessDEPPolicy(dwflags: ProcessDepFlags): Bool =
-    wasiWindowssysWindowsWin32SystemThreadingSetProcessDEPPolicy(dwflags.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemThreadingSetProcessDEPPolicy(dwflags.toInt())
 
 public actual fun setProcessDefaultCpuSetMasks(process: Handle, cpusetmasks: ConstPtr<GroupAffinity>, cpusetmaskcount: UShort): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemThreadingSetProcessDefaultCpuSetMasks")
@@ -923,13 +923,13 @@ public actual fun setProcessPriorityBoost(hprocess: Handle, bdisablepriorityboos
 private external fun wasiWindowssysWindowsWin32SystemThreadingSetProcessRestrictionExemption(fenableexemption: Int): Int
 
 public actual fun setProcessRestrictionExemption(fenableexemption: Bool): Bool =
-    wasiWindowssysWindowsWin32SystemThreadingSetProcessRestrictionExemption(fenableexemption).toInt()
+    wasiWindowssysWindowsWin32SystemThreadingSetProcessRestrictionExemption(fenableexemption)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemThreadingSetProcessShutdownParameters")
 private external fun wasiWindowssysWindowsWin32SystemThreadingSetProcessShutdownParameters(dwlevel: Int, dwflags: Int): Int
 
 public actual fun setProcessShutdownParameters(dwlevel: UInt, dwflags: UInt): Bool =
-    wasiWindowssysWindowsWin32SystemThreadingSetProcessShutdownParameters(dwlevel.toInt(), dwflags.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemThreadingSetProcessShutdownParameters(dwlevel.toInt(), dwflags.toInt())
 
 public actual fun setProcessWorkingSetSize(hprocess: Handle, dwminimumworkingsetsize: ULong, dwmaximumworkingsetsize: ULong): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemThreadingSetProcessWorkingSetSize")
@@ -986,7 +986,7 @@ public actual fun setThreadpoolThreadMaximum(ptpp: PtpPool, cthrdmost: UInt): Un
 private external fun wasiWindowssysWindowsWin32SystemThreadingSetThreadpoolThreadMinimum(ptpp: Long, cthrdmic: Int): Int
 
 public actual fun setThreadpoolThreadMinimum(ptpp: PtpPool, cthrdmic: UInt): Bool =
-    wasiWindowssysWindowsWin32SystemThreadingSetThreadpoolThreadMinimum(ptpp, cthrdmic.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemThreadingSetThreadpoolThreadMinimum(ptpp, cthrdmic.toInt())
 
 public actual fun setThreadpoolTimer(pti: PtpTimer, pftduetime: ConstPtr<Filetime>, msperiod: UInt, mswindowlength: UInt): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemThreadingSetThreadpoolTimer")
 
@@ -1052,7 +1052,7 @@ public actual fun switchToFiber(lpfiber: ConstPtr<CVoid>): Unit = throw Unsuppor
 private external fun wasiWindowssysWindowsWin32SystemThreadingSwitchToThread(): Int
 
 public actual fun switchToThread(): Bool =
-    wasiWindowssysWindowsWin32SystemThreadingSwitchToThread().toInt()
+    wasiWindowssysWindowsWin32SystemThreadingSwitchToThread()
 
 public actual fun terminateProcess(hprocess: Handle, uexitcode: UInt): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemThreadingTerminateProcess")
@@ -1070,7 +1070,7 @@ public actual fun tlsAlloc(): UInt =
 private external fun wasiWindowssysWindowsWin32SystemThreadingTlsFree(dwtlsindex: Int): Int
 
 public actual fun tlsFree(dwtlsindex: UInt): Bool =
-    wasiWindowssysWindowsWin32SystemThreadingTlsFree(dwtlsindex.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemThreadingTlsFree(dwtlsindex.toInt())
 
 public actual fun tlsGetValue(dwtlsindex: UInt): MutPtr<CVoid> =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemThreadingTlsGetValue")

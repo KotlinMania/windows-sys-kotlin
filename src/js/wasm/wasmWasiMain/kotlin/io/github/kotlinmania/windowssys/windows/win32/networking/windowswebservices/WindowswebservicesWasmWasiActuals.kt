@@ -51,7 +51,7 @@ public actual fun webAuthNGetPlatformCredentialList(pgetcredentialsoptions: Cons
 private external fun wasiWindowssysWindowsWin32NetworkingWindowswebservicesWebAuthNGetW3CExceptionDOMError(hr: Int): Int
 
 public actual fun webAuthNGetW3CExceptionDOMError(hr: Hresult): Hresult =
-    wasiWindowssysWindowsWin32NetworkingWindowswebservicesWebAuthNGetW3CExceptionDOMError(hr).toInt()
+    wasiWindowssysWindowsWin32NetworkingWindowswebservicesWebAuthNGetW3CExceptionDOMError(hr)
 
 public actual fun webAuthNIsUserVerifyingPlatformAuthenticatorAvailable(pbisuserverifyingplatformauthenticatoravailable: MutPtr<Bool>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNIsUserVerifyingPlatformAuthenticatorAvailable")

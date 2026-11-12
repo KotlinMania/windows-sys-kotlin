@@ -32,7 +32,7 @@ public actual fun cfDehydratePlaceholder(filehandle: Handle, startingoffset: Lon
 private external fun wasiWindowssysWindowsWin32StorageCloudfiltersCfDisconnectSyncRoot(connectionkey: Long): Int
 
 public actual fun cfDisconnectSyncRoot(connectionkey: CfConnectionKey): Hresult =
-    wasiWindowssysWindowsWin32StorageCloudfiltersCfDisconnectSyncRoot(connectionkey).toInt()
+    wasiWindowssysWindowsWin32StorageCloudfiltersCfDisconnectSyncRoot(connectionkey)
 
 public actual fun cfExecute(opinfo: ConstPtr<CfOperationInfo>, opparams: MutPtr<CfOperationParameters>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32StorageCloudfiltersCfExecute")
@@ -99,13 +99,13 @@ public actual fun cfReleaseTransferKey(filehandle: Handle, transferkey: ConstPtr
 private external fun wasiWindowssysWindowsWin32StorageCloudfiltersCfReportProviderProgress(connectionkey: Long, transferkey: Long, providerprogresstotal: Long, providerprogresscompleted: Long): Int
 
 public actual fun cfReportProviderProgress(connectionkey: CfConnectionKey, transferkey: Long, providerprogresstotal: Long, providerprogresscompleted: Long): Hresult =
-    wasiWindowssysWindowsWin32StorageCloudfiltersCfReportProviderProgress(connectionkey, transferkey, providerprogresstotal, providerprogresscompleted).toInt()
+    wasiWindowssysWindowsWin32StorageCloudfiltersCfReportProviderProgress(connectionkey, transferkey, providerprogresstotal, providerprogresscompleted)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32StorageCloudfiltersCfReportProviderProgress2")
 private external fun wasiWindowssysWindowsWin32StorageCloudfiltersCfReportProviderProgress2(connectionkey: Long, transferkey: Long, requestkey: Long, providerprogresstotal: Long, providerprogresscompleted: Long, targetsessionid: Int): Int
 
 public actual fun cfReportProviderProgress2(connectionkey: CfConnectionKey, transferkey: Long, requestkey: Long, providerprogresstotal: Long, providerprogresscompleted: Long, targetsessionid: UInt): Hresult =
-    wasiWindowssysWindowsWin32StorageCloudfiltersCfReportProviderProgress2(connectionkey, transferkey, requestkey, providerprogresstotal, providerprogresscompleted, targetsessionid.toInt()).toInt()
+    wasiWindowssysWindowsWin32StorageCloudfiltersCfReportProviderProgress2(connectionkey, transferkey, requestkey, providerprogresstotal, providerprogresscompleted, targetsessionid.toInt())
 
 public actual fun cfReportSyncStatus(syncrootpath: Pcwstr, syncstatus: ConstPtr<CfSyncStatus>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32StorageCloudfiltersCfReportSyncStatus")
@@ -132,4 +132,4 @@ public actual fun cfUpdatePlaceholder(filehandle: Handle, fsmetadata: ConstPtr<C
 private external fun wasiWindowssysWindowsWin32StorageCloudfiltersCfUpdateSyncProviderStatus(connectionkey: Long, providerstatus: Int): Int
 
 public actual fun cfUpdateSyncProviderStatus(connectionkey: CfConnectionKey, providerstatus: CfSyncProviderStatus): Hresult =
-    wasiWindowssysWindowsWin32StorageCloudfiltersCfUpdateSyncProviderStatus(connectionkey, providerstatus.toInt()).toInt()
+    wasiWindowssysWindowsWin32StorageCloudfiltersCfUpdateSyncProviderStatus(connectionkey, providerstatus.toInt())

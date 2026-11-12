@@ -68,7 +68,7 @@ public actual fun cMCreateTransformW(lpcolorspace: ConstPtr<Logcolorspacew>, lpd
 private external fun wasiWindowssysWindowsWin32UiColorsystemCMDeleteTransform(hcmtransform: Long): Int
 
 public actual fun cMDeleteTransform(hcmtransform: Long): Bool =
-    wasiWindowssysWindowsWin32UiColorsystemCMDeleteTransform(hcmtransform).toInt()
+    wasiWindowssysWindowsWin32UiColorsystemCMDeleteTransform(hcmtransform)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiColorsystemCMGetInfo")
 private external fun wasiWindowssysWindowsWin32UiColorsystemCMGetInfo(dwinfo: Int): Int
@@ -107,7 +107,7 @@ public actual fun checkColorsInGamut(hdc: Hdc, lprgbtriple: ConstPtr<Rgbtriple>,
 private external fun wasiWindowssysWindowsWin32UiColorsystemCloseColorProfile(hprofile: Long): Int
 
 public actual fun closeColorProfile(hprofile: Long): Bool =
-    wasiWindowssysWindowsWin32UiColorsystemCloseColorProfile(hprofile).toInt()
+    wasiWindowssysWindowsWin32UiColorsystemCloseColorProfile(hprofile)
 
 public actual fun colorCorrectPalette(hdc: Hdc, hpal: Hpalette, defirst: UInt, num: UInt): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiColorsystemColorCorrectPalette")
@@ -170,7 +170,7 @@ public actual fun deleteColorSpace(hcs: Hcolorspace): Bool =
 private external fun wasiWindowssysWindowsWin32UiColorsystemDeleteColorTransform(hxform: Long): Int
 
 public actual fun deleteColorTransform(hxform: Long): Bool =
-    wasiWindowssysWindowsWin32UiColorsystemDeleteColorTransform(hxform).toInt()
+    wasiWindowssysWindowsWin32UiColorsystemDeleteColorTransform(hxform)
 
 public actual fun disassociateColorProfileFromDeviceA(pmachinename: Pcstr, pprofilename: Pcstr, pdevicename: Pcstr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiColorsystemDisassociateColorProfileFromDeviceA")
@@ -281,7 +281,7 @@ public actual fun registerCMMW(pmachinename: Pcwstr, cmmid: UInt, pcmmdll: Pcwst
 private external fun wasiWindowssysWindowsWin32UiColorsystemSelectCMM(dwcmmtype: Int): Int
 
 public actual fun selectCMM(dwcmmtype: UInt): Bool =
-    wasiWindowssysWindowsWin32UiColorsystemSelectCMM(dwcmmtype.toInt()).toInt()
+    wasiWindowssysWindowsWin32UiColorsystemSelectCMM(dwcmmtype.toInt())
 
 public actual fun setColorProfileElement(hprofile: Long, tag: UInt, dwoffset: UInt, pcbelement: ConstPtr<UInt>, pelement: ConstPtr<CVoid>): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiColorsystemSetColorProfileElement")
@@ -290,13 +290,13 @@ public actual fun setColorProfileElement(hprofile: Long, tag: UInt, dwoffset: UI
 private external fun wasiWindowssysWindowsWin32UiColorsystemSetColorProfileElementReference(hprofile: Long, newtag: Int, reftag: Int): Int
 
 public actual fun setColorProfileElementReference(hprofile: Long, newtag: UInt, reftag: UInt): Bool =
-    wasiWindowssysWindowsWin32UiColorsystemSetColorProfileElementReference(hprofile, newtag.toInt(), reftag.toInt()).toInt()
+    wasiWindowssysWindowsWin32UiColorsystemSetColorProfileElementReference(hprofile, newtag.toInt(), reftag.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiColorsystemSetColorProfileElementSize")
 private external fun wasiWindowssysWindowsWin32UiColorsystemSetColorProfileElementSize(hprofile: Long, tagtype: Int, pcbelement: Int): Int
 
 public actual fun setColorProfileElementSize(hprofile: Long, tagtype: UInt, pcbelement: UInt): Bool =
-    wasiWindowssysWindowsWin32UiColorsystemSetColorProfileElementSize(hprofile, tagtype.toInt(), pcbelement.toInt()).toInt()
+    wasiWindowssysWindowsWin32UiColorsystemSetColorProfileElementSize(hprofile, tagtype.toInt(), pcbelement.toInt())
 
 public actual fun setColorProfileHeader(hprofile: Long, pheader: ConstPtr<Profileheader>): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiColorsystemSetColorProfileHeader")
@@ -362,7 +362,7 @@ public actual fun wcsCheckColors(hcolortransform: Long, ncolors: UInt, ninputcha
 private external fun wasiWindowssysWindowsWin32UiColorsystemWcsCreateIccProfile(hwcsprofile: Long, dwoptions: Int): Long
 
 public actual fun wcsCreateIccProfile(hwcsprofile: Long, dwoptions: UInt): Long =
-    wasiWindowssysWindowsWin32UiColorsystemWcsCreateIccProfile(hwcsprofile, dwoptions.toInt()).toLong()
+    wasiWindowssysWindowsWin32UiColorsystemWcsCreateIccProfile(hwcsprofile, dwoptions.toInt())
 
 public actual fun wcsDisassociateColorProfileFromDevice(scope: WcsProfileManagementScope, pprofilename: Pcwstr, pdevicename: Pcwstr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiColorsystemWcsDisassociateColorProfileFromDevice")
@@ -398,7 +398,7 @@ public actual fun wcsOpenColorProfileW(pcdmpprofile: ConstPtr<Profile>, pcamppro
 private external fun wasiWindowssysWindowsWin32UiColorsystemWcsSetCalibrationManagementState(bisenabled: Int): Int
 
 public actual fun wcsSetCalibrationManagementState(bisenabled: Bool): Bool =
-    wasiWindowssysWindowsWin32UiColorsystemWcsSetCalibrationManagementState(bisenabled).toInt()
+    wasiWindowssysWindowsWin32UiColorsystemWcsSetCalibrationManagementState(bisenabled)
 
 public actual fun wcsSetDefaultColorProfile(scope: WcsProfileManagementScope, pdevicename: Pcwstr, cptcolorprofiletype: Colorprofiletype, cpstcolorprofilesubtype: Colorprofilesubtype, dwprofileid: UInt, pprofilename: Pcwstr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiColorsystemWcsSetDefaultColorProfile")
@@ -407,7 +407,7 @@ public actual fun wcsSetDefaultColorProfile(scope: WcsProfileManagementScope, pd
 private external fun wasiWindowssysWindowsWin32UiColorsystemWcsSetDefaultRenderingIntent(scope: Int, dwrenderingintent: Int): Int
 
 public actual fun wcsSetDefaultRenderingIntent(scope: WcsProfileManagementScope, dwrenderingintent: UInt): Bool =
-    wasiWindowssysWindowsWin32UiColorsystemWcsSetDefaultRenderingIntent(scope, dwrenderingintent.toInt()).toInt()
+    wasiWindowssysWindowsWin32UiColorsystemWcsSetDefaultRenderingIntent(scope, dwrenderingintent.toInt())
 
 public actual fun wcsSetUsePerUserProfiles(pdevicename: Pcwstr, dwdeviceclass: UInt, useperuserprofiles: Bool): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiColorsystemWcsSetUsePerUserProfiles")

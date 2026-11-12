@@ -32,7 +32,7 @@ public actual fun getComputerNameExW(nametype: ComputerNameFormat, lpbuffer: Pws
 private external fun wasiWindowssysWindowsWin32SystemSysteminformationGetDeveloperDriveEnablementState(): Int
 
 public actual fun getDeveloperDriveEnablementState(): DeveloperDriveEnablementState =
-    wasiWindowssysWindowsWin32SystemSysteminformationGetDeveloperDriveEnablementState().toInt()
+    wasiWindowssysWindowsWin32SystemSysteminformationGetDeveloperDriveEnablementState()
 
 public actual fun getFirmwareType(firmwaretype: MutPtr<FirmwareType>): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationGetFirmwareType")
@@ -72,7 +72,7 @@ public actual fun getSystemCpuSetInformation(information: MutPtr<SystemCpuSetInf
 private external fun wasiWindowssysWindowsWin32SystemSysteminformationGetSystemDEPPolicy(): Int
 
 public actual fun getSystemDEPPolicy(): DepSystemPolicyType =
-    wasiWindowssysWindowsWin32SystemSysteminformationGetSystemDEPPolicy().toInt()
+    wasiWindowssysWindowsWin32SystemSysteminformationGetSystemDEPPolicy()
 
 public actual fun getSystemDirectoryA(lpbuffer: Pstr, usize: UInt): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationGetSystemDirectoryA")
@@ -157,7 +157,7 @@ public actual fun globalMemoryStatusEx(lpbuffer: MutPtr<Memorystatusex>): Bool =
 private external fun wasiWindowssysWindowsWin32SystemSysteminformationIsUserCetAvailableInEnvironment(usercetenvironment: Int): Int
 
 public actual fun isUserCetAvailableInEnvironment(usercetenvironment: UserCetEnvironment): Bool =
-    wasiWindowssysWindowsWin32SystemSysteminformationIsUserCetAvailableInEnvironment(usercetenvironment.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemSysteminformationIsUserCetAvailableInEnvironment(usercetenvironment.toInt())
 
 public actual fun isWow64GuestMachineSupported(wowguestmachine: ImageFileMachine, machineissupported: MutPtr<Bool>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationIsWow64GuestMachineSupported")
@@ -177,7 +177,7 @@ public actual fun rtlGetSystemGlobalData(dataid: RtlSystemGlobalDataId, buffer: 
 private external fun wasiWindowssysWindowsWin32SystemSysteminformationRtlOsDeploymentState(flags: Int): Int
 
 public actual fun rtlOsDeploymentState(flags: UInt): OsDeployementStateValues =
-    wasiWindowssysWindowsWin32SystemSysteminformationRtlOsDeploymentState(flags.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemSysteminformationRtlOsDeploymentState(flags.toInt())
 
 public actual fun rtlSwitchedVVI(versioninfo: ConstPtr<Osversioninfoexw>, typemask: UInt, conditionmask: ULong): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationRtlSwitchedVVI")
@@ -207,13 +207,13 @@ public actual fun setSystemTime(lpsystemtime: ConstPtr<Systemtime>): Bool =
 private external fun wasiWindowssysWindowsWin32SystemSysteminformationSetSystemTimeAdjustment(dwtimeadjustment: Int, btimeadjustmentdisabled: Int): Int
 
 public actual fun setSystemTimeAdjustment(dwtimeadjustment: UInt, btimeadjustmentdisabled: Bool): Bool =
-    wasiWindowssysWindowsWin32SystemSysteminformationSetSystemTimeAdjustment(dwtimeadjustment.toInt(), btimeadjustmentdisabled).toInt()
+    wasiWindowssysWindowsWin32SystemSysteminformationSetSystemTimeAdjustment(dwtimeadjustment.toInt(), btimeadjustmentdisabled)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemSysteminformationSetSystemTimeAdjustmentPrecise")
 private external fun wasiWindowssysWindowsWin32SystemSysteminformationSetSystemTimeAdjustmentPrecise(dwtimeadjustment: Long, btimeadjustmentdisabled: Int): Int
 
 public actual fun setSystemTimeAdjustmentPrecise(dwtimeadjustment: ULong, btimeadjustmentdisabled: Bool): Bool =
-    wasiWindowssysWindowsWin32SystemSysteminformationSetSystemTimeAdjustmentPrecise(dwtimeadjustment.toLong(), btimeadjustmentdisabled).toInt()
+    wasiWindowssysWindowsWin32SystemSysteminformationSetSystemTimeAdjustmentPrecise(dwtimeadjustment.toLong(), btimeadjustmentdisabled)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemSysteminformationVerSetConditionMask")
 private external fun wasiWindowssysWindowsWin32SystemSysteminformationVerSetConditionMask(conditionmask: Long, typemask: Int, condition: Int): Long

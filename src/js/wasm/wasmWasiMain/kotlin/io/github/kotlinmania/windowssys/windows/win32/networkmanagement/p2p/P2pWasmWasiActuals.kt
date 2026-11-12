@@ -195,7 +195,7 @@ public actual fun peerCollabSetPresenceInfo(pcpresenceinfo: ConstPtr<PeerPresenc
 private external fun wasiWindowssysWindowsWin32NetworkmanagementP2pPeerCollabShutdown(): Int
 
 public actual fun peerCollabShutdown(): Hresult =
-    wasiWindowssysWindowsWin32NetworkmanagementP2pPeerCollabShutdown().toInt()
+    wasiWindowssysWindowsWin32NetworkmanagementP2pPeerCollabShutdown()
 
 public actual fun peerCollabSignin(hwndparent: Hwnd, dwsigninoptions: UInt): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkmanagementP2pPeerCollabSignin")
@@ -204,13 +204,13 @@ public actual fun peerCollabSignin(hwndparent: Hwnd, dwsigninoptions: UInt): Hre
 private external fun wasiWindowssysWindowsWin32NetworkmanagementP2pPeerCollabSignout(dwsigninoptions: Int): Int
 
 public actual fun peerCollabSignout(dwsigninoptions: UInt): Hresult =
-    wasiWindowssysWindowsWin32NetworkmanagementP2pPeerCollabSignout(dwsigninoptions.toInt()).toInt()
+    wasiWindowssysWindowsWin32NetworkmanagementP2pPeerCollabSignout(dwsigninoptions.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32NetworkmanagementP2pPeerCollabStartup")
 private external fun wasiWindowssysWindowsWin32NetworkmanagementP2pPeerCollabStartup(wversionrequested: Int): Int
 
 public actual fun peerCollabStartup(wversionrequested: UShort): Hresult =
-    wasiWindowssysWindowsWin32NetworkmanagementP2pPeerCollabStartup(wversionrequested.toInt()).toInt()
+    wasiWindowssysWindowsWin32NetworkmanagementP2pPeerCollabStartup(wversionrequested.toInt())
 
 public actual fun peerCollabSubscribeEndpointData(pcendpoint: ConstPtr<PeerEndpoint>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkmanagementP2pPeerCollabSubscribeEndpointData")
@@ -442,7 +442,7 @@ public actual fun peerGraphSetProperties(hgraph: ConstPtr<CVoid>, pgraphproperti
 private external fun wasiWindowssysWindowsWin32NetworkmanagementP2pPeerGraphShutdown(): Int
 
 public actual fun peerGraphShutdown(): Hresult =
-    wasiWindowssysWindowsWin32NetworkmanagementP2pPeerGraphShutdown().toInt()
+    wasiWindowssysWindowsWin32NetworkmanagementP2pPeerGraphShutdown()
 
 public actual fun peerGraphStartup(wversionrequested: UShort, pversiondata: MutPtr<PeerVersionData>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkmanagementP2pPeerGraphStartup")
@@ -562,7 +562,7 @@ public actual fun peerGroupSetProperties(hgroup: ConstPtr<CVoid>, pproperties: C
 private external fun wasiWindowssysWindowsWin32NetworkmanagementP2pPeerGroupShutdown(): Int
 
 public actual fun peerGroupShutdown(): Hresult =
-    wasiWindowssysWindowsWin32NetworkmanagementP2pPeerGroupShutdown().toInt()
+    wasiWindowssysWindowsWin32NetworkmanagementP2pPeerGroupShutdown()
 
 public actual fun peerGroupStartup(wversionrequested: UShort, pversiondata: MutPtr<PeerVersionData>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkmanagementP2pPeerGroupStartup")
@@ -628,7 +628,7 @@ public actual fun peerPnrpResolve(pcwzpeername: Pcwstr, pcwzcloudname: Pcwstr, p
 private external fun wasiWindowssysWindowsWin32NetworkmanagementP2pPeerPnrpShutdown(): Int
 
 public actual fun peerPnrpShutdown(): Hresult =
-    wasiWindowssysWindowsWin32NetworkmanagementP2pPeerPnrpShutdown().toInt()
+    wasiWindowssysWindowsWin32NetworkmanagementP2pPeerPnrpShutdown()
 
 public actual fun peerPnrpStartResolve(pcwzpeername: Pcwstr, pcwzcloudname: Pcwstr, cmaxendpoints: UInt, hevent: Handle, phresolve: MutPtr<MutPtr<CVoid>>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkmanagementP2pPeerPnrpStartResolve")
@@ -637,7 +637,7 @@ public actual fun peerPnrpStartResolve(pcwzpeername: Pcwstr, pcwzcloudname: Pcws
 private external fun wasiWindowssysWindowsWin32NetworkmanagementP2pPeerPnrpStartup(wversionrequested: Int): Int
 
 public actual fun peerPnrpStartup(wversionrequested: UShort): Hresult =
-    wasiWindowssysWindowsWin32NetworkmanagementP2pPeerPnrpStartup(wversionrequested.toInt()).toInt()
+    wasiWindowssysWindowsWin32NetworkmanagementP2pPeerPnrpStartup(wversionrequested.toInt())
 
 public actual fun peerPnrpUnregister(hregistration: ConstPtr<CVoid>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkmanagementP2pPeerPnrpUnregister")

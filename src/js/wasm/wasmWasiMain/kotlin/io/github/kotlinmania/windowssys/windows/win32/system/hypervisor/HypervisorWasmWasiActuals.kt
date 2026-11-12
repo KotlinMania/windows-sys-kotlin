@@ -197,19 +197,19 @@ public actual fun wHvAllocateVpciResource(providerid: ConstPtr<Guid>, flags: Whv
 private external fun wasiWindowssysWindowsWin32SystemHypervisorWHvCancelPartitionMigration(partition: Long): Int
 
 public actual fun wHvCancelPartitionMigration(partition: WhvPartitionHandle): Hresult =
-    wasiWindowssysWindowsWin32SystemHypervisorWHvCancelPartitionMigration(partition).toInt()
+    wasiWindowssysWindowsWin32SystemHypervisorWHvCancelPartitionMigration(partition)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemHypervisorWHvCancelRunVirtualProcessor")
 private external fun wasiWindowssysWindowsWin32SystemHypervisorWHvCancelRunVirtualProcessor(partition: Long, vpindex: Int, flags: Int): Int
 
 public actual fun wHvCancelRunVirtualProcessor(partition: WhvPartitionHandle, vpindex: UInt, flags: UInt): Hresult =
-    wasiWindowssysWindowsWin32SystemHypervisorWHvCancelRunVirtualProcessor(partition, vpindex.toInt(), flags.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemHypervisorWHvCancelRunVirtualProcessor(partition, vpindex.toInt(), flags.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemHypervisorWHvCompletePartitionMigration")
 private external fun wasiWindowssysWindowsWin32SystemHypervisorWHvCompletePartitionMigration(partition: Long): Int
 
 public actual fun wHvCompletePartitionMigration(partition: WhvPartitionHandle): Hresult =
-    wasiWindowssysWindowsWin32SystemHypervisorWHvCompletePartitionMigration(partition).toInt()
+    wasiWindowssysWindowsWin32SystemHypervisorWHvCompletePartitionMigration(partition)
 
 public actual fun wHvCreateNotificationPort(partition: WhvPartitionHandle, parameters: ConstPtr<WhvNotificationPortParameters>, eventhandle: Handle, porthandle: MutPtr<MutPtr<CVoid>>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemHypervisorWHvCreateNotificationPort")
@@ -224,7 +224,7 @@ public actual fun wHvCreateTrigger(partition: WhvPartitionHandle, parameters: Co
 private external fun wasiWindowssysWindowsWin32SystemHypervisorWHvCreateVirtualProcessor(partition: Long, vpindex: Int, flags: Int): Int
 
 public actual fun wHvCreateVirtualProcessor(partition: WhvPartitionHandle, vpindex: UInt, flags: UInt): Hresult =
-    wasiWindowssysWindowsWin32SystemHypervisorWHvCreateVirtualProcessor(partition, vpindex.toInt(), flags.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemHypervisorWHvCreateVirtualProcessor(partition, vpindex.toInt(), flags.toInt())
 
 public actual fun wHvCreateVirtualProcessor2(partition: WhvPartitionHandle, vpindex: UInt, properties: ConstPtr<WhvVirtualProcessorProperty>, propertycount: UInt): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemHypervisorWHvCreateVirtualProcessor2")
@@ -239,7 +239,7 @@ public actual fun wHvDeleteNotificationPort(partition: WhvPartitionHandle, porth
 private external fun wasiWindowssysWindowsWin32SystemHypervisorWHvDeletePartition(partition: Long): Int
 
 public actual fun wHvDeletePartition(partition: WhvPartitionHandle): Hresult =
-    wasiWindowssysWindowsWin32SystemHypervisorWHvDeletePartition(partition).toInt()
+    wasiWindowssysWindowsWin32SystemHypervisorWHvDeletePartition(partition)
 
 public actual fun wHvDeleteTrigger(partition: WhvPartitionHandle, triggerhandle: ConstPtr<CVoid>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemHypervisorWHvDeleteTrigger")
@@ -248,13 +248,13 @@ public actual fun wHvDeleteTrigger(partition: WhvPartitionHandle, triggerhandle:
 private external fun wasiWindowssysWindowsWin32SystemHypervisorWHvDeleteVirtualProcessor(partition: Long, vpindex: Int): Int
 
 public actual fun wHvDeleteVirtualProcessor(partition: WhvPartitionHandle, vpindex: UInt): Hresult =
-    wasiWindowssysWindowsWin32SystemHypervisorWHvDeleteVirtualProcessor(partition, vpindex.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemHypervisorWHvDeleteVirtualProcessor(partition, vpindex.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemHypervisorWHvDeleteVpciDevice")
 private external fun wasiWindowssysWindowsWin32SystemHypervisorWHvDeleteVpciDevice(partition: Long, logicaldeviceid: Long): Int
 
 public actual fun wHvDeleteVpciDevice(partition: WhvPartitionHandle, logicaldeviceid: ULong): Hresult =
-    wasiWindowssysWindowsWin32SystemHypervisorWHvDeleteVpciDevice(partition, logicaldeviceid.toLong()).toInt()
+    wasiWindowssysWindowsWin32SystemHypervisorWHvDeleteVpciDevice(partition, logicaldeviceid.toLong())
 
 public actual fun wHvEmulatorCreateEmulator(callbacks: ConstPtr<WhvEmulatorCallbacks>, emulator: MutPtr<MutPtr<CVoid>>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemHypervisorWHvEmulatorCreateEmulator")
@@ -344,19 +344,19 @@ public actual fun wHvRequestInterrupt(partition: WhvPartitionHandle, interrupt: 
 private external fun wasiWindowssysWindowsWin32SystemHypervisorWHvRequestVpciDeviceInterrupt(partition: Long, logicaldeviceid: Long, msiaddress: Long, msidata: Int): Int
 
 public actual fun wHvRequestVpciDeviceInterrupt(partition: WhvPartitionHandle, logicaldeviceid: ULong, msiaddress: ULong, msidata: UInt): Hresult =
-    wasiWindowssysWindowsWin32SystemHypervisorWHvRequestVpciDeviceInterrupt(partition, logicaldeviceid.toLong(), msiaddress.toLong(), msidata.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemHypervisorWHvRequestVpciDeviceInterrupt(partition, logicaldeviceid.toLong(), msiaddress.toLong(), msidata.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemHypervisorWHvResetPartition")
 private external fun wasiWindowssysWindowsWin32SystemHypervisorWHvResetPartition(partition: Long): Int
 
 public actual fun wHvResetPartition(partition: WhvPartitionHandle): Hresult =
-    wasiWindowssysWindowsWin32SystemHypervisorWHvResetPartition(partition).toInt()
+    wasiWindowssysWindowsWin32SystemHypervisorWHvResetPartition(partition)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemHypervisorWHvResumePartitionTime")
 private external fun wasiWindowssysWindowsWin32SystemHypervisorWHvResumePartitionTime(partition: Long): Int
 
 public actual fun wHvResumePartitionTime(partition: WhvPartitionHandle): Hresult =
-    wasiWindowssysWindowsWin32SystemHypervisorWHvResumePartitionTime(partition).toInt()
+    wasiWindowssysWindowsWin32SystemHypervisorWHvResumePartitionTime(partition)
 
 public actual fun wHvRetargetVpciDeviceInterrupt(partition: WhvPartitionHandle, logicaldeviceid: ULong, msiaddress: ULong, msidata: UInt, target: ConstPtr<WhvVpciInterruptTarget>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemHypervisorWHvRetargetVpciDeviceInterrupt")
@@ -389,13 +389,13 @@ public actual fun wHvSetVirtualProcessorXsaveState(partition: WhvPartitionHandle
 private external fun wasiWindowssysWindowsWin32SystemHypervisorWHvSetVpciDevicePowerState(partition: Long, logicaldeviceid: Long, powerstate: Int): Int
 
 public actual fun wHvSetVpciDevicePowerState(partition: WhvPartitionHandle, logicaldeviceid: ULong, powerstate: DevicePowerState): Hresult =
-    wasiWindowssysWindowsWin32SystemHypervisorWHvSetVpciDevicePowerState(partition, logicaldeviceid.toLong(), powerstate).toInt()
+    wasiWindowssysWindowsWin32SystemHypervisorWHvSetVpciDevicePowerState(partition, logicaldeviceid.toLong(), powerstate)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemHypervisorWHvSetupPartition")
 private external fun wasiWindowssysWindowsWin32SystemHypervisorWHvSetupPartition(partition: Long): Int
 
 public actual fun wHvSetupPartition(partition: WhvPartitionHandle): Hresult =
-    wasiWindowssysWindowsWin32SystemHypervisorWHvSetupPartition(partition).toInt()
+    wasiWindowssysWindowsWin32SystemHypervisorWHvSetupPartition(partition)
 
 public actual fun wHvSignalVirtualProcessorSynicEvent(partition: WhvPartitionHandle, synicevent: WhvSynicEventParameters, newlysignaled: MutPtr<Bool>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemHypervisorWHvSignalVirtualProcessorSynicEvent")
@@ -407,7 +407,7 @@ public actual fun wHvStartPartitionMigration(partition: WhvPartitionHandle, migr
 private external fun wasiWindowssysWindowsWin32SystemHypervisorWHvSuspendPartitionTime(partition: Long): Int
 
 public actual fun wHvSuspendPartitionTime(partition: WhvPartitionHandle): Hresult =
-    wasiWindowssysWindowsWin32SystemHypervisorWHvSuspendPartitionTime(partition).toInt()
+    wasiWindowssysWindowsWin32SystemHypervisorWHvSuspendPartitionTime(partition)
 
 public actual fun wHvTranslateGva(partition: WhvPartitionHandle, vpindex: UInt, gva: ULong, translateflags: WhvTranslateGvaFlags, translationresult: MutPtr<WhvTranslateGvaResult>, gpa: MutPtr<ULong>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemHypervisorWHvTranslateGva")
@@ -416,19 +416,19 @@ public actual fun wHvTranslateGva(partition: WhvPartitionHandle, vpindex: UInt, 
 private external fun wasiWindowssysWindowsWin32SystemHypervisorWHvUnmapGpaRange(partition: Long, guestaddress: Long, sizeinbytes: Long): Int
 
 public actual fun wHvUnmapGpaRange(partition: WhvPartitionHandle, guestaddress: ULong, sizeinbytes: ULong): Hresult =
-    wasiWindowssysWindowsWin32SystemHypervisorWHvUnmapGpaRange(partition, guestaddress.toLong(), sizeinbytes.toLong()).toInt()
+    wasiWindowssysWindowsWin32SystemHypervisorWHvUnmapGpaRange(partition, guestaddress.toLong(), sizeinbytes.toLong())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemHypervisorWHvUnmapVpciDeviceInterrupt")
 private external fun wasiWindowssysWindowsWin32SystemHypervisorWHvUnmapVpciDeviceInterrupt(partition: Long, logicaldeviceid: Long, index: Int): Int
 
 public actual fun wHvUnmapVpciDeviceInterrupt(partition: WhvPartitionHandle, logicaldeviceid: ULong, index: UInt): Hresult =
-    wasiWindowssysWindowsWin32SystemHypervisorWHvUnmapVpciDeviceInterrupt(partition, logicaldeviceid.toLong(), index.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemHypervisorWHvUnmapVpciDeviceInterrupt(partition, logicaldeviceid.toLong(), index.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemHypervisorWHvUnmapVpciDeviceMmioRanges")
 private external fun wasiWindowssysWindowsWin32SystemHypervisorWHvUnmapVpciDeviceMmioRanges(partition: Long, logicaldeviceid: Long): Int
 
 public actual fun wHvUnmapVpciDeviceMmioRanges(partition: WhvPartitionHandle, logicaldeviceid: ULong): Hresult =
-    wasiWindowssysWindowsWin32SystemHypervisorWHvUnmapVpciDeviceMmioRanges(partition, logicaldeviceid.toLong()).toInt()
+    wasiWindowssysWindowsWin32SystemHypervisorWHvUnmapVpciDeviceMmioRanges(partition, logicaldeviceid.toLong())
 
 public actual fun wHvUnregisterPartitionDoorbellEvent(partition: WhvPartitionHandle, matchdata: ConstPtr<WhvDoorbellMatchData>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemHypervisorWHvUnregisterPartitionDoorbellEvent")

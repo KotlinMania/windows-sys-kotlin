@@ -29,7 +29,7 @@ public actual fun mQCloseCursor(hcursor: Handle): Hresult =
 private external fun wasiWindowssysWindowsWin32SystemMessagequeuingMQCloseQueue(hqueue: Long): Int
 
 public actual fun mQCloseQueue(hqueue: Long): Hresult =
-    wasiWindowssysWindowsWin32SystemMessagequeuingMQCloseQueue(hqueue).toInt()
+    wasiWindowssysWindowsWin32SystemMessagequeuingMQCloseQueue(hqueue)
 
 public actual fun mQCreateCursor(hqueue: Long, phcursor: MutPtr<Handle>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemMessagequeuingMQCreateCursor")
@@ -102,7 +102,7 @@ public actual fun mQPathNameToFormatName(lpwcspathname: Pcwstr, lpwcsformatname:
 private external fun wasiWindowssysWindowsWin32SystemMessagequeuingMQPurgeQueue(hqueue: Long): Int
 
 public actual fun mQPurgeQueue(hqueue: Long): Hresult =
-    wasiWindowssysWindowsWin32SystemMessagequeuingMQPurgeQueue(hqueue).toInt()
+    wasiWindowssysWindowsWin32SystemMessagequeuingMQPurgeQueue(hqueue)
 
 public actual fun mQReceiveMessage(hsource: Long, dwtimeout: UInt, dwaction: UInt, pmessageprops: MutPtr<Mqmsgprops>, lpoverlapped: MutPtr<Overlapped>, fnreceivecallback: Pmqreceivecallback, hcursor: Handle, ptransaction: MutPtr<CVoid>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemMessagequeuingMQReceiveMessage")

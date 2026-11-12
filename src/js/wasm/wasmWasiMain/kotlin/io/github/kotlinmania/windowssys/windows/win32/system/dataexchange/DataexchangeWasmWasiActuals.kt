@@ -33,13 +33,13 @@ public actual fun changeClipboardChain(hwndremove: Hwnd, hwndnewnext: Hwnd): Boo
 private external fun wasiWindowssysWindowsWin32SystemDataexchangeCloseClipboard(): Int
 
 public actual fun closeClipboard(): Bool =
-    wasiWindowssysWindowsWin32SystemDataexchangeCloseClipboard().toInt()
+    wasiWindowssysWindowsWin32SystemDataexchangeCloseClipboard()
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemDataexchangeCountClipboardFormats")
 private external fun wasiWindowssysWindowsWin32SystemDataexchangeCountClipboardFormats(): Int
 
 public actual fun countClipboardFormats(): Int =
-    wasiWindowssysWindowsWin32SystemDataexchangeCountClipboardFormats().toInt()
+    wasiWindowssysWindowsWin32SystemDataexchangeCountClipboardFormats()
 
 public actual fun ddeAbandonTransaction(idinst: UInt, hconv: Hconv, idtransaction: UInt): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemDataexchangeDdeAbandonTransaction")
@@ -141,7 +141,7 @@ public actual fun ddeUnaccessData(hdata: Hddedata): Bool =
 private external fun wasiWindowssysWindowsWin32SystemDataexchangeDdeUninitialize(idinst: Int): Int
 
 public actual fun ddeUninitialize(idinst: UInt): Bool =
-    wasiWindowssysWindowsWin32SystemDataexchangeDdeUninitialize(idinst.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemDataexchangeDdeUninitialize(idinst.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemDataexchangeDeleteAtom")
 private external fun wasiWindowssysWindowsWin32SystemDataexchangeDeleteAtom(natom: Int): Int
@@ -153,7 +153,7 @@ public actual fun deleteAtom(natom: UShort): UShort =
 private external fun wasiWindowssysWindowsWin32SystemDataexchangeEmptyClipboard(): Int
 
 public actual fun emptyClipboard(): Bool =
-    wasiWindowssysWindowsWin32SystemDataexchangeEmptyClipboard().toInt()
+    wasiWindowssysWindowsWin32SystemDataexchangeEmptyClipboard()
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemDataexchangeEnumClipboardFormats")
 private external fun wasiWindowssysWindowsWin32SystemDataexchangeEnumClipboardFormats(format: Int): Int
@@ -171,7 +171,7 @@ public actual fun findAtomW(lpstring: Pcwstr): UShort =
 private external fun wasiWindowssysWindowsWin32SystemDataexchangeFreeDDElParam(msg: Int, lparam: Long): Int
 
 public actual fun freeDDElParam(msg: UInt, lparam: Lparam): Bool =
-    wasiWindowssysWindowsWin32SystemDataexchangeFreeDDElParam(msg.toInt(), lparam).toInt()
+    wasiWindowssysWindowsWin32SystemDataexchangeFreeDDElParam(msg.toInt(), lparam)
 
 public actual fun getAtomNameA(natom: UShort, lpbuffer: Pstr, nsize: Int): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemDataexchangeGetAtomNameA")
@@ -246,13 +246,13 @@ public actual fun impersonateDdeClientWindow(hwndclient: Hwnd, hwndserver: Hwnd)
 private external fun wasiWindowssysWindowsWin32SystemDataexchangeInitAtomTable(nsize: Int): Int
 
 public actual fun initAtomTable(nsize: UInt): Bool =
-    wasiWindowssysWindowsWin32SystemDataexchangeInitAtomTable(nsize.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemDataexchangeInitAtomTable(nsize.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemDataexchangeIsClipboardFormatAvailable")
 private external fun wasiWindowssysWindowsWin32SystemDataexchangeIsClipboardFormatAvailable(format: Int): Int
 
 public actual fun isClipboardFormatAvailable(format: UInt): Bool =
-    wasiWindowssysWindowsWin32SystemDataexchangeIsClipboardFormatAvailable(format.toInt()).toInt()
+    wasiWindowssysWindowsWin32SystemDataexchangeIsClipboardFormatAvailable(format.toInt())
 
 public actual fun openClipboard(hwndnewowner: Hwnd): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemDataexchangeOpenClipboard")
@@ -261,7 +261,7 @@ public actual fun openClipboard(hwndnewowner: Hwnd): Bool =
 private external fun wasiWindowssysWindowsWin32SystemDataexchangePackDDElParam(msg: Int, uilo: Long, uihi: Long): Long
 
 public actual fun packDDElParam(msg: UInt, uilo: ULong, uihi: ULong): Lparam =
-    wasiWindowssysWindowsWin32SystemDataexchangePackDDElParam(msg.toInt(), uilo.toLong(), uihi.toLong()).toLong()
+    wasiWindowssysWindowsWin32SystemDataexchangePackDDElParam(msg.toInt(), uilo.toLong(), uihi.toLong())
 
 public actual fun registerClipboardFormatA(lpszformat: Pcstr): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemDataexchangeRegisterClipboardFormatA")
@@ -276,7 +276,7 @@ public actual fun removeClipboardFormatListener(hwnd: Hwnd): Bool =
 private external fun wasiWindowssysWindowsWin32SystemDataexchangeReuseDDElParam(lparam: Long, msgin: Int, msgout: Int, uilo: Long, uihi: Long): Long
 
 public actual fun reuseDDElParam(lparam: Lparam, msgin: UInt, msgout: UInt, uilo: ULong, uihi: ULong): Lparam =
-    wasiWindowssysWindowsWin32SystemDataexchangeReuseDDElParam(lparam, msgin.toInt(), msgout.toInt(), uilo.toLong(), uihi.toLong()).toLong()
+    wasiWindowssysWindowsWin32SystemDataexchangeReuseDDElParam(lparam, msgin.toInt(), msgout.toInt(), uilo.toLong(), uihi.toLong())
 
 public actual fun setClipboardData(uformat: UInt, hmem: Handle): Handle =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemDataexchangeSetClipboardData")

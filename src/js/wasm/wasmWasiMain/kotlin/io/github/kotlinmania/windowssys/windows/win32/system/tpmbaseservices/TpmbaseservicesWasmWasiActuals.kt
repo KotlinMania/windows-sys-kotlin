@@ -41,7 +41,7 @@ public actual fun tbsiGetTcgLogEx(logtype: UInt, pboutput: MutPtr<UByte>, pcbout
 private external fun wasiWindowssysWindowsWin32SystemTpmbaseservicesTbsiIsTpmPresent(): Int
 
 public actual fun tbsiIsTpmPresent(): Bool =
-    wasiWindowssysWindowsWin32SystemTpmbaseservicesTbsiIsTpmPresent().toInt()
+    wasiWindowssysWindowsWin32SystemTpmbaseservicesTbsiIsTpmPresent()
 
 public actual fun tbsiPhysicalPresenceCommand(hcontext: ConstPtr<CVoid>, pabinput: ConstPtr<UByte>, cbinput: UInt, paboutput: MutPtr<UByte>, pcboutput: MutPtr<UInt>): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemTpmbaseservicesTbsiPhysicalPresenceCommand")

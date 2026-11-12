@@ -34,7 +34,7 @@ public actual fun mTSCreateActivity(riid: ConstPtr<Guid>, ppobj: MutPtr<MutPtr<C
 private external fun wasiWindowssysWindowsWin32SystemComponentservicesRecycleSurrogate(lreasoncode: Int): Int
 
 public actual fun recycleSurrogate(lreasoncode: Int): Hresult =
-    wasiWindowssysWindowsWin32SystemComponentservicesRecycleSurrogate(lreasoncode).toInt()
+    wasiWindowssysWindowsWin32SystemComponentservicesRecycleSurrogate(lreasoncode)
 
 public actual fun safeRef(rid: ConstPtr<Guid>, punk: MutPtr<CVoid>): MutPtr<CVoid> =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemComponentservicesSafeRef")

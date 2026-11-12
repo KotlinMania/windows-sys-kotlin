@@ -84,7 +84,7 @@ public actual fun invokePatternInvoke(hobj: Huiapatternobject): Hresult =
 private external fun wasiWindowssysWindowsWin32UiAccessibilityIsWinEventHookInstalled(event: Int): Int
 
 public actual fun isWinEventHookInstalled(event: UInt): Bool =
-    wasiWindowssysWindowsWin32UiAccessibilityIsWinEventHookInstalled(event.toInt()).toInt()
+    wasiWindowssysWindowsWin32UiAccessibilityIsWinEventHookInstalled(event.toInt())
 
 public actual fun itemContainerPatternFindItemByProperty(hobj: Huiapatternobject, hnodestartafter: Huianode, propertyid: Int, value: Variant.Variant, pfound: MutPtr<Huianode>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityItemContainerPatternFindItemByProperty")
@@ -242,13 +242,13 @@ public actual fun uiaAddEvent(hnode: Huianode, eventid: Int, pcallback: MutPtr<U
 private external fun wasiWindowssysWindowsWin32UiAccessibilityUiaClientsAreListening(): Int
 
 public actual fun uiaClientsAreListening(): Bool =
-    wasiWindowssysWindowsWin32UiAccessibilityUiaClientsAreListening().toInt()
+    wasiWindowssysWindowsWin32UiAccessibilityUiaClientsAreListening()
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiAccessibilityUiaDisconnectAllProviders")
 private external fun wasiWindowssysWindowsWin32UiAccessibilityUiaDisconnectAllProviders(): Int
 
 public actual fun uiaDisconnectAllProviders(): Hresult =
-    wasiWindowssysWindowsWin32UiAccessibilityUiaDisconnectAllProviders().toInt()
+    wasiWindowssysWindowsWin32UiAccessibilityUiaDisconnectAllProviders()
 
 public actual fun uiaDisconnectProvider(pprovider: MutPtr<CVoid>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityUiaDisconnectProvider")

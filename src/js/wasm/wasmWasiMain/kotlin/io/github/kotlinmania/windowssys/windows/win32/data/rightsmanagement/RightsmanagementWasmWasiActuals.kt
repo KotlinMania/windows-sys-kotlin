@@ -33,7 +33,7 @@ public actual fun dRMAddLicense(hlicensestorage: UInt, uflags: UInt, wszlicense:
 private external fun wasiWindowssysWindowsWin32DataRightsmanagementDRMAddRightWithUser(hissuancelicense: Int, hright: Int, huser: Int): Int
 
 public actual fun dRMAddRightWithUser(hissuancelicense: UInt, hright: UInt, huser: UInt): Hresult =
-    wasiWindowssysWindowsWin32DataRightsmanagementDRMAddRightWithUser(hissuancelicense.toInt(), hright.toInt(), huser.toInt()).toInt()
+    wasiWindowssysWindowsWin32DataRightsmanagementDRMAddRightWithUser(hissuancelicense.toInt(), hright.toInt(), huser.toInt())
 
 public actual fun dRMAttest(henablingprincipal: UInt, wszdata: Pcwstr, etype: Drmattesttype, pcattestedblob: MutPtr<UInt>, wszattestedblob: Pwstr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DataRightsmanagementDRMAttest")
@@ -42,43 +42,43 @@ public actual fun dRMAttest(henablingprincipal: UInt, wszdata: Pcwstr, etype: Dr
 private external fun wasiWindowssysWindowsWin32DataRightsmanagementDRMCheckSecurity(henv: Int, clevel: Int): Int
 
 public actual fun dRMCheckSecurity(henv: UInt, clevel: UInt): Hresult =
-    wasiWindowssysWindowsWin32DataRightsmanagementDRMCheckSecurity(henv.toInt(), clevel.toInt()).toInt()
+    wasiWindowssysWindowsWin32DataRightsmanagementDRMCheckSecurity(henv.toInt(), clevel.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DataRightsmanagementDRMClearAllRights")
 private external fun wasiWindowssysWindowsWin32DataRightsmanagementDRMClearAllRights(hissuancelicense: Int): Int
 
 public actual fun dRMClearAllRights(hissuancelicense: UInt): Hresult =
-    wasiWindowssysWindowsWin32DataRightsmanagementDRMClearAllRights(hissuancelicense.toInt()).toInt()
+    wasiWindowssysWindowsWin32DataRightsmanagementDRMClearAllRights(hissuancelicense.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DataRightsmanagementDRMCloseEnvironmentHandle")
 private external fun wasiWindowssysWindowsWin32DataRightsmanagementDRMCloseEnvironmentHandle(henv: Int): Int
 
 public actual fun dRMCloseEnvironmentHandle(henv: UInt): Hresult =
-    wasiWindowssysWindowsWin32DataRightsmanagementDRMCloseEnvironmentHandle(henv.toInt()).toInt()
+    wasiWindowssysWindowsWin32DataRightsmanagementDRMCloseEnvironmentHandle(henv.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DataRightsmanagementDRMCloseHandle")
 private external fun wasiWindowssysWindowsWin32DataRightsmanagementDRMCloseHandle(handle: Int): Int
 
 public actual fun dRMCloseHandle(handle: UInt): Hresult =
-    wasiWindowssysWindowsWin32DataRightsmanagementDRMCloseHandle(handle.toInt()).toInt()
+    wasiWindowssysWindowsWin32DataRightsmanagementDRMCloseHandle(handle.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DataRightsmanagementDRMClosePubHandle")
 private external fun wasiWindowssysWindowsWin32DataRightsmanagementDRMClosePubHandle(hpub: Int): Int
 
 public actual fun dRMClosePubHandle(hpub: UInt): Hresult =
-    wasiWindowssysWindowsWin32DataRightsmanagementDRMClosePubHandle(hpub.toInt()).toInt()
+    wasiWindowssysWindowsWin32DataRightsmanagementDRMClosePubHandle(hpub.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DataRightsmanagementDRMCloseQueryHandle")
 private external fun wasiWindowssysWindowsWin32DataRightsmanagementDRMCloseQueryHandle(hquery: Int): Int
 
 public actual fun dRMCloseQueryHandle(hquery: UInt): Hresult =
-    wasiWindowssysWindowsWin32DataRightsmanagementDRMCloseQueryHandle(hquery.toInt()).toInt()
+    wasiWindowssysWindowsWin32DataRightsmanagementDRMCloseQueryHandle(hquery.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32DataRightsmanagementDRMCloseSession")
 private external fun wasiWindowssysWindowsWin32DataRightsmanagementDRMCloseSession(hsession: Int): Int
 
 public actual fun dRMCloseSession(hsession: UInt): Hresult =
-    wasiWindowssysWindowsWin32DataRightsmanagementDRMCloseSession(hsession.toInt()).toInt()
+    wasiWindowssysWindowsWin32DataRightsmanagementDRMCloseSession(hsession.toInt())
 
 public actual fun dRMConstructCertificateChain(ccertificates: UInt, rgwszcertificates: ConstPtr<Pcwstr>, pcchain: MutPtr<UInt>, wszchain: Pwstr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DataRightsmanagementDRMConstructCertificateChain")
@@ -258,7 +258,7 @@ public actual fun dRMParseUnboundLicense(wszcertificate: Pcwstr, phqueryroot: Mu
 private external fun wasiWindowssysWindowsWin32DataRightsmanagementDRMRegisterContent(fregister: Int): Int
 
 public actual fun dRMRegisterContent(fregister: Bool): Hresult =
-    wasiWindowssysWindowsWin32DataRightsmanagementDRMRegisterContent(fregister).toInt()
+    wasiWindowssysWindowsWin32DataRightsmanagementDRMRegisterContent(fregister)
 
 public actual fun dRMRegisterProtectedWindow(henv: UInt, hwnd: Hwnd): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DataRightsmanagementDRMRegisterProtectedWindow")
@@ -270,7 +270,7 @@ public actual fun dRMRegisterRevocationList(henv: UInt, wszrevocationlist: Pcwst
 private external fun wasiWindowssysWindowsWin32DataRightsmanagementDRMRepair(): Int
 
 public actual fun dRMRepair(): Hresult =
-    wasiWindowssysWindowsWin32DataRightsmanagementDRMRepair().toInt()
+    wasiWindowssysWindowsWin32DataRightsmanagementDRMRepair()
 
 public actual fun dRMSetApplicationSpecificData(hissuancelicense: UInt, fdelete: Bool, wszname: Pcwstr, wszvalue: Pcwstr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DataRightsmanagementDRMSetApplicationSpecificData")
@@ -282,7 +282,7 @@ public actual fun dRMSetGlobalOptions(eglobaloptions: Drmglobaloptions, pvdata: 
 private external fun wasiWindowssysWindowsWin32DataRightsmanagementDRMSetIntervalTime(hissuancelicense: Int, cdays: Int): Int
 
 public actual fun dRMSetIntervalTime(hissuancelicense: UInt, cdays: UInt): Hresult =
-    wasiWindowssysWindowsWin32DataRightsmanagementDRMSetIntervalTime(hissuancelicense.toInt(), cdays.toInt()).toInt()
+    wasiWindowssysWindowsWin32DataRightsmanagementDRMSetIntervalTime(hissuancelicense.toInt(), cdays.toInt())
 
 public actual fun dRMSetMetaData(hissuancelicense: UInt, wszcontentid: Pcwstr, wszcontentidtype: Pcwstr, wszskuid: Pcwstr, wszskuidtype: Pcwstr, wszcontenttype: Pcwstr, wszcontentname: Pcwstr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32DataRightsmanagementDRMSetMetaData")

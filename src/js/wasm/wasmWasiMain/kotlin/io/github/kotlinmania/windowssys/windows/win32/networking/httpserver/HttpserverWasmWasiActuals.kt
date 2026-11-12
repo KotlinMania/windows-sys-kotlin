@@ -78,7 +78,7 @@ public actual fun httpInitialize(version: HttpapiVersion, flags: HttpInitialize,
 private external fun wasiWindowssysWindowsWin32NetworkingHttpserverHttpIsFeatureSupported(featureid: Int): Int
 
 public actual fun httpIsFeatureSupported(featureid: HttpFeatureId): Bool =
-    wasiWindowssysWindowsWin32NetworkingHttpserverHttpIsFeatureSupported(featureid).toInt()
+    wasiWindowssysWindowsWin32NetworkingHttpserverHttpIsFeatureSupported(featureid)
 
 public actual fun httpPrepareUrl(reserved: ConstPtr<CVoid>, flags: UInt, url: Pcwstr, preparedurl: MutPtr<Pwstr>): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32NetworkingHttpserverHttpPrepareUrl")

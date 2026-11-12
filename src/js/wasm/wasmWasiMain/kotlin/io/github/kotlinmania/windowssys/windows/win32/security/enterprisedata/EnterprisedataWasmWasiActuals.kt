@@ -26,7 +26,7 @@ public actual fun srpCreateThreadNetworkContext(enterpriseid: Pcwstr, threadnetw
 private external fun wasiWindowssysWindowsWin32SecurityEnterprisedataSrpDisablePermissiveModeFileEncryption(): Int
 
 public actual fun srpDisablePermissiveModeFileEncryption(): Hresult =
-    wasiWindowssysWindowsWin32SecurityEnterprisedataSrpDisablePermissiveModeFileEncryption().toInt()
+    wasiWindowssysWindowsWin32SecurityEnterprisedataSrpDisablePermissiveModeFileEncryption()
 
 public actual fun srpDoesPolicyAllowAppExecution(packageid: ConstPtr<PackageId>, isallowed: MutPtr<Bool>): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SecurityEnterprisedataSrpDoesPolicyAllowAppExecution")

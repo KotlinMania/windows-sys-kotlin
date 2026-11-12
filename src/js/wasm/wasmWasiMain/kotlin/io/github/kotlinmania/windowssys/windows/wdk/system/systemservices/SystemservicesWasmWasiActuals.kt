@@ -198,7 +198,7 @@ public actual fun clfsGetLogFileInformation(plfolog: ConstPtr<FileObject>, pinfo
 private external fun wasiWindowssysWindowsWdkSystemSystemservicesClfsInitialize(): Int
 
 public actual fun clfsInitialize(): Ntstatus =
-    wasiWindowssysWindowsWdkSystemSystemservicesClfsInitialize().toInt()
+    wasiWindowssysWindowsWdkSystemSystemservicesClfsInitialize()
 
 public actual fun clfsLaterLsn(plsn: ConstPtr<ClsLsn>): ClsLsn =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWdkSystemSystemservicesClfsLaterLsn")
@@ -331,7 +331,7 @@ public actual fun cmSetCallbackObjectContext(obj: MutPtr<CVoid>, cookie: ConstPt
 private external fun wasiWindowssysWindowsWdkSystemSystemservicesCmUnRegisterCallback(cookie: Long): Int
 
 public actual fun cmUnRegisterCallback(cookie: Long): Ntstatus =
-    wasiWindowssysWindowsWdkSystemSystemservicesCmUnRegisterCallback(cookie).toInt()
+    wasiWindowssysWindowsWdkSystemSystemservicesCmUnRegisterCallback(cookie)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWdkSystemSystemservicesDbgBreakPointWithStatus")
 private external fun wasiWindowssysWindowsWdkSystemSystemservicesDbgBreakPointWithStatus(status: Int): Unit
@@ -355,13 +355,13 @@ public actual fun dbgPrompt(prompt: Pcstr, response: Pstr, length: UInt): UInt =
 private external fun wasiWindowssysWindowsWdkSystemSystemservicesDbgQueryDebugFilterState(componentid: Int, level: Int): Int
 
 public actual fun dbgQueryDebugFilterState(componentid: UInt, level: UInt): Ntstatus =
-    wasiWindowssysWindowsWdkSystemSystemservicesDbgQueryDebugFilterState(componentid.toInt(), level.toInt()).toInt()
+    wasiWindowssysWindowsWdkSystemSystemservicesDbgQueryDebugFilterState(componentid.toInt(), level.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWdkSystemSystemservicesDbgSetDebugFilterState")
 private external fun wasiWindowssysWindowsWdkSystemSystemservicesDbgSetDebugFilterState(componentid: Int, level: Int, state: Int): Int
 
 public actual fun dbgSetDebugFilterState(componentid: UInt, level: UInt, state: Boolean): Ntstatus =
-    wasiWindowssysWindowsWdkSystemSystemservicesDbgSetDebugFilterState(componentid.toInt(), level.toInt(), if (state) 1 else 0).toInt()
+    wasiWindowssysWindowsWdkSystemSystemservicesDbgSetDebugFilterState(componentid.toInt(), level.toInt(), if (state) 1 else 0)
 
 public actual fun dbgSetDebugPrintCallback(debugprintcallback: PdebugPrintCallback, enable: Boolean): Ntstatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWdkSystemSystemservicesDbgSetDebugPrintCallback")
@@ -388,7 +388,7 @@ public actual fun etwSetInformation(reghandle: Reghandle, informationclass: Even
 private external fun wasiWindowssysWindowsWdkSystemSystemservicesEtwUnregister(reghandle: Long): Int
 
 public actual fun etwUnregister(reghandle: Reghandle): Ntstatus =
-    wasiWindowssysWindowsWdkSystemSystemservicesEtwUnregister(reghandle).toInt()
+    wasiWindowssysWindowsWdkSystemSystemservicesEtwUnregister(reghandle)
 
 public actual fun etwWrite(reghandle: Reghandle, eventdescriptor: ConstPtr<EventDescriptor>, activityid: ConstPtr<Guid>, userdatacount: UInt, userdata: ConstPtr<EventDataDescriptor>): Ntstatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWdkSystemSystemservicesEtwWrite")
@@ -454,7 +454,7 @@ public actual fun exAcquireSpinLockSharedAtDpcLevel(spinlock: MutPtr<Int>): Unit
 private external fun wasiWindowssysWindowsWdkSystemSystemservicesExAllocateCacheAwareRundownProtection(pooltype: Int, pooltag: Int): Long
 
 public actual fun exAllocateCacheAwareRundownProtection(pooltype: PoolType, pooltag: UInt): PexRundownRefCacheAware =
-    wasiWindowssysWindowsWdkSystemSystemservicesExAllocateCacheAwareRundownProtection(pooltype, pooltag.toInt()).toLong()
+    wasiWindowssysWindowsWdkSystemSystemservicesExAllocateCacheAwareRundownProtection(pooltype, pooltag.toInt())
 
 public actual fun exAllocatePool(pooltype: PoolType, numberofbytes: ULong): MutPtr<CVoid> =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWdkSystemSystemservicesExAllocatePool")
@@ -542,7 +542,7 @@ public actual fun exGetFirmwareEnvironmentVariable(variablename: ConstPtr<Unicod
 private external fun wasiWindowssysWindowsWdkSystemSystemservicesExGetFirmwareType(): Int
 
 public actual fun exGetFirmwareType(): FirmwareType =
-    wasiWindowssysWindowsWdkSystemSystemservicesExGetFirmwareType().toInt()
+    wasiWindowssysWindowsWdkSystemSystemservicesExGetFirmwareType()
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWdkSystemSystemservicesExGetPreviousMode")
 private external fun wasiWindowssysWindowsWdkSystemSystemservicesExGetPreviousMode(): Int
@@ -1049,7 +1049,7 @@ public actual fun ioGetContainerInformation(informationclass: IoContainerInforma
 private external fun wasiWindowssysWindowsWdkSystemSystemservicesIoGetCurrentProcess(): Long
 
 public actual fun ioGetCurrentProcess(): Peprocess =
-    wasiWindowssysWindowsWdkSystemSystemservicesIoGetCurrentProcess().toLong()
+    wasiWindowssysWindowsWdkSystemSystemservicesIoGetCurrentProcess()
 
 public actual fun ioGetDeviceDirectory(physicaldeviceobject: ConstPtr<DeviceObject>, directorytype: DeviceDirectoryType, flags: UInt, reserved: ConstPtr<CVoid>, devicedirectoryhandle: MutPtr<Handle>): Ntstatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWdkSystemSystemservicesIoGetDeviceDirectory")
@@ -1526,13 +1526,13 @@ public actual fun kdChangeOption(option: KdOption, inbufferbytes: UInt, inbuffer
 private external fun wasiWindowssysWindowsWdkSystemSystemservicesKdDisableDebugger(): Int
 
 public actual fun kdDisableDebugger(): Ntstatus =
-    wasiWindowssysWindowsWdkSystemSystemservicesKdDisableDebugger().toInt()
+    wasiWindowssysWindowsWdkSystemSystemservicesKdDisableDebugger()
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWdkSystemSystemservicesKdEnableDebugger")
 private external fun wasiWindowssysWindowsWdkSystemSystemservicesKdEnableDebugger(): Int
 
 public actual fun kdEnableDebugger(): Ntstatus =
-    wasiWindowssysWindowsWdkSystemSystemservicesKdEnableDebugger().toInt()
+    wasiWindowssysWindowsWdkSystemSystemservicesKdEnableDebugger()
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWdkSystemSystemservicesKdRefreshDebuggerNotPresent")
 private external fun wasiWindowssysWindowsWdkSystemSystemservicesKdRefreshDebuggerNotPresent(): Int
@@ -1830,7 +1830,7 @@ public actual fun keQueryPerformanceCounter(performancefrequency: MutPtr<Long>):
 private external fun wasiWindowssysWindowsWdkSystemSystemservicesKeQueryPriorityThread(thread: Long): Int
 
 public actual fun keQueryPriorityThread(thread: Pkthread): Int =
-    wasiWindowssysWindowsWdkSystemSystemservicesKeQueryPriorityThread(thread).toInt()
+    wasiWindowssysWindowsWdkSystemSystemservicesKeQueryPriorityThread(thread)
 
 public actual fun keQueryRuntimeThread(thread: Pkthread, usertime: MutPtr<UInt>): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWdkSystemSystemservicesKeQueryRuntimeThread")
@@ -1950,7 +1950,7 @@ public actual fun keSaveExtendedProcessorState(mask: ULong, xstatesave: MutPtr<X
 private external fun wasiWindowssysWindowsWdkSystemSystemservicesKeSetBasePriorityThread(thread: Long, increment: Int): Int
 
 public actual fun keSetBasePriorityThread(thread: Pkthread, increment: Int): Int =
-    wasiWindowssysWindowsWdkSystemSystemservicesKeSetBasePriorityThread(thread, increment).toInt()
+    wasiWindowssysWindowsWdkSystemSystemservicesKeSetBasePriorityThread(thread, increment)
 
 public actual fun keSetCoalescableTimer(timer: MutPtr<Ktimer>, duetime: Long, period: UInt, tolerabledelay: UInt, dpc: ConstPtr<Kdpc>): Boolean =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWdkSystemSystemservicesKeSetCoalescableTimer")
@@ -1967,7 +1967,7 @@ public actual fun keSetImportanceDpc(dpc: MutPtr<Kdpc>, importance: KdpcImportan
 private external fun wasiWindowssysWindowsWdkSystemSystemservicesKeSetPriorityThread(thread: Long, priority: Int): Int
 
 public actual fun keSetPriorityThread(thread: Pkthread, priority: Int): Int =
-    wasiWindowssysWindowsWdkSystemSystemservicesKeSetPriorityThread(thread, priority).toInt()
+    wasiWindowssysWindowsWdkSystemSystemservicesKeSetPriorityThread(thread, priority)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWdkSystemSystemservicesKeSetSystemAffinityThread")
 private external fun wasiWindowssysWindowsWdkSystemSystemservicesKeSetSystemAffinityThread(affinity: Long): Unit
@@ -2096,7 +2096,7 @@ public actual fun mmCreateMdl(memorydescriptorlist: MutPtr<Mdl>, base: ConstPtr<
 private external fun wasiWindowssysWindowsWdkSystemSystemservicesMmCreateMirror(): Int
 
 public actual fun mmCreateMirror(): Ntstatus =
-    wasiWindowssysWindowsWdkSystemSystemservicesMmCreateMirror().toInt()
+    wasiWindowssysWindowsWdkSystemSystemservicesMmCreateMirror()
 
 public actual fun mmFreeContiguousMemory(baseaddress: ConstPtr<CVoid>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWdkSystemSystemservicesMmFreeContiguousMemory")
 
@@ -2230,7 +2230,7 @@ public actual fun mmProtectMdlSystemAddress(memorydescriptorlist: ConstPtr<Mdl>,
 private external fun wasiWindowssysWindowsWdkSystemSystemservicesMmQuerySystemSize(): Int
 
 public actual fun mmQuerySystemSize(): MmSystemsize =
-    wasiWindowssysWindowsWdkSystemSystemservicesMmQuerySystemSize().toInt()
+    wasiWindowssysWindowsWdkSystemSystemservicesMmQuerySystemSize()
 
 public actual fun mmRemovePhysicalMemory(startaddress: ConstPtr<Long>, numberofbytes: MutPtr<Long>): Ntstatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWdkSystemSystemservicesMmRemovePhysicalMemory")
@@ -2250,7 +2250,7 @@ public actual fun mmSecureVirtualMemoryEx(address: ConstPtr<CVoid>, size: ULong,
 private external fun wasiWindowssysWindowsWdkSystemSystemservicesMmSetPermanentCacheAttribute(startaddress: Long, numberofbytes: Long, cachetype: Int, flags: Int): Int
 
 public actual fun mmSetPermanentCacheAttribute(startaddress: Long, numberofbytes: Long, cachetype: MemoryCachingType, flags: UInt): Ntstatus =
-    wasiWindowssysWindowsWdkSystemSystemservicesMmSetPermanentCacheAttribute(startaddress, numberofbytes, cachetype, flags.toInt()).toInt()
+    wasiWindowssysWindowsWdkSystemSystemservicesMmSetPermanentCacheAttribute(startaddress, numberofbytes, cachetype, flags.toInt())
 
 public actual fun mmSizeOfMdl(base: ConstPtr<CVoid>, length: ULong): ULong =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWdkSystemSystemservicesMmSizeOfMdl")
@@ -2621,7 +2621,7 @@ public actual fun probeForWrite(address: MutPtr<CVoid>, length: ULong, alignment
 private external fun wasiWindowssysWindowsWdkSystemSystemservicesPsAcquireSiloHardReference(silo: Long): Int
 
 public actual fun psAcquireSiloHardReference(silo: Pesilo): Ntstatus =
-    wasiWindowssysWindowsWdkSystemSystemservicesPsAcquireSiloHardReference(silo).toInt()
+    wasiWindowssysWindowsWdkSystemSystemservicesPsAcquireSiloHardReference(silo)
 
 public actual fun psAllocSiloContextSlot(reserved: ULong, returnedcontextslot: MutPtr<UInt>): Ntstatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWdkSystemSystemservicesPsAllocSiloContextSlot")
@@ -2633,7 +2633,7 @@ public actual fun psAllocateAffinityToken(affinitytoken: MutPtr<PaffinityToken>)
 private external fun wasiWindowssysWindowsWdkSystemSystemservicesPsAttachSiloToCurrentThread(silo: Long): Long
 
 public actual fun psAttachSiloToCurrentThread(silo: Pesilo): Pesilo =
-    wasiWindowssysWindowsWdkSystemSystemservicesPsAttachSiloToCurrentThread(silo).toLong()
+    wasiWindowssysWindowsWdkSystemSystemservicesPsAttachSiloToCurrentThread(silo)
 
 public actual fun psCreateSiloContext(silo: Pesilo, size: UInt, pooltype: PoolType, contextcleanupcallback: SiloContextCleanupCallback, returnedsilocontext: MutPtr<MutPtr<CVoid>>): Ntstatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWdkSystemSystemservicesPsCreateSiloContext")
@@ -2659,7 +2659,7 @@ public actual fun psFreeAffinityToken(affinitytoken: PaffinityToken): Unit =
 private external fun wasiWindowssysWindowsWdkSystemSystemservicesPsFreeSiloContextSlot(contextslot: Int): Int
 
 public actual fun psFreeSiloContextSlot(contextslot: UInt): Ntstatus =
-    wasiWindowssysWindowsWdkSystemSystemservicesPsFreeSiloContextSlot(contextslot.toInt()).toInt()
+    wasiWindowssysWindowsWdkSystemSystemservicesPsFreeSiloContextSlot(contextslot.toInt())
 
 public actual fun psGetCurrentProcessId(): Handle =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWdkSystemSystemservicesPsGetCurrentProcessId")
@@ -2668,7 +2668,7 @@ public actual fun psGetCurrentProcessId(): Handle =
 private external fun wasiWindowssysWindowsWdkSystemSystemservicesPsGetCurrentServerSilo(): Long
 
 public actual fun psGetCurrentServerSilo(): Pesilo =
-    wasiWindowssysWindowsWdkSystemSystemservicesPsGetCurrentServerSilo().toLong()
+    wasiWindowssysWindowsWdkSystemSystemservicesPsGetCurrentServerSilo()
 
 public actual fun psGetCurrentServerSiloName(): MutPtr<UnicodeString> =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWdkSystemSystemservicesPsGetCurrentServerSiloName")
@@ -2677,7 +2677,7 @@ public actual fun psGetCurrentServerSiloName(): MutPtr<UnicodeString> =
 private external fun wasiWindowssysWindowsWdkSystemSystemservicesPsGetCurrentSilo(): Long
 
 public actual fun psGetCurrentSilo(): Pesilo =
-    wasiWindowssysWindowsWdkSystemSystemservicesPsGetCurrentSilo().toLong()
+    wasiWindowssysWindowsWdkSystemSystemservicesPsGetCurrentSilo()
 
 public actual fun psGetCurrentThreadId(): Handle =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWdkSystemSystemservicesPsGetCurrentThreadId")
@@ -2689,13 +2689,13 @@ public actual fun psGetCurrentThreadTeb(): MutPtr<CVoid> =
 private external fun wasiWindowssysWindowsWdkSystemSystemservicesPsGetEffectiveServerSilo(silo: Long): Long
 
 public actual fun psGetEffectiveServerSilo(silo: Pesilo): Pesilo =
-    wasiWindowssysWindowsWdkSystemSystemservicesPsGetEffectiveServerSilo(silo).toLong()
+    wasiWindowssysWindowsWdkSystemSystemservicesPsGetEffectiveServerSilo(silo)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWdkSystemSystemservicesPsGetHostSilo")
 private external fun wasiWindowssysWindowsWdkSystemSystemservicesPsGetHostSilo(): Long
 
 public actual fun psGetHostSilo(): Pesilo =
-    wasiWindowssysWindowsWdkSystemSystemservicesPsGetHostSilo().toLong()
+    wasiWindowssysWindowsWdkSystemSystemservicesPsGetHostSilo()
 
 public actual fun psGetJobServerSilo(job: Pejob, serversilo: MutPtr<Pesilo>): Ntstatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWdkSystemSystemservicesPsGetJobServerSilo")
@@ -2707,7 +2707,7 @@ public actual fun psGetJobSilo(job: Pejob, silo: MutPtr<Pesilo>): Ntstatus =
 private external fun wasiWindowssysWindowsWdkSystemSystemservicesPsGetParentSilo(job: Long): Long
 
 public actual fun psGetParentSilo(job: Pejob): Pesilo =
-    wasiWindowssysWindowsWdkSystemSystemservicesPsGetParentSilo(job).toLong()
+    wasiWindowssysWindowsWdkSystemSystemservicesPsGetParentSilo(job)
 
 public actual fun psGetPermanentSiloContext(silo: Pesilo, contextslot: UInt, returnedsilocontext: MutPtr<MutPtr<CVoid>>): Ntstatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWdkSystemSystemservicesPsGetPermanentSiloContext")
@@ -2716,13 +2716,13 @@ public actual fun psGetPermanentSiloContext(silo: Pesilo, contextslot: UInt, ret
 private external fun wasiWindowssysWindowsWdkSystemSystemservicesPsGetProcessCreateTimeQuadPart(process: Long): Long
 
 public actual fun psGetProcessCreateTimeQuadPart(process: Peprocess): Long =
-    wasiWindowssysWindowsWdkSystemSystemservicesPsGetProcessCreateTimeQuadPart(process).toLong()
+    wasiWindowssysWindowsWdkSystemSystemservicesPsGetProcessCreateTimeQuadPart(process)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWdkSystemSystemservicesPsGetProcessExitStatus")
 private external fun wasiWindowssysWindowsWdkSystemSystemservicesPsGetProcessExitStatus(process: Long): Int
 
 public actual fun psGetProcessExitStatus(process: Peprocess): Ntstatus =
-    wasiWindowssysWindowsWdkSystemSystemservicesPsGetProcessExitStatus(process).toInt()
+    wasiWindowssysWindowsWdkSystemSystemservicesPsGetProcessExitStatus(process)
 
 public actual fun psGetProcessId(process: Peprocess): Handle =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWdkSystemSystemservicesPsGetProcessId")
@@ -2755,13 +2755,13 @@ public actual fun psGetSiloMonitorContextSlot(monitor: PsiloMonitor): UInt =
 private external fun wasiWindowssysWindowsWdkSystemSystemservicesPsGetThreadCreateTime(thread: Long): Long
 
 public actual fun psGetThreadCreateTime(thread: Pethread): Long =
-    wasiWindowssysWindowsWdkSystemSystemservicesPsGetThreadCreateTime(thread).toLong()
+    wasiWindowssysWindowsWdkSystemSystemservicesPsGetThreadCreateTime(thread)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWdkSystemSystemservicesPsGetThreadExitStatus")
 private external fun wasiWindowssysWindowsWdkSystemSystemservicesPsGetThreadExitStatus(thread: Long): Int
 
 public actual fun psGetThreadExitStatus(thread: Pethread): Ntstatus =
-    wasiWindowssysWindowsWdkSystemSystemservicesPsGetThreadExitStatus(thread).toInt()
+    wasiWindowssysWindowsWdkSystemSystemservicesPsGetThreadExitStatus(thread)
 
 public actual fun psGetThreadId(thread: Pethread): Handle =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWdkSystemSystemservicesPsGetThreadId")
@@ -2776,7 +2776,7 @@ public actual fun psGetThreadProperty(thread: Pethread, key: ULong, flags: UInt)
 private external fun wasiWindowssysWindowsWdkSystemSystemservicesPsGetThreadServerSilo(thread: Long): Long
 
 public actual fun psGetThreadServerSilo(thread: Pethread): Pesilo =
-    wasiWindowssysWindowsWdkSystemSystemservicesPsGetThreadServerSilo(thread).toLong()
+    wasiWindowssysWindowsWdkSystemSystemservicesPsGetThreadServerSilo(thread)
 
 public actual fun psGetVersion(majorversion: MutPtr<UInt>, minorversion: MutPtr<UInt>, buildnumber: MutPtr<UInt>, csdversion: MutPtr<UnicodeString>): Boolean =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWdkSystemSystemservicesPsGetVersion")
@@ -2809,7 +2809,7 @@ public actual fun psIsHostSilo(silo: Pesilo): Boolean =
 private external fun wasiWindowssysWindowsWdkSystemSystemservicesPsMakeSiloContextPermanent(silo: Long, contextslot: Int): Int
 
 public actual fun psMakeSiloContextPermanent(silo: Pesilo, contextslot: UInt): Ntstatus =
-    wasiWindowssysWindowsWdkSystemSystemservicesPsMakeSiloContextPermanent(silo, contextslot.toInt()).toInt()
+    wasiWindowssysWindowsWdkSystemSystemservicesPsMakeSiloContextPermanent(silo, contextslot.toInt())
 
 public actual fun psQueryTotalCycleTimeProcess(process: Peprocess, cycletimestamp: MutPtr<ULong>): ULong =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWdkSystemSystemservicesPsQueryTotalCycleTimeProcess")
@@ -2877,7 +2877,7 @@ public actual fun psSetSystemMultipleGroupAffinityThread(groupaffinities: ConstP
 private external fun wasiWindowssysWindowsWdkSystemSystemservicesPsStartSiloMonitor(monitor: Long): Int
 
 public actual fun psStartSiloMonitor(monitor: PsiloMonitor): Ntstatus =
-    wasiWindowssysWindowsWdkSystemSystemservicesPsStartSiloMonitor(monitor).toInt()
+    wasiWindowssysWindowsWdkSystemSystemservicesPsStartSiloMonitor(monitor)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWdkSystemSystemservicesPsTerminateServerSilo")
 private external fun wasiWindowssysWindowsWdkSystemSystemservicesPsTerminateServerSilo(serversilo: Long, exitstatus: Int): Unit
@@ -2889,7 +2889,7 @@ public actual fun psTerminateServerSilo(serversilo: Pesilo, exitstatus: Ntstatus
 private external fun wasiWindowssysWindowsWdkSystemSystemservicesPsTerminateSystemThread(exitstatus: Int): Int
 
 public actual fun psTerminateSystemThread(exitstatus: Ntstatus): Ntstatus =
-    wasiWindowssysWindowsWdkSystemSystemservicesPsTerminateSystemThread(exitstatus).toInt()
+    wasiWindowssysWindowsWdkSystemSystemservicesPsTerminateSystemThread(exitstatus)
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWdkSystemSystemservicesPsUnregisterSiloMonitor")
 private external fun wasiWindowssysWindowsWdkSystemSystemservicesPsUnregisterSiloMonitor(monitor: Long): Unit
@@ -3558,7 +3558,7 @@ public actual fun wheaCreateHwErrorReportDeviceDriver(errorsourceid: UInt, devic
 private external fun wasiWindowssysWindowsWdkSystemSystemservicesWheaErrorSourceGetState(errorsourceid: Int): Int
 
 public actual fun wheaErrorSourceGetState(errorsourceid: UInt): WheaErrorSourceState =
-    wasiWindowssysWindowsWdkSystemSystemservicesWheaErrorSourceGetState(errorsourceid.toInt()).toInt()
+    wasiWindowssysWindowsWdkSystemSystemservicesWheaErrorSourceGetState(errorsourceid.toInt())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWdkSystemSystemservicesWheaGetNotifyAllOfflinesPolicy")
 private external fun wasiWindowssysWindowsWdkSystemSystemservicesWheaGetNotifyAllOfflinesPolicy(): Int
@@ -3611,7 +3611,7 @@ public actual fun wheaRemoveErrorSource(errorsourceid: UInt): Unit =
 private external fun wasiWindowssysWindowsWdkSystemSystemservicesWheaRemoveErrorSourceDeviceDriver(errorsourceid: Int): Int
 
 public actual fun wheaRemoveErrorSourceDeviceDriver(errorsourceid: UInt): Ntstatus =
-    wasiWindowssysWindowsWdkSystemSystemservicesWheaRemoveErrorSourceDeviceDriver(errorsourceid.toInt()).toInt()
+    wasiWindowssysWindowsWdkSystemSystemservicesWheaRemoveErrorSourceDeviceDriver(errorsourceid.toInt())
 
 public actual fun wheaReportHwError(errorpacket: MutPtr<WheaErrorPacketV2>): Ntstatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWdkSystemSystemservicesWheaReportHwError")
@@ -3623,7 +3623,7 @@ public actual fun wheaReportHwErrorDeviceDriver(errorsourceid: UInt, deviceobjec
 private external fun wasiWindowssysWindowsWdkSystemSystemservicesWheaUnconfigureErrorSource(sourcetype: Int): Int
 
 public actual fun wheaUnconfigureErrorSource(sourcetype: WheaErrorSourceType): Ntstatus =
-    wasiWindowssysWindowsWdkSystemSystemservicesWheaUnconfigureErrorSource(sourcetype).toInt()
+    wasiWindowssysWindowsWdkSystemSystemservicesWheaUnconfigureErrorSource(sourcetype)
 
 public actual fun wheaUnregisterInUsePageOfflineNotification(callback: PfnInUsePageOfflineNotify): Ntstatus =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWdkSystemSystemservicesWheaUnregisterInUsePageOfflineNotification")

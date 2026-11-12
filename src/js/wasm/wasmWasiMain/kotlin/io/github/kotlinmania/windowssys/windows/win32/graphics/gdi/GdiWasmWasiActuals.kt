@@ -410,7 +410,7 @@ public actual fun gdiComment(hdc: Hdc, nsize: UInt, lpdata: ConstPtr<UByte>): Bo
 private external fun wasiWindowssysWindowsWin32GraphicsGdiGdiFlush(): Int
 
 public actual fun gdiFlush(): Bool =
-    wasiWindowssysWindowsWin32GraphicsGdiGdiFlush().toInt()
+    wasiWindowssysWindowsWin32GraphicsGdiGdiFlush()
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32GraphicsGdiGdiGetBatchLimit")
 private external fun wasiWindowssysWindowsWin32GraphicsGdiGdiGetBatchLimit(): Int
